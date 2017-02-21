@@ -20,11 +20,15 @@ var config = {
 				include: SRC_DIR, // include the source file
 				exclude: /node_modules/, // exclude the node_module directory
 				loader: "babel-loader" // using babel loader
-			}//,
-			// { // loader for css files
-			// 	test: /\.css$/,
-			// 	loader: 'style!css'
-			// }
+			},
+			{ // loader for sass, scss files
+				test: /\.scss$/,
+				loader: 'style!css!postcss!sass'
+			},
+			{ // loader for css files
+				test: /\.css$/,
+				loader: 'style!css'
+			}
 		]
 	},
  

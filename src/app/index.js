@@ -1,14 +1,16 @@
-import React from "react";
-import { render } from "react-dom";
+import ReactDOM from "react-dom";
 
-class App extends React.Component {
-	render() {
-		return (
-			<div>
-				<h1>Hello Orcers!!</h1>
-			</div>
-		);
-	}
-}
+import "boostrap/dist/css/boostrap.min.css";
+import "font-awesome/css/font-awesome.min.css";
 
-render(<App />, document.getElementById("app"));
+import "jquery/dist/jquery.min.js";
+import "boostrap/dist/js/boostrap.min.js";
+
+import Routes from "./routes/Routes.js";
+
+
+// Render Routes component to DOM
+ReactDOM.render(
+	<Routes />, 
+	document.getElementById("app")
+);
