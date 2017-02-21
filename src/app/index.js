@@ -1,10 +1,12 @@
+import React from "react";
 import ReactDOM from "react-dom";
 
-import "boostrap/dist/css/boostrap.min.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 import "font-awesome/css/font-awesome.min.css";
+import "./assests/stylesheets/orcinus-style.scss"
 
 import "jquery/dist/jquery.min.js";
-import "boostrap/dist/js/boostrap.min.js";
+import "bootstrap/dist/js/bootstrap.min.js";
 
 import Routes from "./routes/Routes.js";
 
