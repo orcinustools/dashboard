@@ -2,9 +2,11 @@ const webpack 					= require("webpack");
 const path 							= require("path");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
-const DIST_DIR 	= path.resolve(__dirname, "dist");
-const SRC_DIR 	= path.resolve(__dirname, "src");
-// const VENDOR_DIR = path.resolve(__dirname, "src/app/vendors");
+const DIST_DIR 		= path.resolve(__dirname, "dist");
+const SRC_DIR 		= path.resolve(__dirname, "src");
+
+const VENDORS_DIR 			= path.resolve(__dirname, "src/app/vendors");
+const NODE_MODULES_DIR 	= path.resolve(__dirname, "node_modules");
 
 const config = {
 	entry: SRC_DIR + "/app/index.js", // bisa menggunakan object untuk split bundle
@@ -20,7 +22,7 @@ const config = {
 			{ // loader for js files
 				test: /\.jsx?$/,
 				include: SRC_DIR, // include the source file
-				exclude: /node_modules/, // exclude the node_module directory
+				exclude: [NODE_MODULES_DIR, VENDORS_DIR], // exclude the node_module directory
 				use: "babel-loader" // using babel loader
 			},
 			{ // loader for sass, scss files
