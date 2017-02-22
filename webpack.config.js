@@ -1,10 +1,10 @@
-const webpack = require("webpack");
-const path = require("path");
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const webpack 					= require("webpack");
+const path 							= require("path");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
-const DIST_DIR = path.resolve(__dirname, "dist");
-const SRC_DIR = path.resolve(__dirname, "src");
+const DIST_DIR 	= path.resolve(__dirname, "dist");
+const SRC_DIR 	= path.resolve(__dirname, "src");
+// const VENDOR_DIR = path.resolve(__dirname, "src/app/vendors");
 
 const config = {
 	entry: SRC_DIR + "/app/index.js", // bisa menggunakan object untuk split bundle
@@ -49,14 +49,19 @@ const config = {
 	},
 
 	plugins: [
+		// Webpack plugin jquery
     new webpack.ProvidePlugin({
 	    $: 'jquery',
 	    jQuery: 'jquery'
     }),
+
+    // Webpack plugin untuk memisah file css
+    // agar tidak diinclude ke dalam file 
+    // bundle.js
     new ExtractTextPlugin({
-			filename: 'style.css'		
+			filename: '[name].css',
+			allChunks: true
 		}),
-		new HtmlWebpackPlugin()
 	]
 
 };

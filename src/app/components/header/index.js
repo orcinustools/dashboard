@@ -9,9 +9,9 @@ import Logo from "./Logo.js";
 export default class Header extends React.Component {
 	render() {
 		return (
-			<header>
+			<header className="header">
+				<Logo />
 				<nav className="navbar navbar-static-top">
-					<Logo />
       		<Button />
 		      <div className="navbar-right navbar-right-fix">
 		        <ul className="nav navbar-nav">

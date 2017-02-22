@@ -1,5 +1,7 @@
 import React from "react";
 
+import Avatar from "../../vendors/img/avatar.png"
+
 export default class MessageMenu extends React.Component {
 	render() {
 		return (
@@ -17,7 +19,7 @@ export default class MessageMenu extends React.Component {
 	              {/* start message */}
 	              <a href="#">
 	                <div className="pull-left">
-	                  <img src="img/26115.jpg" className="img-circle" alt="User Image" />
+	                  <img src={ Avatar } className="img-circle" alt="User Image" />
 	                </div>
 	                <h4>
 	                  Support Team
@@ -29,7 +31,7 @@ export default class MessageMenu extends React.Component {
 	            <li>
 	              <a href="#">
 	                <div className="pull-left">
-	                  <img src="img/26115.jpg" className="img-circle" alt="user image" />
+	                  <img src={ Avatar } className="img-circle" alt="user image" />
 	                </div>
 	                <h4>
 	                  Director Design Team
@@ -41,7 +43,7 @@ export default class MessageMenu extends React.Component {
 	            <li>
 	              <a href="#">
 	                <div className="pull-left">
-	                  <img src="img/avatar.png" className="img-circle" alt="user image" />
+	                  <img src={ Avatar } className="img-circle" alt="user image" />
 	                </div>
 	                <h4>
 	                  Developers
@@ -53,7 +55,7 @@ export default class MessageMenu extends React.Component {
 	            <li>
 	              <a href="#">
 	                <div className="pull-left">
-	                  <img src="img/26115.jpg" className="img-circle" alt="user image" />
+	                  <img src={ Avatar } className="img-circle" alt="user image" />
 	                </div>
 	                <h4>
 	                  Sales Department
@@ -65,7 +67,7 @@ export default class MessageMenu extends React.Component {
 	            <li>
 	              <a href="#">
 	                <div className="pull-left">
-	                  <img src="img/avatar.png" className="img-circle" alt="user image" />
+	                  <img src={ Avatar } className="img-circle" alt="user image" />
 	                </div>
 	                <h4>
 	                  Reviewers
