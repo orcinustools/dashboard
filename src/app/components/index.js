@@ -1,4 +1,4 @@
-import Header from "./header/index.js";
+import Header from "./header";
 
 export {
 	Header
