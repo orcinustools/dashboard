@@ -10,6 +10,9 @@ export default class App extends React.Component {
 				<Header />
 				<div className="wrapper row-offcanvas row-offcanvas-left">
 					<AsideLeft />
+					<AsideRight>
+						{ this.props.children }
+					</AsideRight>
 				</div>
 			</div>
 		);
