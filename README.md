@@ -8,3 +8,10 @@ Orcinus Dashboard
 - Redux
 - Bootstrap
 - *comming soon*
+
+
+## Usage
+
+1. Clone the repo `git clone https://github.com/orcinustools/dashboard.git`
+2. Install the dependency `npm install`
+3. Start the development server `npm start`
