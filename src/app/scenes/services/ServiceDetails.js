@@ -63,7 +63,7 @@ export default class ServiceDetails extends React.Component {
                   <div className="form-group">
                     <label className="col-sm-2 control-label">SERVICE NAME</label>
                     <div className="col-sm-10">
-                      <input type="text" className="form-control" name="inputServiceName" value="wp-app" />
+                      <input type="text" className="form-control" name="inputServiceName" defaultValue="wp-app" />
                     </div>
                   </div>
                   <div className="form-group">
@@ -95,7 +95,7 @@ export default class ServiceDetails extends React.Component {
                   <div className="form-group">
                     <label className="col-sm-2 control-label">REPLICATED</label>
                     <div className="col-sm-1">
-                      <input type="number" className="form-control" value="1" min="1" max="10" />
+                      <input type="number" className="form-control" defaultValue="1" min="1" max="10" />
                     </div>
                   </div>
                   <div className="form-group">
@@ -132,7 +132,7 @@ export default class ServiceDetails extends React.Component {
                     <label className="col-sm-2 control-label">AUTO REDEPLOY</label>
                     <div className="col-sm-4">
                       <label className="checkbox-inline">
-                        <input type="checkbox" id="inlineCheckbox1" value="yes" /> Yes
+                        <input type="checkbox" id="inlineCheckbox1" defaultValue="yes" /> Yes
                       </label>
                     </div>
                   </div>
@@ -235,7 +235,7 @@ export default class ServiceDetails extends React.Component {
               <div className="panel-footer">
                 <Link to="#modalAddVolume" data-toggle="modal" className="btn btn-success btn-sm list-stack-action"><i className="fa fa-plus fa-fw" aria-hidden="true"></i> Add Volume</Link>
 
-                <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="modalAddVolume" className="modal fade">
+                <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabIndex="-1" id="modalAddVolume" className="modal fade">
                   <div className="modal-dialog">
                     <div className="modal-content">
                       <div className="modal-header">
@@ -245,7 +245,7 @@ export default class ServiceDetails extends React.Component {
                       <div className="modal-body">
                         <form className="form-horizontal" role="form">
                           <div className="form-group">
-                            <label for="inputVolumeName" className="col-lg-3 col-sm-3 control-label">
+                            <label htmlFor="inputVolumeName" className="col-lg-3 col-sm-3 control-label">
                               Volume Name
                             </label>
                             <div className="col-lg-8">
@@ -311,7 +311,7 @@ export default class ServiceDetails extends React.Component {
               <div className="panel-footer">
                 <Link to="#modalAddVolumeMountpoint" data-toggle="modal" className="btn btn-success btn-sm list-stack-action"><i className="fa fa-plus fa-fw" aria-hidden="true"></i> Add Mountpoint</Link>
 
-                <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="modalAddVolumeMountpoint" className="modal fade">
+                <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabIndex="-1" id="modalAddVolumeMountpoint" className="modal fade">
                   <div className="modal-dialog">
                     <div className="modal-content">
                       <div className="modal-header">
@@ -321,7 +321,7 @@ export default class ServiceDetails extends React.Component {
                       <div className="modal-body">
                         <form className="form-horizontal" role="form">
                           <div className="form-group">
-                            <label for="inputVolumeName" className="col-lg-3 col-sm-3 control-label">
+                            <label htmlFor="inputVolumeName" className="col-lg-3 col-sm-3 control-label">
                               Volume Name
                             </label>
                             <div className="col-lg-8">
@@ -333,7 +333,7 @@ export default class ServiceDetails extends React.Component {
                             </div>
                           </div>
                           <div className="form-group">
-                            <label for="inputVolumeName" className="col-lg-3 col-sm-3 control-label">
+                            <label htmlFor="inputVolumeName" className="col-lg-3 col-sm-3 control-label">
                               Mountpoint
                             </label>
                             <div className="col-lg-8 select-container">
@@ -390,7 +390,7 @@ export default class ServiceDetails extends React.Component {
                       <td>
                         <Link to="#modalEditPort" data-toggle="modal" className="btn btn-default btn-sm list-stack-action"><i className="fa fa-pencil" aria-hidden="true"></i></Link>
 
-                        <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="modalEditPort" className="modal fade">
+                        <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabIndex="-1" id="modalEditPort" className="modal fade">
                           <div className="modal-dialog">
                             <div className="modal-content">
                               <div className="modal-header">
@@ -400,38 +400,38 @@ export default class ServiceDetails extends React.Component {
                               <div className="modal-body">
                                 <form className="form-horizontal" role="form">
                                   <div className="form-group">
-                                    <label for="inputContainerPort" className="col-lg-3 col-sm-3 control-label">
+                                    <label htmlFor="inputContainerPort" className="col-lg-3 col-sm-3 control-label">
                                       Container Port
                                     </label>
                                     <div className="col-lg-8">
-                                      <input type="text" className="form-control" id="inputContainerPort" placeholder="Container Port" value="80" />
+                                      <input type="text" className="form-control" id="inputContainerPort" placeholder="Container Port" defaultValue="80" />
                                     </div>
                                   </div>
                                   <div className="form-group">
-                                    <label for="inputContainerPort" className="col-lg-3 col-sm-3 control-label">
+                                    <label htmlFor="inputContainerPort" className="col-lg-3 col-sm-3 control-label">
                                       Protocol
                                     </label>
                                     <div className="col-lg-3">
-                                      <select name="inputProtocol" id="inputProtocol" className="selectpicker" data-width="fit">
-                                        <option value="tcp" selected="true">TCP</option>
+                                      <select name="inputProtocol" id="inputProtocol" className="selectpicker" data-width="fit" >
+                                        <option value="tcp">TCP</option>
                                         <option value="udp">UDP</option>
                                       </select>
                                     </div>
                                   </div>
                                   <div className="form-group">
-                                    <label for="inputIsPublished" className="col-lg-3 col-sm-3 control-label">Publish Port</label>
+                                    <label htmlFor="inputIsPublished" className="col-lg-3 col-sm-3 control-label">Publish Port</label>
                                     <div className="col-lg-8">
                                       <div className="checkbox">
                                         <label>
-                                          <input type="checkbox" id="inputIsPublished" checked="true" /> Yes
+                                          <input type="checkbox" id="inputIsPublished" defaultChecked="true" /> Yes
                                         </label>
                                       </div>
                                     </div>
                                   </div>
                                   <div className="form-group">
-                                    <label for="inputHostPort" className="col-lg-3 col-sm-3 control-label">Host Port</label>
+                                    <label htmlFor="inputHostPort" className="col-lg-3 col-sm-3 control-label">Host Port</label>
                                     <div className="col-lg-8">
-                                      <input type="text" className="form-control" id="inputHostPort" placeholder="Host Port" value="80" />
+                                      <input type="text" className="form-control" id="inputHostPort" placeholder="Host Port" defaultValue="80" />
                                     </div>
                                   </div>
                                   <div className="form-group">
@@ -456,7 +456,7 @@ export default class ServiceDetails extends React.Component {
                   <i className="fa fa-plus fa-fw" aria-hidden="true"></i> Add New Port
                 </Link>
 
-                <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="modalAddPort" className="modal fade">
+                <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabIndex="-1" id="modalAddPort" className="modal fade">
                   <div className="modal-dialog">
                     <div className="modal-content">
                       <div className="modal-header">
@@ -466,7 +466,7 @@ export default class ServiceDetails extends React.Component {
                       <div className="modal-body">
                         <form className="form-horizontal" role="form">
                           <div className="form-group">
-                            <label for="inputContainerPort" className="col-lg-3 col-sm-3 control-label">
+                            <label htmlFor="inputContainerPort" className="col-lg-3 col-sm-3 control-label">
                               Container Port
                             </label>
                             <div className="col-lg-8">
@@ -474,7 +474,7 @@ export default class ServiceDetails extends React.Component {
                             </div>
                           </div>
                           <div className="form-group">
-                            <label for="inputContainerPort" className="col-lg-3 col-sm-3 control-label">
+                            <label htmlFor="inputContainerPort" className="col-lg-3 col-sm-3 control-label">
                               Protocol
                             </label>
                             <div className="col-lg-3">
@@ -485,7 +485,7 @@ export default class ServiceDetails extends React.Component {
                             </div>
                           </div>
                           <div className="form-group">
-                            <label for="inputIsPublished" className="col-lg-3 col-sm-3 control-label">Publish Port</label>
+                            <label htmlFor="inputIsPublished" className="col-lg-3 col-sm-3 control-label">Publish Port</label>
                             <div className="col-lg-8">
                               <div className="checkbox">
                                 <label>
@@ -495,7 +495,7 @@ export default class ServiceDetails extends React.Component {
                             </div>
                           </div>
                           <div className="form-group">
-                            <label for="inputHostPort" className="col-lg-3 col-sm-3 control-label">Host Port</label>
+                            <label htmlFor="inputHostPort" className="col-lg-3 col-sm-3 control-label">Host Port</label>
                             <div className="col-lg-8">
                               <input type="text" className="form-control" id="inputHostPort" placeholder="Host Port" />
                             </div>
