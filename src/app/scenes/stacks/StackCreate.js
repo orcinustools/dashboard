@@ -1,10 +1,6 @@
 import React from "react";
 import { Link } from "react-router";
 
-// Plugin dependency
-import "../../vendors/css/bootstrap-select/bootstrap-select.css"
-import "../../vendors/js/plugins/bootstrap-select/bootstrap-select.js"
-
 export default class StackCreate extends React.Component {
 	render() {
 		return (

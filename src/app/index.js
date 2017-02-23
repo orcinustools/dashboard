@@ -5,6 +5,7 @@ import ReactDOM from "react-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "font-awesome/css/font-awesome.min.css";
 import "./vendors/css/director-style.css";
+import "./vendors/css/bootstrap-select/bootstrap-select.css";
 
 // App CSS
 import "./assests/stylesheets/orcinus-style.css";
@@ -14,6 +15,8 @@ import "jquery/dist/jquery.min.js";
 import "bootstrap/dist/js/bootstrap.min.js";
 import "./vendors/js/plugins/slimScroll/jquery.slimscroll.js";
 import "./vendors/js/Director/app.js";
+import "./vendors/js/plugins/bootstrap-select/bootstrap-select.js";
+
 
 import Routes from "./routes/Routes.js";
 
