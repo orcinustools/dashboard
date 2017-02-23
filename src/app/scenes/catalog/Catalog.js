@@ -98,7 +98,7 @@ export default class Catalog extends React.Component {
         <h4>Database</h4>
         <div className="row">
           <div className="col-md-3 col-sm-4 col-xs-12">
-            <Link to="service_wizard.html">
+            <Link to="/services/new">
               <div className="thumbnail">
                 <img src={ MySQL } alt="MySQL" className="" />
                 <div className="caption text-center">
