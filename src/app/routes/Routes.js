@@ -6,6 +6,7 @@ import Welcome from "../scenes/welcome/Welcome";
 import Catalog from "../scenes/catalog/Catalog";
 import { StackList, StackDetails, StackCreate } from "../scenes/stacks";
 import { ServiceList, ServiceDetails, ServiceCreate } from "../scenes/services";
+import { ContainerList, ContainerDetails } from "../scenes/containers";
 
 
 export default class Routes extends React.Component {
@@ -21,6 +22,8 @@ export default class Routes extends React.Component {
 					<Route path={ "/services" } component={ ServiceList } />
 					<Route path={ "/services/new" } component={ ServiceCreate } />
 					<Route path={ "/services/:serviceName" } component={ ServiceDetails } />
+					<Route path={ "/containers" } component={ ContainerList }/>
+					<Route path={ "/containers/:containerName" } component={ ContainerDetails } />
 				</Route>
 			</Router>
 		);
