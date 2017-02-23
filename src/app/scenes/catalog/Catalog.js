@@ -34,7 +34,7 @@ export default class Catalog extends React.Component {
         <h4>Language Stack</h4>
         <div className="row">
           <div className="col-md-3 col-sm-4 col-xs-12">
-            <Link to="stack_wizard.html">
+            <Link to="/stacks/new">
               <div className="thumbnail">
                 <img src={ Golang } alt="Golang" className="" />
                 <div className="caption text-center">
@@ -48,7 +48,7 @@ export default class Catalog extends React.Component {
           </div>
 
           <div className="col-md-3 col-sm-4 col-xs-12">
-            <Link to="stack_wizard.html">
+            <Link to="/stacks/new">
               <div className="thumbnail">
                 <img src={ PHP } alt="PHP" className="" />
                 <div className="caption text-center">
@@ -62,7 +62,7 @@ export default class Catalog extends React.Component {
           </div>
 
           <div className="col-md-3 col-sm-4 col-xs-12">
-            <Link to="stack_wizard.html">
+            <Link to="/stacks/new">
               <div className="thumbnail">
                 <img src={ Node } alt="NodeJS" className="" />
                 <div className="caption text-center">
@@ -80,7 +80,7 @@ export default class Catalog extends React.Component {
         <h4>CMS</h4>
         <div className="row">
           <div className="col-md-3 col-sm-4 col-xs-12">
-            <Link to="stack_wizard.html">
+            <Link to="/stacks/new">
               <div className="thumbnail">
                 <img src={ Wordpress } alt="Wordpress" className="" />
                 <div className="caption text-center">
@@ -112,7 +112,7 @@ export default class Catalog extends React.Component {
           </div>
 
           <div className="col-md-3 col-sm-4 col-xs-12">
-            <Link to="stack_wizard.html">
+            <Link to="/stacks/new">
               <div className="thumbnail">
                 <img src={ Postgres } alt="Postgres" className="" />
                 <div className="caption text-center">
@@ -130,7 +130,7 @@ export default class Catalog extends React.Component {
         <h4>Framework</h4>
         <div className="row">
           <div className="col-md-3 col-sm-4 col-xs-12">
-            <Link to="stack_wizard.html">
+            <Link to="/stacks/new">
               <div className="thumbnail">
                 <img src={ Rails } alt="Rails" className="" />
                 <div className="caption text-center">
@@ -144,7 +144,7 @@ export default class Catalog extends React.Component {
           </div>
 
           <div className="col-md-3 col-sm-4 col-xs-12">
-            <Link to="stack_wizard.html">
+            <Link to="/stacks/new">
               <div className="thumbnail">
                 <img src={ Laravel } alt="Laravel" className="" />
                 <div className="caption text-center">
