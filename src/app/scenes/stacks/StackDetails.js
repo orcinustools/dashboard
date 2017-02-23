@@ -96,7 +96,7 @@ export default class StackDetails extends React.Component {
                   <tbody className="table-stack-list">
                     <tr>
                       <td><i className="fa fa-cubes fa-fw" aria-hidden="true"></i> 
-                        <Link to="service_details.html">wp-app</Link>
+                        <Link to="/services/wp-app">wp-app</Link>
                       </td>
                       <td><span className="label label-success">RUNNING</span></td>
                       <td>
@@ -125,7 +125,7 @@ export default class StackDetails extends React.Component {
                     </tr>
                     <tr>
                       <td><i className="fa fa-cubes fa-fw" aria-hidden="true"></i>
-                        <Link to="service_details.html">wp-db</Link>
+                        <Link to="/services/wp-app">wp-db</Link>
                       </td>
                       <td><span className="label label-success">RUNNING</span></td>
                       <td>
@@ -156,7 +156,7 @@ export default class StackDetails extends React.Component {
                 </table>
               </div>
               <div className="panel-footer">
-                <Link to="katalog_list.html" className="btn btn-success"><i className="fa fa-plus fa-fw" aria-hidden="true"></i>  Add New Service</Link>
+                <Link to="/catalog" className="btn btn-success"><i className="fa fa-plus fa-fw" aria-hidden="true"></i>  Add New Service</Link>
               </div>
             </div>
           </div>
