@@ -10,8 +10,8 @@ export default class StackDetails extends React.Component {
             Wordpress-app
           </h1>
           <ol className="breadcrumb breadcrumb-sm">
-            <li><Link to="index.html">HOME</Link></li>
-            <li><Link to="stack_list.html">STACKS</Link></li>
+            <li><Link to="/">HOME</Link></li>
+            <li><Link to="/stacks">STACKS</Link></li>
             <li className="active">Wordpress-app</li>
           </ol>
         </section>

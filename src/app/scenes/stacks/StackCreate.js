@@ -10,8 +10,8 @@ export default class StackCreate extends React.Component {
             STACK WIZARD
           </h1>
           <ol className="breadcrumb breadcrumb-sm">
-            <li><Link to="index.html">HOME</Link></li>
-            <li><Link to="stack_list.html">STACKS</Link></li>
+            <li><Link to="/">HOME</Link></li>
+            <li><Link to="/stacks">STACKS</Link></li>
             <li className="active">WIZARD</li>
           </ol>
         </section>
@@ -119,7 +119,7 @@ export default class StackCreate extends React.Component {
                   <tbody className="table-stack-list">
                     <tr>
                       <td><i className="fa fa-cubes fa-fw" aria-hidden="true"></i> 
-                        <Link to="service_details.html">wp-app</Link>
+                        <Link to="/services/wp-app">wp-app</Link>
                       </td>
                       <td><span className="label label-default">NOT RUNNING</span></td>
                       <td>
@@ -146,7 +146,7 @@ export default class StackCreate extends React.Component {
                     </tr>
                     <tr>
                       <td><i className="fa fa-cubes fa-fw" aria-hidden="true"></i>
-                        <Link to="service_details.html">wp-db</Link>
+                        <Link to="/services/wp-db">wp-db</Link>
                       </td>
                       <td><span className="label label-default">NOT RUNNING</span></td>
                       <td>

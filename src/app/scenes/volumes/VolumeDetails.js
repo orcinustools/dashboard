@@ -176,7 +176,7 @@ export default class VolumeDetails extends React.Component {
                     <tr>
                       <td>
                         <i className="fa fa-server fa-fw" aria-hidden="true"></i>
-                        <Link to="volume_details.html">Wordpress-app</Link>
+                        <Link to="/stacks/Wordpress-app">Wordpress-app</Link>
                       </td>
                       <td>
                         <ul className="list-child">

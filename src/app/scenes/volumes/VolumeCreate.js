@@ -10,8 +10,8 @@ export default class VolumeCreate extends React.Component {
             CREATE NEW VOLUME
           </h1>
           <ol className="breadcrumb breadcrumb-sm">
-            <li><Link to="index.html">HOME</Link></li>
-            <li><Link to="volume_list.html">VOLUMES</Link></li>
+            <li><Link to="/">HOME</Link></li>
+            <li><Link to="/volumes">VOLUMES</Link></li>
             <li className="active">Create new Volume</li>
           </ol>
         </section>

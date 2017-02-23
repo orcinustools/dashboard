@@ -170,7 +170,7 @@ export default class ServiceDetails extends React.Component {
                   </thead>
                   <tbody className="table-stack-list">
                     <tr>
-                      <td><i className="fa fa-cubes fa-fw" aria-hidden="true"></i><Link to="container_details.html"> wp-app.1</Link></td>
+                      <td><i className="fa fa-cubes fa-fw" aria-hidden="true"></i><Link to="/containers/wp-app-1"> wp-app.1</Link></td>
                       <td><span className="label label-success">RUNNING</span></td>
                       <td>
                         <i className="fa fa-tag fa-fw" aria-hidden="true"></i>orcinus/wordpress-app:latest
@@ -213,7 +213,7 @@ export default class ServiceDetails extends React.Component {
                   </thead>
                   <tbody className="table-stack-list">
                     <tr>
-                      <td><i className="fa fa-hdd-o fa-fw" aria-hidden="true"></i> <Link to="volume_details.html">wp-vol</Link></td>
+                      <td><i className="fa fa-hdd-o fa-fw" aria-hidden="true"></i> <Link to="/volumes/wp-vol">wp-vol</Link></td>
                       <td>2GB</td>
                       <td>nfs</td>
                       <td>
@@ -291,8 +291,8 @@ export default class ServiceDetails extends React.Component {
                   </thead>
                   <tbody className="table-stack-list">
                     <tr>
-                      <td><i className="fa fa-code-fork fa-fw" aria-hidden="true"></i> <Link to="volume_details.html">codeBase</Link></td>
-                      <td><i className="fa fa-hdd-o fa-fw" aria-hidden="true"></i> <Link to="volume_details.html">wp-vol</Link></td>
+                      <td><i className="fa fa-code-fork fa-fw" aria-hidden="true"></i> <Link to="/volumes/codeBase">codeBase</Link></td>
+                      <td><i className="fa fa-hdd-o fa-fw" aria-hidden="true"></i> <Link to="/volumes/wp-vol">wp-vol</Link></td>
                       <td>150 MB of 2 GB</td>
                       <td>/wp-vol/src/</td>
                       <td>/var/www/wp-app/</td>
