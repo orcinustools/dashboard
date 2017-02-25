@@ -6,7 +6,7 @@ export default class UserMenu extends React.Component {
       <li className="dropdown user user-menu">
         <a href="#" className="dropdown-toggle" data-toggle="dropdown">
           <i className="fa fa-user"></i>
-          <span>Jane Doe <i className="caret"></i></span>
+          <span>Orcers <i className="caret"></i></span>
         </a>
         <ul className="dropdown-menu dropdown-custom dropdown-menu-right">
           <li className="dropdown-header text-center">Account</li>

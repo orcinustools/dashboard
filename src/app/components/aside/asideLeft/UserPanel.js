@@ -10,7 +10,7 @@ export default class UserPanel extends React.Component {
 			    <img src={ Avatar } className="img-circle" alt="User Image" />
 			  </div>
 			  <div className="pull-left info">
-			    <p>Hello, Orcainer</p>
+			    <p>Hello, Orcers</p>
 			    <a href="#"><i className="fa fa-circle text-success"></i> Online</a>
 			  </div>
 			</div>

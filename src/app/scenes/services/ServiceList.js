@@ -56,7 +56,7 @@ export default class ServiceList extends React.Component {
 
                         <div className="dropdown" style={{ display: 'inline-block' }}>
                           <button type="button" className="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                            <i className="fa fa-ellipsis-h" aria-hidden="true"></i>
+                            <i className="fa fa-bars" aria-hidden="true"></i>
                           </button>
                           
                           <ul className="dropdown-menu dropdown-min">
@@ -89,7 +89,7 @@ export default class ServiceList extends React.Component {
 
                         <div className="dropdown" style={{ display: 'inline-block' }}>
                           <button type="button" className="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                            <i className="fa fa-ellipsis-h" aria-hidden="true"></i>
+                            <i className="fa fa-bars" aria-hidden="true"></i>
                           </button>
                           
                           <ul className="dropdown-menu dropdown-min">
