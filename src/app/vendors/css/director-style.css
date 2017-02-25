@@ -870,7 +870,7 @@ content: '';
   padding: 0;
 }
 .sidebar .sidebar-menu > li > a {
-  padding: 12px 5px 12px 15px;
+  padding: 12px 5px 12px 25px;
   display: block;
 }
 .sidebar .sidebar-menu > li > a > .fa,
@@ -2958,6 +2958,7 @@ vertical-align: top;
   color: #eee;
   font-size: .75em;
   padding: 12px 5px 12px 15px;
+  margin-top: 10px;
   text-transform: uppercase;
 }
 .skin-black .sidebar > .sidebar-menu > li:first-of-type {
