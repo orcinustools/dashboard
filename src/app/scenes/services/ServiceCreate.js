@@ -82,21 +82,21 @@ export default class ServiceCreate extends React.Component {
                   </div>
                   <div className="form-group">
                     <label className="col-sm-2 control-label">NUM. OF CONTAINER</label>
-                    <div className="col-sm-1">
-                      <input type="number" className="form-control" min="1" max="10" value="1" />
+                    <div className="col-sm-2">
+                      <input type="number" className="form-control" min="1" max="10" defaultValue="1" />
                     </div>
                   </div>
                   <div className="form-group">
                     <label className="col-sm-2 control-label">AUTO RESTART</label>
                     <div className="col-sm-4">
                       <label className="radio-inline">
-                        <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" />  Off
+                        <input type="radio" name="inlineRadioOptions" id="inlineRadio1" defaultValue="option1" />  Off
                       </label>
                       <label className="radio-inline"> 
-                        <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" /> On Failure
+                        <input type="radio" name="inlineRadioOptions" id="inlineRadio2" defaultValue="option2" /> On Failure
                       </label>
                       <label className="radio-inline"> 
-                        <input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" /> Always
+                        <input type="radio" name="inlineRadioOptions" id="inlineRadio3" defaultValue="option3" /> Always
                       </label>
                     </div>
                   </div>
@@ -104,7 +104,7 @@ export default class ServiceCreate extends React.Component {
                     <label className="col-sm-2 control-label">AUTO REDEPLOY</label>
                     <div className="col-sm-4">
                       <label className="checkbox-inline">
-                        <input type="checkbox" id="inlineCheckbox1" value="yes" /> Yes
+                        <input type="checkbox" id="inlineCheckbox1" defaultValue="yes" /> Yes
                       </label>
                     </div>
                   </div>
@@ -139,7 +139,7 @@ export default class ServiceCreate extends React.Component {
                       <td>
                         <a href="#modalEditPort" data-toggle="modal" className="btn btn-default btn-sm list-stack-action"><i className="fa fa-pencil" aria-hidden="true"></i></a>
 
-                        <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="modalEditPort" className="modal fade">
+                        <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabIndex="-1" id="modalEditPort" className="modal fade">
                           <div className="modal-dialog">
                             <div className="modal-content">
                               <div className="modal-header">
@@ -149,38 +149,38 @@ export default class ServiceCreate extends React.Component {
                               <div className="modal-body">
                                 <form className="form-horizontal" role="form">
                                   <div className="form-group">
-                                    <label for="inputContainerPort" className="col-lg-3 col-sm-3 control-label">
+                                    <label htmlFor="inputContainerPort" className="col-lg-3 col-sm-3 control-label">
                                       Container Port
                                     </label>
                                     <div className="col-lg-8">
-                                      <input type="text" className="form-control" id="inputContainerPort" placeholder="Container Port" value="3306" />
+                                      <input type="text" className="form-control" id="inputContainerPort" placeholder="Container Port" defaultValue="3306" />
                                     </div>
                                   </div>
                                   <div className="form-group">
-                                    <label for="inputContainerPort" className="col-lg-3 col-sm-3 control-label">
+                                    <label htmlFor="inputContainerPort" className="col-lg-3 col-sm-3 control-label">
                                       Protocol
                                     </label>
                                     <div className="col-lg-3">
-                                      <select name="inputProtocol" id="inputProtocol" className="selectpicker" data-width="fit">
-                                        <option value="tcp" selected="true">TCP</option>
+                                      <select defaultValue="tcp" name="inputProtocol" id="inputProtocol" className="selectpicker" data-width="fit">
+                                        <option value="tcp">TCP</option>
                                         <option value="udp">UDP</option>
                                       </select>
                                     </div>
                                   </div>
                                   <div className="form-group">
-                                    <label for="inputIsPublished" className="col-lg-3 col-sm-3 control-label">Publish Port</label>
+                                    <label htmlFor="inputIsPublished" className="col-lg-3 col-sm-3 control-label">Publish Port</label>
                                     <div className="col-lg-8">
                                       <div className="checkbox">
                                         <label>
-                                          <input type="checkbox" id="inputIsPublished" checked="true" /> Yes
+                                          <input type="checkbox" id="inputIsPublished" defaultChecked="true" /> Yes
                                         </label>
                                       </div>
                                     </div>
                                   </div>
                                   <div className="form-group">
-                                    <label for="inputHostPort" className="col-lg-3 col-sm-3 control-label">Host Port</label>
+                                    <label htmlFor="inputHostPort" className="col-lg-3 col-sm-3 control-label">Host Port</label>
                                     <div className="col-lg-8">
-                                      <input type="text" className="form-control" id="inputHostPort" placeholder="Host Port" value="3306" />
+                                      <input type="text" className="form-control" id="inputHostPort" placeholder="Host Port" defaultValue="3306" />
                                     </div>
                                   </div>
                                   <div className="form-group">
@@ -205,7 +205,7 @@ export default class ServiceCreate extends React.Component {
                   Add New Port
                 </a>
 
-                <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="modalAddPort" className="modal fade">
+                <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabIndex="-1" id="modalAddPort" className="modal fade">
                   <div className="modal-dialog">
                     <div className="modal-content">
                       <div className="modal-header">
@@ -215,7 +215,7 @@ export default class ServiceCreate extends React.Component {
                       <div className="modal-body">
                         <form className="form-horizontal" role="form">
                           <div className="form-group">
-                            <label for="inputContainerPort" className="col-lg-3 col-sm-3 control-label">
+                            <label htmlFor="inputContainerPort" className="col-lg-3 col-sm-3 control-label">
                               Container Port
                             </label>
                             <div className="col-lg-8">
@@ -223,7 +223,7 @@ export default class ServiceCreate extends React.Component {
                             </div>
                           </div>
                           <div className="form-group">
-                            <label for="inputContainerPort" className="col-lg-3 col-sm-3 control-label">
+                            <label htmlFor="inputContainerPort" className="col-lg-3 col-sm-3 control-label">
                               Protocol
                             </label>
                             <div className="col-lg-3">
@@ -234,7 +234,7 @@ export default class ServiceCreate extends React.Component {
                             </div>
                           </div>
                           <div className="form-group">
-                            <label for="inputIsPublished" className="col-lg-3 col-sm-3 control-label">Publish Port</label>
+                            <label htmlFor="inputIsPublished" className="col-lg-3 col-sm-3 control-label">Publish Port</label>
                             <div className="col-lg-8">
                               <div className="checkbox">
                                 <label>
@@ -244,7 +244,7 @@ export default class ServiceCreate extends React.Component {
                             </div>
                           </div>
                           <div className="form-group">
-                            <label for="inputHostPort" className="col-lg-3 col-sm-3 control-label">Host Port</label>
+                            <label htmlFor="inputHostPort" className="col-lg-3 col-sm-3 control-label">Host Port</label>
                             <div className="col-lg-8">
                               <input type="text" className="form-control" id="inputHostPort" placeholder="Host Port" />
                             </div>
@@ -294,7 +294,7 @@ export default class ServiceCreate extends React.Component {
                       <td>
                         <a href="#modalEditVolume" data-toggle="modal" className="btn btn-default btn-sm list-stack-action"><i className="fa fa-pencil" aria-hidden="true"></i></a>
 
-                        <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="modalEditVolume" className="modal fade">
+                        <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabIndex="-1" id="modalEditVolume" className="modal fade">
                           <div className="modal-dialog">
                             <div className="modal-content">
                               <div className="modal-header">
@@ -304,24 +304,24 @@ export default class ServiceCreate extends React.Component {
                               <div className="modal-body">
                                 <form className="form-horizontal" role="form">
                                   <div className="form-group">
-                                    <label for="inputContainerPort" className="col-lg-3 col-sm-3 control-label">
+                                    <label htmlFor="inputContainerPort" className="col-lg-3 col-sm-3 control-label">
                                       Volume Name
                                     </label>
                                     <div className="col-lg-8">
-                                      <select name="selectVolumeName" id="selectVolumeName" className="selectpicker">
-                                        <option value="wp-vol" selected="true" data-icon="fa fa-hdd-o fa-fw">
+                                      <select defaultValue="wp-vol" name="selectVolumeName" id="selectVolumeName" className="selectpicker">
+                                        <option value="wp-vol" data-icon="fa fa-hdd-o fa-fw">
                                           wp-vol
                                         </option>
                                       </select>
                                     </div>
                                   </div>
                                   <div className="form-group">
-                                    <label for="inputContainerPort" className="col-lg-3 col-sm-3 control-label">
+                                    <label htmlFor="inputContainerPort" className="col-lg-3 col-sm-3 control-label">
                                       Mountpoint
                                     </label>
                                     <div className="col-lg-8">
-                                      <select name="inputProtocol" id="inputProtocol" className="selectpicker" multiple title="Select the mount point" >
-                                        <option value="mysql-data" selected="true" data-icon="fa fa-code-fork fa-fw">
+                                      <select defaultValue={["mysql-data"]} name="inputProtocol" id="inputProtocol" className="selectpicker" multiple title="Select the mount point" >
+                                        <option value="mysql-data" data-icon="fa fa-code-fork fa-fw">
                                           mysql-data
                                         </option>
                                         <option value="mysql-data" data-icon="fa fa-code-fork fa-fw">
@@ -353,7 +353,7 @@ export default class ServiceCreate extends React.Component {
               <div className="panel-footer">
                 <a href="#modalAddVolume" data-toggle="modal" className="btn btn-success btn-sm list-stack-action"><i className="fa fa-plus fa-fw" aria-hidden="true"></i> Add Volume</a>
 
-                <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="modalAddVolume" className="modal fade">
+                <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabIndex="-1" id="modalAddVolume" className="modal fade">
                   <div className="modal-dialog">
                     <div className="modal-content">
                       <div className="modal-header">
@@ -363,7 +363,7 @@ export default class ServiceCreate extends React.Component {
                       <div className="modal-body">
                         <form className="form-horizontal" role="form">
                           <div className="form-group">
-                            <label for="inputVolumeName" className="col-lg-3 col-sm-3 control-label">
+                            <label htmlFor="inputVolumeName" className="col-lg-3 col-sm-3 control-label">
                               Volume Name
                             </label>
                             <div className="col-lg-8">
@@ -375,7 +375,7 @@ export default class ServiceCreate extends React.Component {
                             </div>
                           </div>
                           <div className="form-group">
-                            <label for="inputVolumeName" className="col-lg-3 col-sm-3 control-label">
+                            <label htmlFor="inputVolumeName" className="col-lg-3 col-sm-3 control-label">
                               Mountpoint
                             </label>
                             <div className="col-lg-8 select-container">
