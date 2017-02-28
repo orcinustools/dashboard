@@ -5,6 +5,7 @@ import { ServiceList, ServiceDetails, ServiceCreate } from "./services/";
 import { StackList,	StackDetails,	StackCreate } from "./stacks";
 import { VolumeCreate, VolumeDetails, VolumeList } from "./volumes";
 import Welcome from "./welcome/Welcome";
+import Overview from "./overview/Overview";
 
 export {
 	App,
@@ -13,5 +14,6 @@ export {
 	ServiceList, ServiceDetails, ServiceCreate,
  	StackList,	StackDetails,	StackCreate,
 	VolumeCreate, VolumeDetails, VolumeList,
-	Welcome
+	Welcome,
+	Overview
 }

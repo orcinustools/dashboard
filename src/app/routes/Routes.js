@@ -8,7 +8,8 @@ import {
 	StackList, StackDetails, StackCreate, 
 	ServiceList, ServiceDetails, ServiceCreate,
 	ContainerList, ContainerDetails,
-	VolumeList, VolumeDetails, VolumeCreate 
+	VolumeList, VolumeDetails, VolumeCreate,
+	Overview
 } from "../scenes";
 
 
@@ -18,6 +19,7 @@ export default class Routes extends React.Component {
 			<Router history={ browserHistory }>
 				<Route path={ "/" } component= { App }>
 					<IndexRoute component={ Welcome} />
+					<Route path={ "/overview" } component={ Overview } />
 					<Route path={ "/catalog" } component={ Catalog } />
 					<Route path={ "/stacks" } component={ StackList } />
 					<Route path={ "/stacks/new" } component={ StackCreate } />

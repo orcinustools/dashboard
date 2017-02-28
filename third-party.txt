@@ -10,3 +10,8 @@ Software they are using.
 Director Responsive Admin Template Free
 Author: web-apps.ninja
 License: Open source - MIT
+
+react-chartjs-2
+Author: Goran Udosic
+License: MIT
+Repository: https://github.com/gor181/react-chartjs-2
