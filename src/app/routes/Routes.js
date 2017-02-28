@@ -1,13 +1,15 @@
 import React from "react";
 import { Router, Route, browserHistory, IndexRoute } from "react-router";
 
-import App from "../scenes/App/App.js";
-import Welcome from "../scenes/welcome/Welcome";
-import Catalog from "../scenes/catalog/Catalog";
-import { StackList, StackDetails, StackCreate } from "../scenes/stacks";
-import { ServiceList, ServiceDetails, ServiceCreate } from "../scenes/services";
-import { ContainerList, ContainerDetails } from "../scenes/containers";
-import { VolumeList, VolumeDetails, VolumeCreate } from "../scenes/volumes";
+import {
+	App, 
+	Welcome, 
+	Catalog, 
+	StackList, StackDetails, StackCreate, 
+	ServiceList, ServiceDetails, ServiceCreate,
+	ContainerList, ContainerDetails,
+	VolumeList, VolumeDetails, VolumeCreate 
+} from "../scenes";
 
 
 export default class Routes extends React.Component {
