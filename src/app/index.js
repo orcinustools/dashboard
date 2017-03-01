@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { Provider } from "react-redux";
 
 // Vendors || Plugins CSS
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -17,12 +18,15 @@ import "./vendors/js/plugins/slimScroll/jquery.slimscroll.js";
 import "./vendors/js/Director/app.js";
 import "./vendors/js/plugins/bootstrap-select/bootstrap-select.js";
 
+import store from "./store/store";
 
 import Routes from "./routes/Routes.js";
 
 
 // Render Routes component to DOM
 ReactDOM.render(
-	<Routes />, 
+	<Provider store={ store }>
+		<Routes />
+	</Provider>, 
 	document.getElementById("app")
 );
