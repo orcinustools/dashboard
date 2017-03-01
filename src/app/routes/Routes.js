@@ -11,6 +11,10 @@ import {
 	VolumeListConnected, VolumeDetailsConnected, VolumeCreateConnected
 } from "../containers";
 
+import {
+	PageNotFound
+} from "../scenes";
+
 
 export default class Routes extends React.Component {
 	render() {
@@ -31,6 +35,7 @@ export default class Routes extends React.Component {
 					<Route path={ "/volumes" } component={ VolumeListConnected } />
 					<Route path={ "/volumes/new" } component={ VolumeCreateConnected } />
 					<Route path={ "/volumes/:volumeName" } component={ VolumeDetailsConnected } />
+					<Route path={ "*" } component={ PageNotFound } />
 				</Route>
 			</Router>
 		);

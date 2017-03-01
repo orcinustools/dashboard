@@ -6,6 +6,7 @@ import { StackList,	StackDetails,	StackCreate } from "./stacks";
 import { VolumeCreate, VolumeDetails, VolumeList } from "./volumes";
 import Welcome from "./welcome/Welcome";
 import Overview from "./overview/Overview";
+import PageNotFound from "./pagenotfound/PageNotFound";
 
 export {
 	App,
@@ -15,5 +16,6 @@ export {
  	StackList,	StackDetails,	StackCreate,
 	VolumeCreate, VolumeDetails, VolumeList,
 	Welcome,
-	Overview
+	Overview,
+	PageNotFound
 }
