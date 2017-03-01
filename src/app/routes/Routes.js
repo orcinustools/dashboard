@@ -2,36 +2,35 @@ import React from "react";
 import { Router, Route, browserHistory, IndexRoute } from "react-router";
 
 import {
-	App, 
-	Welcome, 
-	Catalog, 
-	StackList, StackDetails, StackCreate, 
-	ServiceList, ServiceDetails, ServiceCreate,
-	ContainerList, ContainerDetails,
-	VolumeList, VolumeDetails, VolumeCreate,
-	Overview
-} from "../scenes";
+	AppConnected,
+	OverviewConnected,
+	CatalogConnected,
+	StackListConnected, StackDetailsConnected, StackCreateConnected,
+	ServiceListConnected, ServiceDetailsConnected, ServiceCreateConnected,
+	ContainerListConnected, ContainerDetailsConnected,
+	VolumeListConnected, VolumeDetailsConnected, VolumeCreateConnected
+} from "../containers";
 
 
 export default class Routes extends React.Component {
 	render() {
 		return (
 			<Router history={ browserHistory }>
-				<Route path={ "/" } component= { App }>
-					<IndexRoute component={ Welcome} />
-					<Route path={ "/overview" } component={ Overview } />
-					<Route path={ "/catalog" } component={ Catalog } />
-					<Route path={ "/stacks" } component={ StackList } />
-					<Route path={ "/stacks/new" } component={ StackCreate } />
-					<Route path={ "/stacks/:stackName" } component={ StackDetails } />
-					<Route path={ "/services" } component={ ServiceList } />
-					<Route path={ "/services/new" } component={ ServiceCreate } />
-					<Route path={ "/services/:serviceName" } component={ ServiceDetails } />
-					<Route path={ "/containers" } component={ ContainerList }/>
-					<Route path={ "/containers/:containerName" } component={ ContainerDetails } />
-					<Route path={ "/volumes" } component={ VolumeList } />
-					<Route path={ "/volumes/new" } component={ VolumeCreate } />
-					<Route path={ "/volumes/:volumeName" } component={ VolumeDetails } />
+				<Route path={ "/" } component= { AppConnected }>
+					<IndexRoute component={ OverviewConnected } />
+					<Route path={ "/overview" } component={ OverviewConnected } />
+					<Route path={ "/catalog" } component={ CatalogConnected } />
+					<Route path={ "/stacks" } component={ StackListConnected } />
+					<Route path={ "/stacks/new" } component={ StackCreateConnected } />
+					<Route path={ "/stacks/:stackName" } component={ StackDetailsConnected } />
+					<Route path={ "/services" } component={ ServiceListConnected } />
+					<Route path={ "/services/new" } component={ ServiceCreateConnected } />
+					<Route path={ "/services/:serviceName" } component={ ServiceDetailsConnected } />
+					<Route path={ "/containers" } component={ ContainerListConnected }/>
+					<Route path={ "/containers/:containerName" } component={ ContainerDetailsConnected } />
+					<Route path={ "/volumes" } component={ VolumeListConnected } />
+					<Route path={ "/volumes/new" } component={ VolumeCreateConnected } />
+					<Route path={ "/volumes/:volumeName" } component={ VolumeDetailsConnected } />
 				</Route>
 			</Router>
 		);

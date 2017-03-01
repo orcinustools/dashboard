@@ -7,7 +7,7 @@ export default class StackDetails extends React.Component {
 			<div>
         <section className="content-header">
           <h1>
-            Wordpress-app
+            { this.props.name }
           </h1>
           <ol className="breadcrumb breadcrumb-sm">
             <li><Link to="/">HOME</Link></li>

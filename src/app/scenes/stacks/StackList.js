@@ -25,7 +25,7 @@ export default class StackList extends React.Component {
                 <tbody className="table-stack-list">
                   <tr>
                     <td>asfasdfasd</td>
-                    <td><Link to="/stacks/wordpress-app">Wordpress-app</Link></td>
+                    <td><Link to="/stacks/wordpress-app">{ this.props.stacks[0].name }</Link></td>
                     <td><span className="label label-success">RUNNING</span></td>
                     <td>
                       <ul className="list-child">
