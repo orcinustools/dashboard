@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router";
 
+import CatalogItem from "../../components/catalog/CatalogItem";
+
 import Golang from "../../assests/images/catalog/golang.png";
 import PHP from "../../assests/images/catalog/php.png";
 import Node from "../../assests/images/catalog/node.png";
@@ -33,129 +35,63 @@ export default class Catalog extends React.Component {
 
         <h4>Language Stack</h4>
         <div className="row">
-          <div className="col-md-3 col-sm-4 col-xs-12">
-            <Link to="/stacks/new">
-              <div className="thumbnail">
-                <img src={ Golang } alt="Golang" className="" />
-                <div className="caption text-center">
-                  <h4>Golang</h4> 
-                  <p>
-                    Go (golang) is a general purpose, higher-level, imperative programming language.
-                  </p>
-                </div>
-              </div>
-            </Link>
-          </div>
 
-          <div className="col-md-3 col-sm-4 col-xs-12">
-            <Link to="/stacks/new">
-              <div className="thumbnail">
-                <img src={ PHP } alt="PHP" className="" />
-                <div className="caption text-center">
-                  <h4>PHP</h4> 
-                  <p>
-                    While designed for web development, the PHP scripting language also provides general-purpose use.
-                  </p>
-                </div>
-              </div>
-            </Link>
-          </div>
+          <CatalogItem url="/stack/new" img={ Golang } name="Golang">
+            Go (golang) is a general purpose, higher-level, imperative 
+            programming language.
+          </CatalogItem>
 
-          <div className="col-md-3 col-sm-4 col-xs-12">
-            <Link to="/stacks/new">
-              <div className="thumbnail">
-                <img src={ Node } alt="NodeJS" className="" />
-                <div className="caption text-center">
-                  <h4>NodeJS</h4> 
-                  <p>
-                    Node.js is a JavaScript-based platform for server-side and networking applications.
-                  </p>
-                </div>
-              </div>
-            </Link>
-          </div>
+          <CatalogItem url="/stack/new" img={ PHP } name="PHP">
+            While designed for web development, the PHP scripting language 
+            also provides general-purpose use.
+          </CatalogItem>
+
+          <CatalogItem url="/stack/new" img={ Node } name="NodeJS">
+            Node.js is a JavaScript-based platform for server-side and 
+            networking applications.
+          </CatalogItem>
+
         </div>
 
         <div className="clearfix"></div>
         <h4>CMS</h4>
         <div className="row">
-          <div className="col-md-3 col-sm-4 col-xs-12">
-            <Link to="/stacks/new">
-              <div className="thumbnail">
-                <img src={ Wordpress } alt="Wordpress" className="" />
-                <div className="caption text-center">
-                  <h4>Wordpress</h4> 
-                  <p>
-                    The WordPress rich content management system can utilize plugins, widgets, and themes.
-                  </p>
-                </div>
-              </div>
-            </Link>
-          </div>
+
+          <CatalogItem url="/stack/new" img={ Wordpress } name="Wordpress">
+            The WordPress rich content management system can utilize plugins,
+            widgets, and themes.
+          </CatalogItem>
+
         </div>
 
         <div className="clearfix"></div>
         <h4>Database</h4>
         <div className="row">
-          <div className="col-md-3 col-sm-4 col-xs-12">
-            <Link to="/services/new">
-              <div className="thumbnail">
-                <img src={ MySQL } alt="MySQL" className="" />
-                <div className="caption text-center">
-                  <h4>MySQL 5.6</h4> 
-                  <p>
-                    MySQL is a widely used, open-source relational database management system (RDBMS).
-                  </p>
-                </div>
-              </div>
-            </Link>
-          </div>
 
-          <div className="col-md-3 col-sm-4 col-xs-12">
-            <Link to="/stacks/new">
-              <div className="thumbnail">
-                <img src={ Postgres } alt="Postgres" className="" />
-                <div className="caption text-center">
-                  <h4>Postgres</h4> 
-                  <p>
-                    The PostgreSQL object-relational database system provides reliability and data integrity.
-                  </p>
-                </div>
-              </div>
-            </Link>
-          </div>
+          <CatalogItem url="/services/new" img={ MySQL } name="MySQL 5.6">
+            MySQL is a widely used, open-source relational database 
+            management system (RDBMS).
+          </CatalogItem>
+
+          <CatalogItem url="/services/new" img={ Postgres } name="PostgreSQL">
+            The PostgreSQL object-relational database system provides 
+            reliability and data integrity.
+          </CatalogItem>
+
         </div>
 
         <div className="clearfix"></div>
         <h4>Framework</h4>
         <div className="row">
-          <div className="col-md-3 col-sm-4 col-xs-12">
-            <Link to="/stacks/new">
-              <div className="thumbnail">
-                <img src={ Rails } alt="Rails" className="" />
-                <div className="caption text-center">
-                  <h4>Ruby on Rails</h4> 
-                  <p>
-                    Open-source web application framework written in Ruby.
-                  </p>
-                </div>
-              </div>
-            </Link>
-          </div>
 
-          <div className="col-md-3 col-sm-4 col-xs-12">
-            <Link to="/stacks/new">
-              <div className="thumbnail">
-                <img src={ Laravel } alt="Laravel" className="" />
-                <div className="caption text-center">
-                  <h4>Laravel</h4> 
-                  <p>
-                    Web application framework with expressive, elegant syntax.
-                  </p>
-                </div>
-              </div>
-            </Link>
-          </div>
+          <CatalogItem url="/stack/new" img={ Rails } name="Ruby on Rails">
+            Open-source web application framework written in Ruby.
+          </CatalogItem>
+
+          <CatalogItem url="/stack/new" img={ Laravel } name="Laravel">
+            Web application framework with expressive, elegant syntax.
+          </CatalogItem>
+          
         </div>
 
         <div className="row">
