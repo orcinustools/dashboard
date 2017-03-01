@@ -36,17 +36,17 @@ export default class Catalog extends React.Component {
         <h4>Language Stack</h4>
         <div className="row">
 
-          <CatalogItem url="/stack/new" img={ Golang } name="Golang">
+          <CatalogItem url="/stacks/new" img={ Golang } name="Golang">
             Go (golang) is a general purpose, higher-level, imperative 
             programming language.
           </CatalogItem>
 
-          <CatalogItem url="/stack/new" img={ PHP } name="PHP">
+          <CatalogItem url="/stacks/new" img={ PHP } name="PHP">
             While designed for web development, the PHP scripting language 
             also provides general-purpose use.
           </CatalogItem>
 
-          <CatalogItem url="/stack/new" img={ Node } name="NodeJS">
+          <CatalogItem url="/stacks/new" img={ Node } name="NodeJS">
             Node.js is a JavaScript-based platform for server-side and 
             networking applications.
           </CatalogItem>
@@ -57,7 +57,7 @@ export default class Catalog extends React.Component {
         <h4>CMS</h4>
         <div className="row">
 
-          <CatalogItem url="/stack/new" img={ Wordpress } name="Wordpress">
+          <CatalogItem url="/stacks/new" img={ Wordpress } name="Wordpress">
             The WordPress rich content management system can utilize plugins,
             widgets, and themes.
           </CatalogItem>
@@ -84,11 +84,11 @@ export default class Catalog extends React.Component {
         <h4>Framework</h4>
         <div className="row">
 
-          <CatalogItem url="/stack/new" img={ Rails } name="Ruby on Rails">
+          <CatalogItem url="/stacks/new" img={ Rails } name="Ruby on Rails">
             Open-source web application framework written in Ruby.
           </CatalogItem>
 
-          <CatalogItem url="/stack/new" img={ Laravel } name="Laravel">
+          <CatalogItem url="/stacks/new" img={ Laravel } name="Laravel">
             Web application framework with expressive, elegant syntax.
           </CatalogItem>
           
