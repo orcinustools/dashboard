@@ -5,9 +5,9 @@ import React from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from 'redux';
 
-import *  as actions from "../../actions";
 import { Catalog } from "../../scenes";
-import { fetchImages } from "../../actions";
+
+import { fetchImages } from "../../actions/imageActions";
 
 import CatalogSearchBar from "../../components/catalog/CatalogSearchBar";
 import CatalogItem from "../../components/catalog/CatalogItem";

@@ -3,7 +3,7 @@
  */
 import { connect } from "react-redux";
 
-import * as actions from "../../actions";
+// import * as actions from "../../actions";
 import { ServiceDetails } from "../../scenes";
 
 const mapStateToProps = (state) => {

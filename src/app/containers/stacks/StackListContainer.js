@@ -3,7 +3,6 @@
  */
 import { connect } from "react-redux";
 
-import * as actions from "../../actions";
 import { StackList } from "../../scenes";
 
 const mapStateToProps = (state) => {

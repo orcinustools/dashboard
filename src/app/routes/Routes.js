@@ -13,15 +13,9 @@ import {
 
 import store from "../store/store";
 
-import { fetchImages } from "../actions";
-
 import {
 	PageNotFound
 } from "../scenes";
-
-function loadImages() {
-	store.dispatch(fetchImages());
-}
 
 export default class Routes extends React.Component {
 	render() {
