@@ -1,16 +1,19 @@
 import { applyMiddleware, createStore } from "redux";
 
-const initialState = {
-	userName: "Miral",
-	images: [{name: "mysql"}],
-	stacks: [{name: "wordpress-app"}],
-	containers: [],
-	services: [],
-}
+import thunk from "redux-thunk";
+import logger from "redux-logger";
+import promise from "redux-promise-middleware"
+import axios from "axios";
 
+// import reducer from "../reducers";
+import imageReducer from '../reducers';
 
-const reducer = (state, action) => {
-	return state;
-}
+const middleware = applyMiddleware(promise(), logger(), thunk);
 
-export default createStore(reducer, initialState);
+const store = createStore(imageReducer, middleware);
+
+// store.subscribe(() => {
+// 	console.log("State di redux store sekarang: ", store.getState());
+// });
+
+export default store;

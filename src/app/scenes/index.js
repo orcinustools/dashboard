@@ -1,5 +1,4 @@
 import App from "./app/App";
-import Catalog from "./catalog/Catalog";
 import { ContainerList, ContainerDetails } from "./containers";
 import { ServiceList, ServiceDetails, ServiceCreate } from "./services/";
 import { StackList,	StackDetails,	StackCreate } from "./stacks";
@@ -10,7 +9,6 @@ import PageNotFound from "./pagenotfound/PageNotFound";
 
 export {
 	App,
-	Catalog,
 	ContainerList, ContainerDetails,
 	ServiceList, ServiceDetails, ServiceCreate,
  	StackList,	StackDetails,	StackCreate,
