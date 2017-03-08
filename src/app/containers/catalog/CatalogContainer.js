@@ -26,21 +26,21 @@ import Laravel from "../../assests/images/catalog/laravel.png";
 
 @connect((store) => {
   return {
-    images: store.images.images
+    images: store.imagesState
   };
 })
 
 export default class CatalogContainer extends React.Component {
-	
-	componentDidMount() {
-		// console.log("Image props di catalog", this.props.images)
+
+	componentWillMount() {
+		this.props.dispatch(fetchImages())
 	}
 
 	render() {
 		return (
 			<div>
         <div className="row" style={{ marginBottom: '2em', marginTop: '2em' }}>
-					<CatalogSearchBar />
+					<CatalogSearchBar defaultValue = {this.props.images.name} />
         </div>
 
 				<div>

@@ -12,8 +12,8 @@ const middleware = applyMiddleware(promise(), logger(), thunk);
 
 const store = createStore(imageReducer, middleware);
 
-// store.subscribe(() => {
-// 	console.log("State di redux store sekarang: ", store.getState());
-// });
+store.subscribe(() => {
+	console.log("State di redux store sekarang: ", store.getState());
+});
 
 export default store;

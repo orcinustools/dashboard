@@ -2,6 +2,7 @@ const initialState = {
 	images: [],
 	fetching: false,
 	fetched: false,
+	name: "Miral",
 	error: null
 }
 
@@ -16,7 +17,7 @@ export default function reducer (state = initialState, action) {
 			return { 
 				...state, 
 				fetching: false, 
-				images: action.payload,
+				images: action.payload.data,
 			}
 		}
 

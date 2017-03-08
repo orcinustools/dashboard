@@ -30,7 +30,7 @@ export default class Routes extends React.Component {
 				<Route path={ "/" } component= { AppConnected }>
 					<IndexRoute component={ OverviewConnected } />
 					<Route path={ "/overview" } component={ OverviewConnected } />
-					<Route path={ "/catalog" } component={ CatalogConnected } onEnter={ loadImages } />
+					<Route path={ "/catalog" } component={ CatalogConnected } />
 					<Route path={ "/stacks" } component={ StackListConnected } />
 					<Route path={ "/stacks/new" } component={ StackCreateConnected } />
 					<Route path={ "/stacks/:stackName" } component={ StackDetailsConnected } />
