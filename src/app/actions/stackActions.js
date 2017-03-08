@@ -6,7 +6,7 @@ import axios from "axios";
  * promise dengan bantuan 'redux-promise-middleware' dan 'redux-thunk'
  * 
  */
-export function fetchStack() {
+export function fetchStacks() {
 	return {
 		type: "FETCH_STACKS",
 		payload: axios.get("http://localhost:3000/stacks")

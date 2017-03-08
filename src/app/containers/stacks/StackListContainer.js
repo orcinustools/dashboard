@@ -5,7 +5,7 @@ import React from "react";
 import { Link } from "react-router";
 import { connect } from "react-redux";
 
-import { fetchStack } from "../../actions/stackActions";
+import { fetchStacks } from "../../actions/stackActions";
 
 @connect((store) => {
   return {
@@ -16,7 +16,7 @@ import { fetchStack } from "../../actions/stackActions";
 export default class StackListContainer extends React.Component {
 
 	componentWillMount() {
-		this.props.dispatch(fetchStack());
+		this.props.dispatch(fetchStacks());
 	}
 
 	render() {
