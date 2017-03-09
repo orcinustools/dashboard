@@ -15,9 +15,9 @@ export default class StackListItem extends React.Component {
 	      <td><span className="label label-success">RUNNING</span></td>
 	      <td>
 	        <ul className="list-child">
-	          <li><i className="fa fa-cubes fa-fw" aria-hidden="true"></i> 2 Services</li>
-	          <li><i className="fa fa-cube fa-fw" aria-hidden="true"></i> 2 Container</li>
-	          <li><i className="fa fa-hdd-o fa-fw" aria-hidden="true"></i> 2 Volumes</li>
+	          <li><i className="fa fa-cubes fa-fw" aria-hidden="true"></i> 2 Service(s)</li>
+	          <li><i className="fa fa-cube fa-fw" aria-hidden="true"></i> 2 Container(s)</li>
+	          <li><i className="fa fa-hdd-o fa-fw" aria-hidden="true"></i> 2 Volume(s)</li>
 	        </ul>
 	      </td>
 	      <td>

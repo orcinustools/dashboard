@@ -14,8 +14,8 @@ export default class ServiceListItem extends React.Component {
         <td>
           <ul className="list-child">
             <li><i className="fa fa-server fa-fw" aria-hidden="true"></i> Wordpress-app</li>
-            <li><i className="fa fa-cube fa-fw" aria-hidden="true"></i> 1 Container</li>
-            <li><i className="fa fa-hdd-o fa-fw" aria-hidden="true"></i> 1 Volume</li>
+            <li><i className="fa fa-cube fa-fw" aria-hidden="true"></i> 1 Container(s)</li>
+            <li><i className="fa fa-hdd-o fa-fw" aria-hidden="true"></i> 1 Volume(s)</li>
           </ul>
         </td>
         <td>
