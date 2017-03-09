@@ -1,6 +1,6 @@
 import App from "./app/App";
-import { ContainerDetails } from "./containers";
-import { ServiceListScene, ServiceDetails, ServiceCreate } from "./services";
+import { ContainerListPage, ContainerDetails } from "./containers";
+import { ServiceListPage, ServiceDetails, ServiceCreate } from "./services";
 import { StackDetails,	StackCreate } from "./stacks";
 import { VolumeCreate, VolumeDetails } from "./volumes";
 import Welcome from "./welcome/Welcome";
@@ -9,8 +9,8 @@ import PageNotFound from "./pagenotfound/PageNotFound";
 
 export {
 	App,
-	ContainerDetails,
-	ServiceListScene, ServiceDetails, ServiceCreate,
+	ContainerListPage, ContainerDetails,
+	ServiceListPage, ServiceDetails, ServiceCreate,
  	StackDetails,	StackCreate,
 	VolumeCreate, VolumeDetails,
 	Welcome,

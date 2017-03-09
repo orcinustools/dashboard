@@ -13,9 +13,8 @@ import {
 
 import {
 	PageNotFound,
-	ServiceListScene
-} from "../scenes";
 	ServiceListPage,
+	ContainerListPage,
 } from "../pages";
 
 export default class Routes extends React.Component {
@@ -32,7 +31,7 @@ export default class Routes extends React.Component {
 					<Route path={ "/services" } component={ ServiceListPage } />
 					<Route path={ "/services/new" } component={ ServiceCreateConnected } />
 					<Route path={ "/services/:serviceName" } component={ ServiceDetailsConnected } />
-					<Route path={ "/containers" } component={ ContainerListConnected }/>
+					<Route path={ "/containers" } component={ ContainerListPage }/>
 					<Route path={ "/containers/:containerName" } component={ ContainerDetailsConnected } />
 					<Route path={ "/volumes" } component={ VolumeListConnected } />
 					<Route path={ "/volumes/new" } component={ VolumeCreateConnected } />
