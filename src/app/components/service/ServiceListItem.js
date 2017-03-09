@@ -6,10 +6,10 @@ export default class ServiceListItem extends React.Component {
 		return (
       <tr>
         <td>{ this.props.id }</td>
-        <td><Link to="/services/wp-app">{ this.props.name }</Link></td>
+        <td><Link to={"/services/" + this.props.id }>{ this.props.name }</Link></td>
         <td><span className="label label-success">RUNNING</span></td>
         <td>
-          <i className="fa fa-tag fa-fw" aria-hidden="true"></i> orcinus/wordpress:latest
+          <i className="fa fa-tag fa-fw" aria-hidden="true"></i> { this.props.image }
         </td>
         <td>
           <ul className="list-child">

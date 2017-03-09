@@ -11,11 +11,12 @@ import {
 	VolumeListConnected, VolumeDetailsConnected, VolumeCreateConnected
 } from "../containers";
 
-import store from "../store/store";
-
 import {
-	PageNotFound
+	PageNotFound,
+	ServiceListScene
 } from "../scenes";
+	ServiceListPage,
+} from "../pages";
 
 export default class Routes extends React.Component {
 	render() {
@@ -28,7 +29,7 @@ export default class Routes extends React.Component {
 					<Route path={ "/stacks" } component={ StackListConnected } />
 					<Route path={ "/stacks/new" } component={ StackCreateConnected } />
 					<Route path={ "/stacks/:stackName" } component={ StackDetailsConnected } />
-					<Route path={ "/services" } component={ ServiceListConnected } />
+					<Route path={ "/services" } component={ ServiceListPage } />
 					<Route path={ "/services/new" } component={ ServiceCreateConnected } />
 					<Route path={ "/services/:serviceName" } component={ ServiceDetailsConnected } />
 					<Route path={ "/containers" } component={ ContainerListConnected }/>
