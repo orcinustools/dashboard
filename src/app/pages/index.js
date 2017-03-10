@@ -6,6 +6,7 @@ import { VolumeListPage, VolumeCreate, VolumeDetails } from "./volumes";
 import Welcome from "./welcome/Welcome";
 import Overview from "./overview/Overview";
 import PageNotFound from "./pagenotfound/PageNotFound";
+import OverviewPage from "./overview/OverviewPage";
 
 export {
 	App,
@@ -16,4 +17,5 @@ export {
 	Welcome,
 	Overview,
 	PageNotFound
+	OverviewPage,
 }

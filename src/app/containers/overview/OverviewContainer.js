@@ -3,23 +3,18 @@
  */
 import { connect } from "react-redux";
 
-// import * as actions from "../../actions";
-import { Overview } from "../../scenes";
+import Overview from "../../components/overview/Overview";
 
 const mapStateToProps = (state) => {
 	return {
-		images: state.images,
-		stacks: state.stacks,
+		data: state.overviewState.data
 	}
 }
 
-const mapDispatchToProps = (action) => {
+const mapDispatchToProps = (dispatch) => {
 	return {
 
 	}
 }
 
-export default connect (
-	mapStateToProps,
-	mapDispatchToProps
-)(Overview);
+export default connect(mapStateToProps,	mapDispatchToProps)(Overview);
