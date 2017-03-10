@@ -3,9 +3,7 @@ import { ContainerListPage, ContainerDetails } from "./containers";
 import { ServiceListPage, ServiceDetails, ServiceCreate } from "./services";
 import { StackDetails,	StackCreate } from "./stacks";
 import { VolumeListPage, VolumeCreate, VolumeDetails } from "./volumes";
-import Welcome from "./welcome/Welcome";
-import Overview from "./overview/Overview";
-import PageNotFound from "./pagenotfound/PageNotFound";
+import WelcomePage from "./welcome/WelcomePage";
 import OverviewPage from "./overview/OverviewPage";
 
 export {
@@ -14,8 +12,6 @@ export {
 	ServiceListPage, ServiceDetails, ServiceCreate,
  	StackDetails,	StackCreate,
 	VolumeListPage, VolumeCreate, VolumeDetails,
-	Welcome,
-	Overview,
-	PageNotFound
+	WelcomePage,
 	OverviewPage,
 }

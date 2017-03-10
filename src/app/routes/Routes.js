@@ -13,7 +13,7 @@ import {
 
 import {
 	PageNotFound,
-	ServiceListPage,
+	WelcomePage,
 	OverviewPage,
 	ContainerListPage,
 } from "../pages";
@@ -23,8 +23,7 @@ export default class Routes extends React.Component {
 		return (
 			<Router history={ browserHistory }>
 				<Route path={ "/" } component= { AppConnected }>
-					<IndexRoute component={ OverviewConnected } />
-					<Route path={ "/overview" } component={ OverviewConnected } />
+					<IndexRoute component={ WelcomePage } />
 					<Route path={ "/overview" } component={ OverviewPage } />
 					<Route path={ "/catalog" } component={ CatalogConnected } />
 					<Route path={ "/stacks" } component={ StackListConnected } />

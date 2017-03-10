@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router";
 
-export default class Welcome extends React.Component {
+export default class WelcomePage extends React.Component {
 	render() {
 		return (
     <div className="row">
