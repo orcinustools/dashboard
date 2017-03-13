@@ -12,7 +12,7 @@ import {
 } from "../containers";
 
 import {
-	PageNotFound,
+	PageNotFoundPage,
 	WelcomePage,
 	OverviewPage,
 	ContainerListPage,
@@ -37,7 +37,7 @@ export default class Routes extends React.Component {
 					<Route path={ "/volumes" } component={ VolumeListConnected } />
 					<Route path={ "/volumes/new" } component={ VolumeCreateConnected } />
 					<Route path={ "/volumes/:volumeName" } component={ VolumeDetailsConnected } />
-					<Route path={ "*" } component={ PageNotFound } />
+					<Route path={ "*" } component={ PageNotFoundPage } />
 				</Route>
 			</Router>
 		);
