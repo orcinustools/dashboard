@@ -1,21 +1,10 @@
 import React from "react";
 import { Link } from "react-router";
 
-export default class ServiceCreate extends React.Component {
+export default class ServiceCreatePage extends React.Component {
 	render() {
 		return (
 			<div>
-        <section className="content-header">
-          <h1>
-            SERVICE WIZARD
-          </h1>
-          <ol className="breadcrumb breadcrumb-sm">
-            <li><a href="/">HOME</a></li>
-            <li><a href="/services">SERVICES</a></li>
-            <li className="active">WIZARD</li>
-          </ol>
-        </section>
-
         <div className="row">
           <div className="col-md-6 pull-right">
             <div className="btn-group btn-group-justified" style={{ marginBottom: '10px' }} role="group" aria-label="...">

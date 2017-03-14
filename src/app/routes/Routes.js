@@ -31,7 +31,7 @@ export default class Routes extends React.Component {
 					<Route path={ "/stacks/new" } component={ StackCreateConnected } />
 					<Route path={ "/stacks/:stackName" } component={ StackDetailsConnected } />
 					<Route path={ "/services" } component={ ServiceListPage } />
-					<Route path={ "/services/new" } component={ ServiceCreateConnected } />
+					<Route path={ "/services/new" } component={ ServiceCreatePage } />
 					<Route path={ "/services/:Id" } component={ ServiceDetailsPage } />
 					<Route path={ "/containers" } component={ ContainerListPage }/>
 					<Route path={ "/containers/:Id" } component={ ContainerDetailsPage } />

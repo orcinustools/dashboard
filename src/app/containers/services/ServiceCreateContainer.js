@@ -3,23 +3,18 @@
  */
 import { connect } from "react-redux";
 
-// import * as actions from "../../actions";
-import { ServiceCreate } from "../../scenes";
+import ServiceCreate from "../../components/service/ServiceCreate";
 
 const mapStateToProps = (state) => {
 	return {
-		images: state.images,
-		stacks: state.stacks,
+
 	}
 }
 
-const mapDispatchToProps = (action) => {
+const mapDispatchToProps = (dispatch) => {
 	return {
 
 	}
 }
 
-export default connect (
-	mapStateToProps,
-	mapDispatchToProps
-)(ServiceCreate);
+export default connect(mapStateToProps, mapDispatchToProps)(ServiceCreate);
