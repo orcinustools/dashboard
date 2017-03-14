@@ -6,7 +6,6 @@ import {
 	OverviewConnected,
 	CatalogConnected,
 	StackListConnected, StackDetailsConnected, StackCreateConnected,
-	ServiceListConnected, ServiceDetailsConnected, ServiceCreateConnected,
 	VolumeListConnected, VolumeDetailsConnected, VolumeCreateConnected
 } from "../containers";
 
@@ -33,7 +32,7 @@ export default class Routes extends React.Component {
 					<Route path={ "/stacks/:stackName" } component={ StackDetailsConnected } />
 					<Route path={ "/services" } component={ ServiceListPage } />
 					<Route path={ "/services/new" } component={ ServiceCreateConnected } />
-					<Route path={ "/services/:serviceName" } component={ ServiceDetailsConnected } />
+					<Route path={ "/services/:Id" } component={ ServiceDetailsPage } />
 					<Route path={ "/containers" } component={ ContainerListPage }/>
 					<Route path={ "/containers/:Id" } component={ ContainerDetailsPage } />
 					<Route path={ "/volumes" } component={ VolumeListPage } />

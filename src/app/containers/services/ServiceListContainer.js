@@ -11,7 +11,8 @@ import { fetchServices } from "../../actions/serviceActions";
 
 const mapStateToProps = (state) => {
   return {
-    services: state.serviceState.servicesList.services
+    services: state.servicesState.servicesList.services,
+    fetching: state.servicesState.servicesList.fetching
   };
 }
 

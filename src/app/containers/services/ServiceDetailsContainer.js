@@ -9,9 +9,7 @@ import { fetchService } from "../../actions/serviceActions";
 
 const mapStateToProps = (state, ownProps) => {
 	return {
-		service: state.serviceState.activeService.service,
-		// name: state.serviceState.activeService.service.Spec.Name
-		// serviceId: ownProps.id
+		service: state.servicesState.activeService.service,
 	}
 }
 

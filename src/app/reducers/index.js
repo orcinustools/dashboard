@@ -11,7 +11,7 @@ export default combineReducers({
 	overviewState: overviewReducer,
 	imagesState: imagesReducer,
 	stacksState: stacksReducer,
-	serviceState: servicesReducer,
+	servicesState: servicesReducer,
 	containerState: containersReducer,
 	volumeState: volumesReducer,
 })

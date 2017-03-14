@@ -22,8 +22,12 @@ export default class ServicesList extends React.Component {
 	}
 
 	render() {
-		const { services } = this.props;
-
+		const { services, fetching } = this.props;
+    
+    if (fetching) {
+      return <h1>Fetching</h1>;
+    }
+  
 		return (
       <div className="row">
         <div className="col-xs-12">
