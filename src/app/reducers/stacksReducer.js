@@ -1,5 +1,5 @@
 const initialState = {
-	stacks: [],
+	stackList: [],
 	fetching: false,
 	fetched: false,
 	error: null
@@ -16,7 +16,7 @@ export default function reducer (state = initialState, action) {
 			return { 
 				...state, 
 				fetching: false, 
-				stacks: action.payload.data,
+				stackList: action.payload.data,
 			}
 		}
 

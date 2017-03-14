@@ -3,23 +3,18 @@
  */
 import { connect } from "react-redux";
 
-// import * as actions from "../../actions";
-import { VolumeCreate } from "../../scenes";
+import VolumeCreate from "../../components/volume/VolumeCreate";
 
 const mapStateToProps = (state) => {
 	return {
-		images: state.images,
-		stacks: state.stacks,
+		newVolume: state.volumeState.newVolume.volume
 	}
 }
 
-const mapDispatchToProps = (action) => {
+const mapDispatchToProps = (dispatch) => {
 	return {
 
 	}
 }
 
-export default connect (
-	mapStateToProps,
-	mapDispatchToProps
-)(VolumeCreate);
+export default connect(mapStateToProps,	mapDispatchToProps)(VolumeCreate);
