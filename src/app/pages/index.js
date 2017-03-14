@@ -5,6 +5,7 @@ import { StackDetails,	StackCreate } from "./stacks";
 import { VolumeListPage, VolumeCreate, VolumeDetailsPage } from "./volumes";
 import WelcomePage from "./welcome/WelcomePage";
 import OverviewPage from "./overview/OverviewPage";
+import PageNotFoundPage from "./pagenotfound/PageNotFoundPage";
 import CatalogPage from "./catalog/CatalogPage";
 
 export {
@@ -16,4 +17,5 @@ export {
 	WelcomePage,
 	CatalogPage,
 	OverviewPage,
+	PageNotFoundPage
 }
