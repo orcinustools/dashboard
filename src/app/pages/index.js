@@ -2,7 +2,7 @@ import App from "./app/App";
 import { ContainerListPage, ContainerDetailsPage } from "./containers";
 import { ServiceListPage, ServiceDetailsPage, ServiceCreatePage } from "./services";
 import { StackDetails,	StackCreate } from "./stacks";
-import { VolumeListPage, VolumeCreate, VolumeDetailsPage } from "./volumes";
+import { VolumeListPage, VolumeCreatePage, VolumeDetailsPage } from "./volumes";
 import WelcomePage from "./welcome/WelcomePage";
 import OverviewPage from "./overview/OverviewPage";
 import PageNotFoundPage from "./pagenotfound/PageNotFoundPage";
@@ -13,7 +13,7 @@ export {
 	ContainerListPage, ContainerDetailsPage,
 	ServiceListPage, ServiceDetailsPage, ServiceCreatePage,
  	StackDetails,	StackCreate,
-	VolumeListPage, VolumeCreate, VolumeDetailsPage,
+	VolumeListPage, VolumeCreatePage, VolumeDetailsPage,
 	WelcomePage,
 	CatalogPage,
 	OverviewPage,
