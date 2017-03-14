@@ -16,6 +16,7 @@ import {
 	WelcomePage,
 	OverviewPage,
 	ContainerListPage,
+	VolumeListPage, VolumeDetailsPage
 } from "../pages";
 
 export default class Routes extends React.Component {
@@ -34,9 +35,9 @@ export default class Routes extends React.Component {
 					<Route path={ "/services/:serviceName" } component={ ServiceDetailsConnected } />
 					<Route path={ "/containers" } component={ ContainerListPage }/>
 					<Route path={ "/containers/:containerName" } component={ ContainerDetailsConnected } />
-					<Route path={ "/volumes" } component={ VolumeListConnected } />
+					<Route path={ "/volumes" } component={ VolumeListPage } />
 					<Route path={ "/volumes/new" } component={ VolumeCreateConnected } />
-					<Route path={ "/volumes/:volumeName" } component={ VolumeDetailsConnected } />
+					<Route path={ "/volumes/:volumeName" } component={ VolumeDetailsPage } />
 					<Route path={ "*" } component={ PageNotFoundPage } />
 				</Route>
 			</Router>

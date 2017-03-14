@@ -3,23 +3,21 @@
  */
 import { connect } from "react-redux";
 
-// import * as actions from "../../actions";
-import { VolumeDetails } from "../../scenes";
+import VolumeDetails from "../../components/volume/VolumeDetails";
+import { fetchVolume } from "../../actions/volumeActions";
 
 const mapStateToProps = (state) => {
 	return {
-		images: state.images,
-		stacks: state.stacks,
+		activeVolume: state.volumeState.activeVolume,
 	}
 }
 
-const mapDispatchToProps = (action) => {
+const mapDispatchToProps = (dispatch) => {
 	return {
-
+		fetchVolume: () => {
+			dispatch(fetchVolume());
+		}
 	}
 }
 
-export default connect (
-	mapStateToProps,
-	mapDispatchToProps
-)(VolumeDetails);
+export default connect (mapStateToProps, mapDispatchToProps)(VolumeDetails);

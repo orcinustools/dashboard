@@ -1,9 +1,9 @@
-import VolumeDetails from "./VolumeDetails";
-import VolumeCreate from "./VolumeCreate";
+import VolumeDetailsPage from "./VolumeDetailsPage";
+import VolumeCreatePage from "./VolumeCreatePage";
 import VolumeListPage from "./VolumeListPage";
 
 export {
-	VolumeCreate,
-	VolumeDetails,
+	VolumeCreatePage,
+	VolumeDetailsPage,
 	VolumeListPage
 }
