@@ -2,20 +2,20 @@ import React from "react";
 import { Link } from "react-router";
 
 export default class ContainerDetails extends React.Component {
-	render() {
-		return (
-			<div>
-        <section className="content-header">
-          <h1>
-            wp-app.1
-          </h1>
-          <ol className="breadcrumb breadcrumb-sm">
-            <li><Link to="/">HOME</Link></li>
-            <li><Link to="/containers">CONTAINERS</Link></li>
-            <li className="active">wp-app.1</li>
-          </ol>
-        </section>
 
+  componentDidMount() {
+    this.props.fetchContainer();
+  }
+
+	render() {
+    const { container, fetching } = this.props;
+
+    if (fetching) {
+      return <h1>Fetching</h1>;
+    }
+
+    return (
+			<div>
         <div className="row">
           <div className="col-md-4 pull-right">
             <div className="btn-group btn-group-justified" style={{ marginBottom: '10px' }} role="group" aria-label="...">
@@ -57,7 +57,7 @@ export default class ContainerDetails extends React.Component {
                     <label className="col-sm-2 control-label">CONTAINER NAME</label>
                     <div className="col-sm-10">
                       <p className="form-control-static">
-                        <i className="fa fa-cube fa-fw" aria-hidden="true"></i> wp-app.1
+                        <i className="fa fa-cube fa-fw" aria-hidden="true"></i> { container.Name }
                       </p>
                     </div>
                   </div>
@@ -75,7 +75,7 @@ export default class ContainerDetails extends React.Component {
                     <div className="col-sm-10">
                       <p className="form-control-static">
                         <i className="fa fa-cubes fa-fw" aria-hidden="true"></i> 
-                        <Link to="/services/wp-app">wp-app</Link>
+                        <Link to="/services/wp-app"> wp-app</Link>
                       </p>
                     </div>
                   </div>
@@ -84,7 +84,7 @@ export default class ContainerDetails extends React.Component {
                     <div className="col-sm-10">
                       <p className="form-control-static">
                         <i className="fa fa-tag fa-fw" aria-hidden="true"></i>
-                         orcinus.io/wordpress:latest
+                         { container.Name }
                       </p>
                     </div>
                   </div>

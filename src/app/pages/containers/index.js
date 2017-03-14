@@ -1,7 +1,7 @@
-import ContainerDetails from "./ContainerDetails";
+import ContainerDetailsPage from "./ContainerDetailsPage";
 import ContainerListPage from "./ContainerListPage";
 
 export {
-	ContainerDetails,
+	ContainerDetailsPage,
 	ContainerListPage
 }

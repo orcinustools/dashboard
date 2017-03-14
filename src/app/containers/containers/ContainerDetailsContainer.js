@@ -3,23 +3,23 @@
  */
 import { connect } from "react-redux";
 
-// import * as actions from "../../actions";
-import { ContainerDetails } from "../../scenes";
+import ContainerDetails from "../../components/container/ContainerDetails";
+
+import { fetchContainer } from "../../actions/containerActions";
 
 const mapStateToProps = (state) => {
 	return {
-		images: state.images,
-		stacks: state.stacks,
+		container: state.containerState.activeContainer.container,
+		fetching: state.containerState.activeContainer.fetching
 	}
 }
 
-const mapDispatchToProps = (action) => {
+const mapDispatchToProps = (dispatch) => {
 	return {
-
+		fetchContainer: () => {
+			dispatch(fetchContainer())
+		}
 	}
 }
 
-export default connect (
-	mapStateToProps,
-	mapDispatchToProps
-)(ContainerDetails);
+export default connect(mapStateToProps, mapDispatchToProps)(ContainerDetails);

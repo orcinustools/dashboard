@@ -7,7 +7,6 @@ import {
 	CatalogConnected,
 	StackListConnected, StackDetailsConnected, StackCreateConnected,
 	ServiceListConnected, ServiceDetailsConnected, ServiceCreateConnected,
-	ContainerListConnected, ContainerDetailsConnected,
 	VolumeListConnected, VolumeDetailsConnected, VolumeCreateConnected
 } from "../containers";
 
@@ -15,7 +14,7 @@ import {
 	PageNotFoundPage,
 	WelcomePage,
 	OverviewPage,
-	ContainerListPage,
+	ContainerListPage, ContainerDetailsPage,
 	VolumeListPage, VolumeDetailsPage
 } from "../pages";
 
@@ -34,7 +33,7 @@ export default class Routes extends React.Component {
 					<Route path={ "/services/new" } component={ ServiceCreateConnected } />
 					<Route path={ "/services/:serviceName" } component={ ServiceDetailsConnected } />
 					<Route path={ "/containers" } component={ ContainerListPage }/>
-					<Route path={ "/containers/:containerName" } component={ ContainerDetailsConnected } />
+					<Route path={ "/containers/:Id" } component={ ContainerDetailsPage } />
 					<Route path={ "/volumes" } component={ VolumeListPage } />
 					<Route path={ "/volumes/new" } component={ VolumeCreateConnected } />
 					<Route path={ "/volumes/:volumeName" } component={ VolumeDetailsPage } />
