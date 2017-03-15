@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router";
+import moment from "moment";
 
 export default class ContainerDetails extends React.Component {
 
@@ -84,7 +85,7 @@ export default class ContainerDetails extends React.Component {
                     <div className="col-sm-10">
                       <p className="form-control-static">
                         <i className="fa fa-tag fa-fw" aria-hidden="true"></i>
-                         { container.Name }
+                         { container.Config && container.Config.Image }
                       </p>
                     </div>
                   </div>
@@ -100,7 +101,8 @@ export default class ContainerDetails extends React.Component {
                     <label className="col-sm-2 control-label">NUM OF VOLUMES</label>
                     <div className="col-sm-10">
                       <p className="form-control-static">
-                        <i className="fa fa-hdd-o fa-fw" aria-hidden="true"></i> 1 Volume
+                        <i className="fa fa-hdd-o fa-fw" aria-hidden="true"></i> 
+                        { container.Mounts && container.Mounts.length } Volume(s)
                       </p>
                     </div>
                   </div>
@@ -108,8 +110,8 @@ export default class ContainerDetails extends React.Component {
                     <label className="col-sm-2 control-label">CREATED AT</label>
                     <div className="col-sm-10">
                       <p className="form-control-static">
-                        <i className="fa fa-clock-o fa-fw" aria-hidden="true"></i>
-                        Mon Feb 13 2017 17:59:04 GMT+0700 (WIB)
+                        <i className="fa fa-clock-o fa-fw" aria-hidden="true"></i> 
+                        { moment(container.Created).format("dddd, MMMM Do YYYY, h:mm:ss a") }
                       </p>
                     </div>
                   </div>
