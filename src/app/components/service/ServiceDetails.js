@@ -18,7 +18,7 @@ export default class ServiceDetails extends React.Component {
 
 	render() {
 		
-		const { service, fetching } = this.props
+		const { service, fetching, fetched, error } = this.props
 
 		if (fetching) {
 			return <h1>Fetching coy</h1>
@@ -28,23 +28,22 @@ export default class ServiceDetails extends React.Component {
 			<div>
 				<ActionButton />
 
-				<General 
-					name={service.Spec && service.Spec.Name}
-					created={service.CreatedAt}
-					updated={service.UpatedAt} />
+				{ fetched && 
+					<General 
+						name={service.Spec.Name}
+						created={service.CreatedAt}
+						updated={service.UpatedAt}
+						replicated={service.Spec.Mode.Replicated.Replicas} />
+				}
 
-				<Containers />
+						<Containers />
 
-				<Volumes />
-		
-				<Mountpoints />
+						<Volumes />
+				
+						<Mountpoints />
 
-				<Ports 
-				 ports={service.Spec && service.Spec.EndpointSpec && service.Spec.EndpointSpec.Ports} />
+						<Environtments />
 
-				<Endpoints />
-
-				<Environtments />
 			</div>
 		)
 	}

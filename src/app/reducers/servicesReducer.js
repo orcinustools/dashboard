@@ -1,7 +1,7 @@
 const initialState = {
-	servicesList: { services: [], fetching: false, error: null },
-	activeService: { service: {}, fetching: false, error: null },
-	newService: { service: null, fetching: false, error: null }
+	servicesList: { services: [], fetching: false, fetched: false, error: null },
+	activeService: { service: {}, fetching: false, fetched: false, error: null },
+	newService: { service: null, fetching: false, fetched: false, error: null }
 }
 
 export default function reducer (state = initialState, action) {
@@ -21,7 +21,7 @@ export default function reducer (state = initialState, action) {
 		case "FETCH_SERVICE_PENDING":
 			return { ...state, activeService: {service: {}, fetching: true, error: null}}
 		case "FETCH_SERVICE_FULFILLED":
-			return { ...state, activeService: {service: action.payload.data, fetching: false, error: null}}
+			return { ...state, activeService: {service: action.payload.data, fetched: true, fetching: false, error: null}}
 		case "FETCH_SERVICE_REJECTED":
 			error = action.payload || {message: action.payload.message};
 			return { ...state, activeService: {service: {}, fetching: false, error: error}}

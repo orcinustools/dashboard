@@ -1,9 +1,12 @@
-import React from "react"
+import React 		from "react"
 import { Link } from "react-router"
-import moment from "moment"
+import moment 	from "moment"
 
 export default class General extends React.Component {
+
+	
 	render() {
+	
 		return (
 			<div className="row">
 			  <div className="col-xs-12">
@@ -58,7 +61,7 @@ export default class General extends React.Component {
 			          <div className="form-group">
 			            <label className="col-sm-2 control-label">REPLICATED</label>
 			            <div className="col-sm-1">
-			              <input type="number" className="form-control" defaultValue="1" min="1" max="10" />
+			              <input type="number" className="form-control" defaultValue={ this.props.replicated } min="1" max="10" />
 			            </div>
 			          </div>
 			          <div className="form-group">
@@ -87,7 +90,7 @@ export default class General extends React.Component {
 			                <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" /> On Failure
 			              </label>
 			              <label className="radio-inline"> 
-			                <input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" checked={true}/> Always
+			                <input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" defaultChecked={true}/> Always
 			              </label>
 			            </div>
 			          </div>
