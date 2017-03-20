@@ -14,11 +14,11 @@ export default class Header extends React.Component {
 				<nav className="navbar navbar-static-top">
       		<Button />
 		      <div className="navbar-right navbar-right-fix">
-		        {/*<ul className="nav navbar-nav">
+		        <ul className="nav navbar-nav">
 							<MessageMenu />
 							<TasksMenu />
 							<UserMenu />
-		        </ul>*/}
+		        </ul>
 		      </div>
 				</nav>
 			</header>
