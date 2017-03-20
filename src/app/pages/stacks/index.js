@@ -1,9 +1,9 @@
-import StackDetails from "./StackDetails"
-import StackCreate from "./StackCreate"
 import StackListPage from "./StackListPage"
+import StackDetailsPage from "./StackDetailsPage"
+import StackCreate from "./StackCreate"
 
 export {
-	StackDetails,
-	StackCreate,
-	StackListPage
+	StackListPage,
+	StackDetailsPage,
+	StackCreate
 }

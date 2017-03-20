@@ -3,10 +3,8 @@ import { Router, Route, browserHistory, IndexRoute } from "react-router";
 
 import {
 	AppConnected,
-	OverviewConnected,
-	CatalogConnected,
-	StackListConnected, StackDetailsConnected, StackCreateConnected,
-	VolumeListConnected, VolumeDetailsConnected, VolumeCreateConnected
+	StackCreateConnected,
+	VolumeCreateConnected
 } from "../containers";
 
 import {
@@ -14,7 +12,7 @@ import {
 	WelcomePage,
 	OverviewPage,
 	CatalogPage,
-	StackListPage,
+	StackListPage, StackDetailsPage,
 	ServiceListPage, ServiceCreatePage, ServiceDetailsPage,
 	ContainerListPage, ContainerDetailsPage,
 	VolumeListPage, VolumeDetailsPage
@@ -30,7 +28,7 @@ export default class Routes extends React.Component {
 					<Route path={ "/catalog" } component={ CatalogPage } />
 					<Route path={ "/stacks" } component={ StackListPage } />
 					<Route path={ "/stacks/new" } component={ StackCreateConnected } />
-					<Route path={ "/stacks/:stackName" } component={ StackDetailsConnected } />
+					<Route path={ "/stacks/:Id" } component={ StackDetailsPage } />
 					<Route path={ "/services" } component={ ServiceListPage } />
 					<Route path={ "/services/new" } component={ ServiceCreatePage } />
 					<Route path={ "/services/:Id" } component={ ServiceDetailsPage } />

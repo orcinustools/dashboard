@@ -3,14 +3,11 @@
  */
 import { connect } from "react-redux";
 
-// import * as actions from "../../actions";
-import { StackDetails } from "../../pages";
+import StackDetails from "../../components/stack/StackDetails"
 
 const mapStateToProps = (state) => {
 	return {
-		images: state.images,
-		stacks: state.stacks,
-		name: "wordpress-app"
+
 	}
 }
 
@@ -20,7 +17,4 @@ const mapDispatchToProps = (action) => {
 	}
 }
 
-export default connect (
-	mapStateToProps,
-	mapDispatchToProps
-)(StackDetails);
+export default connect(mapStateToProps,	mapDispatchToProps)(StackDetails)

@@ -1,21 +1,10 @@
-import React from "react";
-import { Link } from "react-router";
+import React from "react"
+import { Link } from "react-router"
 
 export default class StackDetails extends React.Component {
 	render() {
 		return (
-			<div>
-        <section className="content-header">
-          <h1>
-            { this.props.name }
-          </h1>
-          <ol className="breadcrumb breadcrumb-sm">
-            <li><Link to="/">HOME</Link></li>
-            <li><Link to="/stacks">STACKS</Link></li>
-            <li className="active">Wordpress-app</li>
-          </ol>
-        </section>
-
+      <div>
         <div className="row">
           <div className="col-md-6 pull-right">
             <div className="btn-group btn-group-justified" style={{ marginBottom: '10px' }} role="group" aria-label="...">
@@ -194,7 +183,7 @@ export default class StackDetails extends React.Component {
             </div>
           </div>
         </div>
-       </div>
-		);
+      </div>
+		)
 	}
 }

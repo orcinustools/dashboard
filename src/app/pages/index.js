@@ -1,7 +1,7 @@
 import App from "./app/App";
 import { ContainerListPage, ContainerDetailsPage } from "./containers";
 import { ServiceListPage, ServiceDetailsPage, ServiceCreatePage } from "./services";
-import { StackListPage, StackDetails,	StackCreate } from "./stacks";
+import { StackListPage, StackDetailsPage,	StackCreate } from "./stacks";
 import { VolumeListPage, VolumeCreatePage, VolumeDetailsPage } from "./volumes";
 import WelcomePage from "./welcome/WelcomePage";
 import OverviewPage from "./overview/OverviewPage";
@@ -12,7 +12,7 @@ export {
 	App,
 	ContainerListPage, ContainerDetailsPage,
 	ServiceListPage, ServiceDetailsPage, ServiceCreatePage,
- 	StackListPage, StackDetails,	StackCreate,
+ 	StackListPage, StackDetailsPage,	StackCreate,
 	VolumeListPage, VolumeCreatePage, VolumeDetailsPage,
 	WelcomePage,
 	CatalogPage,
