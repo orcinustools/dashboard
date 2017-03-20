@@ -55,10 +55,10 @@ export default class Mountpoints extends React.Component {
 			                <form className="form-horizontal" role="form">
 			                  <div className="form-group">
 			                    <label htmlFor="inputVolumeName" className="col-lg-3 col-sm-3 control-label">
-			                      Volume Name
+			                      Volume
 			                    </label>
 			                    <div className="col-lg-8">
-			                      <select name="selectVolumeName" id="selectVolumeName" className="selectpicker" title="Select the volume name">
+			                      <select name="selectVolumeName" id="selectVolumeName" className="form-control">
 			                        <option value="wp-vol" data-icon="fa fa-hdd-o fa-fw">
 			                          wp-vol
 			                        </option>
@@ -70,7 +70,7 @@ export default class Mountpoints extends React.Component {
 			                      Mountpoint
 			                    </label>
 			                    <div className="col-lg-8 select-container">
-			                      <select name="selectMountpoint" id="selectMountpoint" className="selectpicker" title="Select the mount point" >
+			                      <select name="selectMountpoint" id="selectMountpoint" className="form-control">
 			                        <option value="mysql-data" data-icon="fa fa-code-fork fa-fw">
 			                          mysql-data
 			                        </option>

@@ -58,8 +58,8 @@ export default class Volumes extends React.Component {
 			                      Volume Name
 			                    </label>
 			                    <div className="col-lg-8">
-			                      <select name="selectVolumeName" id="selectVolumeName" className="selectpicker" title="Select the volume name">
-			                        <option value="wp-vol" data-icon="fa fa-hdd-o fa-fw">
+			                      <select name="selectVolumeName" id="selectVolumeName" className="form-control">
+			                        <option value="wp-vol">
 			                          wp-vol
 			                        </option>
 			                      </select>
