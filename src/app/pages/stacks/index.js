@@ -1,9 +1,9 @@
 import StackListPage from "./StackListPage"
 import StackDetailsPage from "./StackDetailsPage"
-import StackCreate from "./StackCreate"
+import StackCreatePage from "./StackCreatePage"
 
 export {
 	StackListPage,
 	StackDetailsPage,
-	StackCreate
+	StackCreatePage
 }

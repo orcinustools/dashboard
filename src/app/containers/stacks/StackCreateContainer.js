@@ -1,10 +1,10 @@
 /**
  * Smart component for Stack List Page
  */
-import { connect } from "react-redux";
+import { connect } from "react-redux"
 
 // import * as actions from "../../actions";
-import { StackCreate } from "../../pages";
+import StackCreate from "../../components/stack/StackCreate"
 
 const mapStateToProps = (state) => {
 	return {
@@ -12,13 +12,10 @@ const mapStateToProps = (state) => {
 	}
 }
 
-const mapDispatchToProps = (action) => {
+const mapDispatchToProps = (dispatch) => {
 	return {
 
 	}
 }
 
-export default connect (
-	mapStateToProps,
-	mapDispatchToProps
-)(StackCreate);
+export default connect(mapStateToProps,	mapDispatchToProps)(StackCreate)

@@ -5,42 +5,27 @@ export default class StackCreate extends React.Component {
 	render() {
 		return (
 			<div>
-        <section className="content-header">
-          <h1>
-            STACK WIZARD
-          </h1>
-          <ol className="breadcrumb breadcrumb-sm">
-            <li><Link to="/">HOME</Link></li>
-            <li><Link to="/stacks">STACKS</Link></li>
-            <li className="active">WIZARD</li>
-          </ol>
-        </section>
-
         <div className="row">
           <div className="col-md-6 pull-right">
             <div className="btn-group btn-group-justified" style={{ marginBottom: '10px' }} role="group" aria-label="...">
-
               <div className="btn-group" role="group">
                 <button type="button" className="btn btn-default">
                   <i className="fa fa-check fa-fw" aria-hidden="true"></i>
                   <span className="visible-lg-inline">Create</span>
                 </button>
               </div>
-
               <div className="btn-group" role="group">
                 <button type="button" className="btn btn-info">
                   <i className="fa fa-rocket fa-fw" aria-hidden="true"></i> 
                   <span className="visible-lg-inline">Create &amp; Deploy</span>
                 </button>
               </div>
-
               <div className="btn-group" role="group">
                 <button type="button" className="btn btn-danger">
                   <i className="fa fa-times fa-fw" aria-hidden="true"></i>
                   <span className="visible-lg-inline">Cancel</span>
                 </button>
               </div>
-
             </div>
           </div>
         </div>
