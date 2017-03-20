@@ -9,7 +9,7 @@ import axios from "axios";
 // import reducer from "../reducers";
 import reducers from '../reducers';
 
-const middleware = applyMiddleware(promise(), logger(), thunk);
+const middleware = applyMiddleware(promise(), thunk, logger());
 
 const store = createStore(reducers, composeWithDevTools(middleware));
 
