@@ -1,14 +1,14 @@
 /*fix height issue on logo*/
 @font-face {
-	font-family: 'Lato';
+	font-family: 'Questrial';
 	font-style: normal;
 	font-weight: 400;
-	src:  local('Lato'),
-				url('../fonts/Lato-Regular.ttf') format('truetype');
+	src:  local('Questrial'),
+				url('../fonts/Questrial-Regular.ttf') format('truetype');
 }
 
 body {
-	font-family: "Lato";
+	font-family: "Questrial";
 }
 
 body > #app .header .logo img {
