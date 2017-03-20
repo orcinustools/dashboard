@@ -39,7 +39,7 @@ export default class StackList extends React.Component {
               </table>
             </div>
             <div className="panel-footer">
-              <Link to="/catalog" className="btn btn-primary btn-block">CREATE NEW STACK</Link>
+              <Link to="/catalog" className="btn btn-primary btn-block">CREATE NEW PROJECT</Link>
             </div>
           </div>
         </div>

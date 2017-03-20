@@ -9,11 +9,11 @@ export default class StackListPage extends React.Component {
 			<div>
         <section className="content-header">
           <h1>
-            STACKS
+            PROJECTS
           </h1>
           <ol className="breadcrumb breadcrumb-sm">
             <li><Link to="/">HOME</Link></li>
-            <li className="active">STACKS</li>
+            <li className="active">PROJECTS</li>
           </ol>
         </section>
 
