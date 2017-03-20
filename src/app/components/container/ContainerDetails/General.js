@@ -72,7 +72,7 @@ export default class General extends React.Component {
                   <div className="col-sm-10">
                     <p className="form-control-static">
                       <i className="fa fa-clock-o fa-fw" aria-hidden="true"></i> 
-                      { moment(this.props.created).format("dddd, MMMM Do YYYY, h:mm:ss a") }
+                      { moment(this.props.created).format("MMMM Do YYYY, h:mm:ss a") }
                     </p>
                   </div>
                 </div>

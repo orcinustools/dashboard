@@ -8,14 +8,14 @@ export default class Mountpoints extends React.Component {
         <div className="col-xs-12">
           <div className="panel">
             <header className="panel-heading">
-              Mountpoint
+              Mountpoints
             </header>
             <div className="panel-body">
               <table className="table table-hover">
                 <thead>
                   <tr>
                     <th>Name</th>
-                    <th>Volume Name</th>
+                    <th>Volume</th>
                     <th>Used</th>
                     <th>Source</th>
                     <th>Target</th>

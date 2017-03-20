@@ -10,7 +10,8 @@ import { fetchContainer } from "../../actions/containerActions";
 const mapStateToProps = (state) => {
 	return {
 		container: state.containerState.activeContainer.container,
-		fetching: state.containerState.activeContainer.fetching
+		fetching: state.containerState.activeContainer.fetching,
+		fetched: state.containerState.activeContainer.fetched
 	}
 }
 

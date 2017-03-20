@@ -1,7 +1,7 @@
 const initialState = {
-	containersList: { containers: [], fetching: false, error: null },
-	activeContainer: { container: {}, fetching: false, error: null },
-	newContainer: { container: {}, fetching: false, error: null }
+	containersList: { containers: [], fetching: false, fetched: false, error: null },
+	activeContainer: { container: {}, fetching: false, fetched: false, error: null },
+	newContainer: { container: {}, fetching: false, fetched: false, error: null }
 }
 
 export default function reducer (state = initialState, action) {
@@ -21,7 +21,7 @@ export default function reducer (state = initialState, action) {
 		case "FETCH_CONTAINER_PENDING":
 			return { ...state, activeContainer: { container: {}, fetching: true, error: null } }
 		case "FETCH_CONTAINER_FULFILLED": 
-			return { ...state, activeContainer: { container: action.payload.data, fetching: false, error: null } }
+			return { ...state, activeContainer: { container: action.payload.data, fetching: false, fetched: true, error: null } }
 		case "FETCH_CONTAINER_REJECTED":
 			error = action.payload || {message: action.payload.message};
 			return { ...state, activeContainer: { container: {}, fetching: false, error: error } }

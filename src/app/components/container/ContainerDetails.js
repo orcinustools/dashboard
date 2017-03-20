@@ -15,7 +15,7 @@ export default class ContainerDetails extends React.Component {
   }
 
 	render() {
-    const { container, fetching } = this.props;
+    const { container, fetching, fetched } = this.props;
 
     if (fetching) {
       return <h1>Fetching</h1>;
@@ -25,11 +25,13 @@ export default class ContainerDetails extends React.Component {
 			<div>
         <ActionButton />
 
-        <General 
-          name={container.Name}
-          image={container.Config && container.Config.Image}
-          volumeTotal= {container.Mounts && container.Mounts.length}
-          created={container.Created} />
+        { fetched &&
+          <General 
+            name={container.Name}
+            image={container.Config.Image}
+            volumeTotal={container.Mounts.length}
+            created={container.Created} />
+        }
 
         <Volumes />
 
