@@ -26,10 +26,10 @@ export default class Ports extends React.Component {
 			        <table className="table table-hover">
 			          <thead>
 			            <tr>
-			              <th>Container Port</th>
+			              <th>Container</th>
 			              <th>Protocol</th>
 			              <th>Publish</th>
-			              <th>Host Port</th>
+			              <th>Host</th>
 			            </tr>
 			          </thead>
 			          <tbody className="table-stack-list">

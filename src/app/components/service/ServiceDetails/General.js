@@ -20,21 +20,31 @@ export default class General extends React.Component {
 			            </div>
 			          </div>
 			          <div className="form-group">
-			            <label className="col-sm-2 control-label">IMAGE TAG</label>
+			            <label className="col-sm-2 control-label">TEMPLATE</label>
 			            <div className="col-sm-10">
 			              <p className="form-control-static d-inline-block" style={{ marginRight: '10px' }}>
-			                <i className="fa fa-tag fa-fw" aria-hidden="true"></i> orcinus.io/wordpress
+			                Wordpress
 			              </p>
-			              <select name="imageTag" id="imageTag" className="selectpicker" data-width="fit">
-			                <option value="latest">latest</option>
-			                <option value="beta">beta</option>
-			              </select>
 			            </div>
 			          </div>
 			          <div className="form-group">
-			            <label className="col-sm-2 control-label">STACK NAME</label>
+			            <label className="col-sm-2 control-label">IMAGE</label>
 			            <div className="col-sm-10">
-			              <select name="selectStackName" id="selectStackName" className="selectpicker" data-width="fit">
+			              <p className="form-control-static d-inline-block pull-left" style={{ marginRight: '10px' }}>
+			                <i className="fa fa-tag fa-fw" aria-hidden="true"></i> orcinus.io/wordpress
+			              </p>
+			              <div className="col-md-2">
+				              <select name="imageTag" id="imageTag" className="form-control" style={{display: 'inline-block'}} data-width="fit">
+				                <option value="latest">latest</option>
+				                <option value="beta">beta</option>
+				              </select>
+			              </div>
+			            </div>
+			          </div>
+			          <div className="form-group">
+			            <label className="col-sm-2 control-label">PROJECT NAME</label>
+			            <div className="col-sm-5">
+			              <select name="selectStackName" id="selectStackName" className="form-control">
 			                <option value="wordpress-app" data-icon="fa fa-server fa-fw"> Wordpress-app</option>
 			              </select>
 			            </div>
@@ -55,7 +65,7 @@ export default class General extends React.Component {
 			            <label className="col-sm-2 control-label">CONTAINERS</label>
 			            <div className="col-sm-10">
 			              <p className="form-control-static">
-			                <i className="fa fa-cube fa-fw" aria-hidden="true"></i> 1 Container
+			                <i className="fa fa-cube fa-fw" aria-hidden="true"></i> 1 Containers
 			              </p>
 			            </div>
 			          </div>
@@ -63,12 +73,12 @@ export default class General extends React.Component {
 			            <label className="col-sm-2 control-label">VOLUMES</label>
 			            <div className="col-sm-10">
 			              <p className="form-control-static">
-			                <i className="fa fa-hdd-o fa-fw" aria-hidden="true"></i> 1 Volume
+			                <i className="fa fa-hdd-o fa-fw" aria-hidden="true"></i> 1 Volumes
 			              </p>
 			            </div>
 			          </div>
 			          <div className="form-group">
-			            <label className="col-sm-2 control-label">AUTO RESTART</label>
+			            <label className="col-sm-2 control-label">AUTO START</label>
 			            <div className="col-sm-4">
 			              <label className="radio-inline">
 			                <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" />  Off
@@ -77,24 +87,24 @@ export default class General extends React.Component {
 			                <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" /> On Failure
 			              </label>
 			              <label className="radio-inline"> 
-			                <input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" /> Always
+			                <input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" checked={true}/> Always
 			              </label>
 			            </div>
 			          </div>
-			          <div className="form-group">
+			          {/*<div className="form-group">
 			            <label className="col-sm-2 control-label">AUTO REDEPLOY</label>
 			            <div className="col-sm-4">
 			              <label className="checkbox-inline">
 			                <input type="checkbox" id="inlineCheckbox1" defaultValue="yes" /> Yes
 			              </label>
 			            </div>
-			          </div>
+			          </div>*/}
 			          <div className="form-group">
 			            <label className="col-sm-2 control-label">CREATED AT</label>
 			            <div className="col-sm-10">
 			              <p className="form-control-static">
 			                <i className="fa fa-clock-o fa-fw" aria-hidden="true"></i>
-			                { moment(this.props.created).format("dddd, MMMM Do YYYY, h:mm:ss a") }
+			                { moment(this.props.created).format("MMMM Do YYYY, h:mm:ss a") }
 			              </p>
 			            </div>
 			          </div>
@@ -103,7 +113,7 @@ export default class General extends React.Component {
 			            <div className="col-sm-10">
 			              <p className="form-control-static">
 			                <i className="fa fa-clock-o fa-fw" aria-hidden="true"></i>
-			                { moment(this.props.updated).format("dddd, MMMM Do YYYY, h:mm:ss a") }
+			                { moment(this.props.updated).format("MMMM Do YYYY, h:mm:ss a") }
 			              </p>
 			            </div>
 			          </div>

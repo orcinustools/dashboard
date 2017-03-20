@@ -16,7 +16,6 @@ export default class Volumes extends React.Component {
 			            <tr>
 			              <th>Name</th>
 			              <th>Size</th>
-			              <th>Type</th>
 			              <th>Status</th>
 			              <th>Used</th>
 			              <th></th>
@@ -26,7 +25,6 @@ export default class Volumes extends React.Component {
 			            <tr>
 			              <td><i className="fa fa-hdd-o fa-fw" aria-hidden="true"></i> <Link to="/volumes/wp-vol">wp-vol</Link></td>
 			              <td>2GB</td>
-			              <td>nfs</td>
 			              <td>
 			                <span className="label label-success">Mounted</span>
 			              </td>

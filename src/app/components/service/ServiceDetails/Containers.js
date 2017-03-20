@@ -14,9 +14,9 @@ export default class Containers extends React.Component {
 			        <table className="table table-hover">
 			          <thead>
 			            <tr>
-			              <th>Container Name</th>
+			              <th>Name</th>
 			              <th>Status</th>
-			              <th>Image tag</th>
+			              <th>Image</th>
 			              <th>Info</th>
 			              <th>Action</th>
 			            </tr>

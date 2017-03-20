@@ -15,7 +15,7 @@ export default class Mountpoints extends React.Component {
 			          <thead>
 			            <tr>
 			              <th>Name</th>
-			              <th>Volume Name</th>
+			              <th>Volume</th>
 			              <th>Used</th>
 			              <th>Source</th>
 			              <th>Target</th>
