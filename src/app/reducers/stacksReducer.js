@@ -1,8 +1,7 @@
 const initialState = {
-	stackList: [],
-	fetching: false,
-	fetched: false,
-	error: null
+	stacksList: { stacks: [], fetching: false, fetched: false, error: null },
+	activeStack: { stack: {}, fetching: false, fetched: false, error: null },
+	newStack: { stack: null, fetching: false, fetched: false, error: null }
 }
 
 export default function reducer (state = initialState, action) {
@@ -15,8 +14,9 @@ export default function reducer (state = initialState, action) {
 		case "FETCH_STACKS_FULFILLED": {
 			return { 
 				...state, 
+				fethced: true,
 				fetching: false, 
-				stackList: action.payload.data,
+				stacks: action.payload.data,
 			}
 		}
 
