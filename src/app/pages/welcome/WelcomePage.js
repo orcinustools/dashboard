@@ -12,7 +12,7 @@ export default class WelcomePage extends React.Component {
               <h1 className="text-center text-bg">Welcome to Orcinus Dashboard</h1>
               <p className="welcome-greet">There is no application in your project. Let's create your first stack.</p>
 
-              <Link to="/catalog" className="btn btn-info btn-create btn-lg">CREATE STACK</Link>
+              <Link to="/catalog" className="btn btn-info btn-create btn-lg">CREATE PROJECT</Link>
             </div>
           </div>
         </div>
