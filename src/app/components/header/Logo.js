@@ -1,7 +1,7 @@
-import React from "react";
-import { Link } from "react-router";
+import React from "react"
+import { Link } from "react-router"
 
-import OrcinusLogo from "../../assests/images/logo/OrcinusFix_Logotype_white.svg"
+import OrcinusLogo from "../../assests/images/logo/orcinus-logo-header.svg"
 
 export default class Logo extends React.Component {
 	render() {
@@ -9,6 +9,6 @@ export default class Logo extends React.Component {
 		  <Link to={ "/" } className="logo">
 	      <img src={ OrcinusLogo } className="img-responsive" alt="Orcinus Logo" />
 		  </Link>
-		);
+		)
 	}
 }
