@@ -12,7 +12,7 @@ export default class StackListPage extends React.Component {
             STACKS
           </h1>
           <ol className="breadcrumb breadcrumb-sm">
-            <li><a href="index.html">HOME</a></li>
+            <li><Link to="/">HOME</Link></li>
             <li className="active">STACKS</li>
           </ol>
         </section>
