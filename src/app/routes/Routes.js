@@ -19,28 +19,34 @@ import {
 } from "../pages";
 
 export default class Routes extends React.Component {
+
+	scrollToTop() {
+	  window.scrollTo(0, 0);
+	}
+
 	render() {
 		return (
 			<Router history={ browserHistory }>
 				<Route path={ "/" } component= { AppConnected }>
-					<IndexRoute component={ WelcomePage } />
-					<Route path={ "/overview" } component={ OverviewPage } />
-					<Route path={ "/catalog" } component={ CatalogListPage } />
-					<Route path={ "/stacks" } component={ StackListPage } />
-					<Route path={ "/stacks/new" } component={ StackCreatePage } />
-					<Route path={ "/stacks/:Id" } component={ StackDetailsPage } />
-					<Route path={ "/services" } component={ ServiceListPage } />
-					<Route path={ "/services/new" } component={ ServiceCreatePage } />
-					<Route path={ "/services/:Id" } component={ ServiceDetailsPage } />
-					<Route path={ "/containers" } component={ ContainerListPage }/>
-					<Route path={ "/containers/:Id" } component={ ContainerDetailsPage } />
-					<Route path={ "/volumes" } component={ VolumeListPage } />
-					<Route path={ "/volumes/new" } component={ VolumeCreateConnected } />
-					<Route path={ "/volumes/:volumeName" } component={ VolumeDetailsPage } />
-					<Route path={ "/firewalls" } component={ FirewallPage } />
-					<Route path={ "*" } component={ PageNotFoundPage } />
+					<IndexRoute component={ WelcomePage } onEnter={this.scrollToTop} />
+					<Route path={ "/overview" } component={ OverviewPage } onEnter={this.scrollToTop} />
+					<Route path={ "/catalog" } component={ CatalogListPage } onEnter={this.scrollToTop} />
+					<Route path={ "/stacks" } component={ StackListPage } onEnter={this.scrollToTop} />
+					<Route path={ "/stacks/new" } component={ StackCreatePage } onEnter={this.scrollToTop} />
+					<Route path={ "/stacks/:Id" } component={ StackDetailsPage } onEnter={this.scrollToTop} />
+					<Route path={ "/services" } component={ ServiceListPage } onEnter={this.scrollToTop} />
+					<Route path={ "/services/new" } component={ ServiceCreatePage } onEnter={this.scrollToTop} />
+					<Route path={ "/services/:Id" } component={ ServiceDetailsPage } onEnter={this.scrollToTop} />
+					<Route path={ "/containers" } component={ ContainerListPage } onEnter={this.scrollToTop} />
+					<Route path={ "/containers/:Id" } component={ ContainerDetailsPage } onEnter={this.scrollToTop} />
+					<Route path={ "/volumes" } component={ VolumeListPage } onEnter={this.scrollToTop} />
+					<Route path={ "/volumes/new" } component={ VolumeCreateConnected } onEnter={this.scrollToTop} />
+					<Route path={ "/volumes/:volumeName" } component={ VolumeDetailsPage } onEnter={this.scrollToTop} />
+					<Route path={ "/firewalls" } component={ FirewallPage } onEnter={this.scrollToTop} />
+					<Route path={ "*" } component={ PageNotFoundPage } onEnter={this.scrollToTop} />
 				</Route>
 			</Router>
 		);
 	}
 }
+
