@@ -32,6 +32,11 @@ export default class SidebarMenu extends React.Component {
             <i className="fa fa-hdd-o fa-fw"></i><span>&nbsp; Volumes</span>
           </Link>
         </li>
+        {/*<li>
+          <Link to="/mountpoints">
+            <i className="fa fa-code-fork fa-fw"></i><span>&nbsp; Mountpoints</span>
+          </Link>
+        </li>*/}
         <li>
           <Link to="/firewalls">
             <i className="fa fa-fire fa-fw"></i><span>&nbsp; Firewalls</span>
