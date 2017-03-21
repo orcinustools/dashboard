@@ -10,7 +10,7 @@ export default class StackListItem extends React.Component {
 	render() {
 		return (
 	    <tr>
-	      <td>{ this.props.id }</td>
+	      <td>{ this.props.id.substr(0, 6) }</td>
 	      <td><Link to="/stacks/wordpress-app">{ this.props.name }</Link></td>
 	      <td><span className="label label-success">RUNNING</span></td>
 	      <td>

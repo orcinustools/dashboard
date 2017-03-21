@@ -5,7 +5,7 @@ export default class ContainerListItem extends React.Component {
 	render() {
 		return (
       <tr>
-        <td>{ this.props.id }</td>
+        <td>{ this.props.id.substr(0, 6) }</td>
         <td><Link to={"/containers/" + this.props.id }>{ this.props.name }</Link></td>
         <td><span className="label label-success">{ this.props.state }</span></td>
         <td>
