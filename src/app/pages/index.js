@@ -6,7 +6,7 @@ import { VolumeListPage, VolumeCreatePage, VolumeDetailsPage } from "./volumes"
 import WelcomePage from "./welcome/WelcomePage"
 import OverviewPage from "./overview/OverviewPage"
 import PageNotFoundPage from "./pagenotfound/PageNotFoundPage"
-import CatalogPage from "./catalog/CatalogPage"
+import { CatalogListPage, CatalogDetailsPage } from "./catalog"
 import FirewallPage from "./firewalls/FirewallPage"
 
 export {
@@ -17,7 +17,7 @@ export {
 	VolumeListPage, VolumeCreatePage, VolumeDetailsPage,
 	FirewallPage,
 	WelcomePage,
-	CatalogPage,
+	CatalogListPage, CatalogDetailsPage,
 	OverviewPage,
 	PageNotFoundPage,
 }

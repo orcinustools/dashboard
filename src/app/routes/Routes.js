@@ -10,7 +10,7 @@ import {
 	PageNotFoundPage,
 	WelcomePage,
 	OverviewPage,
-	CatalogPage,
+	CatalogListPage,
 	StackListPage, StackDetailsPage, StackCreatePage,
 	ServiceListPage, ServiceCreatePage, ServiceDetailsPage,
 	ContainerListPage, ContainerDetailsPage,
@@ -25,7 +25,7 @@ export default class Routes extends React.Component {
 				<Route path={ "/" } component= { AppConnected }>
 					<IndexRoute component={ WelcomePage } />
 					<Route path={ "/overview" } component={ OverviewPage } />
-					<Route path={ "/catalog" } component={ CatalogPage } />
+					<Route path={ "/catalog" } component={ CatalogListPage } />
 					<Route path={ "/stacks" } component={ StackListPage } />
 					<Route path={ "/stacks/new" } component={ StackCreatePage } />
 					<Route path={ "/stacks/:Id" } component={ StackDetailsPage } />
