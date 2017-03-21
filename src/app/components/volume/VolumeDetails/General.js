@@ -14,28 +14,32 @@ export default class General extends React.Component {
             <div className="panel-body">
               <div className="form-horizontal">
                 <div className="form-group">
-                  <div className="col-sm-2"><b>VOLUME NAME</b></div>
-                  <div className="col-sm-10">{ this.props.name }</div>
+                  <label className="col-sm-2 control-label">VOLUME</label>
+			              <p className="form-control-static">
+			                { this.props.name }
+			              </p>
                 </div>
                 <div className="form-group">
-                  <div className="col-sm-2"><b>SIZE</b></div>
-                  <div className="col-sm-10">
+                  <label className="col-sm-2 control-label">SIZE</label>
+                  <p className="form-control-static">
                     2 GB
-                  </div>
+                  </p>
                 </div>
                 <div className="form-group">
-                  <div className="col-sm-2"><b>TYPE</b></div>
-                  <div className="col-sm-10">
+                  <label className="col-sm-2 control-label">TYPE</label>
+                  <p className="form-control-static">
                     NFS
-                  </div>
+                  </p>
                 </div>
                 <div className="form-group">
-                  <div className="col-sm-2"><b>MOUNTPOINT</b></div>
-                  <div className="col-sm-10">3</div>
+                  <label className="col-sm-2 control-label">MOUNTPOINT</label>
+                  <p className="form-control-static">3</p>
                 </div>
                 <div className="form-group">
-                  <div className="col-sm-2"><b>CREATED AT</b></div>
-                  <div className="col-sm-10">Mon Feb 13 2017 17:59:04 GMT+0700 (WIB)</div>
+                  <label className="col-sm-2 control-label">CREATED AT</label>
+                  <p className="form-control-static">
+                  	Mon Feb 13 2017 17:59:04 GMT+0700 (WIB)
+                  </p>
                 </div>
               </div>
             </div>

@@ -14,7 +14,7 @@ export default class StackList extends React.Component {
               <table className="table table-hover">
                 <thead>
                   <tr>
-                    <th>Stack Name</th>
+                    <th>Name</th>
                     <th>Mountpoint</th>
                     <th>Status</th>
                     <th>Used</th>
@@ -25,13 +25,22 @@ export default class StackList extends React.Component {
                   <tr>
                     <td>
                       <i className="fa fa-server fa-fw" aria-hidden="true"></i>
-                      <Link to="/stacks/Wordpress-app">Wordpress-app</Link>
+                      <Link to="/stacks/Wordpress-app">&nbsp; Wordpress-app</Link>
                     </td>
                     <td>
                       <ul className="list-child">
-                        <li><i className="fa fa-code-fork fa-fw" aria-hidden="true"></i> codeBase</li>
-                        <li><i className="fa fa-code-fork fa-fw" aria-hidden="true"></i> web-logs</li>
-                        <li><i className="fa fa-code-fork fa-fw" aria-hidden="true"></i> mysql-data</li>
+                        <li>
+                          <i className="fa fa-code-fork fa-fw" aria-hidden="true"></i>
+                          &nbsp; codeBase
+                        </li>
+                        <li>
+                          <i className="fa fa-code-fork fa-fw" aria-hidden="true"></i>
+                          &nbsp; web-logs
+                        </li>
+                        <li>
+                          <i className="fa fa-code-fork fa-fw" aria-hidden="true"></i>
+                          &nbsp; mysql-data
+                        </li>
                       </ul>
                     </td>
                     <td>

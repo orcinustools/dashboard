@@ -25,7 +25,7 @@ export default class General extends React.Component {
 			          <div className="form-group">
 			            <label className="col-sm-2 control-label">TEMPLATE</label>
 			            <div className="col-sm-10">
-			              <p className="form-control-static d-inline-block" style={{ marginRight: '10px' }}>
+			              <p className="form-control-static d-inline-block">
 			                Wordpress
 			              </p>
 			            </div>
@@ -45,7 +45,7 @@ export default class General extends React.Component {
 			            </div>
 			          </div>
 			          <div className="form-group">
-			            <label className="col-sm-2 control-label">PROJECT NAME</label>
+			            <label className="col-sm-2 control-label">PROJECT</label>
 			            <div className="col-sm-5">
 			              <select name="selectStackName" id="selectStackName" className="form-control">
 			                <option value="wordpress-app" data-icon="fa fa-server fa-fw"> Wordpress-app</option>

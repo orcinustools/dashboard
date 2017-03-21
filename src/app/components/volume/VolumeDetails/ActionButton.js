@@ -11,21 +11,21 @@ export default class ActionButton extends React.Component {
             <div className="btn-group" role="group">
               <button type="button" className="btn btn-default">
                 <i className="fa fa-pencil-square-o fa-fw" aria-hidden="true"></i>
-                <span className="visible-lg-inline">Update</span>
+                <span className="visible-lg-inline">&nbsp; Update</span>
               </button>
             </div>
 
             <div className="btn-group" role="group">
               <button type="button" className="btn btn-info">
                 <i className="fa fa-cloud-download fa-fw" aria-hidden="true"></i>
-                <span className="visible-lg-inline">Backup Volume</span>
+                <span className="visible-lg-inline">&nbsp; Backup Volume</span>
               </button>
             </div>
 
             <div className="btn-group" role="group">
               <button type="button" className="btn btn-danger">
                 <i className="fa fa-trash-o fa-fw" aria-hidden="true"></i>
-                <span className="visible-lg-inline">Terminate</span>
+                <span className="visible-lg-inline">&nbsp; Terminate</span>
               </button>
             </div>
 

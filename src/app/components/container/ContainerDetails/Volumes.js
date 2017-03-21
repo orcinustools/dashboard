@@ -16,16 +16,17 @@ export default class Volumes extends React.Component {
                   <tr>
                     <th>Name</th>
                     <th>Size</th>
-                    <th>Type</th>
                     <th>Source</th>
                     <th>Target</th>
                   </tr>
                 </thead>
                 <tbody className="table-stack-list">
                   <tr>
-                    <td><i className="fa fa-hdd-o fa-fw" aria-hidden="true"></i> <Link to="/volumes/wp-vol">wp-vol</Link></td>
+                    <td>
+                      <i className="fa fa-hdd-o fa-fw" aria-hidden="true"></i> 
+                      <Link to="/volumes/wp-vol">&nbsp; wp-vol</Link>
+                    </td>
                     <td>2GB</td>
-                    <td>nfs</td>
                     <td>/data/logs</td>
                     <td>/var/nginx/logs</td>
                   </tr>

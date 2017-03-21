@@ -35,7 +35,7 @@ export default class Environtments extends React.Component {
 			                <input type="text" className="form-control" />
 			              </td>
 			              <td>
-			                <i className="fa fa-plus-square fa-2x" aria-hidden="true" onClick={ () => alert("Clicked") }></i>
+			                <i className="fa fa-plus-square" aria-hidden="true" onClick={ () => alert("Clicked") }></i>
 			              </td>
 			            </tr>
 			          </tbody>

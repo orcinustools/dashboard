@@ -14,29 +14,29 @@ export default class VolumeCreate extends React.Component {
               <form className="form-horizontal" role="form">
 
                 <div className="form-group">
-                  <label htmlFor="volumeName" className="col-md-2 col-sm-2 control-label">Volume Name</label>
-                  <div className="col-md-10">
+                  <label htmlFor="volumeName" className="col-md-2 col-sm-2 control-label">Name</label>
+                  <div className="col-md-8">
                     <input type="text" className="form-control" id="volumeName" placeholder="Volume name" />
-                    <p className="help-block">Example block-level help text here.</p>
+                    {/*<p className="help-block">Example block-level help text here.</p>*/}
                   </div>
                 </div>
 
                 <div className="form-group">
                   <label htmlFor="volumeSize" className="col-md-2 col-sm-2 control-label">Size</label>
-                  <div className="col-md-10">
+                  <div className="col-md-8">
                     <input type="text" className="form-control" id="volumeSize" placeholder="Volume size" />
                   </div>
                 </div>
 
-                <div className="form-group">
+                {/*<div className="form-group">
                   <label htmlFor="volumeType" className="col-md-2 col-sm-2 control-label">Type</label>
-                  <div className="col-md-10">
-                    <select className="selectpicker" id="volumeType">
+                  <div className="col-md-3">
+                    <select className="form-control" id="volumeType">
                       <option value="bind">Bind</option>
                       <option value="nfs">NFS</option>
                     </select>
                   </div>
-                </div>
+                </div>*/}
 
                 <div className="form-group">
                   <div className="col-md-offset-2 col-md-10">

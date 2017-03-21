@@ -14,10 +14,10 @@ export default class Ports extends React.Component {
               <table className="table table-hover">
                 <thead>
                   <tr>
-                    <th>Container Port</th>
+                    <th>Container</th>
                     <th>Protocol</th>
                     <th>Publish</th>
-                    <th>Host Port</th>
+                    <th>Host</th>
                   </tr>
                 </thead>
                 <tbody className="table-stack-list">
@@ -106,7 +106,7 @@ export default class Ports extends React.Component {
                       <form className="form-horizontal" role="form">
                         <div className="form-group">
                           <label htmlFor="inputContainerPort" className="col-lg-3 col-sm-3 control-label">
-                            Container Port
+                            Container
                           </label>
                           <div className="col-lg-8">
                             <input type="text" className="form-control" id="inputContainerPort" placeholder="Container Port" />
@@ -117,7 +117,7 @@ export default class Ports extends React.Component {
                             Protocol
                           </label>
                           <div className="col-lg-3">
-                            <select name="inputProtocol" id="inputProtocol" className="selectpicker" data-width="fit">
+                            <select name="inputProtocol" id="inputProtocol" className="form-control">
                               <option value="tcp">TCP</option>
                               <option value="udp">UDP</option>
                             </select>
@@ -134,7 +134,7 @@ export default class Ports extends React.Component {
                           </div>
                         </div>
                         <div className="form-group">
-                          <label htmlFor="inputHostPort" className="col-lg-3 col-sm-3 control-label">Host Port</label>
+                          <label htmlFor="inputHostPort" className="col-lg-3 col-sm-3 control-label">Host</label>
                           <div className="col-lg-8">
                             <input type="text" className="form-control" id="inputHostPort" placeholder="Host Port" />
                           </div>

@@ -14,7 +14,7 @@ export default class ContainerList extends React.Component {
               <table className="table table-hover">
                 <thead>
                   <tr>
-                    <th>Container Name</th>
+                    <th>Name</th>
                     <th>Mountpoint</th>
                     <th>Status</th>
                     <th>Used</th>
@@ -23,11 +23,20 @@ export default class ContainerList extends React.Component {
                 </thead>
                 <tbody className="table-stack-list">
                   <tr>
-                    <td><i className="fa fa-cube fa-fw" aria-hidden="true"></i> <Link to="/containers/wp-app-1">wp-app.1</Link></td>
+                    <td>
+                    	<i className="fa fa-cube fa-fw" aria-hidden="true"></i>
+                    	<Link to="/containers/wp-app-1">&nbsp; wp-app.1</Link>
+                    </td>
                     <td>
                       <ul className="list-child">
-                        <li><i className="fa fa-code-fork fa-fw" aria-hidden="true"></i> codeBase</li>
-                        <li><i className="fa fa-code-fork fa-fw" aria-hidden="true"></i> web-logs</li>
+                        <li>
+                        	<i className="fa fa-code-fork fa-fw" aria-hidden="true"></i>
+                      		&nbsp; codeBase
+                      	</li>
+                        <li>
+                        	<i className="fa fa-code-fork fa-fw" aria-hidden="true"></i>
+                        	&nbsp; web-logs
+                      	</li>
                       </ul>
                     </td>
                     <td>
@@ -44,10 +53,16 @@ export default class ContainerList extends React.Component {
                     </td>
                   </tr>
                   <tr>
-                    <td><i className="fa fa-cube fa-fw" aria-hidden="true"></i> <Link to="/containers/wp-db-1">wp-db.1</Link></td>
+                    <td>
+                    	<i className="fa fa-cube fa-fw" aria-hidden="true"></i>
+                    	<Link to="/containers/wp-db-1">&nbsp; wp-db.1</Link>
+                    </td>
                     <td>
                       <ul className="list-child">
-                        <li><i className="fa fa-code-fork fa-fw" aria-hidden="true"></i> mysql-data</li>
+                        <li>
+                        	<i className="fa fa-code-fork fa-fw" aria-hidden="true"></i>
+                        	&nbsp; mysql-data
+                        </li>
                       </ul>
                     </td>
                     <td>

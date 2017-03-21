@@ -14,7 +14,7 @@ export default class Mountpoints extends React.Component {
               <table className="table table-hover">
                 <thead>
                   <tr>
-                    <th>Mountpoint Name</th>
+                    <th>Name</th>
                     <th>Used</th>
                     <th>Source</th>
                     <th>Target</th>
@@ -23,7 +23,10 @@ export default class Mountpoints extends React.Component {
                 </thead>
                 <tbody className="table-stack-list">
                   <tr>
-                    <td><i className="fa fa-code-fork fa-fw" aria-hidden="true"></i> <Link to="/volumes/codeBase">codeBase</Link></td>
+                    <td>
+                      <i className="fa fa-code-fork fa-fw" aria-hidden="true"></i>
+                      <Link to="/volumes/codeBase">&nbsp; codeBase</Link>
+                    </td>
                     <td>2 MB of 2 GB</td>
                     <td>/wp-vol/src/</td>
                     <td>/var/www/wp-app/</td>
@@ -37,7 +40,10 @@ export default class Mountpoints extends React.Component {
                     </td>
                   </tr>
                   <tr>
-                    <td><i className="fa fa-code-fork fa-fw" aria-hidden="true"></i> <Link to="/volumes/web-logs">web-logs</Link></td>
+                    <td>
+                      <i className="fa fa-code-fork fa-fw" aria-hidden="true"></i>
+                      <Link to="/volumes/web-logs">&nbsp; web-logs</Link>
+                    </td>
                     <td>2 MB of 2 GB</td>
                     <td>/wp-vol/logs/</td>
                     <td>/var/nginx/logs/</td>
@@ -51,7 +57,10 @@ export default class Mountpoints extends React.Component {
                     </td>
                   </tr>
                   <tr>
-                    <td><i className="fa fa-code-fork fa-fw" aria-hidden="true"></i> <Link to="/volumes/mysql-data">mysql-data</Link></td>
+                    <td>
+                      <i className="fa fa-code-fork fa-fw" aria-hidden="true"></i>
+                      <Link to="/volumes/mysql-data">&nbsp; mysql-data</Link>
+                    </td>
                     <td>2 MB of 2 GB</td>
                     <td>/wp-vol/mysql-data/ </td>
                     <td>/var/lib/mysql/</td>
