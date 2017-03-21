@@ -47,18 +47,20 @@ export default class StackCreate extends React.Component {
                   <div className="form-group">
                     <label className="col-sm-2 control-label">IMAGE</label>
                     <div className="col-sm-9">
-                      <p className="form-control-static d-inline-block" style={{ marginRight: '10px'}}>
+                      <p className="form-control-static d-inline-block pull-left" style={{ marginRight: '10px'}}>
                         <i className="fa fa-tag fa-fw" aria-hidden="true"></i> orcinus.io/wordpress
                       </p>
-                      <select name="image-tag" id="image-tag" className="selectpicker" data-width="fit">
-                        <option value="latest">latest</option>
-                        <option value="3.6.5-apache">3.6.5-apache</option>
-                        <option value="4.0.0-apache">4.0.0-apache</option>
-                      </select>
+                      <div className="col-md-3">
+                        <select name="image-tag" id="image-tag" className="form-control">
+                          <option value="latest">latest</option>
+                          <option value="3.6.5-apache">3.6.5-apache</option>
+                          <option value="4.0.0-apache">4.0.0-apache</option>
+                        </select>
+                      </div>
                     </div>
                   </div>
                   <div className="form-group">
-                    <label className="col-sm-2 control-label">AUTO RESTART</label>
+                    <label className="col-sm-2 control-label">AUTO START</label>
                     <div className="col-sm-4">
                       <label className="radio-inline">
                         <input type="radio" name="inlineRadioOptions" id="inlineRadio1" defaultValue="option1" />  Off
@@ -72,7 +74,7 @@ export default class StackCreate extends React.Component {
                     </div>
                   </div>
                   <div className="form-group">
-                    <label className="col-sm-2 control-label">AUTO REDEPLOY</label>
+                    <label className="col-sm-2 control-label">AUTO DEPLOY</label>
                     <div className="col-sm-4">
                       <label className="checkbox-inline">
                         <input type="checkbox" id="inlineCheckbox1" defaultValue="yes" /> Yes
@@ -104,9 +106,9 @@ export default class StackCreate extends React.Component {
                   <tbody className="table-stack-list">
                     <tr>
                       <td><i className="fa fa-cubes fa-fw" aria-hidden="true"></i> 
-                        <Link to="/services/wp-app">wp-app</Link>
+                        &nbsp; wp-app
                       </td>
-                      <td><span className="label label-default">NOT RUNNING</span></td>
+                      <td><span className="label label-default">STOPPED</span></td>
                       <td>
                         <ul className="list-child">
                           <li><i className="fa fa-cube fa-fw" aria-hidden="true"></i> 1 Container</li>
@@ -131,9 +133,9 @@ export default class StackCreate extends React.Component {
                     </tr>
                     <tr>
                       <td><i className="fa fa-cubes fa-fw" aria-hidden="true"></i>
-                        <Link to="/services/wp-db">wp-db</Link>
+                        &nbsp; wp-db
                       </td>
-                      <td><span className="label label-default">NOT RUNNING</span></td>
+                      <td><span className="label label-default">STOPPED</span></td>
                       <td>
                         <ul className="list-child">
                           <li><i className="fa fa-cube fa-fw" aria-hidden="true"></i> 1 Container</li>
