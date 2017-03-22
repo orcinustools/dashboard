@@ -1,9 +1,10 @@
 import React 		from "react"
 import { Link } from "react-router"
 import moment 	from "moment"
+import { Tooltip, OverlayTrigger } from "react-bootstrap"
 
 export default class General extends React.Component {
-
+	
 	
 	render() {
 	
@@ -17,7 +18,14 @@ export default class General extends React.Component {
 			      <div className="panel-body">
 			        <div className="form-horizontal">
 			          <div className="form-group">
-			            <label className="col-sm-2 control-label">SERVICE NAME</label>
+			            <label className="col-sm-2 control-label">
+								    <OverlayTrigger
+								    		trigger={['hover', 'focus']}
+								    		placement="bottom"
+								    		overlay={tooltipName}>
+								      <span>NAME</span>
+								    </OverlayTrigger>
+			            </label>
 			            <div className="col-sm-10">
 			              <input 
 			              	type="text"
@@ -133,14 +141,14 @@ export default class General extends React.Component {
 			              </label>
 			            </div>
 			          </div>
-			          {/*<div className="form-group">
-			            <label className="col-sm-2 control-label">AUTO REDEPLOY</label>
+			          <div className="form-group">
+			            <label className="col-sm-2 control-label">AUTO DEPLOY</label>
 			            <div className="col-sm-4">
 			              <label className="checkbox-inline">
 			                <input type="checkbox" id="inlineCheckbox1" defaultValue="yes" /> Yes
 			              </label>
 			            </div>
-			          </div>*/}
+			          </div>
 			          <div className="form-group">
 			            <label className="col-sm-2 control-label">CREATED AT</label>
 			            <div className="col-sm-10">
@@ -167,3 +175,7 @@ export default class General extends React.Component {
 		)
 	}
 }
+
+const tooltipName = (
+  <Tooltip id="tooltip">The name of the service.</Tooltip>
+);
