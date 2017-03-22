@@ -21,7 +21,7 @@ export default class General extends React.Component {
 			            <label className="col-sm-2 control-label">
 								    <OverlayTrigger
 								    		trigger={['hover', 'focus']}
-								    		placement="bottom"
+								    		placement="right"
 								    		overlay={tooltipName}>
 								      <span>NAME</span>
 								    </OverlayTrigger>
@@ -35,7 +35,14 @@ export default class General extends React.Component {
 			            </div>
 			          </div>
 			          <div className="form-group">
-			            <label className="col-sm-2 control-label">TEMPLATE</label>
+			            <label className="col-sm-2 control-label">
+								    <OverlayTrigger
+								    		trigger={['hover', 'focus']}
+								    		placement="right"
+								    		overlay={tooltipTemplate}>
+					            <span>TEMPLATE</span>
+								    </OverlayTrigger>
+							    </label>
 			            <div className="col-sm-10">
 			              <p className="form-control-static d-inline-block">
 			                Wordpress
@@ -141,14 +148,14 @@ export default class General extends React.Component {
 			              </label>
 			            </div>
 			          </div>
-			          <div className="form-group">
+			          {/*<div className="form-group">
 			            <label className="col-sm-2 control-label">AUTO DEPLOY</label>
 			            <div className="col-sm-4">
 			              <label className="checkbox-inline">
 			                <input type="checkbox" id="inlineCheckbox1" defaultValue="yes" /> Yes
 			              </label>
 			            </div>
-			          </div>
+			          </div>*/}
 			          <div className="form-group">
 			            <label className="col-sm-2 control-label">CREATED AT</label>
 			            <div className="col-sm-10">
@@ -178,4 +185,8 @@ export default class General extends React.Component {
 
 const tooltipName = (
   <Tooltip id="tooltip">The name of the service.</Tooltip>
-);
+)
+
+const tooltipTemplate = (
+	<Tooltip id="tooltip">The name of project template choosen from catalog</Tooltip>
+)

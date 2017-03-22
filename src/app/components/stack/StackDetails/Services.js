@@ -30,7 +30,7 @@ export default class Services extends React.Component {
                       <ul className="list-child">
                         <li>
                           <i className="fa fa-cube fa-fw" aria-hidden="true"></i>
-                          &nbsp; 1 Container
+                          &nbsp; 1 Containers
                         </li>
                         <li>
                           <i className="fa fa-hdd-o fa-fw" aria-hidden="true"></i>
@@ -69,7 +69,7 @@ export default class Services extends React.Component {
                       <ul className="list-child">
                         <li>
                           <i className="fa fa-cube fa-fw" aria-hidden="true"></i>
-                            &nbsp; 1 Container
+                            &nbsp; 1 Containers
                           </li>
                         <li>
                           <i className="fa fa-hdd-o fa-fw" aria-hidden="true"></i>
