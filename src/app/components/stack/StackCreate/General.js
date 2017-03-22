@@ -22,7 +22,7 @@ export default class General extends React.Component {
                   <label className="col-sm-2 control-label">IMAGE</label>
                   <div className="col-sm-9">
                     <p className="form-control-static d-inline-block pull-left" style={{ marginRight: '10px'}}>
-                      <i className="fa fa-tag fa-fw" aria-hidden="true"></i> orcinus.io/wordpress
+                      <i className="fa fa-tag fa-fw" aria-hidden="true"></i>&nbsp; orcinus.io/wordpress
                     </p>
                     <div className="col-md-3">
                       <select name="image-tag" id="image-tag" className="form-control">

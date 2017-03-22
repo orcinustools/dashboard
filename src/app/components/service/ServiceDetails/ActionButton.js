@@ -6,7 +6,11 @@ export default class ActionButton extends React.Component {
 		return (
 			<div className="row">
 			  <div className="col-md-6 pull-right">
-			    <div className="btn-group btn-group-justified" style={{ marginBottom: '10px' }} role="group" aria-label="...">
+			    <div
+				    	className="btn-group btn-group-justified"
+				    	style={{ marginBottom: '10px' }}
+				    	role="group"
+				    	aria-label="...">
 
 			      <div className="btn-group" role="group">
 			        <button type="button" className="btn btn-default">

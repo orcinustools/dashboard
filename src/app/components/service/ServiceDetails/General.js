@@ -19,7 +19,11 @@ export default class General extends React.Component {
 			          <div className="form-group">
 			            <label className="col-sm-2 control-label">SERVICE NAME</label>
 			            <div className="col-sm-10">
-			              <input type="text" className="form-control" name="inputServiceName" defaultValue={ this.props.name } />
+			              <input 
+			              	type="text"
+			              	className="form-control"
+			              	name="inputServiceName"
+			              	defaultValue={ this.props.name } />
 			            </div>
 			          </div>
 			          <div className="form-group">
@@ -33,11 +37,19 @@ export default class General extends React.Component {
 			          <div className="form-group">
 			            <label className="col-sm-2 control-label">IMAGE</label>
 			            <div className="col-sm-10">
-			              <p className="form-control-static d-inline-block pull-left" style={{ marginRight: '10px' }}>
-			                <i className="fa fa-tag fa-fw" aria-hidden="true"></i> orcinus.io/wordpress
+			              <p 
+			              		className="form-control-static d-inline-block pull-left"
+			              		style={{ marginRight: '10px' }}>
+			                <i className="fa fa-tag fa-fw" aria-hidden="true"></i> 
+			                &nbsp; orcinus.io/wordpress
 			              </p>
 			              <div className="col-md-2">
-				              <select name="imageTag" id="imageTag" className="form-control" style={{display: 'inline-block'}} data-width="fit">
+				              <select 
+				              		name="imageTag"
+				              		id="imageTag"
+				              		className="form-control"
+				              		style={{display: 'inline-block'}}
+				              		data-width="fit">
 				                <option value="latest">latest</option>
 				                <option value="beta">beta</option>
 				              </select>
@@ -47,8 +59,13 @@ export default class General extends React.Component {
 			          <div className="form-group">
 			            <label className="col-sm-2 control-label">PROJECT</label>
 			            <div className="col-sm-5">
-			              <select name="selectStackName" id="selectStackName" className="form-control">
-			                <option value="wordpress-app" data-icon="fa fa-server fa-fw"> Wordpress-app</option>
+			              <select 
+			              		name="selectStackName"
+			              		id="selectStackName"
+			              		className="form-control">
+			                <option value="wordpress-app" data-icon="fa fa-server fa-fw">
+			                	&nbsp; Wordpress-app
+			                </option>
 			              </select>
 			            </div>
 			          </div>
@@ -61,14 +78,19 @@ export default class General extends React.Component {
 			          <div className="form-group">
 			            <label className="col-sm-2 control-label">REPLICATED</label>
 			            <div className="col-sm-1">
-			              <input type="number" className="form-control" defaultValue={ this.props.replicated } min="1" max="10" />
+			              <input 
+			              	type="number"
+			              	className="form-control"
+			              	defaultValue={ this.props.replicated }
+			              	min="1" max="10" />
 			            </div>
 			          </div>
 			          <div className="form-group">
 			            <label className="col-sm-2 control-label">CONTAINERS</label>
 			            <div className="col-sm-10">
 			              <p className="form-control-static">
-			                <i className="fa fa-cube fa-fw" aria-hidden="true"></i> 1 Containers
+			                <i className="fa fa-cube fa-fw" aria-hidden="true"></i>
+			                &nbsp; 1 Containers
 			              </p>
 			            </div>
 			          </div>
@@ -76,7 +98,8 @@ export default class General extends React.Component {
 			            <label className="col-sm-2 control-label">VOLUMES</label>
 			            <div className="col-sm-10">
 			              <p className="form-control-static">
-			                <i className="fa fa-hdd-o fa-fw" aria-hidden="true"></i> 1 Volumes
+			                <i className="fa fa-hdd-o fa-fw" aria-hidden="true"></i>
+			                &nbsp; 1 Volumes
 			              </p>
 			            </div>
 			          </div>
@@ -84,13 +107,29 @@ export default class General extends React.Component {
 			            <label className="col-sm-2 control-label">AUTO START</label>
 			            <div className="col-sm-4">
 			              <label className="radio-inline">
-			                <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" />  Off
+			                <input 
+			                	type="radio"
+			                	name="inlineRadioOptions"
+			                	id="inlineRadio1"
+			                	value="option1" />
+			                &nbsp; Off
 			              </label>
 			              <label className="radio-inline"> 
-			                <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" /> On Failure
+			                <input 
+			                	type="radio" 
+			                	name="inlineRadioOptions"
+			                	id="inlineRadio2"
+			                	value="option2" />
+			                &nbsp; On Failure
 			              </label>
 			              <label className="radio-inline"> 
-			                <input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" defaultChecked={true}/> Always
+			                <input 
+			                	type="radio"
+			                	name="inlineRadioOptions"
+			                	id="inlineRadio3"
+			                	value="option3"
+			                	defaultChecked={true}/>
+			                &nbsp; Always
 			              </label>
 			            </div>
 			          </div>
@@ -107,7 +146,7 @@ export default class General extends React.Component {
 			            <div className="col-sm-10">
 			              <p className="form-control-static">
 			                <i className="fa fa-clock-o fa-fw" aria-hidden="true"></i>
-			                { moment(this.props.created).format("MMMM Do YYYY, h:mm:ss a") }
+			                &nbsp; { moment(this.props.created).format("MMMM Do YYYY, h:mm:ss a") }
 			              </p>
 			            </div>
 			          </div>
@@ -116,7 +155,7 @@ export default class General extends React.Component {
 			            <div className="col-sm-10">
 			              <p className="form-control-static">
 			                <i className="fa fa-clock-o fa-fw" aria-hidden="true"></i>
-			                { moment(this.props.updated).format("MMMM Do YYYY, h:mm:ss a") }
+			                &nbsp; { moment(this.props.updated).format("MMMM Do YYYY, h:mm:ss a") }
 			              </p>
 			            </div>
 			          </div>

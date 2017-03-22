@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router";
 
-import ServiceListItem from "./ServiceListItem";
+import ServiceListItem from "./ServiceList/ServiceListItem";
 
 export default class ServicesList extends React.Component {
 
@@ -33,7 +33,8 @@ export default class ServicesList extends React.Component {
         <div className="col-xs-12">
           <div className="panel">
             <header className="panel-heading">
-              <i className="fa fa-th-list" aria-hidden="true"></i> List
+              <i className="fa fa-th-list" aria-hidden="true"></i>
+              &nbsp; List
             </header>
             <div className="panel-body table-responsive">
 
@@ -54,7 +55,11 @@ export default class ServicesList extends React.Component {
               </table>
             </div>
             <div className="panel-footer">
-              <Link to="/catalog" className="btn btn-primary btn-block">CREATE NEW SERVICE</Link> 
+              <Link
+                  to="/catalog"
+                  className="btn btn-primary btn-block">
+                CREATE NEW SERVICE
+              </Link> 
             </div>
           </div>
         </div>

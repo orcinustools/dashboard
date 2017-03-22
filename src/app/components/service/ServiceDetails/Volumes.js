@@ -23,7 +23,11 @@ export default class Volumes extends React.Component {
 			          </thead>
 			          <tbody className="table-stack-list">
 			            <tr>
-			              <td><i className="fa fa-hdd-o fa-fw" aria-hidden="true"></i> <Link to="/volumes/wp-vol">wp-vol</Link></td>
+			              <td>
+			              	<i
+			              		className="fa fa-hdd-o fa-fw"
+			              		aria-hidden="true"></i>
+		              		<Link to="/volumes/wp-vol">wp-vol</Link></td>
 			              <td>2GB</td>
 			              <td>
 			                <span className="label label-success">Mounted</span>
@@ -42,23 +46,46 @@ export default class Volumes extends React.Component {
 			        </table>
 			      </div>
 			      <div className="panel-footer">
-			        <Link to="#modalAddVolume" data-toggle="modal" className="btn btn-success btn-sm list-stack-action"><i className="fa fa-plus fa-fw" aria-hidden="true"></i> Add Volume</Link>
+			        <Link
+				        	to="#modalAddVolume"
+				        	data-toggle="modal"
+				        	className="btn btn-success btn-sm list-stack-action">
+			        	<i className="fa fa-plus fa-fw" aria-hidden="true"></i>  
+				        &nbsp; Add Volume
+				      </Link>
 
-			        <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabIndex="-1" id="modalAddVolume" className="modal fade">
+			        <div
+				        	aria-hidden="true"
+				        	aria-labelledby="myModalLabel"
+				        	role="dialog"
+				        	tabIndex="-1"
+				        	id="modalAddVolume"
+				        	className="modal fade">
 			          <div className="modal-dialog">
 			            <div className="modal-content">
 			              <div className="modal-header">
-			                <button aria-hidden="true" data-dismiss="modal" className="close" type="button">×</button>
+			                <button
+				                	aria-hidden="true"
+				                	data-dismiss="modal"
+				                	className="close"
+				                	type="button">
+			                	×
+		                	</button>
 			                <h4 className="modal-title">Add Volume</h4>
 			              </div>
 			              <div className="modal-body">
 			                <form className="form-horizontal" role="form">
 			                  <div className="form-group">
-			                    <label htmlFor="inputVolumeName" className="col-lg-3 col-sm-3 control-label">
+			                    <label
+				                    	htmlFor="inputVolumeName"
+				                    	className="col-lg-3 col-sm-3 control-label">
 			                      Volume Name
 			                    </label>
 			                    <div className="col-lg-8">
-			                      <select name="selectVolumeName" id="selectVolumeName" className="form-control">
+			                      <select
+				                      	name="selectVolumeName"
+				                      	id="selectVolumeName"
+				                      	className="form-control">
 			                        <option value="wp-vol">
 			                          wp-vol
 			                        </option>
@@ -67,7 +94,11 @@ export default class Volumes extends React.Component {
 			                  </div>
 			                  <div className="form-group">
 			                    <div className="col-lg-8 col-md-offset-3">
-			                      <button type="submit" className="btn btn-block btn-success">Add Volume</button>
+			                      <button
+				                      	type="submit"
+				                      	className="btn btn-block btn-success">
+			                      	Add Volume
+			                      </button>
 			                    </div>
 			                  </div>
 			                </form>

@@ -6,7 +6,11 @@ export default class ActionButton extends React.Component {
 		return (
       <div className="row">
         <div className="col-md-6 pull-right">
-          <div className="btn-group btn-group-justified" style={{ marginBottom: '10px' }} role="group" aria-label="...">
+          <div
+            className="btn-group btn-group-justified"
+            style={{ marginBottom: '10px' }}
+            role="group"
+            aria-label="...">
 
             <div className="btn-group" role="group">
               <button type="button" className="btn btn-default">
@@ -18,7 +22,10 @@ export default class ActionButton extends React.Component {
             <div className="btn-group" role="group">
               <button type="button" className="btn btn-info">
                 <i className="fa fa-rocket fa-fw" aria-hidden="true"></i> 
-                <span className="visible-lg-inline">&nbsp; Create &amp; Deploy</span>
+                <span
+                    className="visible-lg-inline">
+                  &nbsp; Create &amp; Deploy
+                </span>
               </button>
             </div>
 

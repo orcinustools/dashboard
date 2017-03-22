@@ -39,55 +39,105 @@ export default class Ports extends React.Component {
 						        <td><span className="label label-success">YES</span></td>
 						        <td>80</td>
 						        <td>
-						          <Link to="#modalEditPort" data-toggle="modal" className="btn btn-default btn-sm list-stack-action"><i className="fa fa-pencil" aria-hidden="true"></i></Link>
+						          <Link
+							          	to="#modalEditPort"
+							          	data-toggle="modal"
+							          	className="btn btn-default btn-sm list-stack-action">
+						          	<i className="fa fa-pencil" aria-hidden="true"></i>
+						          </Link>
 
-						          <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabIndex="-1" id="modalEditPort" className="modal fade">
+						          <div 
+							          	aria-hidden="true"
+							          	aria-labelledby="myModalLabel"
+							          	role="dialog"
+							          	tabIndex="-1"
+							          	id="modalEditPort"
+							          	className="modal fade">
 						            <div className="modal-dialog">
 						              <div className="modal-content">
 						                <div className="modal-header">
-						                  <button aria-hidden="true" data-dismiss="modal" className="close" type="button">×</button>
+						                  <button 
+							                  	aria-hidden="true"
+							                  	data-dismiss="modal"
+							                  	className="close"
+							                  	type="button">
+						                  	×
+					                  	</button>
 						                  <h4 className="modal-title">Edit Port</h4>
 						                </div>
 						                <div className="modal-body">
 						                  <form className="form-horizontal" role="form">
 						                    <div className="form-group">
-						                      <label htmlFor="inputContainerPort" className="col-lg-3 col-sm-3 control-label">
+						                      <label
+						                      		htmlFor="inputContainerPort"
+						                      		className="col-lg-3 col-sm-3 control-label">
 						                        Container Port
 						                      </label>
 						                      <div className="col-lg-8">
-						                        <input type="text" className="form-control" id="inputContainerPort" placeholder="Container Port" defaultValue="80" />
+						                        <input
+						                       		type="text"
+						                       		className="form-control"
+						                       		id="inputContainerPort"
+						                       		placeholder="Container Port"
+						                       		defaultValue="80" />
 						                      </div>
 						                    </div>
 						                    <div className="form-group">
-						                      <label htmlFor="inputContainerPort" className="col-lg-3 col-sm-3 control-label">
+						                      <label
+							                      	htmlFor="inputContainerPort"
+							                      	className="col-lg-3 col-sm-3 control-label">
 						                        Protocol
 						                      </label>
 						                      <div className="col-lg-3">
-						                        <select name="inputProtocol" id="inputProtocol" className="selectpicker" data-width="fit" >
+						                        <select
+						                        		name="inputProtocol"
+						                        		id="inputProtocol"
+						                        		className="form-control" >
 						                          <option value="tcp">TCP</option>
 						                          <option value="udp">UDP</option>
 						                        </select>
 						                      </div>
 						                    </div>
 						                    <div className="form-group">
-						                      <label htmlFor="inputIsPublished" className="col-lg-3 col-sm-3 control-label">Publish Port</label>
+						                      <label
+							                      	htmlFor="inputIsPublished"
+							                      	className="col-lg-3 col-sm-3 control-label">
+						                      	Publish Port
+					                      	</label>
 						                      <div className="col-lg-8">
 						                        <div className="checkbox">
 						                          <label>
-						                            <input type="checkbox" id="inputIsPublished" defaultChecked="true" /> Yes
+						                            <input
+							                            	type="checkbox"
+							                            	id="inputIsPublished"
+							                            	defaultChecked="true" /> 
+						                            	Yes
 						                          </label>
 						                        </div>
 						                      </div>
 						                    </div>
 						                    <div className="form-group">
-						                      <label htmlFor="inputHostPort" className="col-lg-3 col-sm-3 control-label">Host Port</label>
+						                      <label
+							                      	htmlFor="inputHostPort"
+							                      	className="col-lg-3 col-sm-3 control-label">
+						                      	Host Port
+						                      </label>
 						                      <div className="col-lg-8">
-						                        <input type="text" className="form-control" id="inputHostPort" placeholder="Host Port" defaultValue="80" />
+						                        <input
+						                        	type="text"
+						                        	className="form-control"
+						                        	id="inputHostPort"
+						                        	placeholder="Host Port"
+						                        	defaultValue="80" />
 						                      </div>
 						                    </div>
 						                    <div className="form-group">
 						                      <div className="col-lg-8 col-md-offset-3">
-						                        <button type="submit" className="btn btn-block btn-success">Edit Port</button>
+						                        <button
+							                        	type="submit"
+							                        	className="btn btn-block btn-success">
+						                        	Edit Port
+					                        	</button>
 						                      </div>
 						                    </div>
 						                  </form>
@@ -96,64 +146,115 @@ export default class Ports extends React.Component {
 						            </div>
 						          </div>
 
-						          <Link to="#" className="btn btn-danger btn-sm list-stack-action"><i className="fa fa-trash-o" aria-hidden="true"></i></Link>
+						          <Link
+							          	to="#"
+							          	className="btn btn-danger btn-sm list-stack-action">
+						          	<i className="fa fa-trash-o" aria-hidden="true"></i>
+					          	</Link>
 						        </td>
 						     </tr>
 			          </tbody>
 			        </table>
 			      </div>
 			      <div className="panel-footer">
-			        <Link to="#modalAddPort" data-toggle="modal" className="btn btn-sm btn-success">
-			          <i className="fa fa-plus fa-fw" aria-hidden="true"></i> Add New Port
+			        <Link
+			        		to="#modalAddPort"
+			        		data-toggle="modal"
+			        		className="btn btn-sm btn-success">
+			          <i className="fa fa-plus fa-fw" aria-hidden="true"></i>
+			          	&nbsp; Add New Port
 			        </Link>
 
-			        <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabIndex="-1" id="modalAddPort" className="modal fade">
+			        <div 
+				       		aria-hidden="true"
+				       		aria-labelledby="myModalLabel"
+				       		role="dialog"
+				       		tabIndex="-1"
+				       		id="modalAddPort"
+				       		className="modal fade">
 			          <div className="modal-dialog">
 			            <div className="modal-content">
 			              <div className="modal-header">
-			                <button aria-hidden="true" data-dismiss="modal" className="close" type="button">×</button>
+			                <button
+				                	aria-hidden="true"
+				                	data-dismiss="modal"
+				                	className="close"
+				                	type="button">
+			                	×
+		                	</button>
 			                <h4 className="modal-title">Add New Port</h4>
 			              </div>
 			              <div className="modal-body">
 			                <form className="form-horizontal" role="form">
 			                  <div className="form-group">
-			                    <label htmlFor="inputContainerPort" className="col-lg-3 col-sm-3 control-label">
+			                    <label 
+			                    		htmlFor="inputContainerPort"
+			                    		className="col-lg-3 col-sm-3 control-label">
 			                      Container Port
 			                    </label>
 			                    <div className="col-lg-8">
-			                      <input type="text" className="form-control" id="inputContainerPort" placeholder="Container Port" />
+			                      <input
+			                      	type="text"
+			                      	className="form-control"
+			                      	id="inputContainerPort"
+			                      	placeholder="Container Port" />
 			                    </div>
 			                  </div>
 			                  <div className="form-group">
-			                    <label htmlFor="inputContainerPort" className="col-lg-3 col-sm-3 control-label">
+			                    <label
+				                    	htmlFor="inputContainerPort"
+				                    	className="col-lg-3 col-sm-3 control-label">
 			                      Protocol
 			                    </label>
 			                    <div className="col-lg-3">
-			                      <select name="inputProtocol" id="inputProtocol" className="selectpicker" data-width="fit">
+			                      <select
+			                      		name="inputProtocol"
+			                      		id="inputProtocol"
+			                      		className="form-control"
+			                      		data-width="fit">
 			                        <option value="tcp">TCP</option>
 			                        <option value="udp">UDP</option>
 			                      </select>
 			                    </div>
 			                  </div>
 			                  <div className="form-group">
-			                    <label htmlFor="inputIsPublished" className="col-lg-3 col-sm-3 control-label">Publish Port</label>
+			                    <label
+				                    	htmlFor="inputIsPublished"
+				                    	className="col-lg-3 col-sm-3 control-label">
+			                    	Publish Port
+			                    </label>
 			                    <div className="col-lg-8">
 			                      <div className="checkbox">
 			                        <label>
-			                          <input type="checkbox" id="inputIsPublished" /> Yes
+			                          <input
+				                          	type="checkbox"
+				                          	id="inputIsPublished" />
+			                          	&nbsp; Yes
 			                        </label>
 			                      </div>
 			                    </div>
 			                  </div>
 			                  <div className="form-group">
-			                    <label htmlFor="inputHostPort" className="col-lg-3 col-sm-3 control-label">Host Port</label>
+			                    <label
+				                    	htmlFor="inputHostPort"
+				                    	className="col-lg-3 col-sm-3 control-label">
+				                    Host Port
+				                   </label>
 			                    <div className="col-lg-8">
-			                      <input type="text" className="form-control" id="inputHostPort" placeholder="Host Port" />
+			                      <input
+			                      	type="text"
+			                      	className="form-control"
+			                      	id="inputHostPort"
+			                      	placeholder="Host Port" />
 			                    </div>
 			                  </div>
 			                  <div className="form-group">
 			                    <div className="col-lg-8 col-md-offset-3">
-			                      <button type="submit" className="btn btn-block btn-success">Add Port</button>
+			                      <button
+				                      	type="submit"
+				                      	className="btn btn-block btn-success">
+			                      	Add Port
+			                      </button>
 			                    </div>
 			                  </div>
 			                </form>
