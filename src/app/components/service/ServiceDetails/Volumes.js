@@ -1,7 +1,17 @@
-import React from "react"
+import React 		from "react"
 import { Link } from "react-router"
+import Select 	from "react-select"
+
+const volOptions = [
+  {value: 'wp-vol', label: 'wp-vol'}
+]
 
 export default class Volumes extends React.Component {
+
+  logChange (val) {
+    console.log("Selected: ", val)
+  }
+
 	render() {
 		return (
 			<div className="row">
@@ -82,14 +92,10 @@ export default class Volumes extends React.Component {
 			                      Volume Name
 			                    </label>
 			                    <div className="col-lg-8">
-			                      <select
-				                      	name="selectVolumeName"
-				                      	id="selectVolumeName"
-				                      	className="form-control">
-			                        <option value="wp-vol">
-			                          wp-vol
-			                        </option>
-			                      </select>
+			                    	<Select
+			                    		name="volumeName"
+			                    		options={volOptions}
+			                    		onChange={this.logChange} />
 			                    </div>
 			                  </div>
 			                  <div className="form-group">

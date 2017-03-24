@@ -1,9 +1,20 @@
 import React 		from "react"
 import { Link } from "react-router"
+import Select 	from "react-select"
 
 import PortItem from "./PortItem"
 
+const protoOptions = [
+	{ value: "tcp", label: "TCP" },
+	{ value: "udp", label: "UDP" }
+]
+
+
 export default class Ports extends React.Component {
+
+	logChange(val) {
+		console.log("Selected :", val)
+	}
 	
 	// renderPorts(ports) {
 	// 	return ports.map((port) => {
@@ -89,13 +100,10 @@ export default class Ports extends React.Component {
 						                        Protocol
 						                      </label>
 						                      <div className="col-lg-3">
-						                        <select
-						                        		name="inputProtocol"
-						                        		id="inputProtocol"
-						                        		className="form-control" >
-						                          <option value="tcp">TCP</option>
-						                          <option value="udp">UDP</option>
-						                        </select>
+						                      	<Select
+						                      		name="protocol"
+						                      		options={protoOptions}
+						                      		onChange={this.logChange} />
 						                      </div>
 						                    </div>
 						                    <div className="form-group">
@@ -207,14 +215,10 @@ export default class Ports extends React.Component {
 			                      Protocol
 			                    </label>
 			                    <div className="col-lg-3">
-			                      <select
-			                      		name="inputProtocol"
-			                      		id="inputProtocol"
-			                      		className="form-control"
-			                      		data-width="fit">
-			                        <option value="tcp">TCP</option>
-			                        <option value="udp">UDP</option>
-			                      </select>
+		                      	<Select
+		                      		name="protocol"
+		                      		options={protoOptions}
+		                      		onChange={this.logChange} />
 			                    </div>
 			                  </div>
 			                  <div className="form-group">

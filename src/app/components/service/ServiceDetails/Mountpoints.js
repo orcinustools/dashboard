@@ -1,7 +1,23 @@
 import React 		from "react"
 import { Link } from "react-router"
+import Select 	from "react-select"
+
+const mountOptions = [
+	{ value: "mysql-data", label: "mysql-data" },
+	{ value: "web-logs", label: "web-logs" },
+	{ value: "codeBase", label: "codeBase" }
+]
+
+const volOptions = [
+	{ value: "wp-vol", label: "wp-vol" }
+]
 
 export default class Mountpoints extends React.Component {
+
+	logChange(val) {
+		console.log("Selected: ", val)
+	}
+
 	render() {
 		return (
 			<div className="row">
@@ -81,14 +97,10 @@ export default class Mountpoints extends React.Component {
 			                      Volume
 			                    </label>
 			                    <div className="col-lg-8">
-			                      <select 
-			                      		name="selectVolumeName"
-			                      		id="selectVolumeName"
-			                      		className="form-control">
-			                        <option value="wp-vol" data-icon="fa fa-hdd-o fa-fw">
-			                          wp-vol
-			                        </option>
-			                      </select>
+			                    	<Select
+			                    		name="Volume"
+			                    		options={volOptions}
+			                    		onChange={this.logChange} />
 			                    </div>
 			                  </div>
 			                  <div className="form-group">
@@ -98,26 +110,10 @@ export default class Mountpoints extends React.Component {
 			                      Mountpoint
 			                    </label>
 			                    <div className="col-lg-8 select-container">
-			                      <select 
-			                      		name="selectMountpoint"
-			                      		id="selectMountpoint"
-			                      		className="form-control">
-			                        <option
-			                        		value="mysql-data"
-			                        		data-icon="fa fa-code-fork fa-fw">
-			                          mysql-data
-			                        </option>
-			                        <option
-			                        	value="mysql-data"
-			                        	data-icon="fa fa-code-fork fa-fw">
-			                          codeBase
-			                        </option>
-			                        <option 
-			                        		value="mysql-data"
-			                        		data-icon="fa fa-code-fork fa-fw">
-			                          web-logs
-			                        </option>
-			                      </select>
+			                    	<Select
+			                    		name="mountpoints"
+			                    		options={mountOptions}
+			                    		onChange={this.logChange} />
 			                    </div>
 			                  </div>
 			                  <div className="form-group">

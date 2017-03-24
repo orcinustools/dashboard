@@ -2,9 +2,23 @@ import React 		from "react"
 import { Link } from "react-router"
 import moment 	from "moment"
 import { Tooltip, OverlayTrigger } from "react-bootstrap"
+import Select 	from "react-select"
+
+const imageTagOptions = [
+	{ value: "latest", label: "latest" },
+	{ value: "beta", label: "beta" }
+]
+
+const projectOptions = [
+	{ value: "wordpress-app", label: "wordpress-app" },
+	{ value: "rails-app", label: "rails-app" }
+]
 
 export default class General extends React.Component {
 	
+  logChange (val) {
+    console.log("Selected: ", val)
+  }
 	
 	render() {
 	
@@ -59,29 +73,20 @@ export default class General extends React.Component {
 			                &nbsp; orcinus.io/wordpress
 			              </p>
 			              <div className="col-md-2">
-				              <select 
-				              		name="imageTag"
-				              		id="imageTag"
-				              		className="form-control"
-				              		style={{display: 'inline-block'}}
-				              		data-width="fit">
-				                <option value="latest">latest</option>
-				                <option value="beta">beta</option>
-				              </select>
+			              	<Select
+			              		name="imageTag"
+			              		options={imageTagOptions}
+			              		onChange={this.logChange} />
 			              </div>
 			            </div>
 			          </div>
 			          <div className="form-group">
 			            <label className="col-sm-2 control-label">PROJECT</label>
 			            <div className="col-sm-5">
-			              <select 
-			              		name="selectStackName"
-			              		id="selectStackName"
-			              		className="form-control">
-			                <option value="wordpress-app" data-icon="fa fa-server fa-fw">
-			                	&nbsp; Wordpress-app
-			                </option>
-			              </select>
+			            	<Select
+			            		name="ProjectName"
+			            		options={projectOptions}
+			            		onChange={this.logChange} />
 			            </div>
 			          </div>
 			          <div className="form-group">
