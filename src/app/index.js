@@ -5,6 +5,7 @@ import { Provider } from "react-redux";
 // Vendors || Plugins CSS
 import "bootstrap/dist/css/bootstrap.min.css";
 import "font-awesome/css/font-awesome.min.css";
+import 'react-select/dist/react-select.css';
 import "./vendors/css/director-style.css";
 import "./vendors/css/bootstrap-select/bootstrap-select.css";
 

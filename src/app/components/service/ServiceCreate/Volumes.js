@@ -1,7 +1,23 @@
-import React from "react"
+import React    from "react"
 import { Link } from "react"
+import Select   from "react-select"
+
+const volOptions = [
+  {value: 'wp-vol', label: 'wp-vol'}
+]
+
+const mounpointOptions = [
+  {value: 'codeBase', label: 'codeBase'},
+  {value: 'web-logs', label: 'web-logs'},
+  {value: 'mysql-data', label: 'mysql-data'}
+]
 
 export default class Volumes extends React.Component {
+
+  logChange (val) {
+    console.log("Selected: ", val)
+  }
+
 	render() {
 		return (
       <div className="row">
@@ -75,17 +91,10 @@ export default class Volumes extends React.Component {
                                     Name
                                   </label>
                                   <div className="col-lg-8">
-                                    <select
-                                        defaultValue="wp-vol"
-                                        name="selectVolumeName"
-                                        id="selectVolumeName"
-                                        className="form-control">
-                                      <option
-                                          value="wp-vol"
-                                          data-icon="fa fa-hdd-o fa-fw">
-                                        wp-vol
-                                      </option>
-                                    </select>
+                                    <Select
+                                      name="volume"
+                                      options={volOptions}
+                                      onChange={this.logChange} />
                                   </div>
                                 </div>
                                 <div className="form-group">
@@ -95,27 +104,11 @@ export default class Volumes extends React.Component {
                                     Mountpoint
                                   </label>
                                   <div className="col-lg-8">
-                                    <select
-                                        defaultValue={["mysql-data"]}
-                                        name="inputProtocol"
-                                        id="inputProtocol"
-                                        className="form-control">
-                                      <option
-                                          value="mysql-data"
-                                          data-icon="fa fa-code-fork fa-fw">
-                                        &nbsp; mysql-data
-                                      </option>
-                                      <option
-                                          value="mysql-data"
-                                          data-icon="fa fa-code-fork fa-fw">
-                                        &nbsp; codeBase
-                                      </option>
-                                      <option
-                                          value="mysql-data"
-                                          data-icon="fa fa-code-fork fa-fw">
-                                        &nbsp; web-logs
-                                      </option>
-                                    </select>
+                                    <Select
+                                      name="mountpoint"
+                                      options={mounpointOptions}
+                                      onChange={this.logChange}
+                                      multi={true} />
                                   </div>
                                 </div>
                                 <div className="form-group">
@@ -180,16 +173,10 @@ export default class Volumes extends React.Component {
                             Volume Name
                           </label>
                           <div className="col-lg-8">
-                            <select
-                                name="selectVolumeName"
-                                id="selectVolumeName"
-                                className="form-control">
-                              <option
-                                  value="wp-vol"
-                                  data-icon="fa fa-hdd-o fa-fw">
-                                &nbsp; wp-vol
-                              </option>
-                            </select>
+                          <Select
+                            name="volume"
+                            options={volOptions}
+                            onChange={this.logChange} />
                           </div>
                         </div>
                         <div className="form-group">
@@ -199,17 +186,11 @@ export default class Volumes extends React.Component {
                             Mountpoint
                           </label>
                           <div className="col-lg-8 select-container">
-                            <select name="selectMountpoint" id="selectMountpoint" className="form-control">
-                              <option value="mysql-data">
-                                mysql-data
-                              </option>
-                              <option value="mysql-data">
-                                codeBase
-                              </option>
-                              <option value="mysql-data">
-                                web-logs
-                              </option>
-                            </select>
+                            <Select
+                              name="mountpoint"
+                              options={mounpointOptions}
+                              onChange={this.logChange}
+                              multi={true} />
                           </div>
                         </div>
                         <div className="form-group">

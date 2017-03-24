@@ -1,7 +1,18 @@
-import React from "react"
+import React    from "react"
 import { Link } from "react-router"
+import Select   from "react-select"
+
+const protocolOptions = [
+  { value: 'tcp', label: 'TCP' },
+  { value: 'udp', label: 'UDP' }
+]
 
 export default class Ports extends React.Component {
+
+  logChange (val) {
+    console.log("Selected: ", val)
+  }
+
 	render() {
 		return (
       <div className="row">
@@ -77,14 +88,11 @@ export default class Ports extends React.Component {
                                     Protocol
                                   </label>
                                   <div className="col-lg-3">
-                                    <select
-                                        defaultValue="tcp"
-                                        name="inputProtocol"
-                                        id="inputProtocol"
-                                        className="form-control">
-                                      <option value="tcp">TCP</option>
-                                      <option value="udp">UDP</option>
-                                    </select>
+                                    <Select
+                                      name="protocol"
+                                      value="TCP"
+                                      options={protocolOptions}
+                                      onChange={this.logChange} />
                                   </div>
                                 </div>
                                 <div className="form-group">
@@ -195,13 +203,11 @@ export default class Ports extends React.Component {
                             Protocol
                           </label>
                           <div className="col-lg-3">
-                            <select
-                                name="inputProtocol"
-                                id="inputProtocol"
-                                className="form-control">
-                              <option value="tcp">TCP</option>
-                              <option value="udp">UDP</option>
-                            </select>
+                            <Select
+                              name="protocol"
+                              value="TCP"
+                              options={protocolOptions}
+                              onChange={this.logChange} />
                           </div>
                         </div>
                         <div className="form-group">

@@ -29,7 +29,7 @@ export default class Variables extends React.Component {
                       <i className="fa fa-pencil-square" aria-hidden="true"></i>  
                     </td>
                   </tr>
-                  <div className="collapse">
+                  {/*<div className="collapse">
                     <tr>
                       <td className="text-info">MYSQL_DATABASE</td>
                       <td>
@@ -95,7 +95,7 @@ export default class Variables extends React.Component {
                         <i className="fa fa-plus-square" aria-hidden="true"></i>
                       </td>
                     </tr>
-                  </div>
+                  </div>*/}
                 </tbody>
               </table>
             </div>

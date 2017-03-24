@@ -1,5 +1,5 @@
-import React from "react";
-import { Link } from "react-router";
+import React 		from "react"
+import { Link } from "react-router"
 
 import ActionButton from "./ServiceCreate/ActionButton"
 import General      from "./ServiceCreate/General"

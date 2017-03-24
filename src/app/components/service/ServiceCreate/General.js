@@ -1,7 +1,27 @@
 import React from "react"
 import { Link } from "react-router"
+import Select   from "react-select"
+
+const imageTagOptions = [
+  { value: "latest", label: "latest" },
+  { value: "5.6", label: "5.6" },
+  { value: "5.7", label: "5.7" }
+]
+
+const stackOptions = [
+  { value: "Wordpress-app", label: "Wordpress-app"}
+]
 
 export default class General extends React.Component {
+
+  constructor(props) {
+    super(props);
+  }
+
+  logChange (val) {
+    console.log("Selected: ", val)
+  }
+
 	render() {
 		return (
       <div className="row">
@@ -24,14 +44,11 @@ export default class General extends React.Component {
                       &nbsp; orcinus.io/mysql
                     </p>
                     <div className="col-md-3">
-	                    <select
-                          name="image-tag"
-                          id="image-tag"
-                          className="form-control">
-	                      <option value="latest">latest</option>
-	                      <option value="5.6">5.6</option>
-	                      <option value="5.7">5.7</option>
-	                    </select>
+                      <Select
+                        name="image-tag"
+                        value="latest"
+                        options={imageTagOptions}
+                        onChange={this.logChange} />
                     </div>
                   </div>
                 </div>
@@ -47,13 +64,11 @@ export default class General extends React.Component {
                 <div className="form-group">
                   <label className="col-sm-2 control-label">ADD TO STACK</label>
                   <div className="col-sm-3">
-                    <select name="stack" id="stack" className="form-control">
-                      <option
-                          value="wordpress-app"
-                          data-icon="fa fa-server fa-fw">
-                        &nbsp; Wordpress-app
-                      </option>
-                    </select>
+                    <Select
+                      name="stack-name"
+                      value="Wordpress-app"
+                      options={stackOptions}
+                      onChange={this.logChange} />
                   </div>
                 </div>
                 <div className="form-group">
@@ -75,7 +90,7 @@ export default class General extends React.Component {
                           type="radio"
                           name="inlineRadioOptions"
                           id="inlineRadio1"
-                          defaultValue="option1" />
+                          value={"off"} />
                         &nbsp; Off
                     </label>
                     <label className="radio-inline"> 
@@ -83,7 +98,7 @@ export default class General extends React.Component {
                           type="radio"
                           name="inlineRadioOptions"
                           id="inlineRadio2"
-                          defaultValue="option2" />
+                          value={"failure"} />
                         &nbsp; On Failure
                     </label>
                     <label className="radio-inline"> 
@@ -91,7 +106,7 @@ export default class General extends React.Component {
                           type="radio"
                           name="inlineRadioOptions"
                           id="inlineRadio3"
-                          defaultValue="option3" />
+                          defaultChecked={true} />
                         &nbsp; Always
                     </label>
                   </div>
