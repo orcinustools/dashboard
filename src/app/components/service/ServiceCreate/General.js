@@ -106,6 +106,7 @@ export default class General extends React.Component {
                           type="radio"
                           name="inlineRadioOptions"
                           id="inlineRadio3"
+                          value={"always"}
                           defaultChecked={true} />
                         &nbsp; Always
                     </label>

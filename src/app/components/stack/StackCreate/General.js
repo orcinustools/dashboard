@@ -1,7 +1,19 @@
-import React from "react"
+import React    from "react"
 import { Link } from "react-router"
+import Select   from "react-select"
+
+const imageTagOptions = [
+  { value: "latest", label: "latest" },
+  { value: "3.6.5-apache", label: "3.6.5-apache" },
+  { value: "4.0.0-apache", label: "4.0.0-apache" }
+]
 
 export default class General extends React.Component {
+
+  logChange(val) {
+    console.log("Select: ", val)
+  }
+
 	render() {
 		return (
       <div className="row">
@@ -15,21 +27,28 @@ export default class General extends React.Component {
                 <div className="form-group">
                   <label className="col-sm-2 control-label">STACK NAME</label>
                   <div className="col-sm-9">
-                    <input type="text" className="form-control" placeholder="Enter the stack name" />
+                    <input 
+                      type="text"
+                      className="form-control"
+                      placeholder="Enter the project name" />
                   </div>
                 </div>
                 <div className="form-group">
                   <label className="col-sm-2 control-label">IMAGE</label>
                   <div className="col-sm-9">
-                    <p className="form-control-static d-inline-block pull-left" style={{ marginRight: '10px'}}>
-                      <i className="fa fa-tag fa-fw" aria-hidden="true"></i>&nbsp; orcinus.io/wordpress
+                    <p
+                        className="form-control-static d-inline-block pull-left"
+                        style={{ marginRight: '10px'}}>
+                      <i 
+                          className="fa fa-tag fa-fw"
+                          aria-hidden="true"></i>
+                        &nbsp; orcinus.io/wordpress
                     </p>
                     <div className="col-md-3">
-                      <select name="image-tag" id="image-tag" className="form-control">
-                        <option value="latest">latest</option>
-                        <option value="3.6.5-apache">3.6.5-apache</option>
-                        <option value="4.0.0-apache">4.0.0-apache</option>
-                      </select>
+                      <Select
+                        name="imageTag"
+                        options={imageTagOptions}
+                        onChange={this.logChange} />
                     </div>
                   </div>
                 </div>
@@ -37,13 +56,29 @@ export default class General extends React.Component {
                   <label className="col-sm-2 control-label">AUTO START</label>
                   <div className="col-sm-4">
                     <label className="radio-inline">
-                      <input type="radio" name="inlineRadioOptions" id="inlineRadio1" defaultValue="option1" />  Off
+                      <input
+                          type="radio"
+                          name="inlineRadioOptions"
+                          id="inlineRadio1"
+                          value={"off"} />
+                        &nbsp; Off
                     </label>
                     <label className="radio-inline"> 
-                      <input type="radio" name="inlineRadioOptions" id="inlineRadio2" defaultValue="option2" /> On Failure
+                      <input
+                          type="radio"
+                          name="inlineRadioOptions"
+                          id="inlineRadio2"
+                          value={"failure"} />
+                        &nbsp; On Failure
                     </label>
                     <label className="radio-inline"> 
-                      <input type="radio" name="inlineRadioOptions" id="inlineRadio3" defaultValue="option3" /> Always
+                      <input 
+                          type="radio"
+                          name="inlineRadioOptions"
+                          id="inlineRadio3"
+                          value={"always"}
+                          defaultChecked={true} />
+                        &nbsp; Always
                     </label>
                   </div>
                 </div>
@@ -51,7 +86,11 @@ export default class General extends React.Component {
                   <label className="col-sm-2 control-label">AUTO DEPLOY</label>
                   <div className="col-sm-4">
                     <label className="checkbox-inline">
-                      <input type="checkbox" id="inlineCheckbox1" defaultValue="yes" /> Yes
+                      <input
+                          type="checkbox"
+                          id="inlineCheckbox1"
+                          defaultValue="yes" />
+                        &nbsp; Yes
                     </label>
                   </div>
                 </div>
