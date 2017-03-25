@@ -39,7 +39,7 @@ export default class SidebarMenu extends React.Component {
         </li>*/}
         <li>
           <Link to="/firewalls">
-            <i className="fa fa-fire fa-fw"></i><span>&nbsp; Firewalls</span>
+            <i className="fa fa-fire fa-fw"></i><span>&nbsp; Security</span>
           </Link>
         </li>
         <li className="nav-header">Community</li>

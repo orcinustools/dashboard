@@ -42,6 +42,8 @@ export default class ServiceDetails extends React.Component {
 				
 						<Mountpoints />
 
+						<Ports />
+
 						<Environtments />
 
 			</div>
