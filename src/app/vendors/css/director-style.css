@@ -65,11 +65,9 @@ body > #app .header {
   position: absolute;
   width: 220px;
   top: 0;
+  padding-top: 20px;
 }
 @media screen and (min-width: 992px) {
-  .left-side {
-    top: 50px;
-  }
   /*Right side strech mode*/
   .right-side.strech {
     margin-left: 0;
@@ -635,11 +633,11 @@ body > #app .header {
   max-height: 100px;
   z-index: 1030;
 }
-body > #app .header .navbar {
+/*body > #app .header .navbar {
   height: 50px;
   margin-bottom: 0;
   margin-left: 220px;
-}
+}*/
 body > #app .header .navbar .sidebar-toggle {
   float: left;
   padding: 9px 5px;
@@ -694,21 +692,7 @@ body > #app .header .navbar .nav > li > a > .label {
 body > #app .header .navbar .nav > li > a:hover > .label {
   top: 3px;
 }
-body > #app .header .logo {
-  float: left;
-  font-size: 20px;
-  line-height: 50px;
-  text-align: center;
-  padding: 0 10px;
-  width: 220px;
-  font-family: 'Kaushan Script', cursive;
-  font-weight: 500;
-  height: 50px;
-  display: block;
-}
-body > #app .header .logo .icon {
-  margin-right: 10px;
-}
+
 .right-side > .content-header {
   position: relative;
   padding: 15px;
@@ -898,42 +882,7 @@ content: '';
 .sidebar .sidebar-menu .treeview-menu > li > a > .ion {
   width: 20px;
 }
-.user-panel {
-  padding: 10px;
-}
-.user-panel:before,
-.user-panel:after {
-  display: table;
-  content: " ";
-}
-.user-panel:after {
-  clear: both;
-}
-.user-panel > .image > img {
-  width: 45px;
-  height: 45px;
-}
-.user-panel > .info {
-  font-weight: 600;
-  padding: 5px 5px 5px 15px;
-  font-size: 14px;
-  line-height: 1;
-}
-.user-panel > .info > p {
-  margin-bottom: 9px;
-}
-.user-panel > .info > a {
-  text-decoration: none;
-  padding-right: 5px;
-  margin-top: 3px;
-  font-size: 11px;
-  font-weight: normal;
-}
-.user-panel > .info > a > .fa,
-.user-panel > .info > a > .ion,
-.user-panel > .info > a > .glyphicon {
-  margin-right: 3px;
-}
+
 /*
  * Off Canvas
  * --------------------------------------------------
@@ -2785,14 +2734,6 @@ vertical-align: top;
   background: #fbfbfb;
   box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
-/* Skin-blue user panel */
-.skin-blue .user-panel > .image > img {
-  border: 1px solid #dfdfdf;
-}
-.skin-blue .user-panel > .info,
-.skin-blue .user-panel > .info > a {
-  color: #555555;
-}
 /* skin-blue sidebar */
 .skin-blue .sidebar {
   border-bottom: 1px solid #fff;
@@ -2937,14 +2878,6 @@ vertical-align: top;
 .skin-black .right-side > .content-header {
   background: #fff;
   box-shadow: none;
-}
-/* Skin-red user panel */
-.skin-black .user-panel > .image > img {
-  border: 1px solid #444;
-}
-.skin-black .user-panel > .info,
-.skin-black .user-panel > .info > a {
-  color: #eee;
 }
 /* skin-black sidebar */
 .skin-black .sidebar {

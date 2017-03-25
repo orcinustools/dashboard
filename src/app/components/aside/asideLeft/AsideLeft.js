@@ -1,7 +1,7 @@
 import React from "react";
 
-import UserPanel from "./UserPanel";
 import SidebarMenu from "./SidebarMenu";
+import Logo from "./Logo.js";
 
 // import cls from "classnames";
 
@@ -10,7 +10,8 @@ export default class AsideLeft extends React.Component {
 		return (
 			<aside className="left-side sidebar-offcanvas">
 				<section className="sidebar">
-					<UserPanel />
+					<Logo />
+					{/*<UserPanel />*/}
 					<SidebarMenu />
 				</section>
 			</aside>

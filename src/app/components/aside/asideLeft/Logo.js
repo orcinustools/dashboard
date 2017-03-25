@@ -1,7 +1,7 @@
 import React from "react"
 import { Link } from "react-router"
 
-import OrcinusLogo from "../../assests/images/logo/orcinus-logo-header.svg"
+import OrcinusLogo from "../../../assests/images/logo/OrcinusFix.svg"
 
 export default class Logo extends React.Component {
 	render() {

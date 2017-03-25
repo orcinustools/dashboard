@@ -11,7 +11,6 @@ export default class UserPanel extends React.Component {
 			  </div>
 			  <div className="pull-left info">
 			    <p>Hello, Orciners</p>
-			    <a href="#"><i className="fa fa-circle text-success"></i> Online</a>
 			  </div>
 			</div>
 		);

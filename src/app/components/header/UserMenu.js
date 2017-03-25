@@ -1,11 +1,13 @@
 import React from "react";
 
+import Avatar from "../../vendors/img/avatar.png"
+
 export default class UserMenu extends React.Component {
 	render() {
 		return (
       <li className="dropdown user user-menu">
         <a href="#" className="dropdown-toggle" data-toggle="dropdown">
-          <i className="fa fa-user"></i>
+          {/*<img src={ Avatar } className="img-circle" alt="User Image" style={{ display: 'inline', height: '25'}} />*/}
           <span>Orciners <i className="caret"></i></span>
         </a>
         <ul className="dropdown-menu dropdown-custom dropdown-menu-right">
