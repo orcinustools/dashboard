@@ -4119,9 +4119,10 @@ padding: 6px 10px;
 }
 
 .footer-main {
-  background-color: #FFF;
+  background-color: #2b3246;
+  color: #fff;
   padding: 7px 13px;
-  border-top: 1px solid #eee;
+  /*border-top: 1px solid #eee;*/
   text-align: center;
 }
 

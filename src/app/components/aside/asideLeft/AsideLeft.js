@@ -3,6 +3,7 @@ import React from "react";
 import CreateButton from "./CreateButton"
 import SidebarMenu 	from "./SidebarMenu";
 import Logo 				from "./Logo.js";
+import Footer 			from "../../footer/Footer";
 
 // import cls from "classnames";
 
@@ -16,6 +17,7 @@ export default class AsideLeft extends React.Component {
 					<SidebarMenu />
 		      {/*<div className="sidebar-footer">tessdfsdfjsldf</div>*/}
 				</section>
+	      <Footer />
 			</aside>
 		);
 	}

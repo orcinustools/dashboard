@@ -2,7 +2,7 @@ import React from "react";
 import cls from "classnames";
 
 import Header from "../../header";
-import Footer from "../../footer/Footer";
+
 
 export default class AsideRight extends React.Component {
 	render() {
@@ -12,7 +12,6 @@ export default class AsideRight extends React.Component {
 				<section className="content">
 					{ this.props.children }
 				</section>
-				<Footer />
 			</aside>
 		);
 	}
