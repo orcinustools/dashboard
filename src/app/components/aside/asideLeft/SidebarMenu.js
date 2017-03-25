@@ -13,13 +13,13 @@ export default class SidebarMenu extends React.Component {
         </li>
         <li className="nav-header">Workspace</li>
         <li>
-          <Link to="/stacks">
-            <i className="fa fa-server fa-fw"></i> <span>&nbsp; Projects</span>
+          <Link to="/services">
+            <i className="fa fa-cubes fa-fw"></i> <span>&nbsp; Services</span>
           </Link>
         </li>
         <li>
-          <Link to="/services">
-            <i className="fa fa-cubes fa-fw"></i> <span>&nbsp; Services</span>
+          <Link to="/stacks">
+            <i className="fa fa-server fa-fw"></i> <span>&nbsp; Groups</span>
           </Link>
         </li>
         <li>
@@ -27,21 +27,21 @@ export default class SidebarMenu extends React.Component {
             <i className="fa fa-cube fa-fw"></i> <span>&nbsp; Containers</span>
           </Link>
         </li>
-        <li>
+        {/*<li>
           <Link to="/volumes">
             <i className="fa fa-hdd-o fa-fw"></i><span>&nbsp; Volumes</span>
           </Link>
         </li>
-        {/*<li>
+        <li>
           <Link to="/mountpoints">
             <i className="fa fa-code-fork fa-fw"></i><span>&nbsp; Mountpoints</span>
           </Link>
-        </li>*/}
+        </li>
         <li>
           <Link to="/firewalls">
             <i className="fa fa-fire fa-fw"></i><span>&nbsp; Security</span>
           </Link>
-        </li>
+        </li>*/}
         <li className="nav-header">Community</li>
         <li>
           <Link to="/catalog">

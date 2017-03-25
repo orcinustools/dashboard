@@ -24,7 +24,7 @@ export default class General extends React.Component {
                 </div>
                 <div className="form-group">
                 	{/* TODO:= ganti nama stack sesuai dengan yang didapat dari api*/}
-                  <label className="col-sm-2 control-label">PROJECT</label>
+                  <label className="col-sm-2 control-label">GROUP</label>
                   <div className="col-sm-10">
                     <p className="form-control-static">
                       <i className="fa fa-server fa-fw" aria-hidden="true"></i>

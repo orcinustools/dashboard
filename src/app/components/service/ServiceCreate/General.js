@@ -33,6 +33,25 @@ export default class General extends React.Component {
             <div className="panel-body">
               <div className="form-horizontal">
                 <div className="form-group">
+                  <label className="col-sm-2 control-label">SERVICE NAME</label>
+                  <div className="col-sm-10">
+                    <input
+                      type="text"
+                      className="form-control"
+                      placeholder="Service Name" />
+                  </div>
+                </div>
+                <div className="form-group">
+                  <label className="col-sm-2 control-label">ADD TO GROUP</label>
+                  <div className="col-sm-3">
+                    <Select
+                      name="stack-name"
+                      value="Wordpress-app"
+                      options={stackOptions}
+                      onChange={this.logChange} />
+                  </div>
+                </div>
+                <div className="form-group">
                   <label className="col-sm-2 control-label">IMAGE</label>
                   <div className="col-sm-10">
                     <p 
@@ -50,25 +69,6 @@ export default class General extends React.Component {
                         options={imageTagOptions}
                         onChange={this.logChange} />
                     </div>
-                  </div>
-                </div>
-                <div className="form-group">
-                  <label className="col-sm-2 control-label">SERVICE NAME</label>
-                  <div className="col-sm-10">
-                    <input
-                      type="text"
-                      className="form-control"
-                      placeholder="Service Name" />
-                  </div>
-                </div>
-                <div className="form-group">
-                  <label className="col-sm-2 control-label">ADD TO STACK</label>
-                  <div className="col-sm-3">
-                    <Select
-                      name="stack-name"
-                      value="Wordpress-app"
-                      options={stackOptions}
-                      onChange={this.logChange} />
                   </div>
                 </div>
                 <div className="form-group">

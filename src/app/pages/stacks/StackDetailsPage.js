@@ -13,7 +13,7 @@ export default class StackDetailsPage extends React.Component {
           </h1>
           <ol className="breadcrumb breadcrumb-sm">
             <li><Link to="/">HOME</Link></li>
-            <li><Link to="/stacks">STACKS</Link></li>
+            <li><Link to="/stacks">GROUPS</Link></li>
             <li className="active">Wordpress-app</li>
           </ol>
         </section>

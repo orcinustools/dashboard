@@ -25,7 +25,7 @@ export default class General extends React.Component {
             <div className="panel-body">
               <div className="form-horizontal">
                 <div className="form-group">
-                  <label className="col-sm-2 control-label">STACK NAME</label>
+                  <label className="col-sm-2 control-label">GROUP NAME</label>
                   <div className="col-sm-9">
                     <input 
                       type="text"
@@ -33,7 +33,7 @@ export default class General extends React.Component {
                       placeholder="Enter the project name" />
                   </div>
                 </div>
-                <div className="form-group">
+                {/*<div className="form-group">
                   <label className="col-sm-2 control-label">IMAGE</label>
                   <div className="col-sm-9">
                     <p
@@ -51,7 +51,7 @@ export default class General extends React.Component {
                         onChange={this.logChange} />
                     </div>
                   </div>
-                </div>
+                </div>*/}
                 <div className="form-group">
                   <label className="col-sm-2 control-label">AUTO START</label>
                   <div className="col-sm-4">
