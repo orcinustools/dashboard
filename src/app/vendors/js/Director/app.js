@@ -118,10 +118,10 @@ $(function() {
         }
     }
     //Fire upon load
-    _fix();
+    // _fix();
     //Fire when wrapper is resized
     $(".wrapper").resize(function() {
-        _fix();
+        // _fix();
         fix_sidebar();
     });
 
