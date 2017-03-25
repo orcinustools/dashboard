@@ -12,12 +12,12 @@ export default class ActionButton extends React.Component {
 				    	role="group"
 				    	aria-label="...">
 
-			      <div className="btn-group" role="group">
+			      {/*<div className="btn-group" role="group">
 			        <button type="button" className="btn btn-default">
 			          <i className="fa fa-pencil-square-o fa-fw" aria-hidden="true"></i>
 			          <span className="visible-lg-inline">&nbsp; Update</span>
 			        </button>
-			      </div>
+			      </div> */}
 			      <div className="btn-group" role="group">
 			        <button type="button" className="btn btn-warning">
 			          <i className="fa fa-pause fa-fw" aria-hidden="true"></i>

@@ -11,7 +11,6 @@ export default class ServiceCreate extends React.Component {
 	render() {
 		return (
 			<div>
-        <ActionButton />
 
         <General />
 
@@ -20,6 +19,8 @@ export default class ServiceCreate extends React.Component {
         <Volumes />
 
         <Variables />
+        
+        <ActionButton />
 			</div>
 		);
 	}

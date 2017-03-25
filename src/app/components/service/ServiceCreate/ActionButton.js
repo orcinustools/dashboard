@@ -5,10 +5,10 @@ export default class ActionButton extends React.Component {
 	render() {
 		return (
       <div className="row">
-        <div className="col-md-6 pull-right">
-          <div
+        <div className="col-md-12">
+          {/*<div
             className="btn-group btn-group-justified"
-            style={{ marginBottom: '10px' }}
+            style={{ marginBottom: 10 }}
             role="group"
             aria-label="...">
 
@@ -19,24 +19,26 @@ export default class ActionButton extends React.Component {
               </button>
             </div>
 
-            <div className="btn-group" role="group">
-              <button type="button" className="btn btn-info">
+            <div className="btn-group" role="group">*/}
+              <button 
+                  type="button"
+                  className="btn btn-primary btn-block"
+                  style={{ height: '40px', fontSize: '16px' }} >
                 <i className="fa fa-rocket fa-fw" aria-hidden="true"></i> 
                 <span
                     className="visible-lg-inline">
-                  &nbsp; Create &amp; Deploy
+                  &nbsp; CREATE SERVICE
                 </span>
               </button>
-            </div>
+           {/* </div>
 
-            <div className="btn-group" role="group">
-              <button type="button" className="btn btn-danger">
+          <div className="btn-group" role="group"> ton type="button" className="btn btn-danger">
                 <i className="fa fa-times fa-fw" aria-hidden="true"></i>
                 <span className="visible-lg-inline">&nbsp; Cancel</span>
               </button>
             </div>
 
-          </div>
+          </div>*/}
         </div>
       </div>
 		)
