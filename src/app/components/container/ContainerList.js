@@ -5,7 +5,7 @@ import ContainerListItem from "./ContainerListItem";
 
 export default class ContainerList extends React.Component {
 
-	componentWillMount() {
+	componentDidMount() {
 		this.props.fetchContainers();
 	}
 
@@ -23,7 +23,8 @@ export default class ContainerList extends React.Component {
   }
 
 	render() {
-    const { containers } = this.props;
+
+    const { containers, fetching, fetched, error } = this.props;
 
 		return (
       <div className="row">
@@ -46,7 +47,25 @@ export default class ContainerList extends React.Component {
                   </tr>
                 </thead>
                 <tbody className="table-stack-list">
-                  { this.renderContainers(containers) }
+                { fetching &&
+                  <tr>
+                    <td colSpan="6" style={{textAlign: "center"}}>
+                      <i className="fa fa-refresh fa-spin fa-2x fa-fw"></i>
+                    </td>
+                  </tr>
+                }
+
+                { fetched &&
+                  this.renderContainers(containers)
+                }
+
+                { error &&
+                  <tr>
+                    <td colSpan="6" style={{textAlign: "center"}}>
+                      Container Not Found
+                    </td>
+                  </tr>
+                }
                 </tbody>
               </table>
             </div>

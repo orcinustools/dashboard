@@ -10,7 +10,10 @@ import { fetchContainers } from "../../actions/containerActions";
 
 const mapStateToProps = (state) => {
   return {
-    containers: state.containerState.containersList.containers
+    containers: state.containerState.containersList.containers,
+    fetching: state.containerState.containersList.fetching,
+    fetched: state.containerState.containersList.fetched,
+    error: state.containerState.containersList.error
   }
 }
 

@@ -12,7 +12,7 @@ export default function reducer (state = initialState, action) {
 		case "FETCH_CONTAINERS_PENDING":
 			return { ...state, containersList: { containers: [], fetching: true, error: null } }
 		case "FETCH_CONTAINERS_FULFILLED": 
-			return { ...state, containersList: { containers: action.payload.data, fetching: false, error: null } }
+			return { ...state, containersList: { containers: action.payload.data, fetched: true, fetching: false, error: null } }
 		case "FETCH_CONTAINERS_REJECTED":
 			error = action.payload || {message: action.payload.message};
 			return { ...state, containersList: { containers: [], fetching: false, error: error } }
