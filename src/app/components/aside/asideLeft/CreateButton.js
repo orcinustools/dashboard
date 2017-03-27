@@ -16,7 +16,7 @@ export default class CreateButton extends React.Component {
 		    <Link
 		        to="/catalog"
 		        className="btn btn-primary btn-block" >
-		      NEW PROJECT
+		      NEW GROUP
 		    </Link> 
 	    </div>
 		)
