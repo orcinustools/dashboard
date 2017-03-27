@@ -1,5 +1,3 @@
-import axios from "axios";
-
 /**
  * 
  * Action creator untuk menngambil data container dari api, yang mereturn sebuah
@@ -7,11 +5,14 @@ import axios from "axios";
  * 
  */
 
+import axios from "axios";
+let apiUrl = process.env.API_URL || "localhost"
+
 // fetch list of containers
 export function fetchContainers() {
 	return {
 		type: "FETCH_CONTAINERS",
-		payload: axios.get("http://localhost:3000/containers")
+		payload: axios.get(`http://${apiUrl}:3000/containers`)
 	}
 }
 
@@ -20,6 +21,6 @@ export function fetchContainers() {
 export function fetchContainer() {
 	return {
 		type: "FETCH_CONTAINER",
-		payload: axios.get("http://localhost:3000/wp-app-1")
+		payload: axios.get(`http://${apiUrl}:3000/wp-app-1`)
 	}
 }

@@ -6,9 +6,14 @@ import axios from "axios";
  * promise dengan bantuan 'redux-promise-middleware' dan 'redux-thunk'
  * 
  */
+
+let apiUrl = process.env.API_URL || "localhost"
+
+console.log(apiUrl)
+
 export function fetchStacks() {
 	return {
 		type: "FETCH_STACKS",
-		payload: axios.get("http://localhost:3000/stacks")
+		payload: axios.get(`http://${apiUrl}:3000/stacks`)
 	}
 }

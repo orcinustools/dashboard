@@ -6,9 +6,12 @@ import axios from "axios";
  * promise dengan bantuan 'redux-promise-middleware' dan 'redux-thunk'
  * 
  */
+
+let apiUrl = process.env.API_URL || "localhost"
+
 export function fetchImages() {
 	return {
 		type: "FETCH_IMAGES",
-		payload: axios.get("http://localhost:3000/images")
+		payload: axios.get(`http://${apiUrl}:3000/images`)
 	}
 }

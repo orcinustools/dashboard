@@ -7,11 +7,13 @@ import axios from "axios";
  * 
  */
 
+let apiUrl = process.env.API_URL || "localhost"
+
 // fetch list of services
 export function fetchServices() {
 	return {
 		type: "FETCH_SERVICES",
-		payload: axios.get("http://localhost:3000/services")
+		payload: axios.get(`http://${apiUrl}:3000/services`)
 	}
 }
 
@@ -19,6 +21,6 @@ export function fetchServices() {
 export function fetchService() {
 	return {
 		type: "FETCH_SERVICE",
-		payload: axios.get("http://localhost:3000/wp-app")
+		payload: axios.get(`http://${apiUrl}:3000/wp-app`)
 	}
 }

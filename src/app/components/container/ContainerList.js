@@ -62,7 +62,7 @@ export default class ContainerList extends React.Component {
                 { error &&
                   <tr>
                     <td colSpan="6" style={{textAlign: "center"}}>
-                      Container Not Found
+                      CONTAINERS NOT FOUND
                     </td>
                   </tr>
                 }

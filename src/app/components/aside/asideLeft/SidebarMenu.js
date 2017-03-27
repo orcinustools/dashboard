@@ -6,24 +6,24 @@ export default class SidebarMenu extends React.Component {
 		return (
       <ul className="sidebar-menu">
         <li className="nav-header">Dashboard</li>
-        <li className="active">
-          <Link to="/overview">
+        <li>
+          <Link to="/overview" activeClassName="sidebar-active">
             <i className="fa fa-dashboard fa-fw"></i> <span>&nbsp; Overview</span>
           </Link>
         </li>
         <li className="nav-header">Workspace</li>
         <li>
-          <Link to="/services">
+          <Link to="/services" activeClassName="sidebar-active">
             <i className="fa fa-cubes fa-fw"></i> <span>&nbsp; Services</span>
           </Link>
         </li>
         <li>
-          <Link to="/stacks">
+          <Link to="/stacks" activeClassName="sidebar-active">
             <i className="fa fa-server fa-fw"></i> <span>&nbsp; Groups</span>
           </Link>
         </li>
         <li>
-          <Link to="/containers">
+          <Link to="/containers" activeClassName="sidebar-active">
             <i className="fa fa-cube fa-fw"></i> <span>&nbsp; Containers</span>
           </Link>
         </li>
@@ -44,23 +44,23 @@ export default class SidebarMenu extends React.Component {
         </li>*/}
         <li className="nav-header">Community</li>
         <li>
-          <Link to="/catalog">
+          <Link to="/catalog" activeClassName="sidebar-active">
             <i className="fa fa-book fa-fw"></i> <span>&nbsp; Catalog</span>
           </Link>
         </li>
         <li className="nav-header">Miscellaneous</li>
         <li>
-          <Link to="/settings">
+          <Link to="/settings" activeClassName="sidebar-active">
             <i className="fa fa-cog fa-fw"></i> <span>&nbsp; Settings</span>
           </Link>
         </li>
         <li>
-          <Link to="/docs">
+          <Link to="/docs" activeClassName="sidebar-active">
             <i className="fa fa-book fa-fw"></i> <span>&nbsp; Documentation</span>
           </Link>
         </li>
         <li>
-          <Link to="/support">
+          <Link to="/support" activeClassName="sidebar-active">
             <i className="fa fa-life-ring fa-fw"></i> <span>&nbsp; Support</span>
           </Link>
         </li>

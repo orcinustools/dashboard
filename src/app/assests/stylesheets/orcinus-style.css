@@ -56,3 +56,10 @@ body::-webkit-scrollbar-thumb {
   background: #39435c;
   border-radius: 20px;
 }
+
+.skin-black .sidebar > .sidebar-menu > li > a:hover,
+.sidebar-active {
+  color: #f6f6f6;
+  background: #425164;
+  border-left: 3px solid #6BB9F0;
+}

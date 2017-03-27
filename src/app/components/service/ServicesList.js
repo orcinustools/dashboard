@@ -60,7 +60,7 @@ export default class ServicesList extends React.Component {
 
                   { error &&
                     <tr>
-                      <td colSpan="6" style={{ textAling: "center" }}>
+                      <td colSpan="6" style={{ textAlign: "center" }}>
                         SERVICES NOT FOUND
                       </td>
                     </tr>
