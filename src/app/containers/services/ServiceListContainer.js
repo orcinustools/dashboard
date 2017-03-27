@@ -12,7 +12,9 @@ import { fetchServices } from "../../actions/serviceActions";
 const mapStateToProps = (state) => {
   return {
     services: state.servicesState.servicesList.services,
-    fetching: state.servicesState.servicesList.fetching
+    fetching: state.servicesState.servicesList.fetching,
+    fetched: state.servicesState.servicesList.fetched,
+    error: state.servicesState.servicesList.error
   };
 }
 

@@ -22,12 +22,8 @@ export default class ServicesList extends React.Component {
 	}
 
 	render() {
-		const { services, fetching } = this.props;
-    
-    if (fetching) {
-      return <h1>Fetching</h1>;
-    }
-  
+		const { services, fetching, fetched, error } = this.props;
+
 		return (
       <div className="row">
         <div className="col-xs-12">
@@ -50,7 +46,25 @@ export default class ServicesList extends React.Component {
                   </tr>
                 </thead>
                 <tbody className="table-stack-list">
-                  { this.renderServices(services) }
+                  { fetching &&
+                    <tr>
+                      <td colSpan="6" style={{ textAlign: "center" }}>
+                        <i className="fa fa-refresh fa-spin fa-2x fa-fw"></i>
+                      </td>
+                    </tr>
+                  }
+
+                  { fetched && 
+                    this.renderServices(services)
+                  }
+
+                  { error &&
+                    <tr>
+                      <td colSpan="6" style={{ textAling: "center" }}>
+                        SERVICES NOT FOUND
+                      </td>
+                    </tr>
+                  }
                 </tbody>
               </table>
             </div>
