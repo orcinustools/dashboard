@@ -11,7 +11,8 @@ const mapStateToProps = (state) => {
 	return {
 		container: state.containerState.activeContainer.container,
 		fetching: state.containerState.activeContainer.fetching,
-		fetched: state.containerState.activeContainer.fetched
+		fetched: state.containerState.activeContainer.fetched,
+		error: state.containerState.activeContainer.error
 	}
 }
 
