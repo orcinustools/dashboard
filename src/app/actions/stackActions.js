@@ -17,3 +17,10 @@ export function fetchStacks() {
 		payload: axios.get(`http://${apiUrl}:3000/stacks`)
 	}
 }
+
+export function fetchStack() {
+	return {
+		type: "FETCH_STACK",
+		payload: axios.get(`http://${apiUrl}:3000/wordpress-app`)
+	}
+}

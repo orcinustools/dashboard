@@ -5,29 +5,27 @@ const initialState = {
 }
 
 export default function reducer (state = initialState, action) {
+	let error;
 	switch (action.type) {
-		
-		case "FETCH_STACKS_PENDING":{
-			return { ...state, fetching: true }
-		}
 
-		case "FETCH_STACKS_FULFILLED": {
-			return { 
-				...state, 
-				fethced: true,
-				fetching: false, 
-				stacks: action.payload.data,
-			}
-		}
+		// Collection of stacks
+		case "FETCH_STACKS_PENDING": // start fetching stacks, fetching : true
+			return { ...state, stacksList: {stacks: [], fetching: true, error: null} }
+		case "FETCH_STACKS_FULFILLED": 
+			return { ...state, stacksList: {stacks: action.payload.data, fetched: true, error: null} }
+		case "FETCH_STACKS_REJECTED":
+			error = action.payload || {message: action.payload.message};
+			return { ...state, stacksList: {stacks: [], fetching: false, error: error} }
 
-		case "FETCH_STACKS_REJECTED": {
-			return { 
-				...state, 
-				fetched: false, 
-				fetching: false, 
-				error: action.payload 
-			}
-		}
+		// Single service
+		case "FETCH_STACK_PENDING":
+			return { ...state, activeStack: {stack: {}, fetching: true, error: null}}
+		case "FETCH_STACK_FULFILLED":
+			return { ...state, activeStack: {stack: action.payload.data, fetched: true, error: null}}
+		case "FETCH_STACK_REJECTED":
+			error = action.payload || {message: action.payload.message};
+			return { ...state, activeStack: {stack: {}, fetching: false, error: error}}
+
 	}
 
 	return state;

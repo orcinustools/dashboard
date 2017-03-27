@@ -9,11 +9,13 @@ import StackListItem    from "./StackList/StackListItem"
 
 export default class StackList extends React.Component {
 
-	componentWillMount() {
+	componentDidMount() {
 		this.props.fetchStacks()
 	}
 
 	render() {
+    const { stacks, error, fetching, fetched } = this.props
+
 		return (
       <div className="row">
         <div className="col-xs-12">
@@ -34,12 +36,30 @@ export default class StackList extends React.Component {
                   </tr>
                 </thead>
                 <tbody className="table-stack-list">
+                { error &&
+                  <tr>
+                    <td colSpan="6" style={{ textAlign: "center", color: "#939393" }}>
+                      <h4>GROUPS NOT FOUND</h4>
+                    </td>
+                  </tr>
+                }
+
+                { fetching &&
+                  <tr>
+                    <td colSpan="6" style={{ textAlign: "center", color: "#939393" }}>
+                      <i className="fa fa-refresh fa-spin fa-2x fa-fw"></i>
+                    </td>
+                  </tr>
+                }
+
+                { fetched &&
                   <StackListItem id={ "123" } name="test-app" />
+                }
                 </tbody>
               </table>
             </div>
             <div className="panel-footer">
-              <Link to="/catalog" className="btn btn-primary btn-block">CREATE NEW PROJECT</Link>
+              <Link to="/stacks/new" className="btn btn-primary btn-block">CREATE NEW GROUP</Link>
             </div>
           </div>
         </div>

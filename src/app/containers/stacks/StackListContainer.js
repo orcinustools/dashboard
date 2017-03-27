@@ -9,7 +9,10 @@ import { fetchStacks } from "../../actions/stackActions"
 
 const mapStateToProps = (state) => {
   return {
-    stacks: state.stacksState.stackList
+    stacks: state.stacksState.stacksList.stacks,
+    fetching: state.stacksState.stacksList.fetching,
+    fetched: state.stacksState.stacksList.fetched,
+    error: state.stacksState.stacksList.error,
   }
 }
 
