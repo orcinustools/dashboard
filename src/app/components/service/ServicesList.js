@@ -49,7 +49,7 @@ export default class ServicesList extends React.Component {
                   { fetching &&
                     <tr>
                       <td colSpan="6" style={{ textAlign: "center" }}>
-                        <i className="fa fa-refresh fa-spin fa-2x fa-fw"></i>
+                        <i className="fa fa-refresh fa-spin fa-2x fa-fw" style={{ color: "#939393"}}></i>
                       </td>
                     </tr>
                   }
@@ -60,8 +60,8 @@ export default class ServicesList extends React.Component {
 
                   { error &&
                     <tr>
-                      <td colSpan="6" style={{ textAlign: "center" }}>
-                        SERVICES NOT FOUND
+                      <td colSpan="6" style={{ textAlign: "center", color: "#939393" }}>
+                        <h4>SERVICES NOT FOUND</h4>
                       </td>
                     </tr>
                   }

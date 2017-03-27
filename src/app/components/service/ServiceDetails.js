@@ -54,7 +54,7 @@ export default class ServiceDetails extends React.Component {
 				      <div className="panel-body">
 								{ fetching &&
 									<div style={{ textAlign: "center", minHeight: "100px" }}>
-										<i className="fa fa-refresh fa-spin fa-2x fa-fw" style={{ color: "#eee"}}></i>
+										<i className="fa fa-refresh fa-spin fa-2x fa-fw" style={{ color: "#939393"}}></i>
 									</div>
 								}
 
@@ -67,9 +67,9 @@ export default class ServiceDetails extends React.Component {
 								}
 
 								{ error &&
-									<h3 style={{ color: "#898989", textAlign: "center", minHeight: "100px" }}>
+									<h4 style={{ color: "#939393", textAlign: "center", minHeight: "100px" }}>
 										SERVICE NOT FOUND
-									</h3>
+									</h4>
 								}
 				      </div>
 				    </div>
@@ -97,8 +97,8 @@ export default class ServiceDetails extends React.Component {
 				          { error &&
 				          	<tbody className="table-stack-list">
 											<tr>
-												<td colSpan="5" style={{ textAlign: "center", color: "#898989", padding: "8px" }}>
-													<h3>CONTAINERS NOT FOUND</h3>
+												<td colSpan="5" style={{ textAlign: "center", color: "#939393", padding: "8px" }}>
+													<h4>CONTAINERS NOT FOUND</h4>
 												</td>
 											</tr>			          		
 				          	</tbody>
@@ -107,8 +107,8 @@ export default class ServiceDetails extends React.Component {
 				          { fetching &&
 				          	<tbody className="table-stack-list">
 											<tr>
-												<td colSpan="5" style={{ textAlign: "center", color: "#898989", padding: "8px" }}>
-													<i className="fa fa-refresh fa-spin fa-2x fa-fw" style={{ color: "#eee"}}></i>	
+												<td colSpan="5" style={{ textAlign: "center", padding: "8px" }}>
+													<i className="fa fa-refresh fa-spin fa-2x fa-fw" style={{ color: "#939393"}}></i>	
 												</td>
 											</tr>			          		
 				          	</tbody>
@@ -144,8 +144,8 @@ export default class ServiceDetails extends React.Component {
 				          { error &&
 				          	<tbody className="table-stack-list">
 											<tr>
-												<td colSpan="5" style={{ textAlign: "center", color: "#898989", padding: "8px" }}>
-													<h3>VOLUMES NOT FOUND</h3>
+												<td colSpan="5" style={{ textAlign: "center", color: "#939393", padding: "8px" }}>
+													<h4>VOLUMES NOT FOUND</h4>
 												</td>
 											</tr>			          		
 				          	</tbody>
@@ -154,8 +154,8 @@ export default class ServiceDetails extends React.Component {
 				          { fetching &&
 				          	<tbody className="table-stack-list">
 											<tr>
-												<td colSpan="5" style={{ textAlign: "center", color: "#898989", padding: "8px" }}>
-													<i className="fa fa-refresh fa-spin fa-2x fa-fw" style={{ color: "#eee"}}></i>	
+												<td colSpan="5" style={{ textAlign: "center", padding: "8px" }}>
+													<i className="fa fa-refresh fa-spin fa-2x fa-fw" style={{ color: "#939393"}}></i>	
 												</td>
 											</tr>			          		
 				          	</tbody>
@@ -253,8 +253,8 @@ export default class ServiceDetails extends React.Component {
 				          { error &&
 				          	<tbody className="table-stack-list">
 											<tr>
-												<td colSpan="6" style={{ textAlign: "center", color: "#898989", padding: "8px" }}>
-													<h3>MOUNTPOINTS NOT FOUND</h3>
+												<td colSpan="6" style={{ textAlign: "center", color: "#939393", padding: "8px" }}>
+													<h4>MOUNTPOINTS NOT FOUND</h4>
 												</td>
 											</tr>			          		
 				          	</tbody>
@@ -263,8 +263,8 @@ export default class ServiceDetails extends React.Component {
 				          { fetching &&
 				          	<tbody className="table-stack-list">
 											<tr>
-												<td colSpan="6" style={{ textAlign: "center", color: "#898989", padding: "8px" }}>
-													<i className="fa fa-refresh fa-spin fa-2x fa-fw" style={{ color: "#eee"}}></i>	
+												<td colSpan="6" style={{ textAlign: "center", padding: "8px" }}>
+													<i className="fa fa-refresh fa-spin fa-2x fa-fw" style={{ color: "#939393"}}></i>	
 												</td>
 											</tr>			          		
 				          	</tbody>
@@ -370,8 +370,8 @@ export default class ServiceDetails extends React.Component {
 				          { error &&
 				          	<tbody className="table-stack-list">
 											<tr>
-												<td colSpan="4" style={{ textAlign: "center", color: "#898989", padding: "8px" }}>
-													<h3>PORTS NOT FOUND</h3>
+												<td colSpan="4" style={{ textAlign: "center", color: "#939393", padding: "8px" }}>
+													<h4>PORTS NOT FOUND</h4>
 												</td>
 											</tr>			          		
 				          	</tbody>
@@ -380,8 +380,8 @@ export default class ServiceDetails extends React.Component {
 				          { fetching &&
 				          	<tbody className="table-stack-list">
 											<tr>
-												<td colSpan="4" style={{ textAlign: "center", color: "#898989", padding: "8px" }}>
-													<i className="fa fa-refresh fa-spin fa-2x fa-fw" style={{ color: "#eee"}}></i>	
+												<td colSpan="4" style={{ textAlign: "center", padding: "8px" }}>
+													<i className="fa fa-refresh fa-spin fa-2x fa-fw" style={{ color: "#939393"}}></i>	
 												</td>
 											</tr>			          		
 				          	</tbody>
@@ -520,8 +520,8 @@ export default class ServiceDetails extends React.Component {
 				          { error &&
 				          	<tbody className="table-stack-list">
 											<tr>
-												<td colSpan="3" style={{ textAlign: "center", color: "#898989", padding: "8px" }}>
-													<h3>VARIABLES NOT FOUND</h3>
+												<td colSpan="3" style={{ textAlign: "center", color: "#939393", padding: "8px" }}>
+													<h4>VARIABLES NOT FOUND</h4>
 												</td>
 											</tr>			          		
 				          	</tbody>
@@ -530,8 +530,8 @@ export default class ServiceDetails extends React.Component {
 				          { fetching &&
 				          	<tbody className="table-stack-list">
 											<tr>
-												<td colSpan="3" style={{ textAlign: "center", color: "#898989", padding: "8px" }}>
-													<i className="fa fa-refresh fa-spin fa-2x fa-fw" style={{ color: "#eee"}}></i>	
+												<td colSpan="3" style={{ textAlign: "center", padding: "8px" }}>
+													<i className="fa fa-refresh fa-spin fa-2x fa-fw" style={{ color: "#939393"}}></i>	
 												</td>
 											</tr>			          		
 				          	</tbody>
