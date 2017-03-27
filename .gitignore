@@ -7,4 +7,5 @@ npm-debug.log*
 # Dependency directories
 node_modules/
 
-dist
+# Persiapan buat testing deploy
+# dist
