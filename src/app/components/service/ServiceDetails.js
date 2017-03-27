@@ -28,7 +28,7 @@ const protoOptions = [
 
 export default class ServiceDetails extends React.Component {
 
-	componentWillMount() {
+	componentDidMount() {
 		this.props.fetchService()
 	}
 

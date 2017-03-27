@@ -5,7 +5,7 @@ import ServiceListItem from "./ServiceList/ServiceListItem";
 
 export default class ServicesList extends React.Component {
 
-	componentWillMount() {
+	componentDidMount() {
 		this.props.fetchServices();
 	}
 
