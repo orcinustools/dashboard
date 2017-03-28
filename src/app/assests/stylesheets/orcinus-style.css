@@ -73,6 +73,14 @@ body::-webkit-scrollbar-thumb {
   background-color: #2c2c31 !important;
 }
 
+.port-publish {
+  padding-left: 0px;
+}
+
+.port-publish li {
+  list-style-type: none;
+}
+
 /*button*/
 .create-button {
   background-color: #209687 !important;

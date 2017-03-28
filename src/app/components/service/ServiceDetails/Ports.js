@@ -31,7 +31,16 @@ export default class Ports extends React.Component {
 	     <tr>
 	        <td>80</td>
 	        <td>TCP</td>
-	        <td><span className="label label-success">YES</span></td>
+	        <td>
+	        	<ul className="port-publish">
+	        		<li>
+		        		<span className="label label-success running-state">PRIVATE</span>
+	        		</li>
+	        		<li>
+		        		<span className="label label-success running-state">PUBLIC</span>
+	        		</li>
+	        	</ul>
+	        </td>
 	        <td>80</td>
 	        <td>
 	          <Link
