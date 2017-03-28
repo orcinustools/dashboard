@@ -82,7 +82,7 @@ export default class General extends React.Component {
                       defaultValue="1" />
                   </div>
                 </div>
-                <div className="form-group">
+                {/*<div className="form-group">
                   <label className="col-sm-2 control-label">AUTO START</label>
                   <div className="col-sm-4">
                     <label className="radio-inline">
@@ -123,7 +123,7 @@ export default class General extends React.Component {
                         &nbsp; Yes
                     </label>
                   </div>
-                </div>
+                </div>*/}
               </div>
             </div>
           </div>

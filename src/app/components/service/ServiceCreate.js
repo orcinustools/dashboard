@@ -18,7 +18,7 @@ export default class ServiceCreate extends React.Component {
 
         <Volumes />
 
-        <Variables />
+        {/*<Variables />*/}
         
         <ActionButton />
 			</div>
