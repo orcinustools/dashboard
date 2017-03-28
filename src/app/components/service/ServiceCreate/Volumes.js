@@ -115,7 +115,7 @@ export default class Volumes extends React.Component {
                                   <div className="col-lg-8 col-md-offset-3">
                                     <button
                                         type="submit"
-                                        className="btn btn-block btn-success">
+                                        className="btn btn-block btn-success create-button">
                                       Edit Volume
                                     </button>
                                   </div>
@@ -140,7 +140,7 @@ export default class Volumes extends React.Component {
               <a
                   href="#modalAddVolume"
                   data-toggle="modal"
-                  className="btn btn-success btn-sm list-stack-action">
+                  className="btn btn-success btn-sm list-stack-action create-button">
                   <i className="fa fa-plus fa-fw" aria-hidden="true"></i>
                 &nbsp; Add Volume
               </a>

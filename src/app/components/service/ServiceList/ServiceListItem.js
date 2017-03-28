@@ -12,7 +12,7 @@ export default class ServiceListItem extends React.Component {
             { this.props.name }
           </Link>
         </td>
-        <td><span className="label label-success">RUNNING</span></td>
+        <td><span className="label label-success running-state">RUNNING</span></td>
         <td>
           <i className="fa fa-tag fa-fw" aria-hidden="true"></i>
           &nbsp; { this.props.image }
@@ -42,7 +42,7 @@ export default class ServiceListItem extends React.Component {
         <td>
           <Link
               to="#"
-              className="btn btn-success btn-sm list-stack-action">
+              className="btn btn-success btn-sm list-stack-action start-button">
             <i className="fa fa-play" aria-hidden="true"></i>
           </Link>
           <Link

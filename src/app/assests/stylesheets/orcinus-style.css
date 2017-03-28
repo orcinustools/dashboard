@@ -53,13 +53,43 @@ body::-webkit-scrollbar-track {
 
 .left-side::-webkit-scrollbar-thumb,
 body::-webkit-scrollbar-thumb {
-  background: #39435c;
+  background: #18181c;
   border-radius: 20px;
 }
 
+/* Color pallete */
 .skin-black .sidebar > .sidebar-menu > li > a:hover,
 .sidebar-active {
   color: #f6f6f6;
-  background: #425164;
-  border-left: 3px solid #6BB9F0;
+  background: #2a2a2c;
+  border-left: 3px solid #60606b;
+}
+
+.skin-black .left-side {
+  background: #18181c !important;
+}
+
+.footer-main {
+  background-color: #2c2c31 !important;
+}
+
+/*button*/
+.create-button {
+  background-color: #209687 !important;
+}
+
+.start-button, .running-state {
+  background-color: #8fc428 !important;
+}
+
+.pause-button, .pause-state {
+  background-color: #fdc300 !important;
+}
+
+.stop-button, .stop-state {
+  background-color: #fa5a00 !important;
+}
+
+.restart-button, .restart-state {
+  background-color: #209687 !important;
 }

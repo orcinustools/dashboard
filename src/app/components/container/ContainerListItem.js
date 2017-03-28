@@ -15,11 +15,11 @@ export default class ContainerListItem extends React.Component {
           <ul className="list-child">
             <li><i className="fa fa-server fa-fw" aria-hidden="true"></i> Wordpress-app</li>
             <li><i className="fa fa-cubes fa-fw" aria-hidden="true"></i> wp-app</li>
-            <li><i className="fa fa-hdd-o fa-fw" aria-hidden="true"></i> 1 Volume(s)</li>
+            <li><i className="fa fa-hdd-o fa-fw" aria-hidden="true"></i> 1 Volumes</li>
           </ul>
         </td>
         <td>
-          <Link to="#" className="btn btn-warning btn-sm list-stack-action"><i className="fa fa-pause" aria-hidden="true"></i></Link>
+          <Link to="#" className="btn btn-warning btn-sm list-stack-action pause-state"><i className="fa fa-pause" aria-hidden="true"></i></Link>
           <Link to="#" className="btn btn-info btn-sm list-stack-action"><i className="fa fa-refresh" aria-hidden="true"></i></Link>
           <Link to="#" className="btn btn-danger btn-sm list-stack-action"><i className="fa fa-trash-o" aria-hidden="true"></i></Link>
         

@@ -2884,7 +2884,7 @@ vertical-align: top;
 }
 /* skin-black sidebar */
 .skin-black .sidebar {
-  border-bottom: 1px solid #39435C;
+  /*border-bottom: 1px solid #39435C;*/
 }
 .skin-black .sidebar > .sidebar-menu > li {
   /*border-top: 1px solid #333;

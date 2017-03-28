@@ -22,7 +22,7 @@ export default class ActionButton extends React.Component {
             <div className="btn-group" role="group">*/}
               <button 
                   type="button"
-                  className="btn btn-primary btn-block"
+                  className="btn btn-primary btn-block create-button"
                   style={{ height: '40px', fontSize: '16px' }} >
                 <i className="fa fa-rocket fa-fw" aria-hidden="true"></i> 
                 <span

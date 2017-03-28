@@ -59,7 +59,7 @@ export default class StackList extends React.Component {
               </table>
             </div>
             <div className="panel-footer">
-              <Link to="/stacks/new" className="btn btn-primary btn-block">CREATE NEW GROUP</Link>
+              <Link to="/stacks/new" className="btn btn-primary btn-block create-button">CREATE NEW GROUP</Link>
             </div>
           </div>
         </div>

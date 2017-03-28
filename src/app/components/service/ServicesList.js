@@ -71,7 +71,7 @@ export default class ServicesList extends React.Component {
             <div className="panel-footer">
               <Link
                   to="/catalog"
-                  className="btn btn-primary btn-block">
+                  className="btn btn-primary btn-block create-button">
                 CREATE NEW SERVICE
               </Link> 
             </div>

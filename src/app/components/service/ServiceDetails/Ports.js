@@ -127,7 +127,7 @@ export default class Ports extends React.Component {
 	                      <div className="col-lg-8 col-md-offset-3">
 	                        <button
 		                        	type="submit"
-		                        	className="btn btn-block btn-success">
+		                        	className="btn btn-block btn-success create-button">
 	                        	Edit Port
                         	</button>
 	                      </div>

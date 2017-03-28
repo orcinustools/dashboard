@@ -18,7 +18,7 @@ export default class Volumes extends React.Component {
         		<Link to="/volumes/wp-vol">wp-vol</Link></td>
           <td>2GB</td>
           <td>
-            <span className="label label-success">Mounted</span>
+            <span className="label label-success running-state">Mounted</span>
           </td>
           <td>150 MB</td>
           <td>

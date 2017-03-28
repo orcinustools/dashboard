@@ -15,7 +15,7 @@ export default class CreateButton extends React.Component {
 			<div style={style}>
 		    <Link
 		        to="/stacks/new"
-		        className="btn btn-primary btn-block" >
+		        className="btn btn-primary btn-block create-button" >
 		      NEW GROUP
 		    </Link> 
 	    </div>

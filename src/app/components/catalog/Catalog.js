@@ -121,7 +121,7 @@ export default class CatalogContainer extends React.Component {
 
         <div className="row">
           <div className="col-md-12">
-            <button className="btn btn-primary btn-block">BUILD NEW IMAGE</button>
+            <button className="btn btn-primary btn-block create-button">BUILD NEW IMAGE</button>
           </div>
         </div>
         </div>

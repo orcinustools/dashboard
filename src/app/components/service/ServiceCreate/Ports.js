@@ -132,7 +132,7 @@ export default class Ports extends React.Component {
                                   <div className="col-lg-8 col-md-offset-3">
                                     <button
                                         type="submit"
-                                        className="btn btn-block btn-success">
+                                        className="btn btn-block btn-success create-button">
                                       Edit Port
                                     </button>
                                   </div>
@@ -157,7 +157,7 @@ export default class Ports extends React.Component {
               <a
                   href="#modalAddPort"
                   data-toggle="modal"
-                  className="btn btn-sm btn-success">
+                  className="btn btn-sm btn-success create-button">
                 Add New Port
               </a>
 
@@ -245,7 +245,7 @@ export default class Ports extends React.Component {
                           <div className="col-lg-8 col-md-offset-3">
                             <button
                                 type="submit"
-                                className="btn btn-block btn-success">
+                                className="btn btn-block btn-success create-button">
                               Add Port
                             </button>
                           </div>

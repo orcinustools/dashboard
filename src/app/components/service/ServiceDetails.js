@@ -171,7 +171,7 @@ export default class ServiceDetails extends React.Component {
 					        <Link
 						        	to="#modalAddVolume"
 						        	data-toggle="modal"
-						        	className="btn btn-success btn-sm list-stack-action">
+						        	className="btn btn-success btn-sm list-stack-action create-button">
 					        	<i className="fa fa-plus fa-fw" aria-hidden="true"></i>  
 						        &nbsp; Add Volume
 						      </Link>
@@ -280,7 +280,7 @@ export default class ServiceDetails extends React.Component {
 					        <Link 
 					     				to="#modalAddVolumeMountpoint" 
 					        		data-toggle="modal" 
-					        		className="btn btn-success btn-sm list-stack-action">
+					        		className="btn btn-success btn-sm list-stack-action create-button">
 					        	<i className="fa fa-plus fa-fw" aria-hidden="true"></i>
 					        	&nbsp; Add Mountpoint
 				        	</Link>
@@ -333,7 +333,7 @@ export default class ServiceDetails extends React.Component {
 					                    <div className="col-lg-8 col-md-offset-3">
 					                      <button 
 					                      		type="submit"
-					                      		className="btn btn-block btn-success">
+					                      		className="btn btn-block btn-success create-button">
 					                      	Add Volume
 				                      	</button>
 					                    </div>
@@ -397,7 +397,7 @@ export default class ServiceDetails extends React.Component {
 					        <Link
 					        		to="#modalAddPort"
 					        		data-toggle="modal"
-					        		className="btn btn-sm btn-success">
+					        		className="btn btn-sm btn-success create-button">
 					          <i className="fa fa-plus fa-fw" aria-hidden="true"></i>
 					          	&nbsp; Add New Port
 					        </Link>
@@ -485,7 +485,7 @@ export default class ServiceDetails extends React.Component {
 					                    <div className="col-lg-8 col-md-offset-3">
 					                      <button
 						                      	type="submit"
-						                      	className="btn btn-block btn-success">
+						                      	className="btn btn-block btn-success create-button">
 					                      	Add Port
 					                      </button>
 					                    </div>

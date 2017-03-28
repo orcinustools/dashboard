@@ -17,7 +17,7 @@ export default class Containers extends React.Component {
         	</td>
           <td>
          		<span
-         				className="label label-success">
+         				className="label label-success running-state">
          			RUNNING
        			</span>
        		</td>
