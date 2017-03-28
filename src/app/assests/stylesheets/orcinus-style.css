@@ -40,7 +40,10 @@ body > #app .header .navbar {
   width: 220px;
 }*/
 
-.left-side::-webkit-scrollbar,
+.left-side::-webkit-scrollbar {
+  width: 1px;
+}
+
 body::-webkit-scrollbar {
   width: 5px;
 }
