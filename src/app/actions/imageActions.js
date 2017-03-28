@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from "axios"
 
 /**
  * 
@@ -7,11 +7,14 @@ import axios from "axios";
  * 
  */
 
-let apiUrl = process.env.API_URL || "localhost"
+let HOST = process.env.ORCINUS_HOST || "localhost"
+let PORT 	 = process.env.ORCINUS_PORT || 4000
+
+console.log(process.env)
 
 export function fetchImages() {
 	return {
 		type: "FETCH_IMAGES",
-		payload: axios.get(`http://${apiUrl}:3000/images`)
+		payload: axios.get(`http://${HOST}:${PORT}/images`)
 	}
 }
