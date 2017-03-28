@@ -1,28 +1,71 @@
-var webpack = require("webpack");
-var path = require("path");
+const webpack 					= require("webpack");
+const path 							= require("path");
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
-var DIST_DIR = path.resolve(__dirname, "dist");
-var SRC_DIR = path.resolve(__dirname, "src");
+const DIST_DIR 		= path.resolve(__dirname, "dist");
+const SRC_DIR 		= path.resolve(__dirname, "src");
 
-var config = {
-	entry: SRC_DIR + "/app/index.js",
+const VENDORS_DIR 			= path.resolve(__dirname, "src/app/vendors");
+const NODE_MODULES_DIR 	= path.resolve(__dirname, "node_modules");
+
+const config = {
+	entry: SRC_DIR + "/app/index.js", // bisa menggunakan object untuk split bundle
+	
 	output: {
 		path: DIST_DIR + "/app",
 		filename: "bundle.js",
 		publicPath: "/app/"
 	},
+	
 	module: {
-		loaders: [
+		rules: [
+			{ // loader for js files
+				test: /\.jsx?$/,
+				include: SRC_DIR, // include the source file
+				exclude: [NODE_MODULES_DIR, VENDORS_DIR], // exclude the node_module directory
+				use: "babel-loader" // using babel loader
+			},
+			{ // loader for sass, scss files
+				test: /\.scss$/,
+				use: ExtractTextPlugin.extract({
+					fallback: 'style-loader',
+					use: ['css-loader', 'sass-loader']
+				})
+			},
+			{ // loader for css files
+				test: /\.css$/,
+				// Untuk memisahkan file css dari file bundle.js
+				// akan menghasilkan file style.css
+				use: ExtractTextPlugin.extract({
+					fallback: 'style-loader',
+					use: 'css-loader'
+				})
+			},
 			{
-				test: /\.js?/,
-				include: SRC_DIR,
-				loader: "babel-loader",
-				query: {
-					presets: ["react", "es2015", "stage-2"]
-				}
+				test: /\.(eot|woff|woff2|ttf|svg|png|jpe?g|gif)(\?\S*)?$/,
+				use: [
+					{ loader: 'url-loader?limit=100000@name=[name][ext]' }
+				]
 			}
 		]
-	}
+	},
+
+	plugins: [
+		// Webpack plugin jquery
+    new webpack.ProvidePlugin({
+	    $: 'jquery',
+	    jQuery: 'jquery'
+    }),
+
+    // Webpack plugin untuk memisah file css
+    // agar tidak diinclude ke dalam file 
+    // bundle.js
+    new ExtractTextPlugin({
+			filename: '[name].css',
+			allChunks: true
+		}),
+	]
+
 };
 
 module.exports = config;
