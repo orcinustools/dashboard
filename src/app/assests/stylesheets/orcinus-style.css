@@ -40,18 +40,21 @@ body > #app .header .navbar {
   width: 220px;
 }*/
 
-.left-side::-webkit-scrollbar,
+.sidebar::-webkit-scrollbar {
+  width: 1px;
+}
+
 body::-webkit-scrollbar {
   width: 5px;
 }
 
-.left-side::-webkit-scrollbar-track,
+.sidebar::-webkit-scrollbar-track,
 body::-webkit-scrollbar-track {
   background: #ddd;
   /*border-radius: 20px*/;
 }
 
-.left-side::-webkit-scrollbar-thumb,
+.sidebar::-webkit-scrollbar-thumb,
 body::-webkit-scrollbar-thumb {
   background: #18181c;
   border-radius: 20px;

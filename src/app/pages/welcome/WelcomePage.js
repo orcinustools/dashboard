@@ -10,9 +10,9 @@ export default class WelcomePage extends React.Component {
           <div className="panel-body text-center">
             <div className="col-md-12 welcome-hello">
               <h1 className="text-center text-bg">Welcome to Orcinus Dashboard</h1>
-              <p className="welcome-greet">There is no application in your project. Let's create your first stack.</p>
+              <p className="welcome-greet">There is no service in your group. Let's create your first service.</p>
 
-              <Link to="/catalog" className="btn btn-info btn-create btn-lg create-button">CREATE PROJECT</Link>
+              <Link to="/catalog" className="btn btn-info btn-create btn-lg create-button">CREATE SERVICE</Link>
             </div>
           </div>
         </div>
