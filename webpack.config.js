@@ -56,6 +56,11 @@ const config = {
 	    $: 'jquery',
 	    jQuery: 'jquery'
     }),
+		new webpack.EnvironmentPlugin({
+		  NODE_ENV: "development",
+		  ORCINUS_API_HOST: "localhost",
+		  ORCINUS_API_PORT: 4000
+		}),
 
     // Webpack plugin untuk memisah file css
     // agar tidak diinclude ke dalam file 

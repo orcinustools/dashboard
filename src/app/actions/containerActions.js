@@ -6,21 +6,21 @@
  */
 
 import axios from "axios";
-let apiUrl = process.env.API_URL || "localhost"
+import { ORCINUS_API_HOST, ORCINUS_API_PORT } from "../config/environtment"
 
 // fetch list of containers
 export function fetchContainers() {
 	return {
 		type: "FETCH_CONTAINERS",
-		payload: axios.get(`http://${apiUrl}:3000/containers`)
+		payload: axios.get(`http://${ORCINUS_API_HOST}:${ORCINUS_API_PORT}/tasks`)
 	}
 }
 
 // fetch single container
 // TODO := tambah id sebagai parameter
-export function fetchContainer() {
+export function fetchContainer(id) {
 	return {
 		type: "FETCH_CONTAINER",
-		payload: axios.get(`http://${apiUrl}:3000/wp-app-1`)
+		payload: axios.get(`http://${ORCINUS_API_HOST}:${ORCINUS_API_PORT}/tasks/${id}`)
 	}
 }

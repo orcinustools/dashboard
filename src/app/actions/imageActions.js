@@ -1,5 +1,3 @@
-import axios from "axios"
-
 /**
  * 
  * Action creator untuk menngambil data image dari api, yang mereturn sebuah
@@ -7,14 +5,14 @@ import axios from "axios"
  * 
  */
 
-let HOST = process.env.ORCINUS_HOST || "localhost"
-let PORT 	 = process.env.ORCINUS_PORT || 4000
+import axios from "axios";
+import { ORCINUS_API_HOST, ORCINUS_API_PORT } from "../config/environtment"
 
-console.log(process.env)
+console.log(ORCINUS_API_HOST)
 
 export function fetchImages() {
 	return {
 		type: "FETCH_IMAGES",
-		payload: axios.get(`http://${HOST}:${PORT}/images`)
+		payload: axios.get(`http://${ORCINUS_API_HOST}:${ORCINUS_API_PORT}/images`)
 	}
 }
