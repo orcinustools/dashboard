@@ -1,5 +1,3 @@
-import axios from "axios";
-
 /**
  * 
  * Action creator untuk menngambil data stack dari api, yang mereturn sebuah
@@ -7,20 +5,19 @@ import axios from "axios";
  * 
  */
 
-let apiUrl = process.env.API_URL || "localhost"
-
-console.log(apiUrl)
+import axios from "axios";
+import { ORCINUS_API_HOST, ORCINUS_API_PORT } from "../config/environtment"
 
 export function fetchStacks() {
 	return {
 		type: "FETCH_STACKS",
-		payload: axios.get(`http://${apiUrl}:3000/stacks`)
+		payload: axios.get(`http://${ORCINUS_API_HOST}:${ORCINUS_API_PORT}/stacks`)
 	}
 }
 
 export function fetchStack() {
 	return {
 		type: "FETCH_STACK",
-		payload: axios.get(`http://${apiUrl}:3000/wordpress-app`)
+		payload: axios.get(`http://${ORCINUS_API_HOST}:${ORCINUS_API_PORT}/wordpress-app`)
 	}
 }

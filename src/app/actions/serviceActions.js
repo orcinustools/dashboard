@@ -1,5 +1,3 @@
-import axios from "axios";
-
 /**
  * 
  * Action creator untuk menngambil data services dari api, yang mereturn sebuah
@@ -7,20 +5,21 @@ import axios from "axios";
  * 
  */
 
-let apiUrl = process.env.API_URL || "localhost"
+import axios from "axios";
+import { ORCINUS_API_HOST, ORCINUS_API_PORT } from "../config/environtment"
 
 // fetch list of services
 export function fetchServices() {
 	return {
 		type: "FETCH_SERVICES",
-		payload: axios.get(`http://${apiUrl}:3000/services`)
+		payload: axios.get(`http://${ORCINUS_API_HOST}:${ORCINUS_API_PORT}/services`)
 	}
 }
 
 // fetch single service
-export function fetchService() {
+export function fetchService(id) {
 	return {
 		type: "FETCH_SERVICE",
-		payload: axios.get(`http://${apiUrl}:3000/wp-app`)
+		payload: axios.get(`http://${ORCINUS_API_HOST}:${ORCINUS_API_PORT}/services/${id}`)
 	}
 }
