@@ -15,7 +15,8 @@ import {
 	ServiceListPage, ServiceCreatePage, ServiceDetailsPage,
 	ContainerListPage, ContainerDetailsPage,
 	VolumeListPage, VolumeDetailsPage,
-	FirewallPage
+	FirewallPage,
+	LoginPage
 } from "../pages";
 
 export default class Routes extends React.Component {
@@ -43,8 +44,9 @@ export default class Routes extends React.Component {
 					<Route path={ "/volumes/new" } component={ VolumeCreateConnected } onEnter={this.scrollToTop} />
 					<Route path={ "/volumes/:volumeName" } component={ VolumeDetailsPage } onEnter={this.scrollToTop} />
 					<Route path={ "/firewalls" } component={ FirewallPage } onEnter={this.scrollToTop} />
-					<Route path={ "*" } component={ PageNotFoundPage } onEnter={this.scrollToTop} />
 				</Route>
+				<Route path={ "/login" } component={ LoginPage } onEnter={this.scrollToTop} />
+				<Route path={ "*" } component={ PageNotFoundPage } onEnter={this.scrollToTop} />
 			</Router>
 		);
 	}

@@ -56,10 +56,15 @@ const config = {
 	    $: 'jquery',
 	    jQuery: 'jquery'
     }),
+    // new webpack.optimize.UglifyJsPlugin({
+    //   compress:{
+    //     warnings: true
+    //   }
+    // }),
 		new webpack.EnvironmentPlugin({
 		  NODE_ENV: "development",
-		  ORCINUS_API_HOST: "localhost",
-		  ORCINUS_API_PORT: 4000
+		  ORCINUS_HOST: "localhost",
+		  ORCINUS_PORT: 4000
 		}),
 
     // Webpack plugin untuk memisah file css

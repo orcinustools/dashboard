@@ -8,6 +8,7 @@ import OverviewPage from "./overview/OverviewPage"
 import PageNotFoundPage from "./pagenotfound/PageNotFoundPage"
 import { CatalogListPage, CatalogDetailsPage } from "./catalog"
 import FirewallPage from "./firewalls/FirewallPage"
+import LoginPage from "./login/LoginPage"
 
 export {
 	App,
@@ -20,4 +21,5 @@ export {
 	CatalogListPage, CatalogDetailsPage,
 	OverviewPage,
 	PageNotFoundPage,
+	LoginPage
 }
