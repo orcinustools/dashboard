@@ -2,11 +2,11 @@ import React from "react";
 import { Router, Route, browserHistory, IndexRoute } from "react-router";
 
 import {
-	AppConnected,
 	VolumeCreateConnected
 } from "../containers";
 
 import {
+	AppPage,
 	PageNotFoundPage,
 	WelcomePage,
 	OverviewPage,
@@ -28,7 +28,7 @@ export default class Routes extends React.Component {
 	render() {
 		return (
 			<Router history={ browserHistory }>
-				<Route path={ "/" } component= { AppConnected }>
+				<Route path={ "/" } component= { AppPage }>
 					<IndexRoute component={ WelcomePage } onEnter={this.scrollToTop} />
 					<Route path={ "/overview" } component={ OverviewPage } onEnter={this.scrollToTop} />
 					<Route path={ "/catalog" } component={ CatalogListPage } onEnter={this.scrollToTop} />

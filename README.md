@@ -9,6 +9,7 @@ Orcinus Dashboard
 - Bootstrap ([Docs](http://getbootstrap.com/))
 - react-bootstrap ([Docs](https://react-bootstrap.github.io/), [Github](https://github.com/react-bootstrap/react-bootstrap))
 - react-select ([Docs](https://jedwatson.github.io/react-select/), [Github](https://github.com/JedWatson/react-select))
+- react-google-login ([GitHub](https://github.com/anthonyjgrove/react-google-login))
 - *comming soon*
 
 
