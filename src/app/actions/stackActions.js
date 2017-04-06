@@ -5,7 +5,8 @@
  * 
  */
 
-import axios from "axios";
+import axios from "axios"
+import { FETCH_STACKS, FETCH_STACK } from "./actionTypes"
 import { ORCINUS_API_HOST, ORCINUS_API_PORT } from "../config/environtment"
 
 export function fetchStacks() {

@@ -5,13 +5,14 @@
  * 
  */
 
-import axios from "axios";
+import axios from "axios"
+import { FETCH_CONTAINERS, FETCH_CONTAINER } from "./actionTypes"
 import { ORCINUS_API_HOST, ORCINUS_API_PORT } from "../config/environtment"
 
 // fetch list of containers
 export function fetchContainers() {
 	return {
-		type: "FETCH_CONTAINERS",
+		type: FETCH_CONTAINERS,
 		payload: axios.get(`http://${ORCINUS_API_HOST}:${ORCINUS_API_PORT}/tasks`)
 	}
 }
@@ -20,7 +21,7 @@ export function fetchContainers() {
 // TODO := tambah id sebagai parameter
 export function fetchContainer(id) {
 	return {
-		type: "FETCH_CONTAINER",
+		type: FETCH_CONTAINER,
 		payload: axios.get(`http://${ORCINUS_API_HOST}:${ORCINUS_API_PORT}/tasks/${id}`)
 	}
 }

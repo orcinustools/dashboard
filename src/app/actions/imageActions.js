@@ -5,14 +5,13 @@
  * 
  */
 
-import axios from "axios";
+import axios from "axios"
+import { FETCH_IMAGES } from "./actionTypes"
 import { ORCINUS_API_HOST, ORCINUS_API_PORT } from "../config/environtment"
-
-console.log(ORCINUS_API_HOST)
 
 export function fetchImages() {
 	return {
-		type: "FETCH_IMAGES",
+		type: FETCH_IMAGES,
 		payload: axios.get(`http://${ORCINUS_API_HOST}:${ORCINUS_API_PORT}/images`)
 	}
 }
