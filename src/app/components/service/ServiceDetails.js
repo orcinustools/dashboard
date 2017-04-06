@@ -42,6 +42,17 @@ export default class ServiceDetails extends React.Component {
 
 		return (
 			<div>
+        <section className="content-header">
+          <h1>
+            wp-app
+          </h1>
+          <ol className="breadcrumb breadcrumb-sm">
+            <li><Link to="/">HOME</Link></li>
+            <li><Link to="/services">SERVICES</Link></li>
+            <li className="active">wp-app</li>
+          </ol>
+        </section>
+        
 				<ActionButton />
 
         {/* General Section */}
@@ -76,7 +87,7 @@ export default class ServiceDetails extends React.Component {
 				  </div>
 				</div>
 
-       {/* Container List Section */}
+				{/* Container List Section */}
 				<div className="row">
 				  <div className="col-xs-12">
 				    <div className="panel">
@@ -230,7 +241,6 @@ export default class ServiceDetails extends React.Component {
 				  </div>
 				</div>
 
-
 				{/* Mountpoints Section */}
 				<div className="row">
 				  <div className="col-xs-12">
@@ -348,7 +358,6 @@ export default class ServiceDetails extends React.Component {
 				    </div>
 				  </div>
 				</div>				
-
 
 				{/* Ports Section */}
 				<div className="row">

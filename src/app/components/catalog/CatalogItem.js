@@ -4,7 +4,7 @@ import { Link } from "react-router";
 export default class CatalogItem extends React.Component {
 	render() {
 		return (
-	    <div className="col-md-3 col-sm-4 col-xs-12">
+	    <div className="col-md-2 col-sm-3 col-xs-12">
 	      <Link to={ this.props.url }>
 	        <div className="thumbnail">
 	          <img src={ this.props.img } alt={ this.props.name } className="" />

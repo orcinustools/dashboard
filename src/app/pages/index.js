@@ -1,4 +1,4 @@
-import App from "./app/App"
+import AppPage from "./app/App"
 import { ContainerListPage, ContainerDetailsPage } from "./containers"
 import { ServiceListPage, ServiceDetailsPage, ServiceCreatePage } from "./services"
 import { StackListPage, StackDetailsPage,	StackCreatePage } from "./stacks"
@@ -11,7 +11,7 @@ import FirewallPage from "./firewalls/FirewallPage"
 import LoginPage from "./login/LoginPage"
 
 export {
-	App,
+	AppPage,
 	ContainerListPage, ContainerDetailsPage,
 	ServiceListPage, ServiceDetailsPage, ServiceCreatePage,
  	StackListPage, StackDetailsPage,	StackCreatePage,

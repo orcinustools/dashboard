@@ -5,14 +5,15 @@
  * 
  */
 
-import axios from "axios";
+import axios from "axios"
+import { FETCH_VOLUMES, FETCH_VOLUME } from "./actionTypes"
 import { ORCINUS_API_HOST, ORCINUS_API_PORT } from "../config/environtment"
 
 
 // fetch list of volumes
 export function fetchVolumes() {
 	return {
-		type: "FETCH_VOLUMES",
+		type: FETCH_VOLUMES,
 		payload: axios.get(`http://${ORCINUS_API_HOST}:${ORCINUS_API_PORT}/volumes`)
 	}
 }
@@ -20,7 +21,7 @@ export function fetchVolumes() {
 // fetch single volume
 export function fetchVolume() {
 	return {
-		type: "FETCH_VOLUME",
+		type: FETCH_VOLUME,
 		payload: axios.get(`http://${ORCINUS_API_HOST}:${ORCINUS_API_PORT}/wp-vol`)
 	}
 }

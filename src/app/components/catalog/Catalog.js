@@ -4,6 +4,7 @@
 import React from "react"
 import { connect } from "react-redux"
 import { bindActionCreators } from 'redux'
+import { Link } from "react-router"
 
 import CatalogSearchBar from "./CatalogSearchBar"
 import CatalogItem from "./CatalogItem"
@@ -29,95 +30,140 @@ export default class CatalogContainer extends React.Component {
 	render() {
     const { fetching, imageList } = this.props;
 
-    if(fetching) {
-      return <h1>Fetching</h1>
-    }
-
 		return (
 			<div>
+        <section className="content-header">
+          <h1>CATALOG</h1>
+          <ol className="breadcrumb breadcrumb-sm">
+            <li><Link to="/">HOME</Link></li>
+            <li className="active">CATALOG</li>
+          </ol>
+        </section>
+
         <div className="row" style={{ marginBottom: '2em', marginTop: '2em' }}>
-					<CatalogSearchBar defaultValue = {"Test"} />
+					<CatalogSearchBar />
         </div>
 
 				<div>
 
         <h4>Operating System</h4>
+        { fetching &&
         <div className="row">
+          <div style={{ textAlign: "center", minHeight: "187px"}}>
+            <i className="fa fa-refresh fa-spin fa-3x fa-fw" style={{ color: "#939393"}}></i>
+          </div>
+        </div>
+        }
 
+        { !fetching &&
+        <div className="row">
           <CatalogItem url="/stacks/new" img={ Ubuntu } name="Ubuntu">
-            The leading operating system for PCs, tablets, phones, IoT devices, 
-            servers and the cloud
+            {/*The leading operating system for PCs, tablets, phones, IoT devices, 
+            servers and the cloud*/}
           </CatalogItem>
 
           <CatalogItem url="/stacks/new" img={ Centos } name="Centos">
-            The CentOS Linux distribution is a stable, predictable, manageable and 
+            {/*The CentOS Linux distribution is a stable, predictable, manageable and 
             reproducible platform derived from the sources of Red Hat Enterprise
-            Linux (RHEL). 
+            Linux (RHEL).*/}
           </CatalogItem>
-
         </div>
+        }
+
 
         <div className="clearfix"></div>
         <h4>Applications</h4>
+        { fetching &&
         <div className="row">
-
-          <CatalogItem url="/stacks/new" img={ Wordpress } name="Wordpress">
-            The WordPress rich content management system can utilize plugins,
-            widgets, and themes.
-          </CatalogItem>
-
+          <div style={{ textAlign: "center", minHeight: "187px"}}>
+            <i className="fa fa-refresh fa-spin fa-2x fa-fw" style={{ color: "#939393"}}></i>
+          </div>
         </div>
+        }
 
+        { !fetching &&
+        <div className="row">
+          <CatalogItem url="/stacks/new" img={ Wordpress } name="Wordpress">
+            {/*The WordPress rich content management system can utilize plugins,
+            widgets, and themes.*/}
+          </CatalogItem>
+        </div>
+        }
 
         <div className="clearfix"></div>
         <h4>Database</h4>
+        { fetching &&
         <div className="row">
+          <div style={{ textAlign: "center", minHeight: "187px"}}>
+            <i className="fa fa-refresh fa-spin fa-2x fa-fw" style={{ color: "#939393"}}></i>
+          </div>
+        </div>
+        }
 
+        { !fetching &&
+        <div className="row">
           <CatalogItem url="/services/new" img={ MySQL } name="MySQL 5.6">
-            MySQL is a widely used, open-source relational database 
-            management system (RDBMS).
+            {/*MySQL is a widely used, open-source relational database 
+            management system (RDBMS).*/}
           </CatalogItem>
 
           <CatalogItem url="/services/new" img={ Postgres } name="PostgreSQL">
-            The PostgreSQL object-relational database system provides 
-            reliability and data integrity.
+            {/*The PostgreSQL object-relational database system provides 
+            reliability and data integrity.*/}
           </CatalogItem>
-
         </div>
+        }
+
 
         <div className="clearfix"></div>
         <h4>Framework</h4>
+        { fetching &&
         <div className="row">
+          <div style={{ textAlign: "center", minHeight: "187px"}}>
+            <i className="fa fa-refresh fa-spin fa-2x fa-fw" style={{ color: "#939393"}}></i>
+          </div>
+        </div>
+        }
 
+        { !fetching &&
+        <div className="row">
           <CatalogItem url="/stacks/new" img={ Rails } name="Ruby on Rails">
-            Open-source web application framework written in Ruby.
+            {/*Open-source web application framework written in Ruby.*/}
           </CatalogItem>
 
           <CatalogItem url="/stacks/new" img={ Laravel } name="Laravel">
-            Web application framework with expressive, elegant syntax.
+            {/*Web application framework with expressive, elegant syntax.*/}
           </CatalogItem>
-          
         </div>
+        }
 
         <h4>Language Stack</h4>
+        { fetching &&
         <div className="row">
+          <div style={{ textAlign: "center", minHeight: "187px"}}>
+            <i className="fa fa-refresh fa-spin fa-2x fa-fw" style={{ color: "#939393"}}></i>
+          </div>
+        </div>
+        }
 
+        { !fetching &&
+        <div className="row">
           <CatalogItem url="/stacks/new" img={ Golang } name="Golang">
-            Go (golang) is a general purpose, higher-level, imperative 
-            programming language.
+            {/*Go (golang) is a general purpose, higher-level, imperative 
+            programming language.*/}
           </CatalogItem>
 
           <CatalogItem url="/stacks/new" img={ PHP } name="PHP">
-            While designed for web development, the PHP scripting language 
-            also provides general-purpose use.
+            {/*While designed for web development, the PHP scripting language 
+            also provides general-purpose use.*/}
           </CatalogItem>
 
           <CatalogItem url="/stacks/new" img={ Node } name="NodeJS">
-            Node.js is a JavaScript-based platform for server-side and 
-            networking applications.
+            {/*Node.js is a JavaScript-based platform for server-side and 
+            networking applications.*/}
           </CatalogItem>
-
         </div>
+        }
 
         <div className="row">
           <div className="col-md-12">
