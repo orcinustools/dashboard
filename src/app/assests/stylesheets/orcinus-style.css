@@ -104,3 +104,12 @@ body::-webkit-scrollbar-thumb {
 .restart-button, .restart-state {
   background-color: #209687 !important;
 }
+
+.katalog-search {
+  border: 2px solid white;
+  line-height: 2em;
+}
+.katalog-search:focus {
+  border: 1px solid #939393 !important;
+  outline: none;
+}
