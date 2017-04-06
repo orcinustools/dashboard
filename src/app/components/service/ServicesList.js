@@ -25,55 +25,66 @@ export default class ServicesList extends React.Component {
 		const { services, fetching, fetched, error } = this.props;
 
 		return (
-      <div className="row">
-        <div className="col-xs-12">
-          <div className="panel">
-            <header className="panel-heading">
-              <i className="fa fa-th-list" aria-hidden="true"></i>
-              &nbsp; List
-            </header>
-            <div className="panel-body table-responsive">
+      <div>
+        <section className="content-header">
+          <h1>
+            SERVICES
+          </h1>
+          <ol className="breadcrumb breadcrumb-sm">
+            <li><Link to="/">HOME</Link></li>
+            <li className="active">SERVICES</li>
+          </ol>
+        </section>
+        <div className="row">
+          <div className="col-xs-12">
+            <div className="panel">
+              <header className="panel-heading">
+                <i className="fa fa-th-list" aria-hidden="true"></i>
+                &nbsp; List
+              </header>
+              <div className="panel-body table-responsive">
 
-              <table className="table table-hover">
-                <thead>
-                  <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Status</th>
-                    <th>Image</th>
-                    <th>Info</th>
-                    <th></th>
-                  </tr>
-                </thead>
-                <tbody className="table-stack-list">
-                  { fetching &&
+                <table className="table table-hover">
+                  <thead>
                     <tr>
-                      <td colSpan="6" style={{ textAlign: "center" }}>
-                        <i className="fa fa-refresh fa-spin fa-2x fa-fw" style={{ color: "#939393"}}></i>
-                      </td>
+                      <th>ID</th>
+                      <th>Name</th>
+                      <th>Status</th>
+                      <th>Image</th>
+                      <th>Info</th>
+                      <th></th>
                     </tr>
-                  }
+                  </thead>
+                  <tbody className="table-stack-list">
+                    { fetching &&
+                      <tr>
+                        <td colSpan="6" style={{ textAlign: "center" }}>
+                          <i className="fa fa-refresh fa-spin fa-2x fa-fw" style={{ color: "#939393"}}></i>
+                        </td>
+                      </tr>
+                    }
 
-                  { fetched && 
-                    this.renderServices(services)
-                  }
+                    { fetched && 
+                      this.renderServices(services)
+                    }
 
-                  { error &&
-                    <tr>
-                      <td colSpan="6" style={{ textAlign: "center", color: "#939393" }}>
-                        <h4>SERVICES NOT FOUND</h4>
-                      </td>
-                    </tr>
-                  }
-                </tbody>
-              </table>
-            </div>
-            <div className="panel-footer">
-              <Link
-                  to="/catalog"
-                  className="btn btn-primary btn-block create-button">
-                CREATE NEW SERVICE
-              </Link> 
+                    { error &&
+                      <tr>
+                        <td colSpan="6" style={{ textAlign: "center", color: "#939393" }}>
+                          <h4>SERVICES NOT FOUND</h4>
+                        </td>
+                      </tr>
+                    }
+                  </tbody>
+                </table>
+              </div>
+              <div className="panel-footer">
+                <Link
+                    to="/catalog"
+                    className="btn btn-primary btn-block create-button">
+                  CREATE NEW SERVICE
+                </Link> 
+              </div>
             </div>
           </div>
         </div>

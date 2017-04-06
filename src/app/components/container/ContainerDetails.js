@@ -19,6 +19,17 @@ export default class ContainerDetails extends React.Component {
 
     return (
 			<div>
+        <section className="content-header">
+          <h1>
+            wp-app.1
+          </h1>
+          <ol className="breadcrumb breadcrumb-sm">
+            <li><Link to="/">HOME</Link></li>
+            <li><Link to="/containers">CONTAINERS</Link></li>
+            <li className="active">wp-app.1</li>
+          </ol>
+        </section>
+        
         <ActionButton />
 
         {/* General Section */}
