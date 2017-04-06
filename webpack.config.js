@@ -43,8 +43,23 @@ const config = {
 			},
 			{
 				test: /\.(eot|woff|woff2|ttf|svg|png|jpe?g|gif)(\?\S*)?$/,
+				exclude: path.resolve(__dirname, "src/app/assests/favico"),
 				use: [
 					{ loader: 'url-loader?limit=100000@name=[name][ext]' }
+
+				]
+			},			
+			{
+				test: /\.ico$/,
+				use: [
+					{ 
+						loader: 'file-loader',
+						options: {
+							name: '[name].[ext]',
+							outputPath: 'img/',
+							publicPath: 'img/'
+						}
+					}
 				]
 			}
 		]
@@ -73,7 +88,7 @@ const config = {
     new ExtractTextPlugin({
 			filename: '[name].css',
 			allChunks: true
-		}),
+		})
 	]
 
 };
