@@ -10,7 +10,10 @@ import { fetchVolumes } from "../../actions/volumeActions";
 
 const mapStateToProps = (state) => {
   return {
-    volumes: state.volumeState.volumesList.volumes
+    volumes: state.volumeState.volumesList.volumes,
+    fetched: state.volumeState.volumesList.fetched,
+    fetching: state.volumeState.volumesList.fetching,
+    error: state.volumeState.volumesList.error
   }
 }
 

@@ -13,7 +13,7 @@ import { ORCINUS_API_HOST, ORCINUS_API_PORT } from "../config/environtment"
 export function fetchContainers() {
 	return {
 		type: FETCH_CONTAINERS,
-		payload: axios.get(`http://${ORCINUS_API_HOST}:${ORCINUS_API_PORT}/tasks`)
+		payload: axios.get(`http://${ORCINUS_API_HOST}:${ORCINUS_API_PORT}/apis/task`)
 	}
 }
 
@@ -22,6 +22,7 @@ export function fetchContainers() {
 export function fetchContainer(id) {
 	return {
 		type: FETCH_CONTAINER,
-		payload: axios.get(`http://${ORCINUS_API_HOST}:${ORCINUS_API_PORT}/tasks/${id}`)
+		// payload: axios.get(`http://${ORCINUS_API_HOST}:${ORCINUS_API_PORT}/tasks/${id}`)
+		payload: axios.get(`/tasks/${id}`)
 	}
 }

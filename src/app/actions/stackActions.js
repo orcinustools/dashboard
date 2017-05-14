@@ -12,13 +12,14 @@ import { ORCINUS_API_HOST, ORCINUS_API_PORT } from "../config/environtment"
 export function fetchStacks() {
 	return {
 		type: "FETCH_STACKS",
-		payload: axios.get(`http://${ORCINUS_API_HOST}:${ORCINUS_API_PORT}/stacks`)
+		payload: axios.get(`http://${ORCINUS_API_HOST}:${ORCINUS_API_PORT}/apis/stack`)
 	}
 }
 
 export function fetchStack() {
 	return {
 		type: "FETCH_STACK",
-		payload: axios.get(`http://${ORCINUS_API_HOST}:${ORCINUS_API_PORT}/wordpress-app`)
+		// payload: axios.get(`http://${ORCINUS_API_HOST}:${ORCINUS_API_PORT}/wordpress-app`)
+		payload: axios.get(`/wordpress-app`)
 	}
 }

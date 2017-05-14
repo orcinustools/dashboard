@@ -16,7 +16,7 @@ export default class ServiceListItem extends React.Component {
         <td><span className="label label-success running-state">RUNNING</span></td>
         <td>
           <i className="fa fa-tag fa-fw" aria-hidden="true"></i>
-          &nbsp; { this.props.image }
+          &nbsp; { this.props.image.split('@')[0] }
         </td>
         <td>
           <ul className="list-child">
@@ -30,7 +30,7 @@ export default class ServiceListItem extends React.Component {
               <i 
                 className="fa fa-cube fa-fw"
                 aria-hidden="true"></i>
-              &nbsp; 1 Containers
+              &nbsp; {this.props.replicas} Containers
             </li>
             <li>
               <i
@@ -72,7 +72,6 @@ export default class ServiceListItem extends React.Component {
               <li><Link to="#">Edit</Link></li>
             </ul>
           </div>
-
         </td>
       </tr>
 		)

@@ -10,7 +10,7 @@ export default class ContainerListItem extends React.Component {
         <td><Link to={"/containers/" + this.props.id }>{ this.props.name }</Link></td>
         <td><span className="label label-success">{ this.props.state }</span></td>
         <td>
-          <i className="fa fa-tag fa-fw" aria-hidden="true"></i> { this.props.image }
+          <i className="fa fa-tag fa-fw" aria-hidden="true"></i> { this.props.image.split('@')[0] }
         </td>
         <td>
           <ul className="list-child">
