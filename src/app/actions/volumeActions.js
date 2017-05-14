@@ -14,7 +14,7 @@ import { ORCINUS_API_HOST, ORCINUS_API_PORT } from "../config/environtment"
 export function fetchVolumes() {
 	return {
 		type: FETCH_VOLUMES,
-		payload: axios.get(`http://${ORCINUS_API_HOST}:${ORCINUS_API_PORT}/volumes`)
+		payload: axios.get(`http://${ORCINUS_API_HOST}:${ORCINUS_API_PORT}/apis/volume`)
 	}
 }
 
@@ -22,6 +22,7 @@ export function fetchVolumes() {
 export function fetchVolume() {
 	return {
 		type: FETCH_VOLUME,
-		payload: axios.get(`http://${ORCINUS_API_HOST}:${ORCINUS_API_PORT}/wp-vol`)
+		// payload: axios.get(`http://${ORCINUS_API_HOST}:${ORCINUS_API_PORT}/wp-vol`)
+		payload: axios.get(`/wp-vol`)
 	}
 }

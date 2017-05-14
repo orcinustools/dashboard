@@ -13,10 +13,10 @@ export default class ContainerList extends React.Component {
     return containers.map((container) => {
       return (
         <ContainerListItem 
-          key={container.Id}
-          id={container.Id}
+          key={container.ID}
+          id={container.ID}
           name={container.Names}
-          image={container.Image}
+          image={container.Spec.ContainerSpec.Image}
           state={container.State} />
       )
     });

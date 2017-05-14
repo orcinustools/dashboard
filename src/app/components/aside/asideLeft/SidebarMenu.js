@@ -27,12 +27,12 @@ export default class SidebarMenu extends React.Component {
             <i className="fa fa-cube fa-fw"></i> <span>&nbsp; Containers</span>
           </Link>
         </li>
-        {/*<li>
+        <li>
           <Link to="/volumes">
             <i className="fa fa-hdd-o fa-fw"></i><span>&nbsp; Volumes</span>
           </Link>
         </li>
-        <li>
+        {/*<li>
           <Link to="/mountpoints">
             <i className="fa fa-code-fork fa-fw"></i><span>&nbsp; Mountpoints</span>
           </Link>

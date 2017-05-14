@@ -4255,7 +4255,7 @@ padding: 6px 10px;
 
 .table-responsive {
   overflow-x: visible !important;
-  overflow-y: visible !important;
+  /*overflow-y: visible !important;*/
 }
 
 .d-inline-block {

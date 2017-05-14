@@ -13,6 +13,17 @@ export default class StackList extends React.Component {
 		this.props.fetchStacks()
 	}
 
+  renderStacks(stacks) {
+    return stacks.map((stack) => {
+      return (
+        <StackListItem
+          key={ stack.Id } 
+          id={ stack.Id }
+          name={ stack.Name } />
+      )
+    })
+  }
+
 	render() {
     const { stacks, error, fetching, fetched } = this.props
 
@@ -53,7 +64,7 @@ export default class StackList extends React.Component {
                 }
 
                 { fetched &&
-                  <StackListItem id={ "123" } name="test-app" />
+                  this.renderStacks(stacks)
                 }
                 </tbody>
               </table>
