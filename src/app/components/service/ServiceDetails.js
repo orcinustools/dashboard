@@ -29,7 +29,7 @@ const protoOptions = [
 export default class ServiceDetails extends React.Component {
 
 	componentDidMount() {
-		this.props.fetchService()
+		this.props.fetchService(this.props.id)
 	}
 
 	logChange(val) {
@@ -44,12 +44,12 @@ export default class ServiceDetails extends React.Component {
 			<div>
         <section className="content-header">
           <h1>
-            wp-app
+            { fetched && service.Spec.Name }
           </h1>
           <ol className="breadcrumb breadcrumb-sm">
             <li><Link to="/">HOME</Link></li>
             <li><Link to="/services">SERVICES</Link></li>
-            <li className="active">wp-app</li>
+            <li className="active">{ fetched && service.Spec.Name }</li>
           </ol>
         </section>
         
@@ -74,6 +74,7 @@ export default class ServiceDetails extends React.Component {
 										name={service.Spec.Name}
 										created={service.CreatedAt}
 										updated={service.UpatedAt}
+										image={service.Spec.TaskTemplate.ContainerSpec.Image}
 										replicated={service.Spec.Mode.Replicated.Replicas} />
 								}
 
@@ -94,41 +95,43 @@ export default class ServiceDetails extends React.Component {
 				      <header className="panel-heading">
 				        Containers
 				      </header>
-				      <div className="panel-body table-responsive">
-				        <table className="table table-hover">
-				          <thead>
-				            <tr>
-				              <th>Name</th>
-				              <th>Status</th>
-				              <th>Image</th>
-				              <th>Info</th>
-				              <th>Action</th>
-				            </tr>
-				          </thead>
-				          { error &&
-				          	<tbody className="table-stack-list">
-											<tr>
-												<td colSpan="5" style={{ textAlign: "center", color: "#939393", padding: "8px" }}>
-													<h4>CONTAINERS NOT FOUND</h4>
-												</td>
-											</tr>			          		
-				          	</tbody>
-				          }
+				      <div className="panel-body">
+				      	<div className="table-responsive">
+					        <table className="table table-hover">
+					          <thead>
+					            <tr>
+					              <th>Name</th>
+					              <th>Status</th>
+					              <th>Image</th>
+					              <th>Info</th>
+					              <th>Action</th>
+					            </tr>
+					          </thead>
+					          { error &&
+					          	<tbody className="table-stack-list">
+												<tr>
+													<td colSpan="5" style={{ textAlign: "center", color: "#939393", padding: "8px" }}>
+														<h4>CONTAINERS NOT FOUND</h4>
+													</td>
+												</tr>			          		
+					          	</tbody>
+					          }
 
-				          { fetching &&
-				          	<tbody className="table-stack-list">
-											<tr>
-												<td colSpan="5" style={{ textAlign: "center", padding: "8px" }}>
-													<i className="fa fa-refresh fa-spin fa-2x fa-fw" style={{ color: "#939393"}}></i>	
-												</td>
-											</tr>			          		
-				          	</tbody>
-				          }
+					          { fetching &&
+					          	<tbody className="table-stack-list">
+												<tr>
+													<td colSpan="5" style={{ textAlign: "center", padding: "8px" }}>
+														<i className="fa fa-refresh fa-spin fa-2x fa-fw" style={{ color: "#939393"}}></i>	
+													</td>
+												</tr>			          		
+					          	</tbody>
+					          }
 
-				          { fetched &&
-										<Containers />
-				          }
-				        </table>
+					          { fetched &&
+											<Containers />
+					          }
+					        </table>
+				        </div>
 				      </div>
 				    </div>
 				  </div>
@@ -142,40 +145,42 @@ export default class ServiceDetails extends React.Component {
 				        Volumes
 				      </header>
 				      <div className="panel-body">
-				        <table className="table table-hover">
-				          <thead>
-				            <tr>
-				              <th>Name</th>
-				              <th>Size</th>
-				              <th>Status</th>
-				              <th>Used</th>
-				              <th></th>
-				            </tr>
-				          </thead>
-				          { error &&
-				          	<tbody className="table-stack-list">
-											<tr>
-												<td colSpan="5" style={{ textAlign: "center", color: "#939393", padding: "8px" }}>
-													<h4>VOLUMES NOT FOUND</h4>
-												</td>
-											</tr>			          		
-				          	</tbody>
-				          }
+				      	<div className="table-responsive">
+					        <table className="table table-hover">
+					          <thead>
+					            <tr>
+					              <th>Name</th>
+					              <th>Size</th>
+					              <th>Status</th>
+					              <th>Used</th>
+					              <th></th>
+					            </tr>
+					          </thead>
+					          { error &&
+					          	<tbody className="table-stack-list">
+												<tr>
+													<td colSpan="5" style={{ textAlign: "center", color: "#939393", padding: "8px" }}>
+														<h4>VOLUMES NOT FOUND</h4>
+													</td>
+												</tr>			          		
+					          	</tbody>
+					          }
 
-				          { fetching &&
-				          	<tbody className="table-stack-list">
-											<tr>
-												<td colSpan="5" style={{ textAlign: "center", padding: "8px" }}>
-													<i className="fa fa-refresh fa-spin fa-2x fa-fw" style={{ color: "#939393"}}></i>	
-												</td>
-											</tr>			          		
-				          	</tbody>
-				          }
+					          { fetching &&
+					          	<tbody className="table-stack-list">
+												<tr>
+													<td colSpan="5" style={{ textAlign: "center", padding: "8px" }}>
+														<i className="fa fa-refresh fa-spin fa-2x fa-fw" style={{ color: "#939393"}}></i>	
+													</td>
+												</tr>			          		
+					          	</tbody>
+					          }
 
-									{ fetched &&
-										<Volumes />
-									}
-				        </table>
+										{ fetched &&
+											<Volumes />
+										}
+					        </table>
+				        </div>
 				      </div>
 				      { fetched && 
 					      <div className="panel-footer">
@@ -249,41 +254,43 @@ export default class ServiceDetails extends React.Component {
 				        Mountpoints
 				      </header>
 				      <div className="panel-body">
-				        <table className="table table-hover">
-				          <thead>
-				            <tr>
-				              <th>Name</th>
-				              <th>Volume</th>
-				              <th>Used</th>
-				              <th>Source</th>
-				              <th>Target</th>
-				              <th></th>
-				            </tr>
-				          </thead>
-				          { error &&
-				          	<tbody className="table-stack-list">
-											<tr>
-												<td colSpan="6" style={{ textAlign: "center", color: "#939393", padding: "8px" }}>
-													<h4>MOUNTPOINTS NOT FOUND</h4>
-												</td>
-											</tr>			          		
-				          	</tbody>
-				          }
+				      	<div className="table-responsive">
+					        <table className="table table-hover">
+					          <thead>
+					            <tr>
+					              <th>Name</th>
+					              <th>Volume</th>
+					              <th>Used</th>
+					              <th>Source</th>
+					              <th>Target</th>
+					              <th></th>
+					            </tr>
+					          </thead>
+					          { error &&
+					          	<tbody className="table-stack-list">
+												<tr>
+													<td colSpan="6" style={{ textAlign: "center", color: "#939393", padding: "8px" }}>
+														<h4>MOUNTPOINTS NOT FOUND</h4>
+													</td>
+												</tr>			          		
+					          	</tbody>
+					          }
 
-				          { fetching &&
-				          	<tbody className="table-stack-list">
-											<tr>
-												<td colSpan="6" style={{ textAlign: "center", padding: "8px" }}>
-													<i className="fa fa-refresh fa-spin fa-2x fa-fw" style={{ color: "#939393"}}></i>	
-												</td>
-											</tr>			          		
-				          	</tbody>
-				          }
+					          { fetching &&
+					          	<tbody className="table-stack-list">
+												<tr>
+													<td colSpan="6" style={{ textAlign: "center", padding: "8px" }}>
+														<i className="fa fa-refresh fa-spin fa-2x fa-fw" style={{ color: "#939393"}}></i>	
+													</td>
+												</tr>			          		
+					          	</tbody>
+					          }
 
-				          { fetched &&
-										<Mountpoints />
-				          }
-				        </table>
+					          { fetched &&
+											<Mountpoints />
+					          }
+					        </table>
+				        </div>
 				      </div>
 				      { fetched &&
 					      <div className="panel-footer">
@@ -366,40 +373,42 @@ export default class ServiceDetails extends React.Component {
 				      <header className="panel-heading">
 				        Ports
 				      </header>
-				      <div className="panel-body table-responsive">
-				        <table className="table table-hover">
-				          <thead>
-				            <tr>
-				              <th>Container</th>
-				              <th>Protocol</th>
-				              <th>Publish</th>
-				              <th>Host</th>
-				            </tr>
-				          </thead>
-				          { error &&
-				          	<tbody className="table-stack-list">
-											<tr>
-												<td colSpan="4" style={{ textAlign: "center", color: "#939393", padding: "8px" }}>
-													<h4>PORTS NOT FOUND</h4>
-												</td>
-											</tr>			          		
-				          	</tbody>
-				          }
+				      <div className="panel-body">
+					      <div className="table-responsive">
+					        <table className="table table-hover">
+					          <thead>
+					            <tr>
+					              <th>Container</th>
+					              <th>Protocol</th>
+					              <th>Publish</th>
+					              <th>Host</th>
+					            </tr>
+					          </thead>
+					          { error &&
+					          	<tbody className="table-stack-list">
+												<tr>
+													<td colSpan="4" style={{ textAlign: "center", color: "#939393", padding: "8px" }}>
+														<h4>PORTS NOT FOUND</h4>
+													</td>
+												</tr>			          		
+					          	</tbody>
+					          }
 
-				          { fetching &&
-				          	<tbody className="table-stack-list">
-											<tr>
-												<td colSpan="4" style={{ textAlign: "center", padding: "8px" }}>
-													<i className="fa fa-refresh fa-spin fa-2x fa-fw" style={{ color: "#939393"}}></i>	
-												</td>
-											</tr>			          		
-				          	</tbody>
-				          }
+					          { fetching &&
+					          	<tbody className="table-stack-list">
+												<tr>
+													<td colSpan="4" style={{ textAlign: "center", padding: "8px" }}>
+														<i className="fa fa-refresh fa-spin fa-2x fa-fw" style={{ color: "#939393"}}></i>	
+													</td>
+												</tr>			          		
+					          	</tbody>
+					          }
 
-				          { fetched &&
-										<Ports />
-				          }
-				        </table>
+					          { fetched &&
+											<Ports />
+					          }
+					        </table>
+				        </div>
 				      </div>
 				      { fetched &&
 					      <div className="panel-footer">
@@ -518,38 +527,40 @@ export default class ServiceDetails extends React.Component {
 				        Variables
 				      </header>
 				      <div className="panel-body">
-				        <table className="table table-hover">
-				          <thead>
-				            <tr>
-				              <th>Name</th>
-				              <th>Value</th>
-				              <th></th>
-				            </tr>
-				          </thead>
-				          { error &&
-				          	<tbody className="table-stack-list">
-											<tr>
-												<td colSpan="3" style={{ textAlign: "center", color: "#939393", padding: "8px" }}>
-													<h4>VARIABLES NOT FOUND</h4>
-												</td>
-											</tr>			          		
-				          	</tbody>
-				          }
+					      <div className="table-responsive">
+					        <table className="table table-hover">
+					          <thead>
+					            <tr>
+					              <th>Name</th>
+					              <th>Value</th>
+					              <th></th>
+					            </tr>
+					          </thead>
+					          { error &&
+					          	<tbody className="table-stack-list">
+												<tr>
+													<td colSpan="3" style={{ textAlign: "center", color: "#939393", padding: "8px" }}>
+														<h4>VARIABLES NOT FOUND</h4>
+													</td>
+												</tr>			          		
+					          	</tbody>
+					          }
 
-				          { fetching &&
-				          	<tbody className="table-stack-list">
-											<tr>
-												<td colSpan="3" style={{ textAlign: "center", padding: "8px" }}>
-													<i className="fa fa-refresh fa-spin fa-2x fa-fw" style={{ color: "#939393"}}></i>	
-												</td>
-											</tr>			          		
-				          	</tbody>
-				          }
+					          { fetching &&
+					          	<tbody className="table-stack-list">
+												<tr>
+													<td colSpan="3" style={{ textAlign: "center", padding: "8px" }}>
+														<i className="fa fa-refresh fa-spin fa-2x fa-fw" style={{ color: "#939393"}}></i>	
+													</td>
+												</tr>			          		
+					          	</tbody>
+					          }
 
-				          { fetched &&
-										<Environtments />
-				          }
-				        </table>
+					          { fetched &&
+											<Environtments />
+					          }
+					        </table>
+				        </div>
 				      </div>
 				    </div>
 				  </div>

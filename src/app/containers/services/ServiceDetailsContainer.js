@@ -18,8 +18,8 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => {
 	return {
-		fetchService: () => {
-			dispatch(fetchService())
+		fetchService: (id) => {
+			dispatch(fetchService(id))
 		}
 	}
 }

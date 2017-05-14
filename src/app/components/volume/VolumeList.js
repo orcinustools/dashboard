@@ -26,7 +26,7 @@ export default class VolumeList extends React.Component {
   }
 
 	render() {
-    const { volumes } = this.props;
+    const { volumes, fetched, fetching, error } = this.props;
 
 		return (
       <div className="row">
@@ -40,7 +40,6 @@ export default class VolumeList extends React.Component {
               <table className="table table-hover">
                 <thead>
                   <tr>
-                    <th>ID</th>
                     <th>Name</th>
                     <th>Size</th>
                     <th>Type</th>
@@ -48,7 +47,7 @@ export default class VolumeList extends React.Component {
                   </tr>
                 </thead>
                 <tbody className="table-stack-list">
-                  { this.renderVolumes(volumes) }
+                  { fetched && this.renderVolumes(volumes.Volumes) }
                 </tbody>
               </table>
             </div>

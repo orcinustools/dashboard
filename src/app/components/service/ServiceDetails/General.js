@@ -63,7 +63,7 @@ export default class General extends React.Component {
             		className="form-control-static d-inline-block pull-left"
             		style={{ marginRight: '10px' }}>
               <i className="fa fa-tag fa-fw" aria-hidden="true"></i> 
-              &nbsp; orcinus.io/wordpress
+              &nbsp; { this.props.image.split('@')[0] }
             </p>
             <div className="col-md-2">
             	<Select
@@ -103,7 +103,7 @@ export default class General extends React.Component {
           <div className="col-sm-10">
             <p className="form-control-static">
               <i className="fa fa-cube fa-fw" aria-hidden="true"></i>
-              &nbsp; 1 Containers
+              &nbsp; { this.props.replicated } Containers
             </p>
           </div>
         </div>

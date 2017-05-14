@@ -6,6 +6,7 @@
  */
 
 import axios from "axios"
+import querystring from "querystring"
 import { FETCH_SERVICES, FETCH_SERVICE } from "./actionTypes"
 import { ORCINUS_API_HOST, ORCINUS_API_PORT } from "../config/environtment"
 
@@ -13,7 +14,7 @@ import { ORCINUS_API_HOST, ORCINUS_API_PORT } from "../config/environtment"
 export function fetchServices() {
 	return {
 		type: FETCH_SERVICES,
-		payload: axios.get(`http://${ORCINUS_API_HOST}:${ORCINUS_API_PORT}/services`)
+    payload: axios.get(`http://${ORCINUS_API_HOST}:${ORCINUS_API_PORT}/apis/service`)
 	}
 }
 
@@ -21,6 +22,11 @@ export function fetchServices() {
 export function fetchService(id) {
 	return {
 		type: FETCH_SERVICE,
-		payload: axios.get(`http://${ORCINUS_API_HOST}:${ORCINUS_API_PORT}/services/${id}`)
+		payload: axios({
+			method: 'post',
+			url: `http://${ORCINUS_API_HOST}:${ORCINUS_API_PORT}/apis/service/inspect`,
+			headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+			data: querystring.stringify({ id: id })
+		})
 	}
 }
