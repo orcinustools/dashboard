@@ -3,7 +3,7 @@
  */
 import { connect } from "react-redux"
 
-// import * as actions from "../../actions";
+import { createStack } from "../../actions/stackActions"
 import StackCreate from "../../components/stack/StackCreate"
 
 const mapStateToProps = (state) => {
@@ -14,7 +14,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
 	return {
-
+		createStack: (props) => {
+			dispatch(createStack(props))
+		}
 	}
 }
 
