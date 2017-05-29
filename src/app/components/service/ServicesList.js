@@ -4,12 +4,32 @@ import { Link } from "react-router";
 import ServiceListItem from "./ServiceList/ServiceListItem";
 
 export default class ServicesList extends React.Component {
+  constructor(props) {
+    super(props);
+    
+    this.handleOnDeleteService = this.handleOnDeleteService.bind(this)
+  }
 
 	componentDidMount() {
 		this.props.fetchServices();
 	}
 
+  handleOnDeleteService(id) {
+    console.log(id)
+    this.props.deleteService(id)
+  }
+
 	renderServices(services) {
+    if (services.length == 0) {
+      return (
+        <tr>
+          <td style={{ textAlign: "center" }} colSpan="7">
+            THERE IS NO SERVICE NOW
+          </td>
+        </tr>
+      )
+    }
+
 		return services.map((service) => {
 			return (
 				<ServiceListItem 
@@ -17,7 +37,8 @@ export default class ServicesList extends React.Component {
 					id={service.ID} 
 					name={service.Spec.Name}
 					image={service.Spec.TaskTemplate.ContainerSpec.Image}
-          replicas={service.Spec.Mode.Replicated.Replicas} />
+          replicas={service.Spec.Mode.Replicated.Replicas}
+          click={this.handleOnDeleteService} />
 			);
 		}); 
 	}
@@ -64,7 +85,7 @@ export default class ServicesList extends React.Component {
                         </tr>
                       }
 
-                      { fetched && 
+                      { fetched &&
                         this.renderServices(services)
                       }
 

@@ -2,12 +2,13 @@
  * Smart component for Services List Page
  */
 
-import { Link } from "react-router";
-import { connect } from "react-redux";
+import { Link } from "react-router"
+import { connect } from "react-redux"
+import { browserHistory } from "react-router"
 
-import ServicesList from "../../components/service/ServicesList";
+import ServicesList from "../../components/service/ServicesList"
 
-import { fetchServices } from "../../actions/serviceActions";
+import { fetchServices, deleteService } from "../../actions/serviceActions"
 
 const mapStateToProps = (state) => {
   return {
@@ -22,6 +23,11 @@ const mapDispatchToProps = (dispatch) => {
   return {
     fetchServices: () => {
       dispatch(fetchServices())
+    },
+    deleteService: (id) => {
+      dispatch(deleteService(id)).then(() => {
+        browserHistory.push("/services")
+      })
     }
   };
 }
