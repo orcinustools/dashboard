@@ -71,7 +71,7 @@ export default class ContainerDetails extends React.Component {
           </div>
         </div>
 
-        {/* Volumes Section */}
+        {/* Volumes Section
         <div className="row">
           <div className="col-xs-12">
             <div className="panel">
@@ -115,9 +115,9 @@ export default class ContainerDetails extends React.Component {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
 
-        {/* Mountpoints Section */}
+        {/* Mountpoints Section 
         <div className="row">
           <div className="col-xs-12">
             <div className="panel">
@@ -162,9 +162,9 @@ export default class ContainerDetails extends React.Component {
               </div>
             </div>
           </div>
-        </div>
+        </div>*/}
 
-        {/* Ports Section */}
+        {/* Ports Section 
         <div className="row">
           <div className="col-xs-12">
             <div className="panel">
@@ -208,7 +208,7 @@ export default class ContainerDetails extends React.Component {
               </div>
             </div>
           </div>
-        </div>
+        </div>*/}
 
         {/* Variables Section */}
         <div className="row">
