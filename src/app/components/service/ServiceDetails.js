@@ -29,7 +29,8 @@ const protoOptions = [
 export default class ServiceDetails extends React.Component {
 
 	componentDidMount() {
-		this.props.fetchService(this.props.id)
+		// this.props.fetchService(this.props.id)
+		this.props.fetchTaskByService(this.props.id)
 	}
 
 	logChange(val) {
@@ -127,8 +128,8 @@ export default class ServiceDetails extends React.Component {
 					          	</tbody>
 					          }
 
-					          { fetched &&
-											<Containers />
+					          { fetched && service.tasks &&
+											<Containers tasks={service.tasks} />
 					          }
 					        </table>
 				        </div>

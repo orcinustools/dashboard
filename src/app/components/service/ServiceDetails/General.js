@@ -65,12 +65,12 @@ export default class General extends React.Component {
               <i className="fa fa-tag fa-fw" aria-hidden="true"></i> 
               &nbsp; { this.props.image.split('@')[0] }
             </p>
-            <div className="col-md-2">
+            {/*<div className="col-md-2">
             	<Select
             		name="imageTag"
             		options={imageTagOptions}
             		onChange={this.logChange} />
-            </div>
+            </div>*/}
           </div>
         </div>
         <div className="form-group">
@@ -116,7 +116,7 @@ export default class General extends React.Component {
             </p>
           </div>
         </div>
-        <div className="form-group">
+        {/*<div className="form-group">
           <label className="col-sm-2 control-label">AUTO START</label>
           <div className="col-sm-4">
             <label className="radio-inline">
@@ -146,7 +146,7 @@ export default class General extends React.Component {
             </label>
           </div>
         </div>
-        {/*<div className="form-group">
+        <div className="form-group">
           <label className="col-sm-2 control-label">AUTO DEPLOY</label>
           <div className="col-sm-4">
             <label className="checkbox-inline">

@@ -26,6 +26,9 @@ export default function reducer (state = initialState, action) {
 			error = action.payload || {message: action.payload.message};
 			return { ...state, activeService: {service: {}, fetching: false, error: error}}
 
+		case "FETCH_TASK_BY_SERVICE_NAME_FULFILLED":
+			return { ...state, activeService: { ...state.activeService, service: {...state.activeService.service, tasks: action.payload.data}}}
+
 		case "DELETE_SERVICE_PENDING":
 			return { ...state, servicesList: { ...state.servicesList, fetching: true} }
 		case "DELETE_SERVICE_FULFILLED":

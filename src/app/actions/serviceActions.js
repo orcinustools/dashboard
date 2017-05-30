@@ -6,8 +6,12 @@
  */
 
 import axios from "axios"
-import querystring from "querystring"
-import { FETCH_SERVICES, FETCH_SERVICE } from "./actionTypes"
+import { 
+	FETCH_SERVICES, FETCH_SERVICE, 
+	DELETE_SERVICE, SET_DELETE_SERVICE,
+	FETCH_TASK_BY_SERVICE_NAME, 
+	CREATE_SERVICE
+} from "./actionTypes"
 import { ORCINUS_API_HOST, ORCINUS_API_PORT } from "../config/environtment"
 
 // fetch list of services
@@ -72,6 +76,36 @@ export function deleteService(id) {
 		dispatch(deleteServiceAPI(id)).then((res) => {
 			dispatch(setDeleteService(id))
 		})
+	}
+}
+
+export function fetchTasks(name) {
+	const request = axios({
+		method: 'post',
+		data: JSON.parse(`{ "service": "${name}"}`),
+		url: `http://${ORCINUS_API_HOST}:${ORCINUS_API_PORT}/apis/service/task`,
+		headers: {
+			'Content-Type': 'application/json'
+		}
+	})
+
+	return {
+		type: FETCH_TASK_BY_SERVICE_NAME,
+		payload: request
+	}
+}
+
+export function fetchTaskByService(serviceId) {
+	return (dispatch) => {
+		dispatch(fetchService(serviceId)).then((res) => {
+			dispatch(fetchTasks(res.value.data.Spec.Name))
+		})
+	}
+}
+
+export function addCounter() {
+	return {
+		type: "ADD_COUNTER"
 	}
 }
 
