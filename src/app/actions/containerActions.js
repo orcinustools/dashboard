@@ -6,23 +6,51 @@
  */
 
 import axios from "axios"
-import { FETCH_CONTAINERS, FETCH_CONTAINER } from "./actionTypes"
+import { 
+	FETCH_CONTAINERS, FETCH_CONTAINER,
+	PAUSE_CONTAINER
+} from "./actionTypes"
 import { ORCINUS_API_HOST, ORCINUS_API_PORT } from "../config/environtment"
 
 // fetch list of containers
 export function fetchContainers() {
 	return {
 		type: FETCH_CONTAINERS,
-		payload: axios.get(`http://${ORCINUS_API_HOST}:${ORCINUS_API_PORT}/apis/task`)
+		payload: axios.get(`http://${ORCINUS_API_HOST}:${ORCINUS_API_PORT}/apis/container`)
 	}
 }
 
 // fetch single container
 // TODO := tambah id sebagai parameter
 export function fetchContainer(id) {
+
+	const request = axios({
+		method: 'post',
+		url: `http://${ORCINUS_API_HOST}:${ORCINUS_API_PORT}/apis/container/inspect`,
+		data: JSON.parse(`{ "id": "${id}" }`),
+		headers: {
+			'Content-Type': 'application/json'
+		}
+	})
+
 	return {
 		type: FETCH_CONTAINER,
-		// payload: axios.get(`http://${ORCINUS_API_HOST}:${ORCINUS_API_PORT}/tasks/${id}`)
-		payload: axios.get(`/tasks/${id}`)
+		payload: request
+	}
+}
+
+export function pauseContainer(id) {
+	const request = axios({
+		method: 'post',
+		url: `http://${ORCINUS_API_HOST}:${ORCINUS_API_PORT}/apis/container/pause`,
+		data: JSON.parse(`{ "id": "${id}" }`),
+		headers: {
+			'Content-Type': 'application/json'
+		}
+	})
+
+	return {
+		type: PAUSE_CONTAINER,
+		payload: { status: true, id: id}
 	}
 }
