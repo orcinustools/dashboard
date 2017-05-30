@@ -30,3 +30,48 @@ export function fetchService(id) {
 		})
 	}
 }
+
+/**
+ * Delete service on api
+ * @param  {string} id [description]
+ * @return {Object}    [description]
+ */
+export function deleteServiceAPI(id) {
+	const request = axios({
+		method: 'post',
+		data: JSON.parse(`{ "id" : "${id}" }`),
+		url: `http://${ORCINUS_API_HOST}:${ORCINUS_API_PORT}/apis/service/delete`,
+		headers: {
+			'Content-Type': 'application/json'
+		}
+	})
+
+	return {
+		type: DELETE_SERVICE,
+		payload: request
+	}
+}
+
+/**
+ * Set Delete Service in Redux State
+ * @param {string} id Id of the deleted service
+ */
+export function setDeleteService(id) {
+	return {
+		type: SET_DELETE_SERVICE,
+		payload: id
+	}
+}
+
+/**
+ * Function that is called by user to perform delete service
+ * @param  {String} id Id of the deleted service
+ */
+export function deleteService(id) {
+	return (dispatch) => {
+		dispatch(deleteServiceAPI(id)).then((res) => {
+			dispatch(setDeleteService(id))
+		})
+	}
+}
+

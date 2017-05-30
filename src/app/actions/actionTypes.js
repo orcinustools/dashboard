@@ -5,6 +5,8 @@ export const FETCH_STACK = "FETCH_STACK"
 // service
 export const FETCH_SERVICES = "FETCH_SERVICES"
 export const FETCH_SERVICE = "FETCH_SERVICE"
+export const DELETE_SERVICE = "DELETE_SERVICE"
+export const SET_DELETE_SERVICE = "SET_DELETE_SERVICE"
 
 // Containers
 export const FETCH_CONTAINERS = "FETCH_CONTAINERS"

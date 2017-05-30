@@ -25,9 +25,7 @@ const mapDispatchToProps = (dispatch) => {
       dispatch(fetchServices())
     },
     deleteService: (id) => {
-      dispatch(deleteService(id)).then(() => {
-        browserHistory.push("/services")
-      })
+      dispatch(deleteService(id))
     }
   };
 }

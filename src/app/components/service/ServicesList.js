@@ -8,11 +8,27 @@ export default class ServicesList extends React.Component {
     super(props);
     
     this.handleOnDeleteService = this.handleOnDeleteService.bind(this)
+
+    this.state = {
+      counter: 10
+    }
   }
 
 	componentDidMount() {
 		this.props.fetchServices();
 	}
+
+  handleIncrement() {
+    this.setState({
+      counter: this.state.counter - 1
+    })
+  }
+
+  handleDecrement() {
+    this.setState({
+      counter: this.state.counter - 1
+    })
+  }
 
   handleOnDeleteService(id) {
     console.log(id)
@@ -38,7 +54,8 @@ export default class ServicesList extends React.Component {
 					name={service.Spec.Name}
 					image={service.Spec.TaskTemplate.ContainerSpec.Image}
           replicas={service.Spec.Mode.Replicated.Replicas}
-          click={this.handleOnDeleteService} />
+          click={this.handleOnDeleteService}
+          counter={this.state.counter} />
 			);
 		}); 
 	}

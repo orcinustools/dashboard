@@ -26,6 +26,20 @@ export default function reducer (state = initialState, action) {
 			error = action.payload || {message: action.payload.message};
 			return { ...state, activeService: {service: {}, fetching: false, error: error}}
 
+		case "DELETE_SERVICE_PENDING":
+			return { ...state, servicesList: { ...state.servicesList, fetching: true} }
+		case "DELETE_SERVICE_FULFILLED":
+			return { ...state, servicesList: { ...state.servicesList, fetching: false, fetched: true} }
+		case "SET_DELETE_SERVICE":
+			const id = action.payload
+			return { 
+				...state,
+				servicesList: {
+					...state.servicesList,
+					services: state.servicesList.services.filter((service) => service.ID !== id)
+				} 
+			}
+
 	}
 
 	return state;
