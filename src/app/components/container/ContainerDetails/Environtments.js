@@ -10,7 +10,7 @@ const Environtments = (props) => {
     <tbody className="table-stack-list">
     {
       varArr.map((arr) => 
-        <tr>
+        <tr key={`${arr[0]}-${arr[1]}`}>
           <td>{arr[0]}</td>
           <td>{arr[1]}</td>
           <td></td>
