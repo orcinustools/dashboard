@@ -406,7 +406,7 @@ export default class ServiceDetails extends React.Component {
 					          }
 
 					          { fetched &&
-											<Ports />
+											<Ports ports={ service.Spec.EndpointSpec.Ports } />
 					          }
 					        </table>
 				        </div>
