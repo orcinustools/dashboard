@@ -8,31 +8,33 @@ export default class ServicesList extends React.Component {
     super(props);
     
     this.handleOnDeleteService = this.handleOnDeleteService.bind(this)
-
-    this.state = {
-      counter: 10
-    }
+    this.handleIncrement = this.handleIncrement.bind(this)
+    this.handleDecrement = this.handleDecrement.bind(this)
+    this.handleScaling = this.handleScaling.bind(this)
   }
 
 	componentDidMount() {
 		this.props.fetchServices();
 	}
 
-  handleIncrement() {
-    this.setState({
-      counter: this.state.counter - 1
-    })
+  handleIncrement(serviceId) {
+    console.log("Increment : ", serviceId)
+    this.props.replicasIncrement(serviceId)
   }
 
-  handleDecrement() {
-    this.setState({
-      counter: this.state.counter - 1
-    })
+  handleDecrement(serviceId) {
+    console.log("Decrement : ", serviceId)
+    this.props.replicasDecrement(serviceId)
   }
 
   handleOnDeleteService(id) {
     console.log(id)
     this.props.deleteService(id)
+  }
+
+  handleScaling(props) {
+    console.log("Scalling cuy")
+    this.props.scaleServiceAPI(props)
   }
 
 	renderServices(services) {
@@ -47,15 +49,23 @@ export default class ServicesList extends React.Component {
     }
 
 		return services.map((service) => {
+      const replicas = service.updateConfig ? 
+        service.updateConfig.update.service.replicas :
+        service.Spec.Mode.Replicated.Replicas
+
 			return (
 				<ServiceListItem 
 					key={service.ID}
 					id={service.ID} 
 					name={service.Spec.Name}
 					image={service.Spec.TaskTemplate.ContainerSpec.Image}
-          replicas={service.Spec.Mode.Replicated.Replicas}
+          containers={service.Spec.Mode.Replicated.Replicas}
+          replicas={replicas}
           click={this.handleOnDeleteService}
-          counter={this.state.counter} />
+          handleIncrement={this.handleIncrement}
+          handleDecrement={this.handleDecrement}
+          scaling={this.handleScaling}
+          updateConfig={service.updateConfig} />
 			);
 		}); 
 	}

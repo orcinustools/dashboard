@@ -3,6 +3,9 @@ import PropTypes  from "prop-types"
 import { Link }   from "react-router"
 
 const ServiceListItem = (props) => {
+  if (props.updateConfig) {
+    console.log(props.updateConfig)
+  }
   return (
     <tr>
       <td>{ props.id.substr(0, 6) }</td>
@@ -29,7 +32,7 @@ const ServiceListItem = (props) => {
             <i 
               className="fa fa-cube fa-fw"
               aria-hidden="true"></i>
-            &nbsp; {props.replicas} Containers
+            &nbsp; {props.containers} Containers
           </li>
           {/*<li>
             <i
@@ -40,23 +43,29 @@ const ServiceListItem = (props) => {
         </ul>
       </td>
       <td style={{ width: '30%', textAlign: 'right' }}>
-        <button className="btn btn-default btn-xs list-stack-action"> - </button>
+        <button 
+          className="btn btn-default btn-xs list-stack-action"
+          onClick={() => props.handleDecrement(props.id)}> - </button>
         <input
           type="text"
           className="form-control input-sm inline-block"
           min="1"
           max="10"
           readOnly="true"
-          disabled="true"
           style={{ textAlign: 'center', width: '15%', display: 'inline', marginRight: '10px' }}
-          value={ props.counter }/>
+          value={ props.replicas }/>
         <button 
             className="btn btn-default btn-xs"
-            style={{ marginRight: '40px'}}> + </button>
-        <button
-            className="btn btn-success btn-sm list-stack-action">
-          <i className="fa fa-check" aria-hidden="true"></i>
-        </button>
+            style={{ marginRight: '40px'}}
+            onClick={() => props.handleIncrement(props.id)}> + </button>
+        { props.updateConfig ?
+          <button
+              className="btn btn-success btn-sm list-stack-action"
+              onClick={() => props.scaling(props.updateConfig)}>
+            <i className="fa fa-check" aria-hidden="true"></i>
+          </button> :
+          ''
+        }
         <button
             className="btn btn-danger btn-sm list-stack-action"
             onClick={() => props.click(props.id)}>

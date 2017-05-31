@@ -43,6 +43,66 @@ export default function reducer (state = initialState, action) {
 				} 
 			}
 
+			// Update service
+			case "REPLICAS_INCREMENT":
+				return {
+					...state,
+					servicesList: {
+						...state.servicesList,
+						services: state.servicesList.services.map((service) => 
+							service.ID === action.serviceId ?
+							{
+								...service,
+								updateConfig: {
+									update: {
+										service: {
+											replicas: service.updateConfig ? service.updateConfig.update.service.replicas + 1 : service.Spec.Mode.Replicated.Replicas + 1
+										}
+									},
+									spec: {
+										...service,
+										PreviousSpec: service.Spec,
+									}
+								}
+							}:
+							service
+						)
+					}
+				}
+			case "REPLICAS_DECREMENT":
+				return {
+					...state,
+					servicesList: {
+						...state.servicesList,
+						services: state.servicesList.services.map((service) => 
+							service.ID === action.serviceId ?
+							{
+								...service,
+								updateConfig: {
+									update: {
+										service: {
+											replicas: service.updateConfig ? service.updateConfig.update.service.replicas - 1 : service.Spec.Mode.Replicated.Replicas - 1
+										}
+									},
+									spec: {
+										...service,
+										PreviousSpec: service.Spec,
+									}
+								}
+							}:
+							service
+						)
+					}
+				}
+
+			case "SCALING_SERVICE_PENDING":
+				return { ...state, servicesList: { ...state.servicesList, fetched: false, fetching: true} }
+			case "SCALING_SERVICE_FULFILLED":
+				return { ...state, servicesList: { ...state.servicesList, fetching: false, fetched: true} }
+			case "SCALING_SERVICE_REJECTED":
+			error = action.payload || { message: action.payload.message}
+			return { ...state, activeService: {service: {}, fetching: false, error: error}}
+
 	}
 
 	return state;
