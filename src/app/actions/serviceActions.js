@@ -103,9 +103,37 @@ export function fetchTaskByService(serviceId) {
 	}
 }
 
-export function addCounter() {
+export function replicasIncrement(serviceId) {
 	return {
-		type: "ADD_COUNTER"
+		type: "REPLICAS_INCREMENT",
+		serviceId
 	}
 }
 
+export function replicasDecrement(serviceId) {
+	return {
+		type: "REPLICAS_DECREMENT",
+		serviceId
+	}
+}
+
+/**
+ * Send data for scaling service on api
+ * @param  {Object} props Object Spec for scaling
+ * @return {promise}       payload
+ */
+export function scaleServiceAPI(props) {
+	const request = axios({
+		method: 'post',
+		url: `http://${ORCINUS_API_HOST}:${ORCINUS_API_PORT}/apis/service/update`,
+		data: props,
+		headers: {
+			'Content-Type': 'application/json'
+		}
+	})
+
+	return {
+		type: "SCALING_SERVICE",
+		payload: request
+	}
+}
