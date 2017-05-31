@@ -29,8 +29,8 @@ export function fetchService(id) {
 		payload: axios({
 			method: 'post',
 			url: `http://${ORCINUS_API_HOST}:${ORCINUS_API_PORT}/apis/service/inspect`,
-			headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-			data: querystring.stringify({ id: id })
+			headers: {'Content-Type': 'application/json'},
+			data: JSON.parse(`{ "id": "${id}" }`)
 		})
 	}
 }
