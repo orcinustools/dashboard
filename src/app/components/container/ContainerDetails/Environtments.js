@@ -1,16 +1,24 @@
 import React from "react"
 import { Link } from "react-router"
 
-export default class Environtments extends React.Component {
-	render() {
-		return (
-      <tbody className="table-stack-list">
-        <tr>
-          <td>WORDPRESS_DB_PASSWORD</td>
-          <td>root</td>
+const Environtments = (props) => {
+  
+  const { env } = props
+  const varArr = env.map((e) => e.split("="))
+
+	return (
+    <tbody className="table-stack-list">
+    {
+      varArr.map((arr) => 
+        <tr key={`${arr[0]}-${arr[1]}`}>
+          <td>{arr[0]}</td>
+          <td>{arr[1]}</td>
           <td></td>
         </tr>
-      </tbody>
-		)
-	}
+      )
+    }
+    </tbody>
+	)
 }
+
+export default Environtments

@@ -5,7 +5,7 @@ import ContainerDetails from "../../containers/containers/ContainerDetailsContai
 export default class ContainerDetailsPage extends React.Component {
 	render() {
 		return (
-      <ContainerDetails />
+      <ContainerDetails id={ this.props.params.Id } />
 		);
 	}
 }
