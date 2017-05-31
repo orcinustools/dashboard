@@ -11,7 +11,8 @@ import Environtments from "./ContainerDetails/Environtments"
 export default class ContainerDetails extends React.Component {
 
   componentDidMount() {
-    this.props.fetchContainer()
+    this.props.fetchContainer(this.props.id)
+    console.log(this.props.id)
   }
 
 	render() {
@@ -21,12 +22,16 @@ export default class ContainerDetails extends React.Component {
 			<div>
         <section className="content-header">
           <h1>
-            wp-app.1
+            { fetched && 
+              container.Name.slice(1) }
           </h1>
           <ol className="breadcrumb breadcrumb-sm">
             <li><Link to="/">HOME</Link></li>
             <li><Link to="/containers">CONTAINERS</Link></li>
-            <li className="active">wp-app.1</li>
+            <li className="active">
+               { fetched && 
+                container.Name.slice(1) }
+            </li>
           </ol>
         </section>
         
@@ -53,9 +58,11 @@ export default class ContainerDetails extends React.Component {
               }
 
               { fetched &&
-                <General 
-                  name={container.Name}
-                  image={container.Config.Image}
+                <General
+                  name={container.Name.slice(1)}
+                  serviceName={container.Config.Labels['com.docker.swarm.service.name']}
+                  serviceId={container.Config.Labels['com.docker.swarm.service.id']}
+                  image={container.Config.Image.split('@')[0]}
                   volumeTotal={container.Mounts.length}
                   created={container.Created} />
               }
@@ -64,7 +71,7 @@ export default class ContainerDetails extends React.Component {
           </div>
         </div>
 
-        {/* Volumes Section */}
+        {/* Volumes Section
         <div className="row">
           <div className="col-xs-12">
             <div className="panel">
@@ -108,9 +115,9 @@ export default class ContainerDetails extends React.Component {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
 
-        {/* Mountpoints Section */}
+        {/* Mountpoints Section 
         <div className="row">
           <div className="col-xs-12">
             <div className="panel">
@@ -155,9 +162,9 @@ export default class ContainerDetails extends React.Component {
               </div>
             </div>
           </div>
-        </div>
+        </div>*/}
 
-        {/* Ports Section */}
+        {/* Ports Section 
         <div className="row">
           <div className="col-xs-12">
             <div className="panel">
@@ -201,7 +208,7 @@ export default class ContainerDetails extends React.Component {
               </div>
             </div>
           </div>
-        </div>
+        </div>*/}
 
         {/* Variables Section */}
         <div className="row">
@@ -239,7 +246,7 @@ export default class ContainerDetails extends React.Component {
                   }
 
                   { fetched &&
-                    <Environtments />
+                    <Environtments env={container.Config.Env} />
                   }
                 </table>
               </div>

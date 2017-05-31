@@ -18,8 +18,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
 	return {
-		fetchContainer: () => {
-			dispatch(fetchContainer())
+		fetchContainer: (id) => {
+			dispatch(fetchContainer(id))
 		}
 	}
 }

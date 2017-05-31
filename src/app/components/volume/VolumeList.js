@@ -47,6 +47,14 @@ export default class VolumeList extends React.Component {
                   </tr>
                 </thead>
                 <tbody className="table-stack-list">
+                  { fetching &&
+                    <tr>
+                      <td colSpan="4" style={{ textAlign: "center" }}>
+                        <i className="fa fa-refresh fa-spin fa-2x fa-fw" style={{ color: "#939393"}}></i>
+                      </td>
+                    </tr>
+                  }
+
                   { fetched && this.renderVolumes(volumes.Volumes) }
                 </tbody>
               </table>

@@ -9,15 +9,23 @@ export default class ContainerList extends React.Component {
 		this.props.fetchContainers();
 	}
 
+  handleOnPause(id) {
+    this.props.pauseContainer(id)
+    console.log(id)
+  } 
+
   renderContainers(containers) {
     return containers.map((container) => {
       return (
         <ContainerListItem 
-          key={container.ID}
-          id={container.ID}
-          name={container.Names}
-          image={container.Spec.ContainerSpec.Image}
-          state={container.State} />
+          key={container.Id}
+          id={container.Id}
+          // name={container.Labels["com.docker.swarm.task.name"]}
+          name={container.Names[0]}
+          image={container.Image}
+          state={container.State}
+          service={container.Labels["com.docker.swarm.service.name"]}
+          pause={this.handleOnPause.bind(this)} />
       )
     });
   }
