@@ -5,7 +5,7 @@ import { connect } from "react-redux"
 
 import ServiceDetails from "../../components/service/ServiceDetails"
 
-import { fetchService } from "../../actions/serviceActions"
+import { fetchService, fetchTaskByService } from "../../actions/serviceActions"
 
 const mapStateToProps = (state, ownProps) => {
 	return {
@@ -20,6 +20,9 @@ const mapDispatchToProps = (dispatch) => {
 	return {
 		fetchService: (id) => {
 			dispatch(fetchService(id))
+		},
+		fetchTaskByService: (id) => {
+			dispatch(fetchTaskByService(id))
 		}
 	}
 }
