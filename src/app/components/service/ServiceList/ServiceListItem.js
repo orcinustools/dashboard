@@ -63,8 +63,14 @@ const ServiceListItem = (props) => {
               className="btn btn-success btn-sm list-stack-action"
               onClick={() => props.scaling(props.updateConfig)}>
             <i className="fa fa-check" aria-hidden="true"></i>
+            &nbsp; Scale
           </button> :
-          ''
+          <button
+              className="btn btn-default btn-sm list-stack-action"
+              disabled="true">
+            <i className="fa fa-check" aria-hidden="true"></i>
+            &nbsp; Scale
+          </button>
         }
         <button
             className="btn btn-danger btn-sm list-stack-action"
