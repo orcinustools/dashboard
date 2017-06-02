@@ -7,29 +7,35 @@ const ContainerListItem = (props) => {
   const service = props.service ? props.service : 'No Service'
   const name = props.name.slice(1)
   
-  const containerState = cs({
-    'label': true,
-    'label-success': props.state === 'running',
-    'running-state': props.state === 'running',
-    'pause-state': props.state === 'paused',
-    'stop-state': props.state === 'exited'
-  })
+  const containerState = cs(
+    'label',
+    {
+      'label-success': props.state === 'running',
+      'running-state': props.state === 'running',
+      'pause-state': props.state === 'paused',
+      'stop-state': props.state === 'exited'
+    }
+  )
 
-  const buttonState = cs({
-    'btn': true,
-    'list-stack-action': true,
-    'btn-sm': true,
-    'btn-warning': props.state === 'running',
-    'pause-state': props.state === 'running',
-    'btn-success': props.state === 'paused',
-    'running-state': props.state === 'paused'
-  })
+  const buttonState = cs(
+    'btn',
+    'list-stack-action',
+    'btn-sm',
+    {
+      'btn-warning': props.state === 'running',
+      'pause-state': props.state === 'running',
+      'btn-success': props.state === 'paused',
+      'running-state': props.state === 'paused'
+    }
+  )
 
-  const fontState = cs({
-    'fa': true,
-    'fa-pause': props.state === 'running',
-    'fa-play': props.state === 'paused'
-  })
+  const fontState = cs(
+    'fa',
+    {
+      'fa-pause': props.state === 'running',
+      'fa-play': props.state === 'paused'
+    }
+  )
 
   return ( 
     <tr>
@@ -47,9 +53,14 @@ const ContainerListItem = (props) => {
         </ul>
       </td>
       <td>
-        <button onClick={() => props.pause(props.id)} className={ buttonState }>
-          <i className={ fontState } aria-hidden="true"></i>
-        </button>
+        { props.state === 'running' ?
+          <button onClick={() => props.pause(props.id)} className={ buttonState }>
+            <i className={ fontState } aria-hidden="true"></i>
+          </button> :
+          <button onClick={() => props.unPause(props.id)} className={ buttonState }>
+            <i className={ fontState } aria-hidden="true"></i>
+          </button>
+        }
         <Link to="#" className="btn btn-info btn-sm list-stack-action"><i className="fa fa-refresh" aria-hidden="true"></i></Link>
         <Link to="#" className="btn btn-danger btn-sm list-stack-action"><i className="fa fa-trash-o" aria-hidden="true"></i></Link>
       

@@ -8,7 +8,7 @@
 import axios from "axios"
 import { 
 	FETCH_CONTAINERS, FETCH_CONTAINER,
-	PAUSE_CONTAINER
+	PAUSE_CONTAINER, UNPAUSE_CONTAINER
 } from "./actionTypes"
 import { ORCINUS_API_HOST, ORCINUS_API_PORT } from "../config/environtment"
 
@@ -39,7 +39,11 @@ export function fetchContainer(id) {
 	}
 }
 
-export function pauseContainer(id) {
+
+/**
+ * Pause Container On API and Redux State
+ */
+export function pauseContainerAPI(id) {
 	const request = axios({
 		method: 'post',
 		url: `http://${ORCINUS_API_HOST}:${ORCINUS_API_PORT}/apis/container/pause`,
@@ -51,6 +55,56 @@ export function pauseContainer(id) {
 
 	return {
 		type: PAUSE_CONTAINER,
-		payload: { status: true, id: id}
+		payload: request
+	}
+}
+
+export function setPauseContainer(id) {
+	return {
+		type: "SET_PAUSE_CONTAINER",
+		payload: { status: 'paused', id: id}
+	}
+}
+
+export function pauseContainer(id) {
+	return (dispatch) => {
+		dispatch(pauseContainerAPI(id)).then((res) => {
+			dispatch(setPauseContainer(id))
+		})
+	}
+}
+
+
+/**
+ * unPause Container On API and Redux State
+ */
+export function unPauseContainerAPI(id) {
+	const request = axios({
+		method: 'post',
+		url: `http://${ORCINUS_API_HOST}:${ORCINUS_API_PORT}/apis/container/unpause`,
+		data: JSON.parse(`{ "id" : "${id}"}`),
+		headers: {
+			'Content-Type': 'application/json'
+		}
+	})
+
+	return {
+		type: UNPAUSE_CONTAINER,
+		payload: request
+	}
+}
+
+export function setUnPauseContainer(id) {
+	return {
+		type: "SET_UNPAUSE_CONTAINER",
+		payload: { status: 'running', id: id }
+	}
+}
+
+export function unPauseContainer(id) {
+	return (dispatch) => {
+		dispatch(unPauseContainerAPI(id)).then((res) => {
+			dispatch(setUnPauseContainer(id))
+		})
 	}
 }

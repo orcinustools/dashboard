@@ -5,6 +5,13 @@ import ContainerListItem from "./ContainerListItem";
 
 export default class ContainerList extends React.Component {
 
+  constructor(props) {
+    super(props);
+    
+    this.handleOnPause    = this.handleOnPause.bind(this)
+    this.handleOnUnpause  = this.handleOnUnpause.bind(this)
+  }
+
 	componentDidMount() {
 		this.props.fetchContainers();
 	}
@@ -12,7 +19,12 @@ export default class ContainerList extends React.Component {
   handleOnPause(id) {
     this.props.pauseContainer(id)
     console.log(id)
-  } 
+  }
+
+  handleOnUnpause(id) {
+    this.props.unPauseContainer(id)
+    console.log(id)
+  }
 
   renderContainers(containers) {
     return containers.map((container) => {
@@ -20,12 +32,12 @@ export default class ContainerList extends React.Component {
         <ContainerListItem 
           key={container.Id}
           id={container.Id}
-          // name={container.Labels["com.docker.swarm.task.name"]}
           name={container.Names[0]}
           image={container.Image}
           state={container.State}
           service={container.Labels["com.docker.swarm.service.name"]}
-          pause={this.handleOnPause.bind(this)} />
+          pause={this.handleOnPause}
+          unPause={this.handleOnUnpause} />
       )
     });
   }

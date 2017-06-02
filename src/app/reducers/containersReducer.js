@@ -26,6 +26,29 @@ export default function reducer (state = initialState, action) {
 			error = action.payload || {message: action.payload.message};
 			return { ...state, activeContainer: { container: {}, fetching: false, error: error } }
 
+		case "SET_PAUSE_CONTAINER":
+			return { 
+				...state, 
+				containersList: {
+					...state.containersList,
+					containers: state.containersList.containers.map( container => container.Id === action.payload.id ?
+						{...container, State: action.payload.status} :
+						container
+					)
+				}
+			}
+			
+		case "SET_UNPAUSE_CONTAINER":
+			return { 
+				...state, 
+				containersList: {
+					...state.containersList,
+					containers: state.containersList.containers.map( container => container.Id === action.payload.id ?
+						{...container, State: action.payload.status} :
+						container
+					)
+				}
+			}
 	}
 
 	return state;
