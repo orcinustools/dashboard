@@ -3,9 +3,16 @@ import { Link } from "react-router";
 import { Line } from 'react-chartjs-2';
 
 export default class Overview extends React.Component {
+
+  componentWillMount() {
+    this.props.fetchStacks()
+    this.props.fetchContainers()
+    this.props.fetchServices()
+  }
+
 	render() {
 
-		const { data } = this.props;
+		const { containers, stacks, services, data } = this.props;
 
 		return (
 			<div>
@@ -16,7 +23,7 @@ export default class Overview extends React.Component {
               <div className="sm-st clearfix">
                 <span className="sm-st-icon st-red"><i className="fa fa-server"></i></span>
                 <div className="sm-st-info">
-                  <span>4</span> Stack Running
+                  <span>{stacks ? stacks.length : '0'}</span> Stacks Running
                 </div>
               </div>
             </div>
@@ -27,7 +34,7 @@ export default class Overview extends React.Component {
               <div className="sm-st clearfix">
                 <span className="sm-st-icon st-violet"><i className="fa fa-cubes"></i></span>
                 <div className="sm-st-info">
-                  <span>2</span> Services Running
+                  <span>{services ? services.length : '0'}</span> Services Running
                 </div>
               </div>
             </div>
@@ -38,7 +45,7 @@ export default class Overview extends React.Component {
               <div className="sm-st clearfix">
                 <span className="sm-st-icon st-blue"><i className="fa fa-cube"></i></span>
                 <div className="sm-st-info">
-                  <span>2</span> Containers Running
+                  <span>{containers ? containers.length : '0'}</span> Containers Running
                 </div>
               </div>
             </div>
