@@ -13,13 +13,28 @@ export default class StackList extends React.Component {
 		this.props.fetchStacks()
 	}
 
+  _handleDeleteStack(id) {
+    this.props.deleteStack(id)
+    // console.log(id)
+  }
+
   renderStacks(stacks) {
+    if (stacks.length == 0) {
+      return (
+        <tr>
+          <td style={{ textAlign: "center" }} colSpan="7">
+            THERE IS NO STACKS NOW
+          </td>
+        </tr>
+      )
+    }
     return stacks.map((stack) => {
       return (
         <StackListItem
           key={ stack.Id } 
           id={ stack.Id }
-          name={ stack.Name } />
+          name={ stack.Name }
+          onDelete={ this._handleDeleteStack.bind(this) } />
       )
     })
   }

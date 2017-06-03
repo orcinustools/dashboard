@@ -5,7 +5,7 @@ import { connect } from "react-redux"
 
 import StackList from "../../components/stack/StackList"
 
-import { fetchStacks } from "../../actions/stackActions"
+import { fetchStacks, deleteStack } from "../../actions/stackActions"
 
 const mapStateToProps = (state) => {
   return {
@@ -20,6 +20,9 @@ const mapDispatchToProps = (dispatch) => {
   return {
     fetchStacks: () => {
       dispatch(fetchStacks())
+    },
+    deleteStack: (id) => {
+      dispatch(deleteStack(id))
     }
   }
 }

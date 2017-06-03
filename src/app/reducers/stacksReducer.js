@@ -26,6 +26,22 @@ export default function reducer (state = initialState, action) {
 			error = action.payload || {message: action.payload.message};
 			return { ...state, activeStack: {stack: {}, fetching: false, error: error}}
 
+		case "DELETE_STACK_PENDING":
+			return { ...state, stacksList: { ...state.stacksList, fetching: true, fetched: false } }
+		case "DELETE_STACK_FULFILLED":
+		return { ...state, stacksList: { ...state.stacksList, fetching: false, fetched: true } }
+		case "DELETE_STACK_REJECTED":
+			error = action.payload || {message: action.payload.message}
+			return { ...state, stacksList: { ...state.stacksList, fetching: false, error: error } }
+		case "SET_DELETE_STACK":
+			return {
+				...state,
+				stacksList: {
+					...state.stacksList,
+					stacks: state.stacksList.stacks.filter((stack) => stack.Id !== action.id)
+				}
+			}
+
 	}
 
 	return state;

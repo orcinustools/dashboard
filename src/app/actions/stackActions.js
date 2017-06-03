@@ -48,3 +48,50 @@ export function resetStackFields() {
 		type: RESET_STACK_FIELDS
 	}
 }
+
+export function deleteStackAPI(id) {
+	const request = axios({
+		method: 'post',
+		url: `http://${ORCINUS_API_HOST}:${ORCINUS_API_PORT}/apis/stack/delete`,
+		data: JSON.parse(`{ "id": "${id}" }`),
+		headers: {
+			'Content-Type': 'application/json'
+		}
+	})
+
+	return {
+		type: "DELETE_STACK",
+		payload: request
+	}
+}
+
+export function setDeleteStack(id) {
+	return {
+		type: "SET_DELETE_STACK",
+		id
+	}
+}
+
+export function deleteStack(id) {
+	return (dispatch) => {
+		dispatch(deleteStackAPI(id)).then(() => {
+			dispatch(setDeleteStack(id))
+		})
+	}
+}
+
+export function fetchServices(stackId) {
+	const request = axios({
+		method: 'post',
+		url: `http://${ORCINUS_API_HOST}:${ORCINUS_API_PORT}/apis/stack/list-services`,
+		data: JSON.parse(`{ "id": "${stackId}"}`),
+		headers: {
+			'Content-Type': 'application/json'
+		}
+	})
+
+	return {
+		type: "FETHC_SERVICE_BY_STACK_ID",
+		payload: request
+	}
+}
