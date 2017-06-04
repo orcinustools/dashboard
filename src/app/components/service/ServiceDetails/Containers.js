@@ -35,10 +35,15 @@ const ContainerItem = (props) => {
         <i
           className="fa fa-cubes fa-fw"
           aria-hidden="true"></i>
-        <Link
-            to={`/containers/${props.task.Status.ContainerStatus.ContainerID}`}>
-          &nbsp; { props.task.Name ? props.task.Name : props.task.ID }
-        </Link>
+        { props.task.DesiredState === 'shutdown' ?
+          <span>
+            &nbsp; { props.task.Name ? props.task.Name : props.task.ID }
+          </span> :
+          <Link
+              to={`/containers/${props.task.Status.ContainerStatus.ContainerID}`}>
+            &nbsp; { props.task.Name ? props.task.Name : props.task.ID }
+          </Link>
+        }
       </td>
       <td>
         <span
