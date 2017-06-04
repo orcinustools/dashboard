@@ -12,10 +12,12 @@ after_success: |
     cd orcinus
     rm -rf www
     mv $TRAVIS_BUILD_DIR/dist www
+    git config --global user.email "anak10thn@gmail.com"
+    git config --global user.name "anak10thn"
     git status
     git remote rm origin
     git remote add origin https://anak10thn:$GITHUB_API_KEY@github.com/orcinustools/orcinus.git
     git add -f www
-    git commit -c user.name='anak10thn' -c user.email='anak10thn@gmail.com' -m "BUILD: dashboard, build number : $TRAVIS_BUILD_NUMBER"
+    git commit -m "BUILD: dashboard, build number : $TRAVIS_BUILD_NUMBER"
     git push -fq origin dev
   fi
