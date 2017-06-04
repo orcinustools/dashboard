@@ -79,7 +79,12 @@ const config = {
 		new webpack.EnvironmentPlugin({
 		  NODE_ENV: "development",
 		  ORCINUS_HOST: "localhost",
-		  ORCINUS_PORT: 4000
+		  ORCINUS_PORT: 4000,
+		  OMURA_HOST: "localhost",
+		  OMURA_PORT: "5009",
+		  STATIC_ASSET_HOST: "localhost", // live-server --port=8081 
+		  																// in src/app/assests/images/catalog directory
+		  STATIC_ASSET_PORT: "8081"
 		}),
 
     // Webpack plugin untuk memisah file css

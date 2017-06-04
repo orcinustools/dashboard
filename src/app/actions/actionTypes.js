@@ -1,10 +1,13 @@
 // Stacks
 export const FETCH_STACKS = "FETCH_STACKS"
 export const FETCH_STACK = "FETCH_STACK"
+export const CREATE_STACK = "CREATE_STACK"
+export const RESET_STACK_FIELDS = "RESET_STACK_FIELDS"
 
 // service
 export const FETCH_SERVICES = "FETCH_SERVICES"
 export const FETCH_SERVICE = "FETCH_SERVICE"
+export const CREATE_SERVICE = "CREATE_SERVICE"
 export const DELETE_SERVICE = "DELETE_SERVICE"
 export const SET_DELETE_SERVICE = "SET_DELETE_SERVICE"
 

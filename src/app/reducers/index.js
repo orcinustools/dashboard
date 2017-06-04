@@ -1,7 +1,7 @@
 import { combineReducers } from "redux"
 import { reducer as formReducer } from "redux-form"
 
-import imagesReducer from "./imagesReducer";
+import catalogsReducer from "./catalogsReducer";
 import stacksReducer from "./stacksReducer";
 import servicesReducer from "./servicesReducer";
 import containersReducer from "./containersReducer";
@@ -11,7 +11,7 @@ import overviewReducer from "./overviewReducer";
 export default combineReducers({
 	form: formReducer,
 	overviewState: overviewReducer,
-	imagesState: imagesReducer,
+	catalogsState: catalogsReducer,
 	stacksState: stacksReducer,
 	servicesState: servicesReducer,
 	containerState: containersReducer,

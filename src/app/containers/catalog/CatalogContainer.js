@@ -5,12 +5,17 @@ import { connect } from "react-redux";
 
 import Catalog from "../../components/catalog/Catalog";
 
-import { fetchImages } from "../../actions/imageActions";
+import {
+	fetchImages,
+	removeItemFromBoard,
+	addItemToBoard
+} from "../../actions/catalogActions";
 
 const mapStateToProps = (state) => {
   return {
-    catalog: state.imagesState.imageList,
-    fetching: state.imagesState.fetching
+    catalog: state.catalogsState.imageList,
+    board: state.catalogsState.board,
+    fetching: state.catalogsState.fetching
   }
 }
 
@@ -18,6 +23,12 @@ const mapDispatchToProps = (dispatch) => {
   return {
     fetchImages: () => {
       dispatch(fetchImages())
+    },
+    removeItemFromBoard: (index) => {
+    	dispatch(removeItemFromBoard(index))
+    },
+    addItemToBoard: (name, category) => {
+    	dispatch(addItemToBoard(name, category))
     }
   }
 }
