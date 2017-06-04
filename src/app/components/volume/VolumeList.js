@@ -55,12 +55,24 @@ export default class VolumeList extends React.Component {
                     </tr>
                   }
 
+                  { error &&
+                    <tr>
+                      <td colSpan="6" style={{ textAlign: "center", color: "#939393" }}>
+                        <h4>VOLUMES NOT FOUND</h4>
+                      </td>
+                    </tr>
+                  }
+
                   { fetched && this.renderVolumes(volumes.Volumes) }
                 </tbody>
               </table>
             </div>
             <div className="panel-footer">
-              <Link to="/volumes/new" className="btn btn-primary btn-block">CREATE NEW VOLUME</Link>
+              <Link
+                  to="/volumes/new"
+                  className="btn btn-primary btn-block create-button">
+                CREATE NEW VOLUME
+              </Link>
             </div>
           </div>
         </div>
