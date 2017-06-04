@@ -12,7 +12,7 @@ after_success: |
     cd orcinus
     ls
     rm -rf www
-    mv $TRAVIS_BUILD_DIR/dashboard/dist www
+    mv $TRAVIS_BUILD_DIR/dist www
     ls
     git status
   fi
