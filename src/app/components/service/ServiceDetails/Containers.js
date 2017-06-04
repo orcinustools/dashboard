@@ -24,6 +24,7 @@ const ContainerItem = (props) => {
     'label': true,
     'running-state': props.task.DesiredState === 'running',
     'stop-state': props.task.DesiredState === 'shutdown',
+    'label-info': props.task.DesiredState === 'ready',
     'label-success': props.task.DesiredState === 'running',
     'label-danger': props.task.DesiredState === 'shutdown'
   })
@@ -36,7 +37,7 @@ const ContainerItem = (props) => {
           aria-hidden="true"></i>
         <Link
             to={`/containers/${props.task.Status.ContainerStatus.ContainerID}`}>
-          &nbsp; { props.task.Name ? props.task.Name : "No Name"}
+          &nbsp; { props.task.Name ? props.task.Name : props.task.ID }
         </Link>
       </td>
       <td>
@@ -61,7 +62,7 @@ const ContainerItem = (props) => {
           </li>
         </ul>
       </td>
-      <td>
+      {/*<td>
         <Link
             to="#"
             className="btn btn-warning btn-sm list-stack-action">
@@ -77,7 +78,7 @@ const ContainerItem = (props) => {
             className="btn btn-danger btn-sm list-stack-action">
           <i className="fa fa-trash-o" aria-hidden="true"></i>
         </Link>
-      </td>
+      </td>*/}
     </tr>
   )
 }

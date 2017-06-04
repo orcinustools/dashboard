@@ -28,6 +28,15 @@ const protoOptions = [
 
 export default class ServiceDetails extends React.Component {
 
+	constructor(props) {
+		super(props);
+		
+		this.handleIncrement = this.handleIncrement.bind(this)
+		this.handleDecrement = this.handleDecrement.bind(this)
+		this.handleScaling 	 = this.handleScaling.bind(this)
+		this.handleOnDeleteService = this.handleOnDeleteService.bind(this)
+	}
+
 	componentDidMount() {
 		// this.props.fetchService(this.props.id)
 		this.props.fetchTaskByService(this.props.id)
@@ -35,7 +44,27 @@ export default class ServiceDetails extends React.Component {
 
 	logChange(val) {
 		console.log("Selected :", val)
-	}	
+	}
+
+  handleIncrement(serviceId) {
+    console.log("Increment : ", serviceId)
+    this.props.replicasIncrement(serviceId)
+  }
+
+  handleDecrement(serviceId) {
+    console.log("Decrement : ", serviceId)
+    this.props.replicasDecrement(serviceId)
+  }
+
+  handleOnDeleteService(id) {
+    console.log(id)
+    this.props.deleteService(id)
+  }
+
+  handleScaling(props) {
+    console.log("Scalling cuy")
+    this.props.scaleServiceAPI(props)
+  }
 
 	render() {
 		
@@ -54,7 +83,12 @@ export default class ServiceDetails extends React.Component {
           </ol>
         </section>
         
-				<ActionButton />
+				<ActionButton
+					onDelete={this.handleOnDeleteService}
+          onIncrement={this.handleIncrement}
+          onDecrement={this.handleDecrement}
+          onScaling={this.handleScaling}
+          serviceId={ service.ID } />
 
         {/* General Section */}
 				<div className="row">
@@ -105,7 +139,7 @@ export default class ServiceDetails extends React.Component {
 					              <th>Status</th>
 					              <th>Image</th>
 					              <th>Info</th>
-					              <th>Action</th>
+					              {/*<th>Action</th>*/}
 					            </tr>
 					          </thead>
 					          { error &&
