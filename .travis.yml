@@ -16,6 +16,6 @@ after_success: |
     git remote rm origin
     git remote add origin https://anak10thn:$GITHUB_API_KEY@github.com/orcinustools/orcinus.git
     git add -f www
-    git commit -m "BUILD: dashboard, build number : $TRAVIS_BUILD_NUMBER"
+    git commit -c user.name='anak10thn' -c user.email='anak10thn@gmail.com' -m "BUILD: dashboard, build number : $TRAVIS_BUILD_NUMBER"
     git push -fq origin dev
   fi
