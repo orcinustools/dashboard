@@ -3438,7 +3438,7 @@ promise@^7.1.1:
   dependencies:
     asap "~2.0.3"
 
-prop-types@^15.5.2, prop-types@^15.5.6, prop-types@^15.5.9, prop-types@~15.5.0:
+prop-types@^15.5.6, prop-types@^15.5.7, prop-types@^15.5.9, prop-types@~15.5.0:
   version "15.5.9"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.5.9.tgz#d478eef0e761396942f70c78e772f76e8be747c9"
   dependencies:
@@ -3610,14 +3610,14 @@ react-select@^1.0.0-rc.3:
     classnames "^2.2.4"
     react-input-autosize "^1.1.0"
 
-react@^15.4.2:
-  version "15.5.3"
-  resolved "https://registry.yarnpkg.com/react/-/react-15.5.3.tgz#84055382c025dec4e3b902bb61a8697cc79c1258"
+react@^15.5.4:
+  version "15.5.4"
+  resolved "https://registry.yarnpkg.com/react/-/react-15.5.4.tgz#fa83eb01506ab237cdc1c8c3b1cea8de012bf047"
   dependencies:
     fbjs "^0.8.9"
     loose-envify "^1.1.0"
     object-assign "^4.1.0"
-    prop-types "^15.5.2"
+    prop-types "^15.5.7"
 
 read-pkg-up@^1.0.1:
   version "1.0.1"
