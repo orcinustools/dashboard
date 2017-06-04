@@ -18,8 +18,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
 	return {
-		fetchStack: () => {
-			dispatch(fetchStack())
+		fetchStack: (id) => {
+			dispatch(fetchStack(id))
 		}
 	}
 }

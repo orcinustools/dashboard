@@ -9,7 +9,7 @@ import Endpoints     from "./StackDetails/Endpoints"
 export default class StackDetails extends React.Component {
 
   componentDidMount() {
-    this.props.fetchStack()
+    this.props.fetchStack(this.props.id)
   }
 
 	render() {
@@ -17,6 +17,17 @@ export default class StackDetails extends React.Component {
 
 		return (
       <div>
+        <section className="content-header">
+          <h1>
+            { fetched && stack.Name }
+          </h1>
+          <ol className="breadcrumb breadcrumb-sm">
+            <li><Link to="/">HOME</Link></li>
+            <li><Link to="/stacks">GROUPS</Link></li>
+            <li className="active">{ fetched && stack.Name }</li>
+          </ol>
+        </section>
+
         <ActionButton />
 
         {/* General Section */}
@@ -39,7 +50,9 @@ export default class StackDetails extends React.Component {
                 </div>
               }
               { fetched &&
-                <General />
+                <General
+                  name={stack.Name}
+                  created={stack.Created} />
               }
               </div>
               { fetched &&

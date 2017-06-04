@@ -16,10 +16,10 @@ export default class Services extends React.Component {
                 <i className="fa fa-cube fa-fw" aria-hidden="true"></i>
                 &nbsp; 1 Containers
               </li>
-              <li>
+              {/*<li>
                 <i className="fa fa-hdd-o fa-fw" aria-hidden="true"></i>
                 &nbsp; 1 Volumes
-              </li>
+              </li>*/}
             </ul>
           </td>
           <td>

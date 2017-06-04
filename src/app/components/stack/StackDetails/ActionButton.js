@@ -5,10 +5,10 @@ export default class ActionButton extends React.Component {
 	render() {
 		return (
       <div className="row">
-        <div className="col-md-6 pull-right">
+        <div className="col-md-3 pull-right">
           <div className="btn-group btn-group-justified" style={{ marginBottom: '10px' }} role="group" aria-label="...">
 
-            <div className="btn-group" role="group">
+            {/*<div className="btn-group" role="group">
               <button type="button" className="btn btn-default">
                 <i className="fa fa-pencil-square-o fa-fw" aria-hidden="true"></i>
                 <span className="visible-lg-inline">&nbsp; Update</span>
@@ -27,12 +27,12 @@ export default class ActionButton extends React.Component {
                 <i className="fa fa-refresh fa-fw" aria-hidden="true"></i>
                 <span className="visible-lg-inline">&nbsp; Redeploy</span>
               </button>
-            </div>
+            </div>*/}
 
             <div className="btn-group" role="group">
               <button type="button" className="btn btn-danger">
                 <i className="fa fa-trash-o fa-fw" aria-hidden="true"></i>
-                <span className="visible-lg-inline">&nbsp; Terminate</span>
+                <span className="visible-lg-inline">&nbsp; Delete</span>
               </button>
             </div>
 

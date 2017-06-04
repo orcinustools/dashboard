@@ -19,13 +19,23 @@ export function fetchStacks() {
 	}
 }
 
-export function fetchStack() {
+// Async Action Creator Inspect Stack
+export function fetchStack(id) {
+	const request = axios({
+		method: 'post',
+		url: `http://${ORCINUS_API_HOST}:${ORCINUS_API_PORT}/apis/stack/inspect`,
+		data: JSON.parse(`{ "id" : "${id}"}`),
+		headers: {
+			'Content-Type': 'application/json'
+		}
+	})
+
 	return {
 		type: FETCH_STACK,
-		// payload: axios.get(`http://${ORCINUS_API_HOST}:${ORCINUS_API_PORT}/wordpress-app`)
-		payload: axios.get(`/wordpress-app`)
+		payload: request
 	}
 }
+
 
 export function createStack(props) {
 	const request = axios({
