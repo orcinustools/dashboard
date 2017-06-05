@@ -232,6 +232,14 @@ export default class Catalog extends React.Component {
               management system (RDBMS).*/}
             </CatalogItem>
 
+            <CatalogItem 
+                onAdd={ this.handleAddItemToBoard }
+                img={ "mariadb.svg" }
+                name="Maria DB">
+              {/*MySQL is a widely used, open-source relational database 
+              management system (RDBMS).*/}
+            </CatalogItem>
+
             <CatalogItem
                 onAdd={ this.handleAddItemToBoard }
                 img={ "postgresql.svg" }
@@ -261,6 +269,33 @@ export default class Catalog extends React.Component {
                 onAdd={ this.handleAddItemToBoard }
                 img={ "mongodb.svg" }
                 name="Mongo DB"
+                category={"database"}>
+              {/*The WordPress rich content management system can utilize plugins,
+              widgets, and themes.*/}
+            </CatalogItem>
+
+            <CatalogItem
+                onAdd={ this.handleAddItemToBoard }
+                img={ "couchdb.svg" }
+                name="Couch DB"
+                category={"database"}>
+              {/*The WordPress rich content management system can utilize plugins,
+              widgets, and themes.*/}
+            </CatalogItem>
+
+            <CatalogItem
+                onAdd={ this.handleAddItemToBoard }
+                img={ "couchbase.svg" }
+                name="Couchbase"
+                category={"database"}>
+              {/*The WordPress rich content management system can utilize plugins,
+              widgets, and themes.*/}
+            </CatalogItem>
+
+            <CatalogItem
+                onAdd={ this.handleAddItemToBoard }
+                img={ "cassandra.svg" }
+                name="Cassandra"
                 category={"database"}>
               {/*The WordPress rich content management system can utilize plugins,
               widgets, and themes.*/}
