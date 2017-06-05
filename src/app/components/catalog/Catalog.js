@@ -170,6 +170,24 @@ export default class Catalog extends React.Component {
               {/*The leading operating system for PCs, tablets, phones, IoT devices, 
               servers and the cloud*/}
             </CatalogItem>
+
+            <CatalogItem
+                onAdd={this.handleAddItemToBoard}
+                img={"fedora.svg"}
+                name="Fedora"
+                category={"test"}>
+              {/*The leading operating system for PCs, tablets, phones, IoT devices, 
+              servers and the cloud*/}
+            </CatalogItem>
+
+            <CatalogItem
+                onAdd={this.handleAddItemToBoard}
+                img={"suse.svg"}
+                name="Open Suse"
+                category={"test"}>
+              {/*The leading operating system for PCs, tablets, phones, IoT devices, 
+              servers and the cloud*/}
+            </CatalogItem>
           </div>
           }
 
