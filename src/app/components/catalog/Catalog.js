@@ -398,6 +398,14 @@ export default class Catalog extends React.Component {
               {/*Node.js is a JavaScript-based platform for server-side and 
               networking applications.*/}
             </CatalogItem>
+
+            <CatalogItem
+                onAdd={ this.handleAddItemToBoard }
+                img={ "python.svg" }
+                name="Python">
+              {/*Node.js is a JavaScript-based platform for server-side and 
+              networking applications.*/}
+            </CatalogItem>
           </div>
           }
 
