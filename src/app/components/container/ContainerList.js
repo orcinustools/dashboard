@@ -10,6 +10,7 @@ export default class ContainerList extends React.Component {
     
     this.handleOnPause    = this.handleOnPause.bind(this)
     this.handleOnUnpause  = this.handleOnUnpause.bind(this)
+    this.handleOnDelete   = this.handleOnDelete.bind(this)
   }
 
 	componentDidMount() {
@@ -26,6 +27,11 @@ export default class ContainerList extends React.Component {
     console.log(id)
   }
 
+  handleOnDelete(id) {
+    this.props.deleteContainer(id)
+    console.log(id)
+  }
+
   renderContainers(containers) {
     return containers.map((container) => {
       return (
@@ -37,7 +43,8 @@ export default class ContainerList extends React.Component {
           state={container.State}
           service={container.Labels["com.docker.swarm.service.name"]}
           pause={this.handleOnPause}
-          unPause={this.handleOnUnpause} />
+          unPause={this.handleOnUnpause}
+          delete={this.handleOnDelete} />
       )
     });
   }

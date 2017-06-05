@@ -49,6 +49,31 @@ export default function reducer (state = initialState, action) {
 					)
 				}
 			}
+
+		case "CLEAR_CONTAINERS_LIST":
+			return {
+				...state,
+				containersList: {
+					containers: []
+				}
+			}
+
+		case "DELETE_CONTAINER_PENDING":
+			return { ...state, containersList: { ...state.containersList, fetched: false, fetching: true} }
+		case "DELETE_CONTAINER_FULFILLED":
+			return { ...state, containersList: { ...state.containersList, fetching: false, fetched: true} }
+		case "DELETE_CONTAINER_REJECTED":
+			error = action.payload || { message: action.payload.message}
+			return { ...state, activeService: {service: {}, fetching: false, error: error}}
+		case "SET_DELETE_COTNAINER":
+			const id = action.id
+			return { 
+				...state,
+				containersList: {
+					...state.containersList,
+					containers: state.containersList.containers.filter((container) => container.Id !== id)
+				} 
+			}
 	}
 
 	return state;

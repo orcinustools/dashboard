@@ -7,7 +7,8 @@ import { connect } from "react-redux";
 import ContainerList from "../../components/container/ContainerList";
 
 import {
-  fetchContainers, pauseContainer, unPauseContainer
+  fetchContainers, pauseContainer, unPauseContainer, clearContainerList,
+  deleteContainer
 } from "../../actions/containerActions";
 
 const mapStateToProps = (state) => {
@@ -29,6 +30,12 @@ const mapDispatchToProps = (dispatch) => {
     },
     unPauseContainer: (id) => {
       dispatch(unPauseContainer(id))
+    },
+    clearContainerList: () => {
+      dispatch(clearContainerList())
+    },
+    deleteContainer: (id) => {
+      dispatch(deleteContainer(id))
     }
   }
 }

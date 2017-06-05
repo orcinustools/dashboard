@@ -108,3 +108,41 @@ export function unPauseContainer(id) {
 		})
 	}
 }
+
+export function clearContainerList() {
+	return {
+		type: "CLEAR_CONTAINERS_LIST"
+	}
+}
+
+export function deleteContainerAPI(id) {
+	const request = axios({
+		method: 'post',
+		url: `http://${ORCINUS_API_HOST}:${ORCINUS_API_PORT}/apis/container/delete`,
+		data: JSON.parse(`{ "id": "${id}" }`),
+		headers: {
+			'Content-Type': 'application/json'
+		}
+	})
+
+	return {
+		type: "DELETE_CONTAINER",
+		payload: request
+	}
+
+}
+
+export function setDeleteContainer(id) {
+	return {
+		type: "SET_DELETE_COTNAINER",
+		id
+	}
+}
+
+export function deleteContainer(id) {
+	return (dispatch) => {
+		dispatch(deleteContainerAPI(id)).then(() => {
+			dispatch(setDeleteContainer(id))
+		})
+	}
+}
