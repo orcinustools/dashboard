@@ -74,7 +74,7 @@ export default class Catalog extends React.Component {
               <div className="col-xs-12">
                 <div className="panel">
                   <header className="panel-heading">
-                    Board
+                    New Service
                   </header>
                   <div className="panel-body">
                     <form>
@@ -123,7 +123,7 @@ export default class Catalog extends React.Component {
 
         <div className="clearfix"></div>
 				<div>
-          <h4>Operating System</h4>
+          <h3 className="category-header">Operating System</h3>
           { fetching &&
           <div className="row">
             <div style={{ textAlign: "center", minHeight: "187px"}}>
@@ -145,7 +145,7 @@ export default class Catalog extends React.Component {
 
             <CatalogItem
                 onAdd={ this.handleAddItemToBoard }
-                img={ "centos-icon.svg" }
+                img={ "centos.svg" }
                 name="Centos"
                 category={"database"}>
               {/*The CentOS Linux distribution is a stable, predictable, manageable and 
@@ -161,11 +161,20 @@ export default class Catalog extends React.Component {
               {/*The leading operating system for PCs, tablets, phones, IoT devices, 
               servers and the cloud*/}
             </CatalogItem>
+
+            <CatalogItem
+                onAdd={this.handleAddItemToBoard}
+                img={"coreos.svg"}
+                name="Core OS"
+                category={"test"}>
+              {/*The leading operating system for PCs, tablets, phones, IoT devices, 
+              servers and the cloud*/}
+            </CatalogItem>
           </div>
           }
 
           <div className="clearfix"></div>
-          <h4>Applications</h4>
+          <h3 className="category-header">Content Management System</h3>
           { fetching &&
           <div className="row">
             <div style={{ textAlign: "center", minHeight: "187px"}}>
@@ -184,11 +193,27 @@ export default class Catalog extends React.Component {
                 {/*The WordPress rich content management system can utilize plugins,
                 widgets, and themes.*/}
               </CatalogItem>
+              <CatalogItem
+                  onAdd={ this.handleAddItemToBoard }
+                  img={ "joomla.svg" }
+                  name="Joomla"
+                  category={"content-management-system"}>
+                {/*The WordPress rich content management system can utilize plugins,
+                widgets, and themes.*/}
+              </CatalogItem>
+              <CatalogItem
+                  onAdd={ this.handleAddItemToBoard }
+                  img={ "drupal.svg" }
+                  name="Drupal"
+                  category={"content-management-system"}>
+                {/*The WordPress rich content management system can utilize plugins,
+                widgets, and themes.*/}
+              </CatalogItem>
             </div>
           }
 
           <div className="clearfix"></div>
-          <h4>Database</h4>
+          <h3 className="category-header">Database</h3>
           { fetching &&
           <div className="row">
             <div style={{ textAlign: "center", minHeight: "187px"}}>
@@ -199,17 +224,44 @@ export default class Catalog extends React.Component {
 
           { !fetching &&
           <div className="row">
-            <CatalogItem onAdd={ this.handleAddItemToBoard } img={ "mysql.svg" } name="MySQL 5.6">
+            <CatalogItem 
+                onAdd={ this.handleAddItemToBoard }
+                img={ "mysql.svg" }
+                name="MySQL 5.6">
               {/*MySQL is a widely used, open-source relational database 
               management system (RDBMS).*/}
             </CatalogItem>
 
-            <CatalogItem onAdd={ this.handleAddItemToBoard } img={ "postgresql.svg" } name="PostgreSQL">
+            <CatalogItem
+                onAdd={ this.handleAddItemToBoard }
+                img={ "postgresql.svg" }
+                name="PostgreSQL">
               {/*The PostgreSQL object-relational database system provides 
               reliability and data integrity.*/}
             </CatalogItem>
 
-            <CatalogItem onAdd={ this.handleAddItemToBoard } img={ "redis.svg" } name="Redis">
+            <CatalogItem
+                onAdd={ this.handleAddItemToBoard }
+                img={ "redis.svg" } 
+                name="Redis">
+              {/*The WordPress rich content management system can utilize plugins,
+              widgets, and themes.*/}
+            </CatalogItem>
+
+            <CatalogItem
+                onAdd={ this.handleAddItemToBoard }
+                img={ "memcached.svg" }
+                name="Memcached"
+                category={"database"}>
+              {/*The WordPress rich content management system can utilize plugins,
+              widgets, and themes.*/}
+            </CatalogItem>
+
+            <CatalogItem
+                onAdd={ this.handleAddItemToBoard }
+                img={ "mongodb.svg" }
+                name="Mongo DB"
+                category={"database"}>
               {/*The WordPress rich content management system can utilize plugins,
               widgets, and themes.*/}
             </CatalogItem>
@@ -217,7 +269,7 @@ export default class Catalog extends React.Component {
           }
 
           <div className="clearfix"></div>
-          <h4>Framework</h4>
+          <h3 className="category-header">Framework</h3>
           { fetching &&
           <div className="row">
             <div style={{ textAlign: "center", minHeight: "187px"}}>
@@ -228,17 +280,30 @@ export default class Catalog extends React.Component {
 
           { !fetching &&
           <div className="row">
-            <CatalogItem onAdd={ this.handleAddItemToBoard } img={ "rails.svg" } name="Ruby on Rails">
+            <CatalogItem
+                onAdd={ this.handleAddItemToBoard }
+                img={ "rails.svg" }
+                name="Ruby on Rails">
               {/*Open-source web application framework written in Ruby.*/}
             </CatalogItem>
 
-            <CatalogItem onAdd={ this.handleAddItemToBoard } img={ "laravel.svg" } name="Laravel">
+            <CatalogItem
+                onAdd={ this.handleAddItemToBoard }
+                img={ "laravel.svg" }
+                name="Laravel">
+              {/*Web application framework with expressive, elegant syntax.*/}
+            </CatalogItem>
+
+            <CatalogItem
+                onAdd={ this.handleAddItemToBoard }
+                img={ "flask.svg" }
+                name="Flask">
               {/*Web application framework with expressive, elegant syntax.*/}
             </CatalogItem>
           </div>
           }
 
-          <h4>Language Stack</h4>
+          <h3 className="category-header">Language Stack</h3>
           { fetching &&
           <div className="row">
             <div style={{ textAlign: "center", minHeight: "187px"}}>
@@ -249,17 +314,34 @@ export default class Catalog extends React.Component {
 
           { !fetching &&
           <div className="row">
-            <CatalogItem onAdd={ this.handleAddItemToBoard } img={ "gopher.svg" } name="Golang">
+            <CatalogItem
+                onAdd={ this.handleAddItemToBoard }
+                img={ "gopher.svg" }
+                name="Golang">
               {/*Go (golang) is a general purpose, higher-level, imperative 
               programming language.*/}
             </CatalogItem>
 
-            <CatalogItem onAdd={ this.handleAddItemToBoard } img={ "php.svg" } name="PHP">
+            <CatalogItem
+                onAdd={ this.handleAddItemToBoard }
+                img={ "php.svg" }
+                name="PHP">
               {/*While designed for web development, the PHP scripting language 
               also provides general-purpose use.*/}
             </CatalogItem>
 
-            <CatalogItem onAdd={ this.handleAddItemToBoard } img={ "nodejs.svg" } name="NodeJS">
+            <CatalogItem
+                onAdd={ this.handleAddItemToBoard }
+                img={ "nodejs.svg" }
+                name="NodeJS">
+              {/*Node.js is a JavaScript-based platform for server-side and 
+              networking applications.*/}
+            </CatalogItem>
+
+            <CatalogItem
+                onAdd={ this.handleAddItemToBoard }
+                img={ "ruby.svg" }
+                name="Ruby">
               {/*Node.js is a JavaScript-based platform for server-side and 
               networking applications.*/}
             </CatalogItem>
