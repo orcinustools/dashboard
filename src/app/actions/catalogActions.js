@@ -9,11 +9,10 @@ import axios from "axios"
 import { FETCH_IMAGES } from "./actionTypes"
 import { OMURA_HOST, OMURA_PORT } from "../config/environtment"
 
-export function fetchImages() {
+export function fetchCatalog() {
 	return {
-		type: FETCH_IMAGES,
-		// payload: axios.get(`http://${OMURA_HOST}:${OMURA_PORT}/`)
-		payload: axios.get(`/api/v5/application/wordpress`)
+		type: "FETCH_CATALOG",
+		payload: axios.get(`http://${OMURA_HOST}:${OMURA_PORT}/apis`)
 	}
 }
 

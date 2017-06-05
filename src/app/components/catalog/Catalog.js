@@ -3,6 +3,7 @@ import { connect } from "react-redux"
 import { bindActionCreators } from 'redux'
 import { Link } from "react-router"
 import { Field, reduxForm } from "redux-form"
+import _ from "lodash"
 
 import "./Catalog.css"
 
@@ -20,7 +21,7 @@ export default class Catalog extends React.Component {
   }
 
 	componentWillMount() {
-		this.props.fetchImages();
+		this.props.fetchCatalog();
 	}
 
   handleDissmis(index) {
@@ -49,8 +50,88 @@ export default class Catalog extends React.Component {
     })
   }
 
+  renderOperatingSystem(data) {
+    const arrData = _.map(data)
+
+    return arrData.map((d) => {
+      return (
+        <CatalogItem
+          key={ d.name }
+          onAdd={this.handleAddItemToBoard}
+          img={ d.logo }
+          name={ d.name }
+          title={ d.title }
+          category="os" />
+      )
+    })
+  }
+
+  renderApplication(data) {
+    const arrData = _.map(data)
+
+    return arrData.map((d) => {
+      return (
+        <CatalogItem
+          key={ d.name }
+          onAdd={this.handleAddItemToBoard}
+          img={ d.logo }
+          name={ d.name }
+          title={ d.title }
+          category="applications" />
+      )
+    })
+  }
+
+  renderDatabase(data) {
+    const arrData = _.map(data)
+
+    return arrData.map((d) => {
+      return (
+        <CatalogItem
+          key={ d.name }
+          onAdd={this.handleAddItemToBoard}
+          img={ d.logo }
+          name={ d.name }
+          title={ d.title }
+          category="databases" />
+      )
+    })   
+  }
+
+  renderFramework(data) {
+    const arrData = _.map(data)
+
+    return arrData.map((d) => {
+      return (
+        <CatalogItem
+          key={ d.name }
+          onAdd={this.handleAddItemToBoard}
+          img={ d.logo }
+          name={ d.name }
+          title={ d.title }
+          category="frameworks" />
+      )
+    }) 
+  }
+
+  renderLanguage(data) {
+    const arrData = _.map(data)
+
+    return arrData.map((d) => {
+      return (
+        <CatalogItem
+          key={ d.name }
+          onAdd={this.handleAddItemToBoard}
+          img={ d.logo }
+          name={ d.name }
+          title={ d.title }
+          category="language" />
+      )
+    }) 
+  }
+
 	render() {
-    const { fetching, imageList, board } = this.props;
+    const { fetching, fetched, error, catalog, board } = this.props;
     window.board = board
 
 		return (
@@ -63,9 +144,9 @@ export default class Catalog extends React.Component {
           </ol>
         </section>
 
-        <div className="row" style={{ marginBottom: '2em', marginTop: '2em' }}>
+        {/*<div className="row" style={{ marginBottom: '2em', marginTop: '2em' }}>
 					<CatalogSearchBar />
-        </div>
+        </div>*/}
 
           
         { board.length ?
@@ -125,110 +206,35 @@ export default class Catalog extends React.Component {
 				<div>
           <h3 className="category-header">Operating System</h3>
           { fetching &&
-          <div className="row">
-            <div style={{ textAlign: "center", minHeight: "187px"}}>
-              <i className="fa fa-refresh fa-spin fa-3x fa-fw" style={{ color: "#939393"}}></i>
+            <div className="row">
+              <div style={{ textAlign: "center", minHeight: "187px"}}>
+                <i className="fa fa-refresh fa-spin fa-3x fa-fw" style={{ color: "#939393"}}></i>
+              </div>
             </div>
-          </div>
           }
 
-          { !fetching &&
           <div className="row">
-            <CatalogItem
-                onAdd={this.handleAddItemToBoard}
-                img={"ubuntu.svg"}
-                name="Ubuntu"
-                category={"test"}>
-              {/*The leading operating system for PCs, tablets, phones, IoT devices, 
-              servers and the cloud*/}
-            </CatalogItem>
-
-            <CatalogItem
-                onAdd={ this.handleAddItemToBoard }
-                img={ "centos.svg" }
-                name="Centos"
-                category={"database"}>
-              {/*The CentOS Linux distribution is a stable, predictable, manageable and 
-              reproducible platform derived from the sources of Red Hat Enterprise
-              Linux (RHEL).*/}
-            </CatalogItem>
-
-            <CatalogItem
-                onAdd={this.handleAddItemToBoard}
-                img={"alpinelinux.svg"}
-                name="Alpine Linux"
-                category={"test"}>
-              {/*The leading operating system for PCs, tablets, phones, IoT devices, 
-              servers and the cloud*/}
-            </CatalogItem>
-
-            <CatalogItem
-                onAdd={this.handleAddItemToBoard}
-                img={"coreos.svg"}
-                name="Core OS"
-                category={"test"}>
-              {/*The leading operating system for PCs, tablets, phones, IoT devices, 
-              servers and the cloud*/}
-            </CatalogItem>
-
-            <CatalogItem
-                onAdd={this.handleAddItemToBoard}
-                img={"fedora.svg"}
-                name="Fedora"
-                category={"test"}>
-              {/*The leading operating system for PCs, tablets, phones, IoT devices, 
-              servers and the cloud*/}
-            </CatalogItem>
-
-            <CatalogItem
-                onAdd={this.handleAddItemToBoard}
-                img={"suse.svg"}
-                name="Open Suse"
-                category={"test"}>
-              {/*The leading operating system for PCs, tablets, phones, IoT devices, 
-              servers and the cloud*/}
-            </CatalogItem>
+            { fetched && 
+              this.renderOperatingSystem(catalog.categories.os)
+            }
           </div>
-          }
+
 
           <div className="clearfix"></div>
-          <h3 className="category-header">Content Management System</h3>
+          <h3 className="category-header">Applications</h3>
           { fetching &&
-          <div className="row">
-            <div style={{ textAlign: "center", minHeight: "187px"}}>
-              <i className="fa fa-refresh fa-spin fa-2x fa-fw" style={{ color: "#939393"}}></i>
-            </div>
-          </div>
-          }
-
-          { !fetching &&
             <div className="row">
-              <CatalogItem
-                  onAdd={ this.handleAddItemToBoard }
-                  img={ "wordpress.svg" }
-                  name="wordpress"
-                  category={"content-management-system"}>
-                {/*The WordPress rich content management system can utilize plugins,
-                widgets, and themes.*/}
-              </CatalogItem>
-              <CatalogItem
-                  onAdd={ this.handleAddItemToBoard }
-                  img={ "joomla.svg" }
-                  name="Joomla"
-                  category={"content-management-system"}>
-                {/*The WordPress rich content management system can utilize plugins,
-                widgets, and themes.*/}
-              </CatalogItem>
-              <CatalogItem
-                  onAdd={ this.handleAddItemToBoard }
-                  img={ "drupal.svg" }
-                  name="Drupal"
-                  category={"content-management-system"}>
-                {/*The WordPress rich content management system can utilize plugins,
-                widgets, and themes.*/}
-              </CatalogItem>
+              <div style={{ textAlign: "center", minHeight: "187px"}}>
+                <i className="fa fa-refresh fa-spin fa-2x fa-fw" style={{ color: "#939393"}}></i>
+              </div>
             </div>
           }
+          
+          <div className="row">
+            { fetched && 
+              this.renderApplication(catalog.categories.applications)
+            }
+          </div>
 
           <div className="clearfix"></div>
           <h3 className="category-header">Database</h3>
@@ -240,86 +246,11 @@ export default class Catalog extends React.Component {
           </div>
           }
 
-          { !fetching &&
           <div className="row">
-            <CatalogItem 
-                onAdd={ this.handleAddItemToBoard }
-                img={ "mysql.svg" }
-                name="MySQL 5.6">
-              {/*MySQL is a widely used, open-source relational database 
-              management system (RDBMS).*/}
-            </CatalogItem>
-
-            <CatalogItem 
-                onAdd={ this.handleAddItemToBoard }
-                img={ "mariadb.svg" }
-                name="Maria DB">
-              {/*MySQL is a widely used, open-source relational database 
-              management system (RDBMS).*/}
-            </CatalogItem>
-
-            <CatalogItem
-                onAdd={ this.handleAddItemToBoard }
-                img={ "postgresql.svg" }
-                name="PostgreSQL">
-              {/*The PostgreSQL object-relational database system provides 
-              reliability and data integrity.*/}
-            </CatalogItem>
-
-            <CatalogItem
-                onAdd={ this.handleAddItemToBoard }
-                img={ "redis.svg" } 
-                name="Redis">
-              {/*The WordPress rich content management system can utilize plugins,
-              widgets, and themes.*/}
-            </CatalogItem>
-
-            <CatalogItem
-                onAdd={ this.handleAddItemToBoard }
-                img={ "memcached.svg" }
-                name="Memcached"
-                category={"database"}>
-              {/*The WordPress rich content management system can utilize plugins,
-              widgets, and themes.*/}
-            </CatalogItem>
-
-            <CatalogItem
-                onAdd={ this.handleAddItemToBoard }
-                img={ "mongodb.svg" }
-                name="Mongo DB"
-                category={"database"}>
-              {/*The WordPress rich content management system can utilize plugins,
-              widgets, and themes.*/}
-            </CatalogItem>
-
-            <CatalogItem
-                onAdd={ this.handleAddItemToBoard }
-                img={ "couchdb.svg" }
-                name="Couch DB"
-                category={"database"}>
-              {/*The WordPress rich content management system can utilize plugins,
-              widgets, and themes.*/}
-            </CatalogItem>
-
-            <CatalogItem
-                onAdd={ this.handleAddItemToBoard }
-                img={ "couchbase.svg" }
-                name="Couchbase"
-                category={"database"}>
-              {/*The WordPress rich content management system can utilize plugins,
-              widgets, and themes.*/}
-            </CatalogItem>
-
-            <CatalogItem
-                onAdd={ this.handleAddItemToBoard }
-                img={ "cassandra.svg" }
-                name="Cassandra"
-                category={"database"}>
-              {/*The WordPress rich content management system can utilize plugins,
-              widgets, and themes.*/}
-            </CatalogItem>
+            { fetched &&
+              this.renderDatabase(catalog.categories.databases)
+            }
           </div>
-          }
 
           <div className="clearfix"></div>
           <h3 className="category-header">Framework</h3>
@@ -331,30 +262,11 @@ export default class Catalog extends React.Component {
           </div>
           }
 
-          { !fetching &&
           <div className="row">
-            <CatalogItem
-                onAdd={ this.handleAddItemToBoard }
-                img={ "rails.svg" }
-                name="Ruby on Rails">
-              {/*Open-source web application framework written in Ruby.*/}
-            </CatalogItem>
-
-            <CatalogItem
-                onAdd={ this.handleAddItemToBoard }
-                img={ "laravel.svg" }
-                name="Laravel">
-              {/*Web application framework with expressive, elegant syntax.*/}
-            </CatalogItem>
-
-            <CatalogItem
-                onAdd={ this.handleAddItemToBoard }
-                img={ "flask.svg" }
-                name="Flask">
-              {/*Web application framework with expressive, elegant syntax.*/}
-            </CatalogItem>
+            { fetched &&
+              this.renderFramework(catalog.categories.frameworks)
+            }
           </div>
-          }
 
           <h3 className="category-header">Language Stack</h3>
           { fetching &&
@@ -365,48 +277,14 @@ export default class Catalog extends React.Component {
           </div>
           }
 
-          { !fetching &&
           <div className="row">
-            <CatalogItem
-                onAdd={ this.handleAddItemToBoard }
-                img={ "gopher.svg" }
-                name="Golang">
-              {/*Go (golang) is a general purpose, higher-level, imperative 
-              programming language.*/}
-            </CatalogItem>
-
-            <CatalogItem
-                onAdd={ this.handleAddItemToBoard }
-                img={ "php.svg" }
-                name="PHP">
-              {/*While designed for web development, the PHP scripting language 
-              also provides general-purpose use.*/}
-            </CatalogItem>
-
-            <CatalogItem
-                onAdd={ this.handleAddItemToBoard }
-                img={ "nodejs.svg" }
-                name="NodeJS">
-              {/*Node.js is a JavaScript-based platform for server-side and 
-              networking applications.*/}
-            </CatalogItem>
-
-            <CatalogItem
-                onAdd={ this.handleAddItemToBoard }
-                img={ "ruby.svg" }
-                name="Ruby">
-              {/*Node.js is a JavaScript-based platform for server-side and 
-              networking applications.*/}
-            </CatalogItem>
-
-            <CatalogItem
-                onAdd={ this.handleAddItemToBoard }
-                img={ "python.svg" }
-                name="Python">
-              {/*Node.js is a JavaScript-based platform for server-side and 
-              networking applications.*/}
-            </CatalogItem>
+            { fetched &&
+              this.renderApplication(catalog.categories.languages)
+            }
           </div>
+
+          { error &&
+            "error"
           }
 
           {/*

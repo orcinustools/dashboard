@@ -66,19 +66,20 @@ const initialState = {
 export default function reducer (state = initialState, action) {
 	switch (action.type) {
 		
-		case "FETCH_IMAGES_PENDING":{
+		case "FETCH_CATALOG_PENDING":{
 			return { ...state, fetching: true }
 		}
 
-		case "FETCH_IMAGES_FULFILLED": {
+		case "FETCH_CATALOG_FULFILLED": {
 			return { 
 				...state, 
-				fetching: false, 
+				fetching: false,
+        fetched: true,
 				imageList: action.payload.data,
 			}
 		}
 
-		case "FETCH_IMAGES_REJECTED": {
+		case "FETCH_CATALOG_REJECTED": {
 			return { 
 				...state, 
 				fetched: false, 
