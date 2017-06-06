@@ -27,24 +27,28 @@ export default class Catalog extends React.Component {
   handleDissmis(index) {
     const { removeItemFromBoard } = this.props
     removeItemFromBoard(index)
-    console.log(index)
+    // console.log(index)
   }
 
   handleAddItemToBoard(name, category) {
     const { addItemToBoard } = this.props
     addItemToBoard(name, category)
-    console.log(name, category)
+    // console.log(logo, name, category)
+  }
+
+  handleCreateService(props) {
+    console.log(JSON.stringify(props[0]))
   }
 
   renderBoardItem(board) {
+    // console.log(board)
     return board.map((b, index) => {
       return (
         <CatalogItemBoard 
-          url="/stacks/new"
           index={ index }
           key={ index }
-          img={ b.logo }
-          name={ b.Name }
+          img={ b.manifest.logo }
+          name={ b.manifest.title }
           dismiss={this.handleDissmis} />
       )
     })
@@ -61,6 +65,7 @@ export default class Catalog extends React.Component {
           img={ d.logo }
           name={ d.name }
           title={ d.title }
+          desc={ d.description }
           category="os" />
       )
     })
@@ -77,6 +82,7 @@ export default class Catalog extends React.Component {
           img={ d.logo }
           name={ d.name }
           title={ d.title }
+          desc={ d.description }
           category="applications" />
       )
     })
@@ -93,6 +99,7 @@ export default class Catalog extends React.Component {
           img={ d.logo }
           name={ d.name }
           title={ d.title }
+          desc={ d.description }
           category="databases" />
       )
     })   
@@ -109,6 +116,7 @@ export default class Catalog extends React.Component {
           img={ d.logo }
           name={ d.name }
           title={ d.title }
+          desc={ d.description }
           category="frameworks" />
       )
     }) 
@@ -125,13 +133,15 @@ export default class Catalog extends React.Component {
           img={ d.logo }
           name={ d.name }
           title={ d.title }
-          category="language" />
+          desc={ d.description }
+          category="languages" />
       )
     }) 
   }
 
 	render() {
-    const { fetching, fetched, error, catalog, board } = this.props;
+    const { fetching, fetched, error, catalog, board } = this.props
+
     window.board = board
 
 		return (
@@ -158,35 +168,32 @@ export default class Catalog extends React.Component {
                     New Service
                   </header>
                   <div className="panel-body">
-                    <form>
-                      <div className="form-horizontal">
-                        <div className="form-group">
-                          <label 
-                              className="col-sm-2 control-label"
-                              htmlFor="name">
-                            GROUP NAME
-                          </label>
-                          <div className="col-sm-10">
-                            <Field 
-                              name="name"
-                              component="input"
-                              className="form-control"
-                              type="text" />
-                          </div>
-                        </div>
-                        <div className="form-group">
-                          <div className="col-sm-3 col-md-offset-2">
-                            <button 
-                                type="submit"
-                                className="btn btn-create"
-                                className="btn btn-success create-button" >
-                              <i className="fa fa-rocket fa-fw" aria-hidden="true"></i>
-                              &nbsp; Deploy Service
-                            </button>
-                          </div>
+                    <div className="form-horizontal">
+                      <div className="form-group">
+                        <label 
+                            className="col-sm-2 control-label"
+                            htmlFor="name">
+                          GROUP NAME
+                        </label>
+                        <div className="col-sm-10">
+                          <input 
+                            name="name"
+                            className="form-control"
+                            type="text" />
                         </div>
                       </div>
-                    </form>
+                      <div className="form-group">
+                        <div className="col-sm-3 col-md-offset-2">
+                          <button 
+                              className="btn btn-create"
+                              className="btn btn-success create-button"
+                              onClick={ () => this.handleCreateService(board) } >
+                            <i className="fa fa-rocket fa-fw" aria-hidden="true"></i>
+                            &nbsp; Deploy Service
+                          </button>
+                        </div>
+                      </div>
+                    </div>
                     <div className="well well-lg">
                       {
                         board.length > 0 ? this.renderBoardItem(board) : '' 
@@ -208,7 +215,7 @@ export default class Catalog extends React.Component {
           { fetching &&
             <div className="row">
               <div style={{ textAlign: "center", minHeight: "187px"}}>
-                <i className="fa fa-refresh fa-spin fa-3x fa-fw" style={{ color: "#939393"}}></i>
+                <i className="fa fa-refresh fa-spin fa-2x fa-fw" style={{ color: "#939393"}}></i>
               </div>
             </div>
           }
@@ -279,7 +286,7 @@ export default class Catalog extends React.Component {
 
           <div className="row">
             { fetched &&
-              this.renderApplication(catalog.categories.languages)
+              this.renderLanguage(catalog.categories.languages)
             }
           </div>
 
@@ -299,6 +306,3 @@ export default class Catalog extends React.Component {
 		)
 	}
 }
-Catalog = reduxForm({
-  form: 'CatalogForm'
-})(Catalog)

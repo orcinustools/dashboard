@@ -8,6 +8,7 @@
 import axios from "axios"
 import { FETCH_IMAGES } from "./actionTypes"
 import { OMURA_HOST, OMURA_PORT } from "../config/environtment"
+import _ from "lodash"
 
 export function fetchCatalog() {
 	return {
@@ -26,14 +27,14 @@ export function removeItemFromBoard(index) {
 /**
  * Async Action Creator for adding item to board
  */
-export function addItemToBoardAPI(name, category) {
+export function fetchCatalogItem(name, category) {
 	const request = axios({
 		method: 'get',
-		url: `http://${ OMURA_HOST }:${ OMURA_PORT }/${ category }/${ name }`
+		url: `http://${ OMURA_HOST }:${ OMURA_PORT }/apis/${ category }/${ name }`
 	})
 
 	return {
-		type: "ADD_ITEM_TO_BOARD",
+		type: "FETCH_CATALOG_ITEM",
 		payload: request
 	}
 }
@@ -47,8 +48,8 @@ export function setItemToBoard(data) {
 
 export function addItemToBoard(name, category) {
 	return (dispatch) => {
-		dispatch(addItemToBoardAPI(name, category)).then((res) => {
-			dispatch(setItemToBoard(res.value.data))
+		dispatch(fetchCatalogItem(name, category)).then((res) => {
+			dispatch(setItemToBoard(_.map(res.value.data.stack)))
 		})
 	}
 }

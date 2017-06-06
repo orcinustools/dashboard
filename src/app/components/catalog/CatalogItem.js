@@ -13,9 +13,9 @@ const CatalogItem = (props) => {
           <img src={ `http://${ OMURA_HOST }:${ OMURA_PORT}/${ props.img }` } alt={ props.name } className="" />
           <div className="caption text-center">
             <h4>{ props.title }</h4> 
-            <p>
-              { props.children }
-            </p>
+            {/*<p>
+              { props.desc }
+            </p>*/}
           </div>
         </div>
       </div>

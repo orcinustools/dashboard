@@ -2,6 +2,8 @@ import React from "react"
 import PropTypes  from "prop-types"
 import { Link }   from "react-router"
 
+import { OMURA_HOST, OMURA_PORT} from "../../config/environtment"
+
 import "./CatalogItemBoard.css"
 
 const CatalogItemBoard = (props) => {
@@ -12,12 +14,9 @@ const CatalogItemBoard = (props) => {
         style={{ cursor: "pointer" }}>
       <div onClick={ () => props.dismiss(props.index) }>
         <div className="thumbnail item">
-          <img src={ `http://127.0.0.1:8081/${ "wordpress.svg" }` } alt={ props.name } className="item__logo" />
+          <img src={ `http://${ OMURA_HOST }:${ OMURA_PORT}/${ props.img }` }  alt={ props.name } className="item__logo" />
           <div className="caption text-center">
             <h4>{ props.name }</h4> 
-            <p>
-              { props.children }
-            </p>
           </div>
         </div>
       </div>
