@@ -1,5 +1,5 @@
 import React    from "react"
-import { Link } from "react-router"
+import { Link, browserHistory } from "react-router"
 import { Field, reduxForm } from "redux-form"
 
 import ActionButton from "./StackCreate/ActionButton"
@@ -19,7 +19,7 @@ class StackCreate extends React.Component {
 
 	onSubmit(values) {
 		console.log(values)
-		this.props.createStack(values)
+		this.props.checkStack(values)
 	}
 
 	render() {

@@ -6,6 +6,8 @@
  */
 
 import axios from "axios"
+import { browserHistory } from "react-router"
+
 import { 
 	FETCH_STACKS,	FETCH_STACK, CREATE_STACK, RESET_STACK_FIELDS
 } from "./actionTypes"
@@ -34,23 +36,6 @@ export function fetchStack(id) {
 		type: FETCH_STACK,
 		payload: request
 	}
-}
-
-
-export function createStack(props) {
-	const request = axios({
-		method: 'post',
-		data: props,
-		url: `http://${ORCINUS_API_HOST}:${ORCINUS_API_PORT}/apis/stack/create`,
-		headers: {
-			'Content-Type': 'application/json'
-		}
-	});
-
-	return {
-		type: CREATE_STACK,
-		payload: request
-	}	
 }
 
 export function resetStackFields() {
@@ -103,5 +88,53 @@ export function fetchServices(stackId) {
 	return {
 		type: "FETHC_SERVICE_BY_STACK_ID",
 		payload: request
+	}
+}
+
+export function checkStackAPI(stack) {
+	const request = axios({
+		method: 'post',
+		url: `http://${ORCINUS_API_HOST}:${ORCINUS_API_PORT}/apis/stack`,
+		data: stack,
+		headers: {
+			'Content-Type' : 'application/json'
+		}
+	})
+
+	return {
+		type: "CHECK_STACK",
+		payload: request
+	}
+}
+
+export function createStack(props) {
+	const request = axios({
+		method: 'post',
+		data: props,
+		url: `http://${ORCINUS_API_HOST}:${ORCINUS_API_PORT}/apis/stack/create`,
+		headers: {
+			'Content-Type': 'application/json'
+		}
+	});
+
+	return {
+		type: CREATE_STACK,
+		payload: request
+	}	
+}
+
+export function checkStack(stack) {
+	return dispatch => {
+		dispatch(checkStackAPI(stack)).then((res) => {
+
+			if(res.action.payload.data.created === false){
+				dispatch(createStack(stack)).then(() => {
+					browserHistory.push('/stacks')
+				})
+			} else {
+				browserHistory.push(`/stacks/${stack.name}`)
+			}
+			
+		})
 	}
 }
