@@ -7,7 +7,7 @@ import { OMURA_HOST, OMURA_PORT} from "../../config/environtment"
 import "./CatalogItemBoard.css"
 
 const CatalogItemBoard = (props) => {
-  console.log(props)
+  // console.log(props)
 	return (
     <div
         className="col-md-2 col-sm-3 col-xs-12"

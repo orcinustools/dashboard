@@ -1,6 +1,7 @@
 const initialState = {
 	imageList: [],
 	board: [],
+	options: [],
 	fetching: false,
 	fetched: false,
 	error: null
@@ -47,6 +48,16 @@ export default function reducer (state = initialState, action) {
 				board: state.board.filter((item, index) => index !== action.index)
 			}
 
+		case "SET_OPTIONS_SELECT":
+			return {
+				...state,
+				options: action.data
+			}
+		case "CREATE_SERVICE_FULFILLED":
+		 return {
+		 		...state,
+			 	board:[]	
+		 }
 	}
 
 	return state;

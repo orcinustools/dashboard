@@ -1,7 +1,7 @@
 const initialState = {
 	servicesList: { services: [], fetching: false, fetched: false, error: null },
 	activeService: { service: {}, fetching: false, fetched: false, error: null },
-	newService: { service: null, fetching: false, fetched: false, error: null }
+	newService: { opt: {} }
 }
 
 export default function reducer (state = initialState, action) {
@@ -30,9 +30,12 @@ export default function reducer (state = initialState, action) {
 			return { ...state, activeService: { ...state.activeService, service: {...state.activeService.service, tasks: action.payload.data}}}
 
 		case "DELETE_SERVICE_PENDING":
-			return { ...state, servicesList: { ...state.servicesList, fetching: true} }
+			return { ...state, servicesList: { ...state.servicesList, fetched: false, fetching: true} }
 		case "DELETE_SERVICE_FULFILLED":
 			return { ...state, servicesList: { ...state.servicesList, fetching: false, fetched: true} }
+		case "DELETE_SERVICE_REJECTED":
+			error = action.payload || { message: action.payload.message}
+			return { ...state, activeService: {service: {}, fetching: false, error: error}}
 		case "SET_DELETE_SERVICE":
 			const id = action.payload
 			return { 
@@ -43,65 +46,99 @@ export default function reducer (state = initialState, action) {
 				} 
 			}
 
-			// Update service
-			case "REPLICAS_INCREMENT":
-				return {
-					...state,
-					servicesList: {
-						...state.servicesList,
-						services: state.servicesList.services.map((service) => 
-							service.ID === action.serviceId ?
-							{
-								...service,
-								updateConfig: {
-									update: {
-										service: {
-											replicas: service.updateConfig ? service.updateConfig.update.service.replicas + 1 : service.Spec.Mode.Replicated.Replicas + 1
-										}
-									},
-									spec: {
-										...service,
-										PreviousSpec: service.Spec,
+		// Update service
+		case "REPLICAS_INCREMENT":
+			return {
+				...state,
+				servicesList: {
+					...state.servicesList,
+					services: state.servicesList.services.map((service) => 
+						service.ID === action.serviceId ?
+						{
+							...service,
+							updateConfig: {
+								update: {
+									service: {
+										replicas: service.updateConfig ? service.updateConfig.update.service.replicas + 1 : service.Spec.Mode.Replicated.Replicas + 1
 									}
+								},
+								spec: {
+									...service,
+									PreviousSpec: service.Spec,
 								}
-							}:
-							service
-						)
-					}
+							}
+						}:
+						service
+					)
 				}
-			case "REPLICAS_DECREMENT":
-				return {
-					...state,
-					servicesList: {
-						...state.servicesList,
-						services: state.servicesList.services.map((service) => 
-							service.ID === action.serviceId ?
-							{
-								...service,
-								updateConfig: {
-									update: {
-										service: {
-											replicas: service.updateConfig ? service.updateConfig.update.service.replicas - 1 : service.Spec.Mode.Replicated.Replicas - 1
-										}
-									},
-									spec: {
-										...service,
-										PreviousSpec: service.Spec,
+			}
+		case "REPLICAS_DECREMENT":
+			return {
+				...state,
+				servicesList: {
+					...state.servicesList,
+					services: state.servicesList.services.map((service) => 
+						service.ID === action.serviceId ?
+						{
+							...service,
+							updateConfig: {
+								update: {
+									service: {
+										replicas: service.updateConfig ? service.updateConfig.update.service.replicas - 1 : service.Spec.Mode.Replicated.Replicas - 1
 									}
+								},
+								spec: {
+									...service,
+									PreviousSpec: service.Spec,
 								}
-							}:
-							service
-						)
-					}
+							}
+						}:
+						service
+					)
 				}
+			}
 
-			case "SCALING_SERVICE_PENDING":
-				return { ...state, servicesList: { ...state.servicesList, fetched: false, fetching: true} }
-			case "SCALING_SERVICE_FULFILLED":
-				return { ...state, servicesList: { ...state.servicesList, fetching: false, fetched: true} }
-			case "SCALING_SERVICE_REJECTED":
-			error = action.payload || { message: action.payload.message}
-			return { ...state, activeService: {service: {}, fetching: false, error: error}}
+		case "SCALING_SERVICE_PENDING":
+			return { ...state, servicesList: { ...state.servicesList, fetched: false, fetching: true} }
+		case "SCALING_SERVICE_FULFILLED":
+			return { ...state, servicesList: { ...state.servicesList, fetching: false, fetched: true} }
+		case "SCALING_SERVICE_REJECTED":
+		error = action.payload || { message: action.payload.message}
+		return { ...state, activeService: {service: {}, fetching: false, error: error}}
+
+		case "SET_NEW_SERVICE":
+			return {
+				...state,
+				newService: {
+					opt: {
+						...state.newService.opt,
+						services: action.data
+					}
+				}
+			}
+
+		case "SET_STACK_NAME":
+			return {
+				...state,
+				newService: {
+					opt: {
+						...state.newService.opt,
+						stack: action.data
+					}
+				}
+			}
+
+		case "REMOVE_SERVICE_ITEM":
+
+		// Create Service
+		case "CREATE_SERVICE_PENDING":
+			return { ...state, newService: { ...state.newService, fetching: true} }
+
+		case "CREATE_SERVICE_FULFILLED":
+			return {
+				...state,
+				newService: {}
+			}
 
 	}
 

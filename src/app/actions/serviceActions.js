@@ -12,6 +12,7 @@ import {
 	FETCH_TASK_BY_SERVICE_NAME, 
 	CREATE_SERVICE
 } from "./actionTypes"
+
 import { ORCINUS_API_HOST, ORCINUS_API_PORT } from "../config/environtment"
 
 // fetch list of services
@@ -135,5 +136,59 @@ export function scaleServiceAPI(props) {
 	return {
 		type: "SCALING_SERVICE",
 		payload: request
+	}
+}
+
+export function setNewService(data) {
+	return {
+		type: "SET_NEW_SERVICE",
+		data
+	}
+}
+
+export function setStackName(data) {
+	return {
+		type: "SET_STACK_NAME",
+		data
+	}
+}
+
+export function checkStackServiceAPI(stack) {
+	const request = axios({
+		method: 'post',
+		url: `http://${ORCINUS_API_HOST}:${ORCINUS_API_PORT}/apis/stack`,
+		data: stack,
+		headers: {
+			'Content-Type': 'application/json'
+		}
+	})
+
+	return {
+		type: "CHECK_STACK_SERVICE",
+		payload: request
+	}
+}
+
+export function createService(service) {
+	console.log(service)
+	const request = axios({
+		method: 'post',
+		data: service,
+		url: `http://${ORCINUS_API_HOST}:${ORCINUS_API_PORT}/apis/service/create`,
+		headers: {
+			'Content-Type': 'application/json'
+		}
+	})
+
+	return {
+		type: "CREATE_SERVICE",
+		payload: request
+	}
+}
+
+export function removeServiceItemFromNewService(index) {
+	return {
+		type: "REMOVE_SERVICE_ITEM_FROM_NEW_SERVICE",
+		index
 	}
 }

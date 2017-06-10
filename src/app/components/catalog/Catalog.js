@@ -4,6 +4,7 @@ import { bindActionCreators } from 'redux'
 import { Link } from "react-router"
 import { Field, reduxForm } from "redux-form"
 import _ from "lodash"
+import Select   from "react-select"
 
 import "./Catalog.css"
 
@@ -18,10 +19,19 @@ export default class Catalog extends React.Component {
     
     this.handleDissmis = this.handleDissmis.bind(this)
     this.handleAddItemToBoard = this.handleAddItemToBoard.bind(this)
+    this.handleCreateService = this.handleCreateService.bind(this)
+    this.onChangeStack = this.onChangeStack.bind(this)
+    this.selectChange = this.selectChange.bind(this)
   }
 
-	componentWillMount() {
-		this.props.fetchCatalog();
+  onChangeStack(event) {
+    console.log(event.target.value)
+    this.props.changeStackNameInput(event.target.value)
+  }
+
+	componentDidMount() {
+		this.props.fetchCatalog()
+    this.props.fetchStacks()
 	}
 
   handleDissmis(index) {
@@ -31,17 +41,24 @@ export default class Catalog extends React.Component {
   }
 
   handleAddItemToBoard(name, category) {
-    const { addItemToBoard } = this.props
-    addItemToBoard(name, category)
-    // console.log(logo, name, category)
+    const { addItemToBoard, stacks } = this.props
+
+    const options = stacks.reduce((options, stack) => {
+      options.push({
+        value: stack.Name,
+        label: stack.Name
+      })
+      return options
+    }, [])
+
+    addItemToBoard(name, category, options)
   }
 
-  handleCreateService(props) {
-    console.log(JSON.stringify(props[0]))
+  handleCreateService(newService) {
+    this.props.createService(newService)
   }
 
   renderBoardItem(board) {
-    // console.log(board)
     return board.map((b, index) => {
       return (
         <CatalogItemBoard 
@@ -139,10 +156,16 @@ export default class Catalog extends React.Component {
     }) 
   }
 
+  selectChange(val) {
+    console.log("Selected: ", val)
+    this.props.setStackName(val.value)
+  }
+
 	render() {
-    const { fetching, fetched, error, catalog, board } = this.props
+    const { fetching, fetched, error, catalog, board, newService } = this.props
 
     window.board = board
+    window.newService = newService
 
 		return (
 			<div>
@@ -173,24 +196,44 @@ export default class Catalog extends React.Component {
                         <label 
                             className="col-sm-2 control-label"
                             htmlFor="name">
-                          GROUP NAME
+                          SELECT GROUP
                         </label>
                         <div className="col-sm-10">
-                          <input 
+                          <Select
+                            name="groupName"
+                            value={this.props.newService.opt ? this.props.newService.opt.stack : ''}
+                            options={this.props.options}
+                            onChange={this.selectChange}
+                            clearable={true}
+                            searchable={true}
+                            placeholder="Select the group" />
+                          {/*<input 
                             name="name"
                             className="form-control"
-                            type="text" />
+                            type="text"
+                            onChange={this.onChangeStack} />*/}
                         </div>
                       </div>
                       <div className="form-group">
                         <div className="col-sm-3 col-md-offset-2">
+                        { this.props.newService && 
+                          this.props.newService.opt && 
+                          this.props.newService.opt.stack ?
                           <button 
-                              className="btn btn-create"
+                              style={{ border: "1px solid #209687" }}
                               className="btn btn-success create-button"
-                              onClick={ () => this.handleCreateService(board) } >
+                              onClick={ () => this.handleCreateService(newService) } >
+                            <i className="fa fa-rocket fa-fw" aria-hidden="true"></i>
+                            &nbsp; Deploy Service
+                          </button> :
+                          <button 
+                              className="btn btn-default"
+                              type="button"
+                              disabled={true} >
                             <i className="fa fa-rocket fa-fw" aria-hidden="true"></i>
                             &nbsp; Deploy Service
                           </button>
+                        }
                         </div>
                       </div>
                     </div>

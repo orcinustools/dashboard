@@ -10,6 +10,8 @@ import { FETCH_IMAGES } from "./actionTypes"
 import { OMURA_HOST, OMURA_PORT } from "../config/environtment"
 import _ from "lodash"
 
+import { setNewService } from "./serviceActions"
+
 export function fetchCatalog() {
 	return {
 		type: "FETCH_CATALOG",
@@ -46,10 +48,29 @@ export function setItemToBoard(data) {
 	}
 }
 
-export function addItemToBoard(name, category) {
+export function addItemToBoard(name, category, props) {
+	console.log(props)
 	return (dispatch) => {
 		dispatch(fetchCatalogItem(name, category)).then((res) => {
-			dispatch(setItemToBoard(_.map(res.value.data.stack)))
+
+			const orcinus = {}
+			const board = _.map(res.value.data.stack)
+
+	    board.forEach(function(item) {
+	      orcinus[Object.keys(item.service)[0]] = item.service[Object.keys(item.service)[0]]
+	    })
+	    
+			dispatch(setItemToBoard(board))
+	    dispatch(setNewService(orcinus))
+
 		})
+		dispatch(setOptionSelect(props))
+	}
+}
+
+export function setOptionSelect(props) {
+	return {
+		type: "SET_OPTIONS_SELECT",
+		data: props
 	}
 }
