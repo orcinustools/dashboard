@@ -33,6 +33,16 @@ export default class ContainerList extends React.Component {
   }
 
   renderContainers(containers) {
+    if (containers.length == 0) {
+      return (
+        <tr>
+          <td style={{ textAlign: "center" }} colSpan="7">
+            THERE IS NO CONTAINER NOW
+          </td>
+        </tr>
+      )
+    }
+
     return containers.map((container) => {
       return (
         <ContainerListItem 
