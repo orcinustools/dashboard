@@ -66,6 +66,7 @@ export default class Catalog extends React.Component {
           key={ index }
           img={ b.manifest.logo }
           name={ b.manifest.title }
+          image={ "b.service" }
           dismiss={this.handleDissmis} />
       )
     })
@@ -251,10 +252,8 @@ export default class Catalog extends React.Component {
           ''
         }
 
-
-        <div className="clearfix"></div>
 				<div>
-          <h3 className="category-header">Operating System</h3>
+          {/*<h3 className="category-header">Operating System</h3>
           { fetching &&
             <div className="row">
               <div style={{ textAlign: "center", minHeight: "187px"}}>
@@ -267,8 +266,8 @@ export default class Catalog extends React.Component {
             { fetched && 
               this.renderOperatingSystem(catalog.categories.os)
             }
-          </div>
-
+          </div>*/}
+        
 
           <div className="clearfix"></div>
           <h3 className="category-header">Applications</h3>
@@ -332,10 +331,6 @@ export default class Catalog extends React.Component {
               this.renderLanguage(catalog.categories.languages)
             }
           </div>
-
-          { error &&
-            "error"
-          }
 
           {/*
             <div className="row">
