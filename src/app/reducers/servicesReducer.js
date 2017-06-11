@@ -1,3 +1,5 @@
+import { omit } from 'lodash'
+
 const initialState = {
 	servicesList: { services: [], fetching: false, fetched: false, error: null },
 	activeService: { service: {}, fetching: false, fetched: false, error: null },
@@ -128,7 +130,20 @@ export default function reducer (state = initialState, action) {
 				}
 			}
 
-		case "REMOVE_SERVICE_ITEM":
+		case "REMOVE_ITEM_FROM_BOARD":
+			/**
+			 * remove item from object in es6
+			 * const { [action.name]: deleted, ...service } = state.newService.opt.services
+			 */
+			return {
+				...state,
+				newService: {
+					opt: {
+						...state.newService.opt,
+						services: omit(state.newService.opt.services, action.name)
+					}
+				}
+			}
 
 		// Create Service
 		case "CREATE_SERVICE_PENDING":

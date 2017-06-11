@@ -19,10 +19,10 @@ export function fetchCatalog() {
 	}
 }
 
-export function removeItemFromBoard(index) {
+export function removeItemFromBoard(name) {
 	return {
 		type: "REMOVE_ITEM_FROM_BOARD",
-		index
+		name
 	}
 }
 

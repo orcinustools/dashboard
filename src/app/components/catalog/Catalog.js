@@ -25,7 +25,7 @@ export default class Catalog extends React.Component {
   }
 
   onChangeStack(event) {
-    console.log(event.target.value)
+    // console.log(event.target.value)
     this.props.changeStackNameInput(event.target.value)
   }
 
@@ -34,10 +34,10 @@ export default class Catalog extends React.Component {
     this.props.fetchStacks()
 	}
 
-  handleDissmis(index) {
+  handleDissmis(name) {
     const { removeItemFromBoard } = this.props
-    removeItemFromBoard(index)
-    // console.log(index)
+    removeItemFromBoard(name)
+    // console.log(name)
   }
 
   handleAddItemToBoard(name, category) {
@@ -64,8 +64,10 @@ export default class Catalog extends React.Component {
         <CatalogItemBoard 
           index={ index }
           key={ index }
+          serviceName={ Object.keys(b.service)[0] }
           img={ b.manifest.logo }
-          name={ b.manifest.title }
+          title={ b.manifest.title }
+          name={ Object.keys(b.service)[0] }
           image={ "b.service" }
           dismiss={this.handleDissmis} />
       )

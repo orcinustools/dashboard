@@ -45,7 +45,7 @@ export default function reducer (state = initialState, action) {
 		case "REMOVE_ITEM_FROM_BOARD":
 			return {
 				...state,
-				board: state.board.filter((item, index) => index !== action.index)
+				board: state.board.filter((item) => Object.keys(item.service)[0] !== action.name)
 			}
 
 		case "SET_OPTIONS_SELECT":
