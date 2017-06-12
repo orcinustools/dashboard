@@ -16,7 +16,7 @@ import {
 	ContainerListPage, ContainerDetailsPage,
 	VolumeListPage, VolumeDetailsPage,
 	FirewallPage,
-	LoginPage
+	LoginPage, SignupPage
 } from "../pages";
 
 export default class Routes extends React.Component {
@@ -46,6 +46,7 @@ export default class Routes extends React.Component {
 					<Route path={ "/firewalls" } component={ FirewallPage } onEnter={this.scrollToTop} />
 				</Route>
 				<Route path={ "/login" } component={ LoginPage } onEnter={this.scrollToTop} />
+				<Route path={ "/signup" } component={ SignupPage } onEnter={this.scrollToTop} />
 				<Route path={ "*" } component={ PageNotFoundPage } onEnter={this.scrollToTop} />
 			</Router>
 		);
