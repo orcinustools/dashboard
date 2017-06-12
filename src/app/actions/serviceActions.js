@@ -15,11 +15,23 @@ import {
 
 import { ORCINUS_API_HOST, ORCINUS_API_PORT } from "../config/environtment"
 
+import { getToken } from '../utils/AuthService'
+
+const token = getToken()
+console.log(token)
 // fetch list of services
 export function fetchServices() {
 	return {
 		type: FETCH_SERVICES,
-    payload: axios.get(`http://${ORCINUS_API_HOST}:${ORCINUS_API_PORT}/apis/service`)
+		// payload: axios.get()
+    payload: axios({
+    	method: 'get',
+    	url: `http://${ORCINUS_API_HOST}:${ORCINUS_API_PORT}/apis/service`,
+    	headers: {
+    		'Content-Type': 'application/json',
+    		'x-access-token': token
+    	}
+    })
 	}
 }
 
@@ -30,7 +42,10 @@ export function fetchService(id) {
 		payload: axios({
 			method: 'post',
 			url: `http://${ORCINUS_API_HOST}:${ORCINUS_API_PORT}/apis/service/inspect`,
-			headers: {'Content-Type': 'application/json'},
+			headers: {
+    		'Content-Type': 'application/json',
+    		'x-access-token': token
+    	},
 			data: JSON.parse(`{ "id": "${id}" }`)
 		})
 	}
@@ -47,8 +62,9 @@ export function deleteServiceAPI(id) {
 		data: JSON.parse(`{ "id" : "${id}" }`),
 		url: `http://${ORCINUS_API_HOST}:${ORCINUS_API_PORT}/apis/service/delete`,
 		headers: {
-			'Content-Type': 'application/json'
-		}
+  		'Content-Type': 'application/json',
+  		'x-access-token': token
+  	}
 	})
 
 	return {
@@ -86,8 +102,9 @@ export function fetchTasks(name) {
 		data: JSON.parse(`{ "service": "${name}"}`),
 		url: `http://${ORCINUS_API_HOST}:${ORCINUS_API_PORT}/apis/service/task`,
 		headers: {
-			'Content-Type': 'application/json'
-		}
+  		'Content-Type': 'application/json',
+  		'x-access-token': token
+  	}
 	})
 
 	return {
@@ -129,8 +146,9 @@ export function scaleServiceAPI(props) {
 		url: `http://${ORCINUS_API_HOST}:${ORCINUS_API_PORT}/apis/service/update`,
 		data: props,
 		headers: {
-			'Content-Type': 'application/json'
-		}
+  		'Content-Type': 'application/json',
+  		'x-access-token': token
+  	}
 	})
 
 	return {
@@ -159,8 +177,9 @@ export function checkStackServiceAPI(stack) {
 		url: `http://${ORCINUS_API_HOST}:${ORCINUS_API_PORT}/apis/stack`,
 		data: stack,
 		headers: {
-			'Content-Type': 'application/json'
-		}
+  		'Content-Type': 'application/json',
+  		'x-access-token': token
+  	}
 	})
 
 	return {
@@ -176,8 +195,9 @@ export function createService(service) {
 		data: service,
 		url: `http://${ORCINUS_API_HOST}:${ORCINUS_API_PORT}/apis/service/create`,
 		headers: {
-			'Content-Type': 'application/json'
-		}
+  		'Content-Type': 'application/json',
+  		'x-access-token': token
+  	}
 	})
 
 	return {

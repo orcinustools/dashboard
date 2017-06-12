@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import { reduxForm, Field, SubmissionError } from 'redux-form'
 import renderField from './renderField'
-import { Link } from 'react-router'
+import { Link, browserHistory } from 'react-router'
 
-import { signInUser } from '../../actions/userActions'
+import { signInUser, signInUserFailure, signInUserSuccess } from '../../actions/userActions'
 
 import OrcinusLogo from '../../assests/images/logo/OrcinusFix_black.svg'
 
@@ -26,7 +26,18 @@ class LoginPage extends Component {
   
 
   _handleSubmit(values, dispatch) {
-    dispatch(signInUser(values))
+    return dispatch(signInUser(values))
+      .then((result) => {
+        if(result.payload && result.payload.response && result.payload.response.status !== 200) {
+          dispatch(signInUserFailure(result.payload.response.data));
+          throw new SubmissionError(result.payload.response.data);
+        }
+        
+        // console.log(result.value.data.token)
+        sessionStorage.setItem('orcinus', result.value.data.token);
+        dispatch(signInUserSuccess(result.value.data)); //ps: this is same as dispatching RESET_USER_FIELDS
+        browserHistory.push('/')
+      }) 
   }
 
   render() {
@@ -64,17 +75,17 @@ class LoginPage extends Component {
                      component={ renderField }
                      label="Password*" />
               <div>
-              <button
-                      type="submit"
-                      className="btn btn-primary"
-                      disabled={ false }>
-                Submit
-              </button>
-            <Link
-                  to="/"
-                  className="btn btn-error"> Cancel
-            </Link>
-          </div>
+                <button
+                        type="submit"
+                        className="btn btn-primary"
+                        disabled={ false }>
+                  Submit
+                </button>
+                <Link
+                      to="/"
+                      className="btn btn-error"> Cancel
+                </Link>
+              </div>
             </form>
           </div>
         </div>

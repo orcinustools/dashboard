@@ -59,7 +59,9 @@ class LoginPage extends Component {
       <div>
         <div className="row">
           <div className="col-md-4 col-md-offset-4 "style={{ textAlign: 'center' }}>
-            <img style={{ height: '300px' }} src={OrcinusLogo} />
+            <Link to="/">
+              <img style={{ height: '300px' }} src={OrcinusLogo} />
+            </Link>
           </div>
         </div>
         
