@@ -1,17 +1,19 @@
-import React from "react";
-import { Link } from "react-router";
+import React    from "react"
+import { Link } from "react-router"
 
-export default class PageNotFoundPage extends React.Component {
-	render() {
-		return (
+const style = {
+  height: '100vh'
+}
+
+const PageNotFoundPage = () => {
+	return (
     <div className="row">
       <div className="col-md-12">
-        <div className="panel">
+        <div style={ style } className="panel">
           <div className="panel-body text-center">
             <div className="col-md-12 welcome-hello">
               <h1 className="text-center text-bg">Page Not Found</h1>
-              <p className="welcome-greet">Sorry the page that you request was 
-                not found.
+              <p className="welcome-greet">Sorry page was not found.
               </p>
 
               <Link to="/overview" className="btn btn-danger 
@@ -23,6 +25,7 @@ export default class PageNotFoundPage extends React.Component {
         </div>
       </div>
     </div>
-		);
-	}
+	);
 }
+
+export default PageNotFoundPage

@@ -23,7 +23,7 @@ export default class Overview extends React.Component {
               <div className="sm-st clearfix">
                 <span className="sm-st-icon st-red"><i className="fa fa-server"></i></span>
                 <div className="sm-st-info">
-                  <span>{stacks ? stacks.length : '0'}</span> Stacks Running
+                  <span>{stacks ? stacks.length : '0'}</span> Projects Running
                 </div>
               </div>
             </div>

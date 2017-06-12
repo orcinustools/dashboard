@@ -50,7 +50,7 @@ const SidebarMenu = (props) => {
       </li>*/}
       <li className="nav-header">Community</li>
       <SidebarMenuItem
-        link="/catalogs"
+        link="/catalog"
         icon="fa-book"
         text="Catalog" />
       
