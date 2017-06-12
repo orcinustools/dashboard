@@ -3,6 +3,8 @@ import { reduxForm, Field, SubmissionError } from 'redux-form'
 import renderField from './renderField'
 import { Link } from 'react-router'
 
+import { signInUser } from '../../actions/userActions'
+
 import OrcinusLogo from '../../assests/images/logo/OrcinusFix_black.svg'
 
 //Client side validation
@@ -23,11 +25,13 @@ function validate(values) {
 class LoginPage extends Component {
   
 
-  _handleSubmit(valuse) {
-    
+  _handleSubmit(values, dispatch) {
+    dispatch(signInUser(values))
   }
 
   render() {
+    const { handleSubmit } = this.props
+    
     return (
 
       <div>
@@ -48,7 +52,7 @@ class LoginPage extends Component {
 
         <div className="row">
           <div className='col-md-4 col-md-offset-4'>
-            <form>
+            <form onSubmit={ handleSubmit(this._handleSubmit) }>
               <Field
                  name="username"
                  type="text"

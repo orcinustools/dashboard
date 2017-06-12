@@ -5,7 +5,7 @@ import { ORCINUS_API_HOST, ORCINUS_API_PORT } from "../config/environtment"
 export function signUpUser(values) {
 	const request = axios({
 		method: 'post',
-		url: `http://${ORCINUS_API_HOST}:${ORCINUS_API_PORT}/signup`,
+		url: `http://${ORCINUS_API_HOST}:${ORCINUS_API_PORT}/auth/signup`,
 		data: values,
 		headers: {
 			'Content-Type': 'application/json'
@@ -21,7 +21,7 @@ export function signUpUser(values) {
 export function signInUser(values) {
   const request = axios({
   	method: 'post',
-  	url: `http://${ORCINUS_API_HOST}:${ORCINUS_API_PORT}/signin`,
+  	url: `http://${ORCINUS_API_HOST}:${ORCINUS_API_PORT}/auth/signin`,
 		data: values,
 		headers: {
 			'Content-Type': 'application/json'
@@ -29,7 +29,7 @@ export function signInUser(values) {
   })
 
   return {
-    type: SIGNIN_USER,
+    type: "SIGNIN_USER",
     payload: request
   };
 }

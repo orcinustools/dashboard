@@ -3,6 +3,8 @@ import { reduxForm, Field, SubmissionError } from 'redux-form'
 import renderField from './renderField'
 import { Link } from 'react-router'
 
+import { signUpUser } from '../../actions/userActions'
+
 // import OrcinusLogo from '../../assests/images/logo/OrcinusFix_Logotype.svg'
 import OrcinusLogo from '../../assests/images/logo/OrcinusFix_black.svg'
 // import OrcinusLogo from '../../assests/images/logo/orcinus-logo-header__black.svg'
@@ -44,8 +46,14 @@ function validate(values) {
 
 class LoginPage extends Component {
 
+  _handleSubmit(values, dispatch) {
+    dispatch(signUpUser(values))
+  }
 
   render() {
+
+    const { handleSubmit } = this.props
+
     return (
 
       <div>
@@ -59,14 +67,14 @@ class LoginPage extends Component {
           <div className="col-md-6 col-md-offset-3">
             <h3 className="text-center">Signup</h3>
             <p className="text-center">
-              Already signup? Signin <Link to="/login">here</Link>
+              Already signup? Signin <Link to="/signin">here</Link>
             </p>
           </div>
         </div>
 
         <div className="row">
           <div className='col-md-4 col-md-offset-4'>
-            <form>
+            <form onSubmit={ handleSubmit(this._handleSubmit) }>
               <Field
                      name="username"
                      type="text"
