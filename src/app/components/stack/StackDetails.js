@@ -23,7 +23,7 @@ export default class StackDetails extends React.Component {
           </h1>
           <ol className="breadcrumb breadcrumb-sm">
             <li><Link to="/">HOME</Link></li>
-            <li><Link to="/stacks">GROUPS</Link></li>
+            <li><Link to="/projects">PROJECTS</Link></li>
             <li className="active">{ fetched && stack.Name }</li>
           </ol>
         </section>
@@ -40,7 +40,7 @@ export default class StackDetails extends React.Component {
               <div className="panel-body">
               { error &&
                 <h4 style={{ color: "#939393", textAlign: "center", minHeight: "100px" }}>
-                  GROUP NOT FOUND
+                  PROJECT NOT FOUND
                 </h4>
               }
               

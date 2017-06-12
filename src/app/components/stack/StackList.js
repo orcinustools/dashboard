@@ -23,7 +23,7 @@ export default class StackList extends React.Component {
       return (
         <tr>
           <td style={{ textAlign: "center" }} colSpan="7">
-            THERE IS NO STACKS NOW
+            THERE IS NO PROJECTS NOW
           </td>
         </tr>
       )
@@ -65,7 +65,7 @@ export default class StackList extends React.Component {
                 { error &&
                   <tr>
                     <td colSpan="6" style={{ textAlign: "center", color: "#939393" }}>
-                      <h4>GROUPS NOT FOUND</h4>
+                      <h4>PROJECTS NOT FOUND</h4>
                     </td>
                   </tr>
                 }
@@ -85,7 +85,11 @@ export default class StackList extends React.Component {
               </table>
             </div>
             <div className="panel-footer">
-              <Link to="/stacks/new" className="btn btn-primary btn-block create-button">CREATE NEW GROUP</Link>
+              <Link 
+                  to="/projects/new"
+                  className="btn btn-primary btn-block create-button">
+                CREATE NEW PROJECT
+              </Link>
             </div>
           </div>
         </div>
