@@ -69,6 +69,7 @@ export default class VolumeList extends React.Component {
             </div>
             <div className="panel-footer">
               <Link
+                  style={{ borderRadius: 30 }}
                   to="/volumes/new"
                   className="btn btn-primary btn-block create-button">
                 CREATE NEW VOLUME

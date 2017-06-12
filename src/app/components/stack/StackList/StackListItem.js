@@ -6,7 +6,7 @@ const StackListItem = (props) => {
 	return (
     <tr>
       <td>{ props.id.substr(0, 6) }</td>
-      <td><Link to={`/stacks/${props.id}`}>{ props.name }</Link></td>
+      <td><Link to={`/projects/${props.id}`}>{ props.name }</Link></td>
       <td><span className="label label-success">RUNNING</span></td>
       <td>
         <ul className="list-child">

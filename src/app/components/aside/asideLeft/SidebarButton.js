@@ -4,12 +4,13 @@ import { Link } from "react-router"
 const style = {
 	div: {
 		textAlign: "center",
-		paddingLeft: 40,
-		paddingRight: 40,
+		paddingLeft: 50,
+		paddingRight: 50,
 		marginBottom: 15
 	},
 	button: {
-		padding: 5
+		padding: 6,
+		borderRadius: 60
 	}
 }
 
