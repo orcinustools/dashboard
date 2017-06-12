@@ -7,6 +7,7 @@ import servicesReducer from "./servicesReducer";
 import containersReducer from "./containersReducer";
 import volumesReducer from "./volumesReducer";
 import overviewReducer from "./overviewReducer";
+import userReducer from "./usersReducer";
 
 export default combineReducers({
 	form: formReducer,
@@ -16,4 +17,5 @@ export default combineReducers({
 	servicesState: servicesReducer,
 	containerState: containersReducer,
 	volumeState: volumesReducer,
+	userState: userReducer
 })

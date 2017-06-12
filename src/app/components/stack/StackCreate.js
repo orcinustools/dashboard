@@ -39,7 +39,7 @@ class StackCreate extends React.Component {
 		                <label 
 		                		className="col-sm-2 control-label"
 		                		htmlFor="name">
-		                	GROUP NAME
+		                	PROJECT NAME
 		                </label>
 		                <div className="col-sm-9">
 		                  <Field 
@@ -55,7 +55,7 @@ class StackCreate extends React.Component {
 													type="submit"
 													className="btn btn-create"
 													className="btn btn-success create-button" >
-												Create Group
+												Create Project
 											</button>
 		              	</div>
 		              </div>

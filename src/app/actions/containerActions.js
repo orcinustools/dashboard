@@ -10,13 +10,18 @@ import {
 	FETCH_CONTAINERS, FETCH_CONTAINER,
 	PAUSE_CONTAINER, UNPAUSE_CONTAINER
 } from "./actionTypes"
+
 import { ORCINUS_API_HOST, ORCINUS_API_PORT } from "../config/environtment"
+
+import { getToken } from '../utils/AuthService'
+
+const token = getToken()
 
 // fetch list of containers
 export function fetchContainers() {
 	return {
 		type: FETCH_CONTAINERS,
-		payload: axios.get(`http://${ORCINUS_API_HOST}:${ORCINUS_API_PORT}/apis/container`)
+		payload: axios.get(`http://${ORCINUS_API_HOST}:${ORCINUS_API_PORT}/apis/container`, { 'x-access-token': token })
 	}
 }
 

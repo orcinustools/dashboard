@@ -10,11 +10,11 @@ export default class StackCreatePage extends React.Component {
 			<div>
         <section className="content-header">
           <h1>
-            GROUP WIZARD
+            PROJECT WIZARD
           </h1>
           <ol className="breadcrumb breadcrumb-sm">
             <li><Link to="/">HOME</Link></li>
-            <li><Link to="/stacks">GROUPS</Link></li>
+            <li><Link to="/projects">PROJECTS</Link></li>
             <li className="active">WIZARD</li>
           </ol>
         </section>

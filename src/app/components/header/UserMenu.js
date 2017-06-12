@@ -2,6 +2,8 @@ import React from "react";
 
 import Avatar from "../../vendors/img/avatar.png"
 
+import { logout } from '../../utils/AuthService'
+
 export default class UserMenu extends React.Component {
 	render() {
 		return (
@@ -44,7 +46,7 @@ export default class UserMenu extends React.Component {
           <li className="divider"></li>
 
           <li>
-            <a href="#"><i className="fa fa-ban fa-fw pull-right"></i> Logout</a>
+            <a onClick={()=> logout()} style={{ cursor: 'pointer' }}><i className="fa fa-ban fa-fw pull-right"></i> Logout</a>
           </li>
         </ul>
       </li>

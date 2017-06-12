@@ -1,24 +1,33 @@
-import React from "react";
+import React 					from 'react'
 
-import CreateButton from "./CreateButton"
-import SidebarMenu 	from "./SidebarMenu";
-import Logo 				from "./Logo.js";
-import Footer 			from "../../footer/Footer";
+import SidebarButton 	from './SidebarButton'
+import SidebarMenu 		from './SidebarMenu'
+import Logo 					from './Logo'
+import Footer 				from '../../footer/Footer'
 
-// import cls from "classnames";
+const AsideLeft = (props) => {
+	return (
+		<aside className="left-side sidebar-offcanvas">
+			<section className="sidebar">
+				
+				<Logo />
+				
+				<SidebarButton 
+						text="New Project" 
+						class="create-button"
+						link="/projects/new" />
+				
+				<SidebarButton 
+						text="Existing Project" 
+						class="ready-button"
+						link="/catalog" />
 
-export default class AsideLeft extends React.Component {
-	render() {
-		return (
-			<aside className="left-side sidebar-offcanvas">
-				<section className="sidebar">
-					<Logo />
-					<CreateButton />
-					<SidebarMenu />
-		      {/*<div className="sidebar-footer">tessdfsdfjsldf</div>*/}
-				</section>
-	      <Footer />
-			</aside>
-		);
-	}
+				<SidebarMenu />
+	      
+			</section>
+      <Footer />
+		</aside>
+	)
 }
+
+export default AsideLeft

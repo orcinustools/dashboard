@@ -8,6 +8,10 @@
 import axios from "axios"
 import { browserHistory } from "react-router"
 
+import { getToken } from '../utils/AuthService'
+
+const token = getToken()
+
 import { 
 	FETCH_STACKS,	FETCH_STACK, CREATE_STACK, RESET_STACK_FIELDS
 } from "./actionTypes"
@@ -17,7 +21,14 @@ import { ORCINUS_API_HOST, ORCINUS_API_PORT } from "../config/environtment"
 export function fetchStacks() {
 	return {
 		type: FETCH_STACKS,
-		payload: axios.post(`http://${ORCINUS_API_HOST}:${ORCINUS_API_PORT}/apis/stack`)
+		payload: axios({
+			method: 'post',
+			url: `http://${ORCINUS_API_HOST}:${ORCINUS_API_PORT}/apis/stack`,
+			headers: {
+				'x-access-token': token,
+				'Content-Type': 'application/json'
+			}
+		})
 	}
 }
 
@@ -28,8 +39,9 @@ export function fetchStack(id) {
 		url: `http://${ORCINUS_API_HOST}:${ORCINUS_API_PORT}/apis/stack/inspect`,
 		data: JSON.parse(`{ "id" : "${id}"}`),
 		headers: {
-			'Content-Type': 'application/json'
-		}
+				'x-access-token': token,
+				'Content-Type': 'application/json'
+			}
 	})
 
 	return {
