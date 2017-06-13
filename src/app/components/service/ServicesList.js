@@ -127,13 +127,13 @@ export default class ServicesList extends React.Component {
                   </table>
                 </div>
               </div>
-              <div className="panel-footer">
+              {/*<div className="panel-footer">
                 <Link
                     to="/catalog"
                     className="btn btn-primary btn-block create-button">
                   CREATE NEW SERVICE
                 </Link> 
-              </div>
+              </div>*/}
             </div>
           </div>
         </div>
