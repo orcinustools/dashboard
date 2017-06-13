@@ -23,7 +23,7 @@ const SidebarMenu = (props) => {
         icon="fa-cubes"
         text="Services" />      
       
-      <SidebarMenuItem
+      {/*<SidebarMenuItem
         link="/containers"
         icon="fa-cube"
         text="Containers" />
