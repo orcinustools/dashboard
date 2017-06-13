@@ -34,14 +34,10 @@ export default class General extends React.Component {
 				    </OverlayTrigger>
           </label>
           <div className="col-sm-10">
-            <input 
-            	type="text"
-            	className="form-control"
-            	name="inputServiceName"
-            	defaultValue={ this.props.name } />
+            <p className="form-control-static">{ this.props.name }</p>
           </div>
         </div>
-        <div className="form-group">
+        {/*<div className="form-group">
           <label className="col-sm-2 control-label">
 				    <OverlayTrigger
 				    		trigger={['hover', 'focus']}
@@ -53,6 +49,14 @@ export default class General extends React.Component {
           <div className="col-sm-10">
             <p className="form-control-static d-inline-block">
               Wordpress
+            </p>
+          </div>
+        </div>*/}
+        <div className="form-group">
+          <label className="col-sm-2 control-label">PROJECT</label>
+          <div className="col-sm-5">
+            <p className="form-control-static">
+              <Link to={`/projects/${this.props.networks}`}>{ this.props.stackName }</Link>
             </p>
           </div>
         </div>
@@ -71,15 +75,6 @@ export default class General extends React.Component {
             		options={imageTagOptions}
             		onChange={this.logChange} />
             </div>*/}
-          </div>
-        </div>
-        <div className="form-group">
-          <label className="col-sm-2 control-label">GROUP</label>
-          <div className="col-sm-5">
-          	<Select
-          		name="ProjectName"
-          		options={projectOptions}
-          		onChange={this.logChange} />
           </div>
         </div>
         <div className="form-group">
@@ -107,7 +102,7 @@ export default class General extends React.Component {
             </p>
           </div>
         </div>
-        <div className="form-group">
+        {/*<div className="form-group">
           <label className="col-sm-2 control-label">VOLUMES</label>
           <div className="col-sm-10">
             <p className="form-control-static">
@@ -116,7 +111,7 @@ export default class General extends React.Component {
             </p>
           </div>
         </div>
-        {/*<div className="form-group">
+        <div className="form-group">
           <label className="col-sm-2 control-label">AUTO START</label>
           <div className="col-sm-4">
             <label className="radio-inline">

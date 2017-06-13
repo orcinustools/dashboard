@@ -65,7 +65,8 @@ export default class ServicesList extends React.Component {
           handleIncrement={this.handleIncrement}
           handleDecrement={this.handleDecrement}
           scaling={this.handleScaling}
-          updateConfig={service.updateConfig} />
+          updateConfig={service.updateConfig}
+          stackId={service.Spec.Networks[0].Target} />
 			);
 		}); 
 	}
@@ -96,9 +97,9 @@ export default class ServicesList extends React.Component {
                   <table className="table table-hover">
                     <thead>
                       <tr>
-                        <th>ID</th>
                         <th>Name</th>
                         <th>Status</th>
+                        <th>Project</th>
                         <th>Image</th>
                         <th>Info</th>
                       </tr>

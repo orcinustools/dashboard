@@ -68,18 +68,18 @@ export default class ServiceDetails extends React.Component {
 
 	render() {
 		
-		const { service, fetching, fetched, error } = this.props
+		const { service, fetching, fetched, stacks, error } = this.props
 
 		return (
 			<div>
         <section className="content-header">
           <h1>
-            { fetched && service.Spec.Name }
+            { fetched && service.Spec.Name.split('-')[2] }
           </h1>
           <ol className="breadcrumb breadcrumb-sm">
             <li><Link to="/">HOME</Link></li>
             <li><Link to="/services">SERVICES</Link></li>
-            <li className="active">{ fetched && service.Spec.Name }</li>
+            <li className="active">{ fetched && service.Spec.Name.split('-')[2] }</li>
           </ol>
         </section>
         
@@ -95,7 +95,7 @@ export default class ServiceDetails extends React.Component {
 				  <div className="col-xs-12">
 				    <div className="panel">
 				      <header className="panel-heading">
-				        General
+				        Info
 				      </header>
 				      <div className="panel-body">
 								{ fetching &&
@@ -106,11 +106,13 @@ export default class ServiceDetails extends React.Component {
 
 								{ fetched && 
 									<General 
-										name={service.Spec.Name}
+										name={service.Spec.Name.split('-')[2]}
+										stackName={service.Spec.Name.split('-')[1]}
 										created={service.CreatedAt}
 										updated={service.UpatedAt}
 										image={service.Spec.TaskTemplate.ContainerSpec.Image}
-										replicated={service.Spec.Mode.Replicated.Replicas} />
+										replicated={service.Spec.Mode.Replicated.Replicas}
+										networks={service.Spec.Networks.map((network) => network.Target )} />
 								}
 
 								{ error &&

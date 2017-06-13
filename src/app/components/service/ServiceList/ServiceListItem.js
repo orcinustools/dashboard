@@ -8,14 +8,16 @@ const ServiceListItem = (props) => {
   }
   return (
     <tr>
-      <td>{ props.id.substr(0, 6) }</td>
       <td>
         <Link
             to={"/services/" + props.id }>
-          { props.name }
+          { props.name.split('-')[2] }
         </Link>
       </td>
       <td><span className="label label-success running-state">RUNNING</span></td>
+      <td>
+        <Link to={`/projects/${props.stackId}`}>{ props.name.split('-')[1] }</Link>
+      </td>
       <td>
         <i className="fa fa-tag fa-fw" aria-hidden="true"></i>
         &nbsp; { props.image.split('@')[0] }
