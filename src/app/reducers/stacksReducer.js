@@ -12,7 +12,7 @@ export default function reducer (state = initialState, action) {
 		case "FETCH_STACKS_PENDING": // start fetching stacks, fetching : true
 			return { ...state, stacksList: {stacks: [], fetching: true, error: null} }
 		case "FETCH_STACKS_FULFILLED": 
-			return { ...state, stacksList: {stacks: action.payload.data, fetched: true, error: null} }
+			return { ...state, stacksList: {stacks: action.payload.data.filter((stack) => stack.Name !== 'ingress'), fetched: true, error: null} }
 		case "FETCH_STACKS_REJECTED":
 			error = action.payload || {message: action.payload.message};
 			return { ...state, stacksList: {stacks: [], fetching: false, error: error} }

@@ -29,6 +29,7 @@ export default class StackList extends React.Component {
       )
     }
     return stacks.map((stack) => {
+      
       return (
         <StackListItem
           key={ stack.Id } 
@@ -37,6 +38,7 @@ export default class StackList extends React.Component {
           onDelete={ this._handleDeleteStack.bind(this) } 
           created={ stack.created }/>
       )
+
     })
   }
 
@@ -83,13 +85,13 @@ export default class StackList extends React.Component {
                 </tbody>
               </table>
             </div>
-            <div className="panel-footer">
+            {/*<div className="panel-footer">
               <Link 
                   to="/projects/new"
                   className="btn btn-primary btn-block create-button">
                 CREATE NEW PROJECT
               </Link>
-            </div>
+            </div>*/}
           </div>
         </div>
       </div>
