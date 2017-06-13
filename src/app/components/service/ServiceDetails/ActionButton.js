@@ -20,7 +20,7 @@ const ActionButton = (props) => {
 		          <span className="visible-lg-inline">&nbsp; Update</span>
 		        </button>
 		      </div> 
-		      <div className="btn-group" role="group">
+		      {/*<div className="btn-group" role="group">
 		        <button type="button" className="btn btn-warning">
 		          <i className="fa fa-pause fa-fw" aria-hidden="true"></i>
 		          <span className="visible-lg-inline">&nbsp; Pause</span>
@@ -32,7 +32,7 @@ const ActionButton = (props) => {
 		          <i className="fa fa-refresh fa-fw" aria-hidden="true"></i>
 		          <span className="visible-lg-inline">&nbsp; Redeploy</span>
 		        </button>
-		      </div>
+		      </div>*/}
 
 		      <div className="btn-group" role="group" >
 		        <button

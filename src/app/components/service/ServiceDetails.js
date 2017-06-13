@@ -172,7 +172,7 @@ export default class ServiceDetails extends React.Component {
 				  </div>
 				</div>
 
-				{/* Volumes Section */}
+				{/* Volumes Section 
 				<div className="row">
 				  <div className="col-xs-12">
 				    <div className="panel">
@@ -281,7 +281,7 @@ export default class ServiceDetails extends React.Component {
 				  </div>
 				</div>
 
-				{/* Mountpoints Section */}
+				{/* Mountpoints Section 
 				<div className="row">
 				  <div className="col-xs-12">
 				    <div className="panel">
@@ -401,7 +401,7 @@ export default class ServiceDetails extends React.Component {
 				  </div>
 				</div>				
 
-				{/* Ports Section */}
+				 Ports Section */}
 				<div className="row">
 				  <div className="col-xs-12">
 				    <div className="panel">
