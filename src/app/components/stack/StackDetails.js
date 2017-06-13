@@ -20,12 +20,12 @@ export default class StackDetails extends React.Component {
       <div>
         <section className="content-header">
           <h1>
-            { fetched && stack.Name }
+            { fetched && stack.Name.split('-')[1] }
           </h1>
           <ol className="breadcrumb breadcrumb-sm">
             <li><Link to="/">HOME</Link></li>
             <li><Link to="/projects">PROJECTS</Link></li>
-            <li className="active">{ fetched && stack.Name }</li>
+            <li className="active">{ fetched && stack.Name.split('-')[1] }</li>
           </ol>
         </section>
 
@@ -36,7 +36,7 @@ export default class StackDetails extends React.Component {
           <div className="col-xs-12">
             <div className="panel">
               <header className="panel-heading">
-                General
+                Info
               </header>
               <div className="panel-body">
               { error &&
@@ -53,7 +53,7 @@ export default class StackDetails extends React.Component {
               { fetched &&
                 <General
                   Id={stack.Id}
-                  name={stack.Name}
+                  name={stack.Name.split('-')[1]}
                   created={stack.Created} />
               }
               </div>

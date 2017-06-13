@@ -6,7 +6,7 @@ const ServiceItem = (props) => {
 	return (
     <tr>
       <td><i className="fa fa-cubes fa-fw" aria-hidden="true"></i> 
-        <Link to={`/services/${props.service.ID}`}>&nbsp; { props.service.Spec.Name }</Link>
+        <Link to={`/services/${props.service.ID}`}>&nbsp; { props.service.Spec.Name.split('-')[2] }</Link>
       </td>
       <td><span className="label label-success">RUNNING</span></td>
       <td>
