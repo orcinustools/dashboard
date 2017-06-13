@@ -100,7 +100,7 @@ export function fetchServices(stackId) {
 	})
 
 	return {
-		type: "FETHC_SERVICE_BY_STACK_ID",
+		type: "FETCH_SERVICE_BY_STACK_ID",
 		payload: request
 	}
 }
