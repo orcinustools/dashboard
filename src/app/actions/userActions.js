@@ -68,3 +68,21 @@ export function signInUserFailure(error) {
 		payload: error
 	}
 }
+
+export function meFromToken(tokenFromStorage) {
+  //check if the token is still valid, if so, get me from the server
+	
+	const request = axios({
+		method: 'post',
+		url: `http://${ORCINUS_API_HOST}:${ORCINUS_API_PORT}/auth/me`,
+		data: {},
+		headers: {
+			'x-access-token': tokenFromStorage
+		}
+	})
+
+	return {
+		type: "ME_FROM_TOKEN",
+		payload: request
+	}
+}

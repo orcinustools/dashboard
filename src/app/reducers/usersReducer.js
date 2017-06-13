@@ -23,6 +23,14 @@ export default function(state = initialState, action) {
 		case "LOGOUT_USER":
       return {...state, user:null, status:'logout', error:null, loading: false};
 
+    case "ME_FROM_TOKEN_PENDING":
+    case "ME_FROM_TOKEN_REJECTED":
+    case "ME_FROM_TOKEN_FULFILLED":
+    	return {
+    		...state,
+    		user: action.payload
+    	}
+
     default:
     return state;
 	}

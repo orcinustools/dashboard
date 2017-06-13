@@ -1,4 +1,4 @@
-import AppPage from "./app/App"
+import AppPage from "./app/AppPage"
 import { ContainerListPage, ContainerDetailsPage } from "./containers"
 import { ServiceListPage, ServiceDetailsPage, ServiceCreatePage } from "./services"
 import { StackListPage, StackDetailsPage,	StackCreatePage } from "./stacks"
