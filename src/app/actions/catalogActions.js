@@ -48,8 +48,7 @@ export function setItemToBoard(data) {
 	}
 }
 
-export function addItemToBoard(name, category, props) {
-	console.log(props)
+export function addItemToBoard(name, category) {
 	return (dispatch) => {
 		dispatch(fetchCatalogItem(name, category)).then((res) => {
 
@@ -64,7 +63,6 @@ export function addItemToBoard(name, category, props) {
 	    dispatch(setNewService(orcinus))
 
 		})
-		dispatch(setOptionSelect(props))
 	}
 }
 

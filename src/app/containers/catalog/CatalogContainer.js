@@ -21,9 +21,14 @@ import { fetchStacks } from "../../actions/stackActions"
 const mapStateToProps = (state) => {
   return {
     catalog: state.catalogsState.imageList,
-    stacks: state.stacksState.stacksList.stacks,
     newService: state.servicesState.newService,
     options: state.catalogsState.options,
+
+    stacks: state.stacksState.stacksList.stacks,
+    stack_fetching: state.stacksState.stacksList.fetching,
+    stack_fetched: state.stacksState.stacksList.fetched,
+    stack_error: state.stacksState.stacksList.error,
+    
     board: state.catalogsState.board,
     fetching: state.catalogsState.fetching,
     fetched: state.catalogsState.fetched,
@@ -39,8 +44,8 @@ const mapDispatchToProps = (dispatch) => {
     removeItemFromBoard: (index) => {
     	dispatch(removeItemFromBoard(index))
     },
-    addItemToBoard: (name, category, props) => {
-    	dispatch(addItemToBoard(name, category, props))
+    addItemToBoard: (name, category) => {
+    	dispatch(addItemToBoard(name, category))
     },
     createNewService: (data) => {
       dispatch(createNewService(data))
@@ -52,10 +57,9 @@ const mapDispatchToProps = (dispatch) => {
       dispatch(createService(service))
     },
     fetchStacks: () => {
-      dispatch(fetchStacks())
-    },
-    setOptionSelect: (options) => {
-      dispatch(setOptionSelect(options))
+      dispatch(fetchStacks()).then((res) => {
+        dispatch(setOptionSelect(res.value.data))
+      })
     }
   }
 }

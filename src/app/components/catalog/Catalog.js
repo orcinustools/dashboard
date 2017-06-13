@@ -29,9 +29,9 @@ export default class Catalog extends React.Component {
     this.props.changeStackNameInput(event.target.value)
   }
 
-	componentDidMount() {
-		this.props.fetchCatalog()
+  componentDidMount() {   
     this.props.fetchStacks()
+    this.props.fetchCatalog()
 	}
 
   handleDissmis(name) {
@@ -41,17 +41,9 @@ export default class Catalog extends React.Component {
   }
 
   handleAddItemToBoard(name, category) {
-    const { addItemToBoard, stacks } = this.props
+    const { addItemToBoard } = this.props
 
-    const options = stacks.reduce((options, stack) => {
-      options.push({
-        value: stack.Name,
-        label: stack.Name
-      })
-      return options
-    }, [])
-
-    addItemToBoard(name, category, options)
+    addItemToBoard(name, category)
   }
 
   handleCreateService(newService) {
@@ -185,74 +177,76 @@ export default class Catalog extends React.Component {
         </div>*/}
 
           
-        { board.length ?
-          <div className="row">
-            <div className="board">
-              <div className="col-xs-12">
-                <div className="panel">
-                  <header className="panel-heading">
-                    New Service
-                  </header>
-                  <div className="panel-body">
-                    <div className="form-horizontal">
-                      <div className="form-group">
-                        <label 
-                            className="col-sm-2 control-label"
-                            htmlFor="name">
-                          SELECT GROUP
-                        </label>
-                        <div className="col-sm-10">
-                          <Select
-                            name="groupName"
-                            value={this.props.newService.opt ? this.props.newService.opt.stack : ''}
-                            options={this.props.options}
-                            onChange={this.selectChange}
-                            clearable={true}
-                            searchable={true}
-                            placeholder="Select the group" />
-                          {/*<input 
-                            name="name"
-                            className="form-control"
-                            type="text"
-                            onChange={this.onChangeStack} />*/}
-                        </div>
-                      </div>
-                      <div className="form-group">
-                        <div className="col-sm-3 col-md-offset-2">
-                        { this.props.newService && 
-                          this.props.newService.opt && 
-                          this.props.newService.opt.stack ?
-                          <button 
-                              style={{ border: "1px solid #209687" }}
-                              className="btn btn-success create-button"
-                              onClick={ () => this.handleCreateService(newService) } >
-                            <i className="fa fa-rocket fa-fw" aria-hidden="true"></i>
-                            &nbsp; Deploy Service
-                          </button> :
-                          <button 
-                              className="btn btn-default"
-                              type="button"
-                              disabled={true} >
-                            <i className="fa fa-rocket fa-fw" aria-hidden="true"></i>
-                            &nbsp; Deploy Service
-                          </button>
-                        }
-                        </div>
+        <div className="row">
+          <div className="board">
+            <div className="col-xs-12">
+              <div className="panel">
+                <header className="panel-heading">
+                  Add Service
+                </header>
+                <div className="panel-body">
+                  <div className="form-horizontal">
+                    <div className="form-group">
+                      <label 
+                          className="col-sm-2 control-label"
+                          htmlFor="name">
+                        SELECT PROJECT
+                      </label>
+                      <div className="col-sm-10">
+                        <Select
+                          name="groupName"
+                          value={this.props.newService.opt ? this.props.newService.opt.stack : ''}
+                          options={this.props.options}
+                          onChange={this.selectChange}
+                          clearable={true}
+                          searchable={true}
+                          placeholder="Project Name..." />
+                        {/*<input 
+                          name="name"
+                          className="form-control"
+                          type="text"
+                          onChange={this.onChangeStack} />*/}
                       </div>
                     </div>
-                    <div className="well well-lg">
-                      {
-                        board.length > 0 ? this.renderBoardItem(board) : '' 
+                    <div className="form-group">
+                      <div className="col-sm-3 col-md-offset-2">
+                      { this.props.newService && 
+                        this.props.newService.opt && 
+                        this.props.newService.opt.stack ?
+                        <button 
+                            style={{ border: "1px solid #209687" }}
+                            className="btn btn-success create-button"
+                            onClick={ () => this.handleCreateService(newService) } >
+                          <i className="fa fa-rocket fa-fw" aria-hidden="true"></i>
+                          &nbsp; Deploy Service
+                        </button> :
+                        <button 
+                            className="btn btn-default"
+                            type="button"
+                            disabled={true} >
+                          <i className="fa fa-rocket fa-fw" aria-hidden="true"></i>
+                          &nbsp; Deploy Service
+                        </button>
                       }
-                      <div className="clearfix"></div>
+                      </div>
                     </div>
+                  </div>
+
+                  <div className="well well-lg">
+                    {
+                      board.length > 0 ? 
+                      this.renderBoardItem(board) :
+                      <h4 style={{ textAlign: 'center', marginTop: '10px', color: '#c3c3c3' }}>
+                        choose services from catalog below
+                      </h4> 
+                    }
+                    <div className="clearfix"></div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>:
-          ''
-        }
+          </div>
+        </div>
 
 				<div>
           {/*<h3 className="category-header">Operating System</h3>

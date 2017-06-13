@@ -49,9 +49,18 @@ export default function reducer (state = initialState, action) {
 			}
 
 		case "SET_OPTIONS_SELECT":
+			const options = action.data.filter((stack) => stack.Name !== 'ingress')
+				.reduce((options, stack) => {
+	        options.push({
+	          value: stack.Name,
+	          label: stack.Name
+	        })
+	        return options
+      	}, [])
+
 			return {
 				...state,
-				options: action.data
+				options: options
 			}
 		case "CREATE_SERVICE_FULFILLED":
 		 return {
