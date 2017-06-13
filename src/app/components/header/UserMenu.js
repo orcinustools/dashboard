@@ -15,7 +15,7 @@ export default class UserMenu extends React.Component {
         <ul className="dropdown-menu dropdown-custom dropdown-menu-right">
           <li className="dropdown-header text-center">Account</li>
 
-          <li>
+          {/*<li>
             <a href="#">
               <i className="fa fa-clock-o fa-fw pull-right"></i>
               <span className="badge badge-success pull-right">10</span> Updates
@@ -43,7 +43,7 @@ export default class UserMenu extends React.Component {
             </a>
           </li>
 
-          <li className="divider"></li>
+          <li className="divider"></li>*/}
 
           <li>
             <a onClick={()=> logout()} style={{ cursor: 'pointer' }}><i className="fa fa-ban fa-fw pull-right"></i> Logout</a>

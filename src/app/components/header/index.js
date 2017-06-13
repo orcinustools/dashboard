@@ -13,8 +13,8 @@ export default class Header extends React.Component {
       		<Button />
 		      <div className="navbar-right navbar-right-fix">
 		        <ul className="nav navbar-nav">
-							<MessageMenu />
-							<TasksMenu />
+							{/*<MessageMenu />
+							<TasksMenu />*/}
 							<UserMenu />
 		        </ul>
 		      </div>
