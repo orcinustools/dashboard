@@ -23,14 +23,14 @@ export default class ContainerDetails extends React.Component {
         <section className="content-header">
           <h1>
             { fetched && 
-              container.Name.slice(1) }
+              container.Name.slice(1).split('-')[2] }
           </h1>
           <ol className="breadcrumb breadcrumb-sm">
             <li><Link to="/">HOME</Link></li>
             <li><Link to="/containers">CONTAINERS</Link></li>
             <li className="active">
                { fetched && 
-                container.Name.slice(1) }
+                container.Name.split('-')[2] }
             </li>
           </ol>
         </section>
@@ -42,7 +42,7 @@ export default class ContainerDetails extends React.Component {
           <div className="col-xs-12">
             <div className="panel">
               <header className="panel-heading">
-                General
+                Info
               </header>
               <div className="panel-body">
               { error &&
@@ -59,8 +59,8 @@ export default class ContainerDetails extends React.Component {
 
               { fetched &&
                 <General
-                  name={container.Name.slice(1)}
-                  serviceName={container.Config.Labels['com.docker.swarm.service.name']}
+                  name={container.Name.slice(1).split('-')[2]}
+                  serviceName={container.Config.Labels['com.docker.swarm.service.name'].split('-')[2]}
                   serviceId={container.Config.Labels['com.docker.swarm.service.id']}
                   image={container.Config.Image.split('@')[0]}
                   volumeTotal={container.Mounts.length}
