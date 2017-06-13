@@ -62,7 +62,8 @@ export function deleteStackAPI(id) {
 		url: `http://${ORCINUS_API_HOST}:${ORCINUS_API_PORT}/apis/stack/delete`,
 		data: JSON.parse(`{ "id": "${id}" }`),
 		headers: {
-			'Content-Type': 'application/json'
+			'Content-Type': 'application/json',
+			'x-access-token': token
 		}
 	})
 
@@ -93,12 +94,13 @@ export function fetchServices(stackId) {
 		url: `http://${ORCINUS_API_HOST}:${ORCINUS_API_PORT}/apis/stack/list-services`,
 		data: JSON.parse(`{ "id": "${stackId}"}`),
 		headers: {
-			'Content-Type': 'application/json'
+			'Content-Type': 'application/json',
+			'x-access-token': token
 		}
 	})
 
 	return {
-		type: "FETHC_SERVICE_BY_STACK_ID",
+		type: "FETCH_SERVICE_BY_STACK_ID",
 		payload: request
 	}
 }
@@ -109,7 +111,8 @@ export function checkStackAPI(stack) {
 		url: `http://${ORCINUS_API_HOST}:${ORCINUS_API_PORT}/apis/stack`,
 		data: stack,
 		headers: {
-			'Content-Type' : 'application/json'
+			'Content-Type' : 'application/json',
+			'x-access-token': token
 		}
 	})
 
@@ -125,7 +128,8 @@ export function createStack(props) {
 		data: props,
 		url: `http://${ORCINUS_API_HOST}:${ORCINUS_API_PORT}/apis/stack/create`,
 		headers: {
-			'Content-Type': 'application/json'
+			'Content-Type': 'application/json',
+			'x-access-token': token
 		}
 	});
 
@@ -141,10 +145,10 @@ export function checkStack(stack) {
 
 			if(res.action.payload.data.created === false){
 				dispatch(createStack(stack)).then(() => {
-					browserHistory.push('/stacks')
+					browserHistory.push('/projects')
 				})
 			} else {
-				browserHistory.push(`/stacks/${stack.name}`)
+				browserHistory.push(`/projects/${stack.name}`)
 			}
 			
 		})

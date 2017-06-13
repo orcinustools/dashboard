@@ -10,6 +10,7 @@ export default class StackDetails extends React.Component {
 
   componentDidMount() {
     this.props.fetchStack(this.props.id)
+    this.props.fetchServices(this.props.id)
   }
 
 	render() {
@@ -28,7 +29,7 @@ export default class StackDetails extends React.Component {
           </ol>
         </section>
 
-        <ActionButton />
+        {/*<ActionButton />*/}
 
         {/* General Section */}
         <div className="row">
@@ -51,17 +52,18 @@ export default class StackDetails extends React.Component {
               }
               { fetched &&
                 <General
+                  Id={stack.Id}
                   name={stack.Name}
                   created={stack.Created} />
               }
               </div>
-              { fetched &&
+              {/* fetched &&
                 <div className="panel-footer">
                   <button className="btn btn-primary">
                     <i className="fa fa-download fa-fw" aria-hidden="true"></i>
                     &nbsp; Download Orcinus File
                   </button>
-                </div>
+                </div>*/
               }
             </div>
           </div>
@@ -81,7 +83,8 @@ export default class StackDetails extends React.Component {
                       <th>Name</th>
                       <th>Status</th>
                       <th>Info</th>
-                      <th>Action</th>
+                      <th>Created at</th>
+                      <th>Updated at</th>
                     </tr>
                   </thead>
                   { error &&
@@ -104,21 +107,21 @@ export default class StackDetails extends React.Component {
                     </tbody>
                   }
 
-                  { fetched &&
-                    <Services />
+                  { fetched && stack.servicesList && stack.servicesList.services &&
+                    <Services services={ stack.servicesList.services } />
                   }
                 </table>
               </div>
               { fetched &&
                 <div className="panel-footer">
-                  <Link to="/catalog" className="btn btn-success"><i className="fa fa-plus fa-fw" aria-hidden="true"></i>  Add New Service</Link>
+                  <Link to="/catalog" className="btn btn-primary create-button"><i className="fa fa-plus fa-fw" aria-hidden="true"></i>  Add New Service</Link>
                 </div>
               }
             </div>
           </div>
         </div>
 
-        {/* Endpoints */}
+        {/* Endpoints /}
         <div className="row">
           <div className="col-xs-12">
             <div className="panel">
@@ -161,7 +164,7 @@ export default class StackDetails extends React.Component {
               </div>
             </div>
           </div>
-        </div>
+        </div>*/}
       </div>
 		)
 	}

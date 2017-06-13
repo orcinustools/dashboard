@@ -21,7 +21,14 @@ const token = getToken()
 export function fetchContainers() {
 	return {
 		type: FETCH_CONTAINERS,
-		payload: axios.get(`http://${ORCINUS_API_HOST}:${ORCINUS_API_PORT}/apis/container`, { 'x-access-token': token })
+		payload: axios({
+			method: 'get',
+			url: `http://${ORCINUS_API_HOST}:${ORCINUS_API_PORT}/apis/container`,
+			headers: { 
+				'Content-Type': 'application/json',
+				'x-access-token': token 
+			}
+		})
 	}
 }
 
@@ -34,7 +41,8 @@ export function fetchContainer(id) {
 		url: `http://${ORCINUS_API_HOST}:${ORCINUS_API_PORT}/apis/container/inspect`,
 		data: JSON.parse(`{ "id": "${id}" }`),
 		headers: {
-			'Content-Type': 'application/json'
+			'Content-Type': 'application/json',
+			'x-access-token': token
 		}
 	})
 
@@ -54,7 +62,8 @@ export function pauseContainerAPI(id) {
 		url: `http://${ORCINUS_API_HOST}:${ORCINUS_API_PORT}/apis/container/pause`,
 		data: JSON.parse(`{ "id": "${id}" }`),
 		headers: {
-			'Content-Type': 'application/json'
+			'Content-Type': 'application/json',
+			'x-access-token': token
 		}
 	})
 
@@ -89,7 +98,8 @@ export function unPauseContainerAPI(id) {
 		url: `http://${ORCINUS_API_HOST}:${ORCINUS_API_PORT}/apis/container/unpause`,
 		data: JSON.parse(`{ "id" : "${id}"}`),
 		headers: {
-			'Content-Type': 'application/json'
+			'Content-Type': 'application/json',
+			'x-access-token': token
 		}
 	})
 
@@ -126,7 +136,8 @@ export function deleteContainerAPI(id) {
 		url: `http://${ORCINUS_API_HOST}:${ORCINUS_API_PORT}/apis/container/delete`,
 		data: JSON.parse(`{ "id": "${id}" }`),
 		headers: {
-			'Content-Type': 'application/json'
+			'Content-Type': 'application/json',
+			'x-access-token': token
 		}
 	})
 

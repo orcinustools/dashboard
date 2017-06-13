@@ -53,7 +53,7 @@ class StackCreate extends React.Component {
 		              	<div className="col-sm-3 col-md-offset-2">
 											<button 
 													type="submit"
-													className="btn btn-create"
+													style={{ borderRadius: 30, width: 200 }}
 													className="btn btn-success create-button" >
 												Create Project
 											</button>

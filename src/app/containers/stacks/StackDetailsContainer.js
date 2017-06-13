@@ -3,7 +3,7 @@
  */
 import { connect } from "react-redux"
 
-import { fetchStack } from "../../actions/stackActions"
+import { fetchStack, fetchServices } from "../../actions/stackActions"
 
 import StackDetails from "../../components/stack/StackDetails"
 
@@ -20,6 +20,9 @@ const mapDispatchToProps = (dispatch) => {
 	return {
 		fetchStack: (id) => {
 			dispatch(fetchStack(id))
+		},
+		fetchServices: (stackId) => {
+			dispatch(fetchServices(stackId))
 		}
 	}
 }

@@ -61,7 +61,6 @@ const ContainerListItem = (props) => {
             <i className={ fontState } aria-hidden="true"></i>
           </button>
         }
-        <Link to="#" className="btn btn-info btn-sm list-stack-action"><i className="fa fa-refresh" aria-hidden="true"></i></Link>
         <button
             className="btn btn-danger btn-sm list-stack-action"
             onClick={ () => props.delete(props.id) }>

@@ -9,7 +9,7 @@ const style = {
 		marginBottom: 15
 	},
 	button: {
-		padding: 5
+		padding: 6
 	}
 }
 

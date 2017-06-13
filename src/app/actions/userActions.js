@@ -45,7 +45,7 @@ export function signInUser(values) {
   	url: `http://${ORCINUS_API_HOST}:${ORCINUS_API_PORT}/auth/signin`,
 		data: values,
 		headers: {
-			'Content-Type': 'application/json'
+			'Content-Type': 'application/json',
 		}
   })
 

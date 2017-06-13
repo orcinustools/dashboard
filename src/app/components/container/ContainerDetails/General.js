@@ -14,8 +14,8 @@ const General = (props) => {
           </p>
         </div>
       </div>
-      <div className="form-group">
-        {/* TODO:= ganti nama stack sesuai dengan yang didapat dari api*/}
+      {/*<div className="form-group">
+        {/* TODO:= ganti nama stack sesuai dengan yang didapat dari api
         <label className="col-sm-2 control-label">GROUP</label>
         <div className="col-sm-10">
           <p className="form-control-static">
@@ -23,7 +23,7 @@ const General = (props) => {
             <Link to="/stacks/wordpress-app">&nbsp; Worpress-app</Link>  
           </p>
         </div>
-      </div>
+      </div>*/}
       <div className="form-group">
         {/* TODO:= ganti nama service sesuai dengan yang didapat dari api*/}
         <label className="col-sm-2 control-label">SERVICE</label>

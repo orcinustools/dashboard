@@ -1,20 +1,21 @@
-import React from "react"
-import PropTypes from 'prop-types'
-import { Link } from "react-router"
+import React      from 'react'
+import PropTypes  from 'prop-types'
+import { Link }   from 'react-router'
+import moment     from 'moment'
 
 const StackListItem = (props) => {
 	return (
     <tr>
-      <td>{ props.id.substr(0, 6) }</td>
-      <td><Link to={`/stacks/${props.id}`}>{ props.name }</Link></td>
-      <td><span className="label label-success">RUNNING</span></td>
+      <td><Link to={`/projects/${props.id}`}>{ props.name }</Link></td>
+      <td>{ moment(props.created).format("MMMM Do YYYY, h:mm:ss a") }</td>
+      {/*<td><span className="label label-success">RUNNING</span></td>
       <td>
         <ul className="list-child">
           <li><i className="fa fa-cubes fa-fw" aria-hidden="true"></i> 2 Services</li>
           <li><i className="fa fa-cube fa-fw" aria-hidden="true"></i> 2 Containers</li>
-          {/*<li><i className="fa fa-hdd-o fa-fw" aria-hidden="true"></i> 2 Volumes</li>*/}
+          <li><i className="fa fa-hdd-o fa-fw" aria-hidden="true"></i> 2 Volumes</li>
         </ul>
-      </td>
+      </td>*/}
       <td style={{ textAlign: 'right' }}>
         {/*<Link to="#" className="btn btn-warning btn-sm list-stack-action"><i className="fa fa-pause" aria-hidden="true"></i></Link>
         <Link to="#" className="btn btn-info btn-sm list-stack-action"><i className="fa fa-refresh" aria-hidden="true"></i></Link>*/}

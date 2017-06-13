@@ -42,6 +42,45 @@ export default function reducer (state = initialState, action) {
 				}
 			}
 
+		case "FETCH_SERVICE_BY_STACK_ID_PENDING":
+			return {
+				...state,
+				activeStack: {
+					...state.activeStack,
+					stack: {
+						...state.activeStack.stack,
+						servicesList: { ...state.activeStack.servicesList, fetching: true, fetched: false }
+					}
+				}
+			}
+		case "FETCH_SERVICE_BY_STACK_ID_REJECTED":
+			error = action.payload || {message: action.payload.message}
+			return {
+				...state,
+				activeStack: {
+					...state.activeStack,
+					stack: {
+						...state.activeStack.stack,
+						servicesList: { ...state.activeStack.servicesList, fetching: false, fetched: true, error: error }
+					}
+				}
+			}
+		case "FETCH_SERVICE_BY_STACK_ID_FULFILLED":
+			return {
+				...state,
+				activeStack: {
+					...state.activeStack,
+					stack: {
+						...state.activeStack.stack,
+						servicesList: {
+							services: action.payload.data,
+							fetching: false,
+							fetched: true
+						}
+					}
+				}
+			}
+
 	}
 
 	return state;
