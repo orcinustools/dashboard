@@ -18,12 +18,12 @@ export default class Overview extends React.Component {
 			<div>
         <div className="row" style={{ marginBottom: '5px' }}>
           
-          <Link to="/stacks">
+          <Link to="/projects">
             <div className="col-md-4">
               <div className="sm-st clearfix">
                 <span className="sm-st-icon st-red"><i className="fa fa-server"></i></span>
                 <div className="sm-st-info">
-                  <span>{stacks ? stacks.length : '0'}</span> Projects Running
+                  <span>{stacks ? stacks.length : '0'}</span> Projects
                 </div>
               </div>
             </div>
