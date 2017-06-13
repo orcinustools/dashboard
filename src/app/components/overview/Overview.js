@@ -54,7 +54,7 @@ export default class Overview extends React.Component {
         </div>
 
        
-        <div className="row">
+        {/*<div className="row">
 
           <div className="col-md-12">
            
@@ -101,7 +101,7 @@ export default class Overview extends React.Component {
            
           </div>
 
-        </div>
+        </div>*/}
 			</div>
 		)
 	}
