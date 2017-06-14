@@ -403,7 +403,7 @@ export default class ServiceDetails extends React.Component {
 				  </div>
 				</div>				
 
-				 Ports Section */}
+				 Ports Section 
 				<div className="row">
 				  <div className="col-xs-12">
 				    <div className="panel">
@@ -556,7 +556,7 @@ export default class ServiceDetails extends React.Component {
 				  </div>
 				</div>
 
-				{/* Variables Section */}
+				{/* Variables Section 
 				<div className="row">
 				  <div className="col-xs-12">
 				    <div className="panel">
@@ -601,7 +601,7 @@ export default class ServiceDetails extends React.Component {
 				      </div>
 				    </div>
 				  </div>
-				</div>
+				</div>*/}
 
 			</div>
 		)

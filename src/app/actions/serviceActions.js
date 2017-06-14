@@ -18,14 +18,15 @@ import { ORCINUS_API_HOST, ORCINUS_API_PORT } from "../config/environtment"
 import { getToken } from '../utils/AuthService'
 
 const token = getToken()
-console.log(token)
+
 // fetch list of services
 export function fetchServices() {
 	return {
 		type: FETCH_SERVICES,
 		// payload: axios.get()
     payload: axios({
-    	method: 'get',
+    	method: 'post',
+    	data:{},
     	url: `http://${ORCINUS_API_HOST}:${ORCINUS_API_PORT}/apis/service`,
     	headers: {
     		'Content-Type': 'application/json',
