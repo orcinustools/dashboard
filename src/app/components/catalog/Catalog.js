@@ -240,13 +240,14 @@ export default class Catalog extends React.Component {
                         DOMAIN
                       </label>
                       <div className="col-sm-10">
-                        <p className="form-control-static">
+                        <p className="form-control-static" style={{ fontSize: '1.25em'}}>
                         { newService && newService.opt && newService.opt.domain ? newService.opt.domain :(fetched && user && newService && newService.opt && newService.opt.services ? `${user.data.id}-${newService.opt.stack}-${Object.keys(newService.opt.services)[0]}-${info.data.endpoint}`: 'select service and project first') }
                         </p>
                       </div>
                     </div>
                     <div className="form-group">
                       <div className="col-sm-3 col-md-offset-2">
+                    {/* TODO: tambah loading status dan redirect ke halaman stack */}
                       { this.props.newService && 
                         this.props.newService.opt && 
                         this.props.newService.opt.stack ?
