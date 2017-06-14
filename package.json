@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "npm run build",
-    "build": "webpack -d && cp src/index.html dist/index.html && webpack-dev-server --content-base src/ --inline --hot  --history-api-fallback",
+    "build": "webpack -d && cp src/index.html dist/index.html && webpack-dev-server --host 0.0.0.0 --port 8008 --content-base src/ --inline --hot  --history-api-fallback",
     "build:prod": "NODE_ENV=production webpack -p && cp src/index.html dist/index.html",
     "prod": "npm run build:prod && node src/server/server.js"
   },

@@ -7,7 +7,7 @@
 
 import axios from "axios"
 import { FETCH_IMAGES } from "./actionTypes"
-import { OMURA_HOST, OMURA_PORT } from "../config/environtment"
+import { ORCINUS_OMURA } from "../config/environtment"
 import _ from "lodash"
 
 import { setNewService } from "./serviceActions"
@@ -15,7 +15,7 @@ import { setNewService } from "./serviceActions"
 export function fetchCatalog() {
 	return {
 		type: "FETCH_CATALOG",
-		payload: axios.get(`http://${OMURA_HOST}:${OMURA_PORT}/apis`)
+		payload: axios.get(`http://${ ORCINUS_OMURA }/apis`)
 	}
 }
 
@@ -32,7 +32,7 @@ export function removeItemFromBoard(name) {
 export function fetchCatalogItem(name, category) {
 	const request = axios({
 		method: 'get',
-		url: `http://${ OMURA_HOST }:${ OMURA_PORT }/apis/${ category }/${ name }`
+		url: `http://${ ORCINUS_OMURA }/apis/${ category }/${ name }`
 	})
 
 	return {

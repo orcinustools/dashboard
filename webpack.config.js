@@ -80,11 +80,7 @@ const config = {
 		  NODE_ENV: "development",
 		  ORCINUS_HOST: "localhost",
 		  ORCINUS_PORT: 4000,
-		  OMURA_HOST: "localhost",
-		  OMURA_PORT: "5009",
-		  STATIC_ASSET_HOST: "localhost", // live-server --port=8081 
-		  																// in src/app/assests/images/catalog directory
-		  STATIC_ASSET_PORT: "8081"
+		  ORCINUS_OMURA: "localhost:5009"
 		}),
 
     // Webpack plugin untuk memisah file css
