@@ -55,7 +55,7 @@ const General = (props) => {
           </p>
         </div>
       </div>
-      <div className="form-group">
+      {/*<div className="form-group">
         <label className="col-sm-2 control-label">VOLUMES</label>
         <div className="col-sm-10">
           <p className="form-control-static">
@@ -63,7 +63,7 @@ const General = (props) => {
             &nbsp; { props.volumeTotal } Volumes
           </p>
         </div>
-      </div>
+      </div>*/}
       <div className="form-group">
         <label className="col-sm-2 control-label">CREATED AT</label>
         <div className="col-sm-10">

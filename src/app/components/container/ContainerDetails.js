@@ -27,7 +27,8 @@ export default class ContainerDetails extends React.Component {
           </h1>
           <ol className="breadcrumb breadcrumb-sm">
             <li><Link to="/">HOME</Link></li>
-            <li><Link to="/containers">CONTAINERS</Link></li>
+            {/*<li><Link to="/containers">CONTAINERS</Link></li>*/}
+            <li>CONTAINERS</li>
             <li className="active">
                { fetched && 
                 container.Name.split('-')[2] }
@@ -35,7 +36,7 @@ export default class ContainerDetails extends React.Component {
           </ol>
         </section>
         
-        <ActionButton />
+        {/*<ActionButton />*/}
 
         {/* General Section */}
         <div className="row">
