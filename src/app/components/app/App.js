@@ -7,6 +7,7 @@ export default class App extends Component {
 
 	componentDidMount() {
 		this.props.loadUserFromToken()
+		this.props.loadInfoFromServer()
 	}
 
 	render() {

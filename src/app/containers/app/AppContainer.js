@@ -5,7 +5,8 @@ import App from '../../components/app/App'
 import { 
 	meFromToken, 
 	meFromTokenSuccess, 
-	meFromTokenFailure 
+	meFromTokenFailure,
+	getInfo 
 } from '../../actions/userActions'
 
 const mapStateToProps = (state) => {
@@ -21,6 +22,9 @@ const mapDispatchToProps = (dispatch) => {
 			if(!token || token === '') { return }
 
 			dispatch(meFromToken(token))
+		},
+		loadInfoFromServer: () => {
+			dispatch(getInfo())
 		}
 	}
 }

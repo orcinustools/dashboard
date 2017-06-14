@@ -2,6 +2,10 @@ import axios from 'axios'
 
 import { ORCINUS_API_HOST, ORCINUS_API_PORT } from "../config/environtment"
 
+import { getToken } from '../utils/AuthService'
+
+const token = getToken()
+
 /**
  * Signup User
  */
@@ -83,6 +87,21 @@ export function meFromToken(tokenFromStorage) {
 
 	return {
 		type: "ME_FROM_TOKEN",
+		payload: request
+	}
+}
+
+export function getInfo() {
+	const request = axios({
+		method: 'get',
+		url: `http://${ORCINUS_API_HOST}:${ORCINUS_API_PORT}/info`,
+		headers: {
+			'x-access-token': token
+		}
+	})
+
+	return {
+		type: 'GET_INFO',
 		payload: request
 	}
 }
