@@ -16,14 +16,14 @@ import {
 	FETCH_STACKS,	FETCH_STACK, CREATE_STACK, RESET_STACK_FIELDS
 } from "./actionTypes"
 
-import { ORCINUS_API_HOST, ORCINUS_API_PORT } from "../config/environtment"
+const ROOT_URL = location.href.indexOf('localhost') > 0 ? `http://localhost:4000/apis` : '/apis'
 
 export function fetchStacks() {
 	return {
 		type: FETCH_STACKS,
 		payload: axios({
 			method: 'post',
-			url: `http://${ORCINUS_API_HOST}:${ORCINUS_API_PORT}/apis/stack`,
+			url: `${ ROOT_URL }/stack`,
 			headers: {
 				'x-access-token': token,
 				'Content-Type': 'application/json'
@@ -36,7 +36,7 @@ export function fetchStacks() {
 export function fetchStack(id) {
 	const request = axios({
 		method: 'post',
-		url: `http://${ORCINUS_API_HOST}:${ORCINUS_API_PORT}/apis/stack/inspect`,
+		url: `${ ROOT_URL }/stack/inspect`,
 		data: JSON.parse(`{ "id" : "${id}"}`),
 		headers: {
 				'x-access-token': token,
@@ -59,7 +59,7 @@ export function resetStackFields() {
 export function deleteStackAPI(id) {
 	const request = axios({
 		method: 'post',
-		url: `http://${ORCINUS_API_HOST}:${ORCINUS_API_PORT}/apis/stack/delete`,
+		url: `${ ROOT_URL }/stack/delete`,
 		data: JSON.parse(`{ "id": "${id}" }`),
 		headers: {
 			'Content-Type': 'application/json',
@@ -91,7 +91,7 @@ export function deleteStack(id) {
 export function fetchServices(stackId) {
 	const request = axios({
 		method: 'post',
-		url: `http://${ORCINUS_API_HOST}:${ORCINUS_API_PORT}/apis/stack/list-services`,
+		url: `${ ROOT_URL }/stack/list-services`,
 		data: JSON.parse(`{ "id": "${stackId}"}`),
 		headers: {
 			'Content-Type': 'application/json',
@@ -108,7 +108,7 @@ export function fetchServices(stackId) {
 export function checkStackAPI(stack) {
 	const request = axios({
 		method: 'post',
-		url: `http://${ORCINUS_API_HOST}:${ORCINUS_API_PORT}/apis/stack`,
+		url: `${ ROOT_URL }/stack`,
 		data: stack,
 		headers: {
 			'Content-Type' : 'application/json',
@@ -126,7 +126,7 @@ export function createStack(stackName) {
 	const request = axios({
 		method: 'post',
 		data: JSON.parse(`{ "name" : "${stackName}" }`),
-		url: `http://${ORCINUS_API_HOST}:${ORCINUS_API_PORT}/apis/stack/create`,
+		url: `${ ROOT_URL }/stack/create`,
 		headers: {
 			'Content-Type': 'application/json',
 			'x-access-token': token

@@ -2,6 +2,8 @@ import axios from 'axios'
 
 import { ORCINUS_API_HOST, ORCINUS_API_PORT } from "../config/environtment"
 
+const ROOT_URL = location.href.indexOf('localhost') > 0 ? `http://localhost:4000/apis` : '/apis'
+
 import { getToken } from '../utils/AuthService'
 
 const token = getToken()
@@ -12,7 +14,7 @@ const token = getToken()
 export function signUpUser(values) {
 	const request = axios({
 		method: 'post',
-		url: `http://${ORCINUS_API_HOST}:${ORCINUS_API_PORT}/auth/signup`,
+		url: `${ ROOT_URL }/auth/signup`,
 		data: values,
 		headers: {
 			'Content-Type': 'application/json'
@@ -46,7 +48,7 @@ export function signUpUserFailure(error) {
 export function signInUser(values) {
   const request = axios({
   	method: 'post',
-  	url: `http://${ORCINUS_API_HOST}:${ORCINUS_API_PORT}/auth/signin`,
+  	url: `${ ROOT_URL }/auth/signin`,
 		data: values,
 		headers: {
 			'Content-Type': 'application/json',
@@ -78,7 +80,7 @@ export function meFromToken(tokenFromStorage) {
 	
 	const request = axios({
 		method: 'post',
-		url: `http://${ORCINUS_API_HOST}:${ORCINUS_API_PORT}/auth/me`,
+		url: `${ ROOT_URL }/auth/me`,
 		data: {},
 		headers: {
 			'x-access-token': tokenFromStorage
@@ -94,7 +96,7 @@ export function meFromToken(tokenFromStorage) {
 export function getInfo() {
 	const request = axios({
 		method: 'get',
-		url: `http://${ORCINUS_API_HOST}:${ORCINUS_API_PORT}/info`,
+		url: `${ ROOT_URL }/info`,
 		headers: {
 			'x-access-token': token
 		}

@@ -15,6 +15,8 @@ import {
 
 import { ORCINUS_API_HOST, ORCINUS_API_PORT } from "../config/environtment"
 
+const ROOT_URL = location.href.indexOf('localhost') > 0 ? `http://localhost:4000/apis` : '/apis'
+
 import { getToken } from '../utils/AuthService'
 
 const token = getToken()
@@ -27,7 +29,7 @@ export function fetchServices() {
     payload: axios({
     	method: 'post',
     	data:{},
-    	url: `http://${ORCINUS_API_HOST}:${ORCINUS_API_PORT}/apis/service`,
+    	url: `${ ROOT_URL }/service`,
     	headers: {
     		'Content-Type': 'application/json',
     		'x-access-token': token
@@ -42,7 +44,7 @@ export function fetchService(id) {
 		type: FETCH_SERVICE,
 		payload: axios({
 			method: 'post',
-			url: `http://${ORCINUS_API_HOST}:${ORCINUS_API_PORT}/apis/service/inspect`,
+			url: `${ ROOT_URL }/service/inspect`,
 			headers: {
     		'Content-Type': 'application/json',
     		'x-access-token': token
@@ -61,7 +63,7 @@ export function deleteServiceAPI(id) {
 	const request = axios({
 		method: 'post',
 		data: JSON.parse(`{ "id" : "${id}" }`),
-		url: `http://${ORCINUS_API_HOST}:${ORCINUS_API_PORT}/apis/service/delete`,
+		url: `${ ROOT_URL }/service/delete`,
 		headers: {
   		'Content-Type': 'application/json',
   		'x-access-token': token
@@ -101,7 +103,7 @@ export function fetchTasks(name) {
 	const request = axios({
 		method: 'post',
 		data: JSON.parse(`{ "service": "${name}"}`),
-		url: `http://${ORCINUS_API_HOST}:${ORCINUS_API_PORT}/apis/service/task`,
+		url: `${ ROOT_URL }/service/task`,
 		headers: {
   		'Content-Type': 'application/json',
   		'x-access-token': token
@@ -144,7 +146,7 @@ export function replicasDecrement(serviceId) {
 export function scaleServiceAPI(props) {
 	const request = axios({
 		method: 'post',
-		url: `http://${ORCINUS_API_HOST}:${ORCINUS_API_PORT}/apis/service/update`,
+		url: `${ ROOT_URL }/service/update`,
 		data: props,
 		headers: {
   		'Content-Type': 'application/json',
@@ -175,7 +177,7 @@ export function setStackName(data) {
 export function checkStackServiceAPI(stack) {
 	const request = axios({
 		method: 'post',
-		url: `http://${ORCINUS_API_HOST}:${ORCINUS_API_PORT}/apis/stack`,
+		url: `${ ROOT_URL }/stack`,
 		data: stack,
 		headers: {
   		'Content-Type': 'application/json',
@@ -194,7 +196,7 @@ export function createService(service) {
 	const request = axios({
 		method: 'post',
 		data: service,
-		url: `http://${ORCINUS_API_HOST}:${ORCINUS_API_PORT}/apis/service/create`,
+		url: `${ ROOT_URL }/service/create`,
 		headers: {
   		'Content-Type': 'application/json',
   		'x-access-token': token

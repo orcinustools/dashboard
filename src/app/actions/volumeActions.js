@@ -9,6 +9,8 @@ import axios from "axios"
 import { FETCH_VOLUMES, FETCH_VOLUME } from "./actionTypes"
 import { ORCINUS_API_HOST, ORCINUS_API_PORT } from "../config/environtment"
 
+const ROOT_URL = location.href.indexOf('localhost') > 0 ? `http://localhost:4000/apis` : '/apis'
+
 import { getToken } from '../utils/AuthService'
 
 const token = getToken()
@@ -19,7 +21,7 @@ export function fetchVolumes() {
 		type: FETCH_VOLUMES,
 		payload: axios({
 			method: 'get',
-			url: `http://${ORCINUS_API_HOST}:${ORCINUS_API_PORT}/apis/volume`,
+			url: `${ ROOT_URL }/volume`,
 			headers: {
 				'x-access-token': token,
 				'Content-Type': 'application/json'

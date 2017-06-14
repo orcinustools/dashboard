@@ -13,6 +13,8 @@ import {
 
 import { ORCINUS_API_HOST, ORCINUS_API_PORT } from "../config/environtment"
 
+const ROOT_URL = location.href.indexOf('localhost') > 0 ? `http://localhost:4000/apis` : '/apis'
+
 import { getToken } from '../utils/AuthService'
 
 const token = getToken()
@@ -23,7 +25,7 @@ export function fetchContainers() {
 		type: FETCH_CONTAINERS,
 		payload: axios({
 			method: 'get',
-			url: `http://${ORCINUS_API_HOST}:${ORCINUS_API_PORT}/apis/container`,
+			url: `${ ROOT_URL }/container`,
 			headers: { 
 				'Content-Type': 'application/json',
 				'x-access-token': token 
@@ -38,7 +40,7 @@ export function fetchContainer(id) {
 
 	const request = axios({
 		method: 'post',
-		url: `http://${ORCINUS_API_HOST}:${ORCINUS_API_PORT}/apis/container/inspect`,
+		url: `${ ROOT_URL }/container/inspect`,
 		data: JSON.parse(`{ "id": "${id}" }`),
 		headers: {
 			'Content-Type': 'application/json',
@@ -59,7 +61,7 @@ export function fetchContainer(id) {
 export function pauseContainerAPI(id) {
 	const request = axios({
 		method: 'post',
-		url: `http://${ORCINUS_API_HOST}:${ORCINUS_API_PORT}/apis/container/pause`,
+		url: `${ ROOT_URL }/container/pause`,
 		data: JSON.parse(`{ "id": "${id}" }`),
 		headers: {
 			'Content-Type': 'application/json',
@@ -95,7 +97,7 @@ export function pauseContainer(id) {
 export function unPauseContainerAPI(id) {
 	const request = axios({
 		method: 'post',
-		url: `http://${ORCINUS_API_HOST}:${ORCINUS_API_PORT}/apis/container/unpause`,
+		url: `${ ROOT_URL }/container/unpause`,
 		data: JSON.parse(`{ "id" : "${id}"}`),
 		headers: {
 			'Content-Type': 'application/json',
@@ -133,7 +135,7 @@ export function clearContainerList() {
 export function deleteContainerAPI(id) {
 	const request = axios({
 		method: 'post',
-		url: `http://${ORCINUS_API_HOST}:${ORCINUS_API_PORT}/apis/container/delete`,
+		url: `${ ROOT_URL }/container/delete`,
 		data: JSON.parse(`{ "id": "${id}" }`),
 		headers: {
 			'Content-Type': 'application/json',
