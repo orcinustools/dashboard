@@ -77,16 +77,16 @@ class LoginPage extends Component {
                      component={ renderField }
                      label="Password*" />
               <div>
-                <button
-                        type="submit"
-                        className="btn btn-primary"
-                        disabled={ false }>
-                  Submit
-                </button>
-                <Link
-                      to="/"
-                      className="btn btn-error"> Cancel
-                </Link>
+              <button
+                      type="submit"
+                      className="btn btn-primary"
+                      disabled={ false }>
+                Submit
+              </button>
+              <Link
+                    to="/"
+                    className="btn btn-error"> Cancel
+              </Link>
               </div>
             </form>
           </div>

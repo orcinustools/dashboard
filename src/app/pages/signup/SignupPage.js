@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { reduxForm, Field, SubmissionError } from 'redux-form'
 import renderField from './renderField'
-import { Link } from 'react-router'
+import { Link, browserHistory } from 'react-router'
 
 import { signUpUser } from '../../actions/userActions'
 
@@ -47,7 +47,9 @@ function validate(values) {
 class LoginPage extends Component {
 
   _handleSubmit(values, dispatch) {
-    dispatch(signUpUser(values))
+    dispatch(signUpUser(values)).then(() => {
+      browserHistory.push('/signin')
+    })
   }
 
   render() {
