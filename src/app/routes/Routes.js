@@ -40,7 +40,7 @@ export default class Routes extends React.Component {
 					<Route path={ "/services" } component={ ServiceListPage } onEnter={ requireAuth } />
 					<Route path={ "/services/new" } component={ ServiceCreatePage } onEnter={ requireAuth } />
 					<Route path={ "/services/:Id" } component={ ServiceDetailsPage } onEnter={ requireAuth } />
-					<Route path={ "/containers" } component={ ContainerListPage } onEnter={ requireAuth } />
+					{/*<Route path={ "/containers" } component={ ContainerListPage } onEnter={ requireAuth } />*/}
 					<Route path={ "/containers/:Id" } component={ ContainerDetailsPage } onEnter={ requireAuth } />
 					<Route path={ "/volumes" } component={ VolumeListPage } onEnter={ requireAuth } />
 					<Route path={ "/volumes/new" } component={ VolumeCreateConnected } onEnter={ requireAuth } />
