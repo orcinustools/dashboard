@@ -4,6 +4,7 @@
 import { connect } from "react-redux"
 
 import { fetchStack, fetchServices } from "../../actions/stackActions"
+import { setStackName } from "../../actions/serviceActions"
 
 import StackDetails from "../../components/stack/StackDetails"
 
@@ -23,7 +24,10 @@ const mapDispatchToProps = (dispatch) => {
 		},
 		fetchServices: (stackId) => {
 			dispatch(fetchServices(stackId))
-		}
+		},
+    setStackName: (data) => {
+      dispatch(setStackName(data))
+    }
 	}
 }
 

@@ -3,7 +3,7 @@
  */
 import { connect } 				from "react-redux"
 
-import { checkStack } from "../../actions/stackActions"
+import { createStack } from "../../actions/stackActions"
 
 import StackCreate from "../../components/stack/StackCreate"
 
@@ -15,8 +15,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
 	return {
-		checkStack: (props) => {
-			dispatch(checkStack(props))
+		createStack: (props) => {
+			dispatch(createStack(props))
 		}
 	}
 }

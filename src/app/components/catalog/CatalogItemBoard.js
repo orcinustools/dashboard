@@ -3,7 +3,7 @@ import PropTypes  from "prop-types"
 import { Link }   from "react-router"
 import Select   from "react-select"
 
-import { OMURA_HOST, OMURA_PORT} from "../../config/environtment"
+import { ORCINUS_OMURA } from "../../config/environtment"
 
 import "./CatalogItemBoard.css"
 
@@ -20,19 +20,19 @@ const CatalogItemBoard = (props) => {
             onClick={ () => props.dismiss(props.name) } >
           <i className="fa fa-times" aria-hidden="true"></i>
         </button>
-        <Link 
+        {/*<Link 
             to="#modalEditItem"
             data-toggle="modal"
             className="item-close btn btn-default btn-xs pull-right" >
           <i className="fa fa-pencil" aria-hidden="true"></i>
-        </Link>
+        </Link>*/}
         <div className="clearfix"></div>
-        <img src={ `http://${ OMURA_HOST }:${ OMURA_PORT}/${ props.img }` }  alt={ props.name } className="item__logo" />
+        <img src={ `http://${ ORCINUS_OMURA }/${ props.img }` }  alt={ props.name } className="item__logo" />
         <div className="caption text-center">
           <h4>{ props.title }</h4> 
         </div>
       </div>
-      <div
+      {/*<div
           aria-hidden="true"
           aria-labelledby="myModalLabel"
           role="dialog"
@@ -100,7 +100,7 @@ const CatalogItemBoard = (props) => {
             </div>
           </div>
         </div>
-      </div>
+      </div>*/}
     </div>
 	)
 }

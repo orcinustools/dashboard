@@ -15,7 +15,7 @@ const AsideLeft = (props) => {
 				<SidebarButton 
 						text="New Project" 
 						class="create-button"
-						link="/projects/new" />
+						link="/catalog" />
 				
 				<SidebarMenu />
 	      

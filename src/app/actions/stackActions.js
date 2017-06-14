@@ -122,10 +122,10 @@ export function checkStackAPI(stack) {
 	}
 }
 
-export function createStack(props) {
+export function createStack(stackName) {
 	const request = axios({
 		method: 'post',
-		data: props,
+		data: JSON.parse(`{ "name" : "${stackName}" }`),
 		url: `http://${ORCINUS_API_HOST}:${ORCINUS_API_PORT}/apis/stack/create`,
 		headers: {
 			'Content-Type': 'application/json',

@@ -6,7 +6,7 @@ import moment     from 'moment'
 const StackListItem = (props) => {
 	return (
     <tr>
-      <td><Link to={`/projects/${props.id}`}>{ props.name }</Link></td>
+      <td><Link to={`/projects/${props.link}`}>{ props.name }</Link></td>
       <td>{ moment(props.created).format("MMMM Do YYYY, h:mm:ss a") }</td>
       {/*<td><span className="label label-success">RUNNING</span></td>
       <td>

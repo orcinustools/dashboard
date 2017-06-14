@@ -1,5 +1,5 @@
 import React from "react"
-import { Link } from "react-router"
+import { Link, browserHistory } from "react-router"
 
 import ActionButton  from "./StackDetails/ActionButton"
 import General       from "./StackDetails/General"
@@ -114,7 +114,12 @@ export default class StackDetails extends React.Component {
               </div>
               { fetched &&
                 <div className="panel-footer">
-                  <Link to="/catalog" className="btn btn-primary create-button"><i className="fa fa-plus fa-fw" aria-hidden="true"></i>  Add New Service</Link>
+                  <button 
+                      onClick={() => this.props.setStackName(stack.Name.split('-')[1])}
+                      className="btn btn-primary create-button">
+                    <i className="fa fa-plus fa-fw" aria-hidden="true"></i> 
+                    Add New Service
+                  </button>
                 </div>
               }
             </div>

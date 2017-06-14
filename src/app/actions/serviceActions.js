@@ -213,3 +213,10 @@ export function removeServiceItemFromNewService(index) {
 		index
 	}
 }
+
+export function updateCustomDomain(value) {
+	return {
+		type: "UPDATE_CUSTOM_DOMAIN",
+		payload: value
+	}
+}

@@ -119,6 +119,18 @@ export default function reducer (state = initialState, action) {
 				}
 			}
 
+		case "UPDATE_CUSTOM_DOMAIN":
+			return {
+				...state,
+				newService: {
+					...state.newService,
+					opt: {
+						...state.newService.opt,
+						domain: action.payload		
+					}
+				}
+			}
+
 		case "SET_STACK_NAME":
 			return {
 				...state,

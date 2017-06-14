@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux'
 import { Link } from "react-router"
 import { Field, reduxForm } from "redux-form"
 import _ from "lodash"
-import Select   from "react-select"
+import Select, { Creatable }   from "react-select"
 
 import "./Catalog.css"
 
@@ -22,6 +22,7 @@ export default class Catalog extends React.Component {
     this.handleCreateService = this.handleCreateService.bind(this)
     this.onChangeStack = this.onChangeStack.bind(this)
     this.selectChange = this.selectChange.bind(this)
+    this.updateCustomDomain = this.updateCustomDomain.bind(this)
   }
 
   onChangeStack(event) {
@@ -47,7 +48,8 @@ export default class Catalog extends React.Component {
   }
 
   handleCreateService(newService) {
-    this.props.createService(newService)
+    // console.log(newService)
+    this.props.deployService(newService)
   }
 
   renderBoardItem(board) {
@@ -156,11 +158,18 @@ export default class Catalog extends React.Component {
     this.props.setStackName(val.value)
   }
 
+  updateCustomDomain(val) {
+    console.log(val.target.value)
+    this.props.updateCustomDomain(val.target.value)
+  }
+
 	render() {
-    const { fetching, fetched, error, catalog, board, newService } = this.props
+    const { fetching, fetched, error, catalog, board, newService, info, user } = this.props
 
     window.board = board
     window.newService = newService
+    window.stacks = this.props.stacks
+    window.SelectOptions = this.props.options
 
 		return (
 			<div>
@@ -182,7 +191,7 @@ export default class Catalog extends React.Component {
             <div className="col-xs-12">
               <div className="panel">
                 <header className="panel-heading">
-                  Add Service
+                  PROJECT WIZARD
                 </header>
                 <div className="panel-body">
                   <div className="form-horizontal">
@@ -190,22 +199,50 @@ export default class Catalog extends React.Component {
                       <label 
                           className="col-sm-2 control-label"
                           htmlFor="name">
-                        SELECT PROJECT
+                        PROJECT NAME
                       </label>
                       <div className="col-sm-10">
-                        <Select
+                        <Creatable
                           name="groupName"
                           value={this.props.newService.opt ? this.props.newService.opt.stack : ''}
                           options={this.props.options}
                           onChange={this.selectChange}
                           clearable={true}
+                          allowCreate={true}
+                          promptTextCreator ={(label) => `Create New Project "${label}"`}
                           searchable={true}
+                          noResultsText="No project found"
                           placeholder="Project Name..." />
-                        {/*<input 
-                          name="name"
+                      </div>
+                    </div>
+                    <div className="form-group">
+                      <label 
+                          className="col-sm-2 control-label"
+                          htmlFor="name">
+                        CUSTOM DOMAIN
+                      </label>
+                      <div className="col-sm-10">
+                        <input 
+                          name="domain" 
                           className="form-control"
-                          type="text"
-                          onChange={this.onChangeStack} />*/}
+                          placeholder="Type your custom domain here ..."
+                          onChange={this.updateCustomDomain}
+                          value={ newService && 
+                                  newService.opt && 
+                                  newService.opt.domain ?
+                                  newService.opt.domain : '' } />
+                      </div>
+                    </div>
+                    <div className="form-group">
+                      <label 
+                          className="col-sm-2 control-label"
+                          htmlFor="name">
+                        DOMAIN
+                      </label>
+                      <div className="col-sm-10">
+                        <p className="form-control-static">
+                        { newService && newService.opt && newService.opt.domain ? newService.opt.domain :(fetched && user && newService && newService.opt && newService.opt.services ? `${user.data.id}-${newService.opt.stack}-${Object.keys(newService.opt.services)[0]}-${info.data.endpoint}`: 'select service and project first') }
+                        </p>
                       </div>
                     </div>
                     <div className="form-group">

@@ -14,9 +14,11 @@ import {
 import {
   createNewService,
   setStackName,
-  createService
+  createService,
+  updateCustomDomain
 } from "../../actions/serviceActions"
-import { fetchStacks } from "../../actions/stackActions"
+
+import { fetchStacks, createStack } from "../../actions/stackActions"
 
 const mapStateToProps = (state) => {
   return {
@@ -28,6 +30,9 @@ const mapStateToProps = (state) => {
     stack_fetching: state.stacksState.stacksList.fetching,
     stack_fetched: state.stacksState.stacksList.fetched,
     stack_error: state.stacksState.stacksList.error,
+
+    info: state.userState.info,
+    user: state.userState.user,
     
     board: state.catalogsState.board,
     fetching: state.catalogsState.fetching,
@@ -53,13 +58,23 @@ const mapDispatchToProps = (dispatch) => {
     setStackName: (data) => {
       dispatch(setStackName(data))
     },
-    createService: (service) => {
-      dispatch(createService(service))
-    },
     fetchStacks: () => {
       dispatch(fetchStacks()).then((res) => {
         dispatch(setOptionSelect(res.value.data))
       })
+    },
+    deployService: (newService) => {
+      dispatch(createStack(newService.opt.stack)).then((response) => {
+        if(response.value.status !== 200) {
+          dispatch(createService(newService))
+        }
+        else {
+          dispatch(createService(newService)) 
+        }
+      })
+    },
+    updateCustomDomain: (value) => {
+      dispatch(updateCustomDomain(value))
     }
   }
 }

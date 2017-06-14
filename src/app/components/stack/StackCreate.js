@@ -18,8 +18,8 @@ class StackCreate extends React.Component {
 		
 
 	onSubmit(values) {
-		console.log(values)
-		this.props.checkStack(values)
+		// console.log(values)
+		this.props.createStack(values)
 	}
 
 	render() {
@@ -44,6 +44,20 @@ class StackCreate extends React.Component {
 		                <div className="col-sm-9">
 		                  <Field 
 		                  	name="name"
+		                  	component="input"
+		                  	className="form-control"
+		                  	type="text" />
+		                </div>
+		              </div>
+		              <div className="form-group">
+		                <label 
+		                		className="col-sm-2 control-label"
+		                		htmlFor="name">
+		                	DOMAIN NAME
+		                </label>
+		                <div className="col-sm-9">
+		                  <Field 
+		                  	name="domain"
 		                  	component="input"
 		                  	className="form-control"
 		                  	type="text" />
