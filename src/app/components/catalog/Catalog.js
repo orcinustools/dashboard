@@ -26,7 +26,7 @@ export default class Catalog extends React.Component {
 
   onChangeStack(event) {
     // console.log(event.target.value)
-    this.props.changeStackNameInput(event.target.value)
+    // this.props.changeStackNameInput(event.target.value)
   }
 
   componentDidMount() {   

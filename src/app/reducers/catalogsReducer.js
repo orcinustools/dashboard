@@ -51,9 +51,10 @@ export default function reducer (state = initialState, action) {
 		case "SET_OPTIONS_SELECT":
 			const options = action.data.filter((stack) => stack.Name !== 'ingress')
 				.reduce((options, stack) => {
+					console.log(stack.Name.split('-')[1])
 	        options.push({
-	          value: stack.Name,
-	          label: stack.Name
+	          value: stack.Name.split('-')[1],
+	          label: stack.Name.split('-')[1]
 	        })
 	        return options
       	}, [])
