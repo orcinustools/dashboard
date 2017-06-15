@@ -66,7 +66,8 @@ export default function reducer (state = initialState, action) {
 		case "CREATE_SERVICE_FULFILLED":
 		 return {
 		 		...state,
-			 	board:[]	
+			 	board:[],
+			 	options: []
 		 }
 	}
 

@@ -40,8 +40,8 @@ export default class Catalog extends React.Component {
     addItemToBoard(name, category)
   }
 
-  handleCreateService(newService) {
-    this.props.deployService(newService)
+  handleCreateService(domain, newService) {
+    this.props.deployService(domain, newService)
   }
 
   renderBoardItem(board) {
@@ -157,7 +157,10 @@ export default class Catalog extends React.Component {
   }
 
 	render() {
-    const { fetching, fetched, error, catalog, board, newService, info, user } = this.props
+    const { 
+      fetching, fetched, error, catalog, board, info, user,
+      newService, newService_loading, newService_done
+    } = this.props
 
     window.board = board
     window.newService = newService
@@ -202,6 +205,7 @@ export default class Catalog extends React.Component {
                           onChange={this.selectChange}
                           clearable={true}
                           allowCreate={true}
+                          disabled={ newService_loading }
                           promptTextCreator ={(label) => `Create New Project "${label}"`}
                           searchable={true}
                           noResultsText="No project found"
@@ -219,6 +223,7 @@ export default class Catalog extends React.Component {
                           name="domain" 
                           className="form-control"
                           placeholder="Type your custom domain here ..."
+                          readOnly={ newService_loading }
                           onChange={this.updateCustomDomain}
                           value={ newService && 
                                   newService.opt && 
@@ -243,14 +248,24 @@ export default class Catalog extends React.Component {
                     {/* TODO: tambah loading status dan redirect ke halaman stack */}
                       { this.props.newService && 
                         this.props.newService.opt && 
-                        this.props.newService.opt.stack ?
-                        <button 
+                        this.props.newService.opt.stack ? 
+                        ( newService_loading ? 
+                          <button 
+                              disabled={ newService_loading }
+                              style={{ border: "1px solid #209687" }}
+                              className="btn btn-success create-button"
+                              onClick={ () => this.handleCreateService(newService) } >
+                            <i className="fa fa-spinner fa-pulse fa-fw" aria-hidden="true"></i>
+                            &nbsp; Processing
+                          </button> :
+                          <button 
                             style={{ border: "1px solid #209687" }}
                             className="btn btn-success create-button"
-                            onClick={ () => this.handleCreateService(newService) } >
+                            onClick={ () => this.handleCreateService(newService.opt.domain, newService) } >
                           <i className="fa fa-rocket fa-fw" aria-hidden="true"></i>
                           &nbsp; Deploy Service
-                        </button> :
+                        </button>)
+                         :
                         <button 
                             className="btn btn-default"
                             type="button"

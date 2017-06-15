@@ -164,7 +164,11 @@ export default function reducer (state = initialState, action) {
 		case "CREATE_SERVICE_FULFILLED":
 			return {
 				...state,
-				newService: {}
+				newService: {
+					service: {},
+					fetched: true,
+					fetching: false
+				}
 			}
 
 	}

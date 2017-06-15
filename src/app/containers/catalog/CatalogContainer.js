@@ -1,7 +1,8 @@
 /**
  * smart component for catalog page
  */
-import { connect } from "react-redux";
+import { connect } from "react-redux"
+import { browserHistory } from "react-router"
 
 import Catalog from "../../components/catalog/Catalog"
 
@@ -23,7 +24,6 @@ import { fetchStacks, createStack } from "../../actions/stackActions"
 const mapStateToProps = (state) => {
   return {
     catalog: state.catalogsState.imageList,
-    newService: state.servicesState.newService,
     options: state.catalogsState.options,
 
     stacks: state.stacksState.stacksList.stacks,
@@ -34,6 +34,10 @@ const mapStateToProps = (state) => {
     info: state.appState.appInfo.info,
 
     user: state.userState.user,
+    
+    newService: state.servicesState.newService,
+    newService_loading: state.servicesState.newService.fetching,
+    newService_done: state.servicesState.newService.fetched,
     
     board: state.catalogsState.board,
     fetching: state.catalogsState.fetching,
@@ -64,13 +68,22 @@ const mapDispatchToProps = (dispatch) => {
         dispatch(setOptionSelect(res.value.data))
       })
     },
-    deployService: (newService) => {
+    deployService: (domain, newService) => {
+      var target = domain
       dispatch(createStack(newService.opt.stack)).then((response) => {
         if(response.value.status !== 200) {
-          dispatch(createService(newService))
+          dispatch(createService(newService)).then((res) => {
+            browserHistory.push(`/services/${res.action.payload.data[0].id}`)
+            window.open(`http://${target}`, '_blank')
+            // console.log(target)
+          })
         }
         else {
-          dispatch(createService(newService)) 
+          dispatch(createService(newService)).then((res) => {
+            browserHistory.push(`/services/${res.action.payload.data[0].id}`)
+            window.open(`http://${target}`, '_blank')
+            // console.log(target)
+          })
         }
       })
     },
