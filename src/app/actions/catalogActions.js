@@ -12,10 +12,12 @@ import _ from "lodash"
 
 import { setNewService } from "./serviceActions"
 
+const ROOT_URL = location.href.indexOf('localhost') > 0 ? `http://localhost:8080/apis` : '/apis'
+
 export function fetchCatalog() {
 	return {
 		type: "FETCH_CATALOG",
-		payload: axios.get(`http://${ ORCINUS_OMURA }/apis`)
+		payload: axios.get(`${ ROOT_URL }`)
 	}
 }
 
@@ -32,7 +34,7 @@ export function removeItemFromBoard(name) {
 export function fetchCatalogItem(name, category) {
 	const request = axios({
 		method: 'get',
-		url: `http://${ ORCINUS_OMURA }/apis/${ category }/${ name }`
+		url: `${ ROOT_URL }/${ category }/${ name }`
 	})
 
 	return {
