@@ -93,17 +93,3 @@ export function meFromToken(tokenFromStorage) {
 	}
 }
 
-export function getInfo() {
-	const request = axios({
-		method: 'get',
-		url: `${ ROOT_URL }/info`,
-		headers: {
-			'x-access-token': token
-		}
-	})
-
-	return {
-		type: 'GET_INFO',
-		payload: request
-	}
-}

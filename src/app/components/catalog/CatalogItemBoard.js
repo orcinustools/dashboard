@@ -27,7 +27,7 @@ const CatalogItemBoard = (props) => {
           <i className="fa fa-pencil" aria-hidden="true"></i>
         </Link>*/}
         <div className="clearfix"></div>
-        <img src={ `http://${ ORCINUS_OMURA }/${ props.img }` }  alt={ props.name } className="item__logo" />
+        <img src={ `${ ORCINUS_OMURA }/${ props.img }` }  alt={ props.name } className="item__logo" />
         <div className="caption text-center">
           <h4>{ props.title }</h4> 
         </div>

@@ -31,7 +31,8 @@ const mapStateToProps = (state) => {
     stack_fetched: state.stacksState.stacksList.fetched,
     stack_error: state.stacksState.stacksList.error,
 
-    info: state.userState.info,
+    info: state.appState.appInfo.info,
+
     user: state.userState.user,
     
     board: state.catalogsState.board,

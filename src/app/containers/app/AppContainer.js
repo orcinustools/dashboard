@@ -2,12 +2,13 @@ import React, { Component } from 'react'
 import { connect } 					from 'react-redux'
 
 import App from '../../components/app/App'
+
 import { 
 	meFromToken, 
 	meFromTokenSuccess, 
 	meFromTokenFailure,
-	getInfo 
 } from '../../actions/userActions'
+import { getInfo } from '../../actions/appActions'
 
 const mapStateToProps = (state) => {
 	return {

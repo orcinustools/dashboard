@@ -5,7 +5,6 @@ import Avatar from "../../vendors/img/avatar.png"
 import { logout } from '../../utils/AuthService'
 
 const UserMenu = (props) => {
-  console.log(props)
 	return (
     <li className="dropdown user user-menu">
       <a href="#" className="dropdown-toggle" data-toggle="dropdown">

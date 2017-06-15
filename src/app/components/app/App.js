@@ -5,7 +5,7 @@ import { AsideLeft, AsideRight } from "../aside";
 
 export default class App extends Component {
 
-	componentDidMount() {
+	componentWillMount() {
 		this.props.loadUserFromToken()
 		this.props.loadInfoFromServer()
 	}

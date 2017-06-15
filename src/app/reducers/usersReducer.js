@@ -1,4 +1,4 @@
-const initialState = {user: null, status:null, error:null, loading: false, info: null}
+const initialState = {user: null, status:null, error:null, loading: false}
 
 export default function(state = initialState, action) {
 	let error;
@@ -31,13 +31,7 @@ export default function(state = initialState, action) {
     		user: action.payload
     	}
 
-    case "GET_INFO_PENDING":
-    case "GET_INFO_REJECTED":
-    case "GET_INFO_FULFILLED":
-    	return {
-    		...state,
-				info: action.payload
-    	}
+
 
     default:
     return state;

@@ -10,7 +10,7 @@ const CatalogItem = (props) => {
           style={{ cursor: 'pointer' }}
           onClick={ () => props.onAdd(props.name, props.category) }>
         <div className="thumbnail">
-          <img src={ `http://${ ORCINUS_OMURA }/${ props.img }` } alt={ props.name } className="" />
+          <img src={ `${ ORCINUS_OMURA }/${ props.img }` } alt={ props.name } className="" />
           <div className="caption text-center">
             <h4>{ props.title }</h4> 
             {/*<p>

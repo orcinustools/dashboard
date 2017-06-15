@@ -20,39 +20,32 @@ export default class Catalog extends React.Component {
     this.handleDissmis = this.handleDissmis.bind(this)
     this.handleAddItemToBoard = this.handleAddItemToBoard.bind(this)
     this.handleCreateService = this.handleCreateService.bind(this)
-    this.onChangeStack = this.onChangeStack.bind(this)
     this.selectChange = this.selectChange.bind(this)
     this.updateCustomDomain = this.updateCustomDomain.bind(this)
   }
 
-  onChangeStack(event) {
-    // console.log(event.target.value)
-    // this.props.changeStackNameInput(event.target.value)
-  }
-
-  componentDidMount() {   
+  componentDidMount() {
     this.props.fetchStacks()
     this.props.fetchCatalog()
-	}
+  }
 
   handleDissmis(name) {
     const { removeItemFromBoard } = this.props
     removeItemFromBoard(name)
-    // console.log(name)
   }
 
   handleAddItemToBoard(name, category) {
-    const { addItemToBoard } = this.props
+    const { addItemToBoard, info } = this.props
 
     addItemToBoard(name, category)
   }
 
   handleCreateService(newService) {
-    // console.log(newService)
     this.props.deployService(newService)
   }
 
   renderBoardItem(board) {
+    const { info } = this.props
     return board.map((b, index) => {
       return (
         <CatalogItemBoard 
@@ -241,7 +234,7 @@ export default class Catalog extends React.Component {
                       </label>
                       <div className="col-sm-10">
                         <p className="form-control-static" style={{ fontSize: '1.25em'}}>
-                        { newService && newService.opt && newService.opt.domain ? newService.opt.domain :(fetched && user && newService && newService.opt && newService.opt.services ? `${user.data.id}-${newService.opt.stack}-${Object.keys(newService.opt.services)[0]}-${info.data.endpoint}`: 'select service and project first') }
+                        { newService && newService.opt && newService.opt.domain ? newService.opt.domain :(fetched && user && newService && newService.opt && newService.opt.services ? `${user.data.id}-${newService.opt.stack}-${Object.keys(newService.opt.services)[0]}-${info.endpoint}`: 'select service and project first') }
                         </p>
                       </div>
                     </div>
