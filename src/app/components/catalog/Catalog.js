@@ -1,31 +1,18 @@
-import React from "react"
-import { connect } from "react-redux"
+import React                  from "react"
+import { connect }            from "react-redux"
 import { bindActionCreators } from 'redux'
-import { Link } from "react-router"
-import { Field, reduxForm } from "redux-form"
-import _ from "lodash"
-import Select, { Creatable }   from "react-select"
-import Notifications from 'react-notification-system-redux'
-
-import "./Catalog.css"
+import { Link }               from "react-router"
+import { Field, reduxForm }   from "redux-form"
+import _                      from "lodash"
+import Select, { Creatable }  from "react-select"
+import Notifications          from 'react-notification-system-redux'
+import { notificationOpts }   from '../../utils/NotificationUtils'
 
 import CatalogSearchBar from "./CatalogSearchBar"
-import CatalogItem from "./CatalogItem"
+import CatalogItem      from "./CatalogItem"
 import CatalogItemBoard from "./CatalogItemBoard"
 
-const notificationOpts = (title, message) => {
-  return {
-    // uid: 'once-please', // you can specify your own uid if required
-    title: `${ title }`,
-    message: `${ message }`,
-    position: 'tr',
-    autoDismiss: 10,
-    // action: {
-    //   label: 'Click me!!',
-    //   callback: () => window.open(domain, '_blank')
-    // }
-  }
-}
+import "./Catalog.css"
 
 export default class Catalog extends React.Component {
 
@@ -48,7 +35,7 @@ export default class Catalog extends React.Component {
     const { removeItemFromBoard, dispatchNotification } = this.props
     removeItemFromBoard(name)
     dispatchNotification(
-      Notifications.warning, 
+      Notifications.success, 
       notificationOpts(
         'Success', 
         `Successfully remove ${ name } from board!`
@@ -62,8 +49,12 @@ export default class Catalog extends React.Component {
     addItemToBoard(name, category)
     dispatchNotification(
       Notifications.success, 
-      notificationOpts('Success', `Successfully added ${ name } to board!`)
+      notificationOpts(
+        'Success', 
+        `Successfully added ${ name } to board!`,
+        () => document.getElementById('#board').scrollIntoView()
       )
+    )
   }
 
   handleCreateService(domain, newService) {
@@ -311,7 +302,7 @@ export default class Catalog extends React.Component {
                     </div>
                   </div>
 
-                  <div className="well well-lg">
+                  <div className="well well-lg" id="#board">
                     {
                       board.length > 0 ? 
                       this.renderBoardItem(board) :
@@ -376,7 +367,7 @@ export default class Catalog extends React.Component {
             }
           </div>
 
-          <div className="clearfix"></div>
+          {/*<div className="clearfix"></div>
           <h3 className="category-header">Framework</h3>
           { fetching &&
           <div className="row">
@@ -405,7 +396,7 @@ export default class Catalog extends React.Component {
             { fetched &&
               this.renderLanguage(catalog.categories.languages)
             }
-          </div>
+          </div>*/}
 
           {/*
             <div className="row">
