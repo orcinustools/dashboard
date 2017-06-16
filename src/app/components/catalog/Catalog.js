@@ -19,10 +19,10 @@ const notificationOpts = (title, message) => {
     title: `${ title }`,
     message: `${ message }`,
     position: 'tr',
-    autoDismiss: 0,
+    autoDismiss: 10,
     // action: {
     //   label: 'Click me!!',
-    //   callback: () => alert('clicked!')
+    //   callback: () => window.open(domain, '_blank')
     // }
   }
 }
@@ -57,14 +57,22 @@ export default class Catalog extends React.Component {
   }
 
   handleAddItemToBoard(name, category) {
-    const { addItemToBoard, info } = this.props
+    const { addItemToBoard, info, dispatchNotification } = this.props
 
     addItemToBoard(name, category)
-    this.props.dispatchNotification(Notifications.success, notificationOpts('Success', `Successfully added ${ name } to board!`))
+    dispatchNotification(
+      Notifications.success, 
+      notificationOpts('Success', `Successfully added ${ name } to board!`)
+      )
   }
 
   handleCreateService(domain, newService) {
-    this.props.deployService(domain, newService)
+    this.props.deployService(
+      domain, 
+      newService, 
+      Notifications.success, 
+      notificationOpts('Success', `Successfully deploy service!`)
+      )
   }
 
   renderBoardItem(board) {

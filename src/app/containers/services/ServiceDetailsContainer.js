@@ -12,7 +12,9 @@ const mapStateToProps = (state, ownProps) => {
 		service: state.servicesState.activeService.service,
 		fetching: state.servicesState.activeService.fetching,
 		fetched: state.servicesState.activeService.fetched,
-		error: state.servicesState.activeService.error
+		error: state.servicesState.activeService.error,
+
+		notifications: state.notifications
 	}
 }
 

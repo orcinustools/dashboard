@@ -70,23 +70,26 @@ const mapDispatchToProps = (dispatch) => {
         dispatch(setOptionSelect(res.value.data))
       })
     },
-    deployService: (domain, newService) => {
+    deployService: (domain, newService, fn, notificationOpts) => {
       var target = domain
       dispatch(createStack(newService.opt.stack)).then((response) => {
         if(response.value.status !== 200) {
           dispatch(createService(newService)).then((res) => {
             browserHistory.push(`/services/${res.action.payload.data[0].id}`)
             window.open(`http://${target}`, '_blank')
-            // console.log(target)
+            dispatch(fn(notificationOpts))
           })
         }
         else {
           dispatch(createService(newService)).then((res) => {
             browserHistory.push(`/services/${res.action.payload.data[0].id}`)
             window.open(`http://${target}`, '_blank')
+            dispatch(fn(notificationOpts))
             // console.log(target)
           })
         }
+      }).catch((response) => {
+        console.log("Catch ", response)
       })
     },
     updateCustomDomain: (value) => {
