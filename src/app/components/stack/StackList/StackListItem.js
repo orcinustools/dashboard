@@ -16,6 +16,14 @@ const StackListItem = (props) => {
           <li><i className="fa fa-hdd-o fa-fw" aria-hidden="true"></i> 2 Volumes</li>
         </ul>
       </td>*/}
+      <td>
+        <button 
+            onClick={() => props.onAddService(props.name) }
+            className="btn btn-primary create-button">
+          <i className="fa fa-plus fa-fw" aria-hidden="true"></i> 
+          Add New Service
+        </button>
+      </td>
       <td style={{ textAlign: 'right' }}>
         {/*<Link to="#" className="btn btn-warning btn-sm list-stack-action"><i className="fa fa-pause" aria-hidden="true"></i></Link>
         <Link to="#" className="btn btn-info btn-sm list-stack-action"><i className="fa fa-refresh" aria-hidden="true"></i></Link>*/}

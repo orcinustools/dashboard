@@ -37,7 +37,8 @@ export default class StackList extends React.Component {
           link={ stack.Name }
           name={ stack.Name.split('-')[1] }
           onDelete={ this._handleDeleteStack.bind(this) } 
-          created={ stack.created }/>
+          created={ stack.created }
+          onAddService={ this.props.setStackName }/>
       )
 
     })
@@ -60,6 +61,7 @@ export default class StackList extends React.Component {
                   <tr>
                     <th width="20%">Name</th>
                     <th width="20%">Created at</th>
+                    <th width="20%"></th>
                     <th width="10%"></th>
                   </tr>
                 </thead>

@@ -1,10 +1,11 @@
 /**
  * Smart component for Stack List Page
  */
-import { connect } from "react-redux"
+import { connect } 				from "react-redux"
+import { browserHistory } from "react-router"
 
 import { fetchStack, fetchServices } from "../../actions/stackActions"
-import { setStackName } from "../../actions/serviceActions"
+import { setStackName } 						 from "../../actions/serviceActions"
 
 import StackDetails from "../../components/stack/StackDetails"
 
@@ -27,6 +28,7 @@ const mapDispatchToProps = (dispatch) => {
 		},
     setStackName: (data) => {
       dispatch(setStackName(data))
+			browserHistory.push('/catalog')
     }
 	}
 }
