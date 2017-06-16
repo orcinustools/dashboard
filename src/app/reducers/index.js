@@ -1,5 +1,6 @@
 import { combineReducers } from "redux"
 import { reducer as formReducer } from "redux-form"
+import { reducer as notifications } from "react-notification-system-redux"
 
 import catalogsReducer from "./catalogsReducer"
 import stacksReducer from "./stacksReducer"
@@ -12,6 +13,7 @@ import appReducer from "./appReducer"
 
 export default combineReducers({
 	form: formReducer,
+	notifications: notifications,
 	appState: appReducer,
 	overviewState: overviewReducer,
 	catalogsState: catalogsReducer,

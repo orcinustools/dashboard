@@ -5,12 +5,27 @@ import { Link } from "react-router"
 import { Field, reduxForm } from "redux-form"
 import _ from "lodash"
 import Select, { Creatable }   from "react-select"
+import Notifications from 'react-notification-system-redux'
 
 import "./Catalog.css"
 
 import CatalogSearchBar from "./CatalogSearchBar"
 import CatalogItem from "./CatalogItem"
 import CatalogItemBoard from "./CatalogItemBoard"
+
+const notificationOpts = (title, message) => {
+  return {
+    // uid: 'once-please', // you can specify your own uid if required
+    title: `${ title }`,
+    message: `${ message }`,
+    position: 'tr',
+    autoDismiss: 0,
+    // action: {
+    //   label: 'Click me!!',
+    //   callback: () => alert('clicked!')
+    // }
+  }
+}
 
 export default class Catalog extends React.Component {
 
@@ -30,14 +45,22 @@ export default class Catalog extends React.Component {
   }
 
   handleDissmis(name) {
-    const { removeItemFromBoard } = this.props
+    const { removeItemFromBoard, dispatchNotification } = this.props
     removeItemFromBoard(name)
+    dispatchNotification(
+      Notifications.warning, 
+      notificationOpts(
+        'Success', 
+        `Successfully remove ${ name } from board!`
+        )
+      )
   }
 
   handleAddItemToBoard(name, category) {
     const { addItemToBoard, info } = this.props
 
     addItemToBoard(name, category)
+    this.props.dispatchNotification(Notifications.success, notificationOpts('Success', `Successfully added ${ name } to board!`))
   }
 
   handleCreateService(domain, newService) {
@@ -159,7 +182,8 @@ export default class Catalog extends React.Component {
 	render() {
     const { 
       fetching, fetched, error, catalog, board, info, user,
-      newService, newService_loading, newService_done
+      newService, newService_loading, newService_done,
+      notifications
     } = this.props
 
     window.board = board
@@ -169,6 +193,7 @@ export default class Catalog extends React.Component {
 
 		return (
 			<div>
+        <Notifications notifications={notifications} />
         <section className="content-header">
           <h1>CATALOG</h1>
           <ol className="breadcrumb breadcrumb-sm">

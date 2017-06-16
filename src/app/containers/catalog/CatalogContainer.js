@@ -42,7 +42,9 @@ const mapStateToProps = (state) => {
     board: state.catalogsState.board,
     fetching: state.catalogsState.fetching,
     fetched: state.catalogsState.fetched,
-    error: state.catalogsState.error
+    error: state.catalogsState.error,
+
+    notifications: state.notifications
   }
 }
 
@@ -89,6 +91,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     updateCustomDomain: (value) => {
       dispatch(updateCustomDomain(value))
+    },
+    dispatchNotification: (fn, notificationOpts) => {
+      dispatch(fn(notificationOpts));
     }
   }
 }
