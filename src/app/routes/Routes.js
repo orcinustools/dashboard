@@ -16,7 +16,7 @@ import {
 	ContainerListPage, ContainerDetailsPage,
 	VolumeListPage, VolumeDetailsPage,
 	FirewallPage,
-	LoginPage, SignupPage
+	SigninPage, SignupPage
 } from "../pages";
 
 import { requireAuth } from '../utils/AuthService'
@@ -47,7 +47,7 @@ export default class Routes extends React.Component {
 					<Route path={ "/volumes/:volumeName" } component={ VolumeDetailsPage } onEnter={ requireAuth } />
 					<Route path={ "/firewalls" } component={ FirewallPage } onEnter={ requireAuth } />
 				</Route>
-				<Route path={ "/signin" } component={ LoginPage } onEnter={this.scrollToTop} />
+				<Route path={ "/signin" } component={ SigninPage } onEnter={this.scrollToTop} />
 				<Route path={ "/signup" } component={ SignupPage } onEnter={this.scrollToTop} />
 				<Route path={ "*" } component={ PageNotFoundPage } onEnter={this.scrollToTop} />
 			</Router>

@@ -22,7 +22,7 @@ function validate(values) {
   return hasErrors && errors;
 }
 
-class LoginPage extends Component {
+class Signin extends Component {
   
 
   _handleSubmit(values, dispatch) {
@@ -41,7 +41,7 @@ class LoginPage extends Component {
   }
 
   render() {
-    const { handleSubmit } = this.props
+    const { handleSubmit, loading } = this.props
     
     return (
 
@@ -77,16 +77,20 @@ class LoginPage extends Component {
                      component={ renderField }
                      label="Password*" />
               <div>
-              <button
-                      type="submit"
-                      className="btn btn-primary"
-                      disabled={ false }>
-                Submit
-              </button>
-              <Link
-                    to="/"
-                    className="btn btn-error"> Cancel
-              </Link>
+              { loading ?
+                <button
+                        type="submit"
+                        className="btn btn-primary btn-block create-button"
+                        disabled={ loading }>
+                  <i className="fa fa-spinner fa-pulse fa-fw"></i> Signin
+                </button> :
+                <button
+                        type="submit"
+                        className="btn btn-primary btn-block create-button"
+                        disabled={ loading }>
+                  Signin
+                </button>
+              }
               </div>
             </form>
           </div>
@@ -99,4 +103,4 @@ class LoginPage extends Component {
 export default reduxForm({
   form: 'SignInForm', // a unique identifier for this form
   validate
-})(LoginPage)
+})(Signin)
