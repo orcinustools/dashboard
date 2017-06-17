@@ -24,7 +24,7 @@ export default class StackList extends React.Component {
       return (
         <tr>
           <td style={{ textAlign: "center" }} colSpan="7">
-            THERE IS NO PROJECTS NOW
+            <h4>THERE IS NO PROJECTS NOW</h4>
           </td>
         </tr>
       )
@@ -33,7 +33,7 @@ export default class StackList extends React.Component {
       return (
         <tr>
           <td style={{ textAlign: "center" }} colSpan="7">
-            PROJECTS NOT FOUND
+            <h4>PROJECTS NOT FOUND</h4>
           </td>
         </tr>
       )

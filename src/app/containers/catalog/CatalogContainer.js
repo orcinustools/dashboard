@@ -6,6 +6,9 @@ import { browserHistory } from "react-router"
 
 import Catalog from "../../components/catalog/Catalog"
 
+import { notificationOpts }   from '../../utils/NotificationUtils'
+import Notifications          from 'react-notification-system-redux'
+
 import {
 	fetchCatalog,
 	removeItemFromBoard,
@@ -70,22 +73,19 @@ const mapDispatchToProps = (dispatch) => {
         dispatch(setOptionSelect(res.value.data))
       })
     },
-    deployService: (domain, newService, fn, notificationOpts) => {
+    deployService: (domain, newService) => {
       var target = domain
       dispatch(createStack(newService.opt.stack)).then((response) => {
         if(response.value.status !== 200) {
           dispatch(createService(newService)).then((res) => {
             browserHistory.push(`/services/${res.action.payload.data[0].id}`)
-            window.open(`http://${target}`, '_blank')
-            dispatch(fn(notificationOpts))
+            dispatch(Notifications.success(notificationOpts('Success', `Successfully deploy service!`, () => window.open(`http://${domain}`, '_blank'))))
           })
         }
         else {
           dispatch(createService(newService)).then((res) => {
             browserHistory.push(`/services/${res.action.payload.data[0].id}`)
-            window.open(`http://${target}`, '_blank')
-            dispatch(fn(notificationOpts))
-            // console.log(target)
+            dispatch(Notifications.success(notificationOpts('Success', `Successfully deploy service!`, () => window.open(`http://${domain}`, '_blank'))))
           })
         }
       }).catch((response) => {
