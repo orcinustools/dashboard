@@ -182,7 +182,6 @@ export default class Catalog extends React.Component {
     const { 
       fetching, fetched, error, catalog, board, info, user,
       newService, newService_loading, newService_done,
-      notifications
     } = this.props
 
     window.board = board
@@ -192,7 +191,6 @@ export default class Catalog extends React.Component {
 
 		return (
 			<div>
-        <Notifications notifications={notifications} />
         <section className="content-header">
           <h1>CATALOG</h1>
           <ol className="breadcrumb breadcrumb-sm">

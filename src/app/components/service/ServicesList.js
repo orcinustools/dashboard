@@ -1,6 +1,5 @@
 import React          from "react"
 import { Link }       from "react-router"
-import Notifications  from 'react-notification-system-redux'
 
 import ServiceListItem from "./ServiceList/ServiceListItem";
 
@@ -82,11 +81,10 @@ export default class ServicesList extends React.Component {
 	}
 
 	render() {
-		const { services, fetching, fetched, error, notifications } = this.props;
+		const { services, fetching, fetched, error } = this.props;
 
 		return (
       <div>
-        <Notifications notifications={notifications} />
         <section className="content-header">
           <h1>
             SERVICES

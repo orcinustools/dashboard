@@ -10,8 +10,7 @@ export function getToken() {
 export function requireAuth(nextState, replace) {
 	if(!isLoggedIn()){
 		replace({
-			pathname: '/signin',
-			state: { nextPathname: nextState.location.pathname }
+			pathname: '/signin'
 		})
 	}
 }

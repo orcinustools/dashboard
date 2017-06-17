@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import { reduxForm, Field, SubmissionError } from 'redux-form'
 import renderField from './renderField'
 import { Link, browserHistory } from 'react-router'
 
-import { signInUser, signInUserFailure, signInUserSuccess } from '../../actions/userActions'
+import Notifications from 'react-notification-system-redux'
 
 import OrcinusLogo from '../../assests/images/logo/OrcinusFix_black.svg'
 
@@ -22,30 +23,52 @@ function validate(values) {
   return hasErrors && errors;
 }
 
+const notificationOpts = {
+  // uid: 'once-please', // you can specify your own uid if required
+  title: 'Username and/or password invalid',
+  // message: 'Now you can see how easy it is to use notifications in React!',
+  position: 'tr',
+  autoDismiss: 0,
+  action: {
+    label: 'Click me!!',
+    callback: () => alert('clicked!')
+  }
+};
+
 class Signin extends Component {
+
+  constructor(props) {
+    super(props);
+    
+    this.handleClick = this.handleClick.bind(this)
+    this._handleSubmit = this._handleSubmit.bind(this)
+    // this.handleRemoveAll = this.handleRemoveAll.bind(this)
+  }
+
+  handleClick() {
+    // this.props.dispatchNotification(Notifications.success, 250, notificationOpts);
+    this.props.dispatchNotification(Notifications.error, notificationOpts);
+    // this.props.dispatchNotification(Notifications.warning, 750, notificationOpts);
+    // this.props.dispatchNotification(Notifications.info, 1000, notificationOpts);
+  }
+
+  // handleRemoveAll() {
+  //   this.context.store.dispatch(Notifications.removeAll());
+  // }
   
 
-  _handleSubmit(values, dispatch) {
-    return dispatch(signInUser(values))
-      .then((result) => {
-        if(result.payload && result.payload.response && result.payload.response.status !== 200) {
-          dispatch(signInUserFailure(result.payload.response.data));
-          throw new SubmissionError(result.payload.response.data);
-        }
-        
-        // console.log(result.value.data.token)
-        sessionStorage.setItem('orcinus', result.value.data.token);
-        dispatch(signInUserSuccess(result.value.data)); //ps: this is same as dispatching RESET_USER_FIELDS
-        browserHistory.push('/')
-      }) 
+  _handleSubmit(values) {
+    this.props.signInUser(values)
   }
 
   render() {
-    const { handleSubmit, loading } = this.props
+    const { handleSubmit, loading, notifications, error } = this.props
     
     return (
 
       <div>
+        <Notifications notifications={notifications} />
+
         <div className="row">
           <div className="col-md-4 col-md-offset-4 "style={{ textAlign: 'center' }}>
             <Link to="/">

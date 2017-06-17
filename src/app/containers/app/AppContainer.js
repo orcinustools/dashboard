@@ -12,7 +12,9 @@ import { getInfo } from '../../actions/appActions'
 
 const mapStateToProps = (state) => {
 	return {
-		user: state.userState.user
+		user: state.userState.user,
+
+		notifications: state.notifications
 	}
 }
 

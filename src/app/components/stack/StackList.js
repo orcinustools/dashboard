@@ -4,7 +4,6 @@
 import React            from "react"
 import { Link }         from "react-router"
 import { connect }      from "react-redux"
-import Notifications    from 'react-notification-system-redux'
 
 import StackListItem    from "./StackList/StackListItem"
 
@@ -55,11 +54,10 @@ export default class StackList extends React.Component {
   }
 
 	render() {
-    const { stacks, error, fetching, fetched, notifications } = this.props
+    const { stacks, error, fetching, fetched } = this.props
 
 		return (
       <div className="row">
-        <Notifications notifications={notifications} />
         <div className="col-xs-12">
           <div className="panel">
             <header className="panel-heading">
