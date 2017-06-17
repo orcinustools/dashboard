@@ -80,14 +80,6 @@ export function setDeleteStack(id) {
 	}
 }
 
-export function deleteStack(id) {
-	return (dispatch) => {
-		dispatch(deleteStackAPI(id)).then(() => {
-			dispatch(setDeleteStack(id))
-		})
-	}
-}
-
 export function fetchServices(stackId) {
 	const request = axios({
 		method: 'post',

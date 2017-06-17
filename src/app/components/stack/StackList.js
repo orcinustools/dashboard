@@ -4,26 +4,36 @@
 import React            from "react"
 import { Link }         from "react-router"
 import { connect }      from "react-redux"
+import Notifications    from 'react-notification-system-redux'
 
 import StackListItem    from "./StackList/StackListItem"
 
 export default class StackList extends React.Component {
 
-	componentDidMount() {
+	componentWillMount() {
 		this.props.fetchStacks()
 	}
 
-  _handleDeleteStack(id) {
-    this.props.deleteStack(id)
+  _handleDeleteStack(id, name) {
+    this.props.deleteStack(id, name)
     // console.log(id)
   }
 
   renderStacks(stacks) {
-    if (stacks.length == 0) {
+    if (stacks !== undefined && stacks.length == 0) {
       return (
         <tr>
           <td style={{ textAlign: "center" }} colSpan="7">
             THERE IS NO PROJECTS NOW
+          </td>
+        </tr>
+      )
+    }
+    else if(stacks === undefined) {
+      return (
+        <tr>
+          <td style={{ textAlign: "center" }} colSpan="7">
+            PROJECTS NOT FOUND
           </td>
         </tr>
       )
@@ -45,10 +55,11 @@ export default class StackList extends React.Component {
   }
 
 	render() {
-    const { stacks, error, fetching, fetched } = this.props
+    const { stacks, error, fetching, fetched, notifications } = this.props
 
 		return (
       <div className="row">
+        <Notifications notifications={notifications} />
         <div className="col-xs-12">
           <div className="panel">
             <header className="panel-heading">
@@ -66,12 +77,12 @@ export default class StackList extends React.Component {
                   </tr>
                 </thead>
                 <tbody className="table-stack-list">
-                { error &&
+                {/* error &&
                   <tr>
-                    <td colSpan="6" style={{ textAlign: "center", color: "#939393" }}>
+                    <td colSpan="4" style={{ textAlign: "center", color: "#939393" }}>
                       <h4>PROJECTS NOT FOUND</h4>
                     </td>
-                  </tr>
+                  </tr>*/
                 }
 
                 { fetching &&

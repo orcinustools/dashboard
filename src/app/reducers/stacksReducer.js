@@ -14,8 +14,8 @@ export default function reducer (state = initialState, action) {
 		case "FETCH_STACKS_FULFILLED": 
 			return { ...state, stacksList: {stacks: action.payload.data.filter((stack) => stack.Name !== 'ingress'), fetched: true, error: null} }
 		case "FETCH_STACKS_REJECTED":
-			error = action.payload || {message: action.payload.message};
-			return { ...state, stacksList: {stacks: [], fetching: false, error: error} }
+			error = action.payload.response || {message: action.payload.message};
+			return { ...state, stacksList: { ...state.stackList, fetched: true, fetching: false, error: error} }
 
 		// Single service
 		case "FETCH_STACK_PENDING":
@@ -23,16 +23,17 @@ export default function reducer (state = initialState, action) {
 		case "FETCH_STACK_FULFILLED":
 			return { ...state, activeStack: {stack: action.payload.data, fetched: true, error: null}}
 		case "FETCH_STACK_REJECTED":
-			error = action.payload || {message: action.payload.message};
-			return { ...state, activeStack: {stack: {}, fetching: false, error: error}}
+			error = action.payload.response
+			return { ...state, activeStack: { ...state.activeStack, fetching: false, error: error}}
 
 		case "DELETE_STACK_PENDING":
 			return { ...state, stacksList: { ...state.stacksList, fetching: true, fetched: false } }
 		case "DELETE_STACK_FULFILLED":
-		return { ...state, stacksList: { ...state.stacksList, fetching: false, fetched: true } }
+			return { ...state, stacksList: { ...state.stacksList, fetching: false, fetched: true } }
 		case "DELETE_STACK_REJECTED":
-			error = action.payload || {message: action.payload.message}
-			return { ...state, stacksList: { ...state.stacksList, fetching: false, error: error } }
+			error = action.payload.response
+			return { ...state, stacksList: { ...state.stacksList, fetched: true, fetching: false, error: error } }
+
 		case "SET_DELETE_STACK":
 			return {
 				...state,
@@ -54,7 +55,7 @@ export default function reducer (state = initialState, action) {
 				}
 			}
 		case "FETCH_SERVICE_BY_STACK_ID_REJECTED":
-			error = action.payload || {message: action.payload.message}
+			error = action.payload.response
 			return {
 				...state,
 				activeStack: {

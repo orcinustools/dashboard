@@ -30,7 +30,7 @@ const StackListItem = (props) => {
         <div 
             to="#"
             className="btn btn-danger btn-sm list-stack-action"
-            onClick={() => props.onDelete(props.id)}>
+            onClick={() => props.onDelete(props.id, props.name)}>
           <i className="fa fa-trash-o" aria-hidden="true"></i>
         </div>
 
