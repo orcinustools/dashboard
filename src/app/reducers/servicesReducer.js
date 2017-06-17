@@ -16,8 +16,8 @@ export default function reducer (state = initialState, action) {
 		case "FETCH_SERVICES_FULFILLED": 
 			return { ...state, servicesList: {services: action.payload.data, fetched: true, error: null} }
 		case "FETCH_SERVICES_REJECTED":
-			error = action.payload || {message: action.payload.message};
-			return { ...state, servicesList: {services: [], fetching: false, error: error} }
+			error = action.payload.response
+			return { ...state, servicesList: { ...state.servicesList, fetched: true, fetching: false, error: error} }
 
 		// Single service
 		case "FETCH_SERVICE_PENDING":

@@ -76,7 +76,7 @@ const ServiceListItem = (props) => {
         }
         <button
             className="btn btn-danger btn-sm list-stack-action"
-            onClick={() => props.click(props.id)}>
+            onClick={() => props.click(props.id, props.name.split('-')[2])}>
           <i className="fa fa-trash-o" aria-hidden="true"></i>
         </button>
       </td>

@@ -1,5 +1,6 @@
-import React from "react";
-import { Link } from "react-router";
+import React          from "react"
+import { Link }       from "react-router"
+import Notifications  from 'react-notification-system-redux'
 
 import ServiceListItem from "./ServiceList/ServiceListItem";
 
@@ -13,7 +14,7 @@ export default class ServicesList extends React.Component {
     this.handleScaling = this.handleScaling.bind(this)
   }
 
-	componentDidMount() {
+	componentWillMount() {
 		this.props.fetchServices();
 	}
 
@@ -27,9 +28,9 @@ export default class ServicesList extends React.Component {
     this.props.replicasDecrement(serviceId)
   }
 
-  handleOnDeleteService(id) {
+  handleOnDeleteService(id, name) {
     console.log(id)
-    this.props.deleteService(id)
+    this.props.deleteService(id, name)
   }
 
   handleScaling(props) {
@@ -38,11 +39,20 @@ export default class ServicesList extends React.Component {
   }
 
 	renderServices(services) {
-    if (services.length == 0) {
+    if (services !== undefined && services.length == 0) {
       return (
         <tr>
           <td style={{ textAlign: "center" }} colSpan="7">
-            THERE IS NO SERVICE NOW
+            <h4>THERE IS NO SERVICE NOW</h4>
+          </td>
+        </tr>
+      )
+    }
+    else if (services === undefined) {
+      return (
+        <tr>
+          <td style={{ textAlign: "center" }} colSpan="7">
+            <h4>SERVICE NOT FOUND</h4>
           </td>
         </tr>
       )
@@ -72,10 +82,11 @@ export default class ServicesList extends React.Component {
 	}
 
 	render() {
-		const { services, fetching, fetched, error } = this.props;
+		const { services, fetching, fetched, error, notifications } = this.props;
 
 		return (
       <div>
+        <Notifications notifications={notifications} />
         <section className="content-header">
           <h1>
             SERVICES
@@ -117,13 +128,6 @@ export default class ServicesList extends React.Component {
                         this.renderServices(services)
                       }
 
-                      { error &&
-                        <tr>
-                          <td colSpan="6" style={{ textAlign: "center", color: "#939393" }}>
-                            <h4>SERVICES NOT FOUND</h4>
-                          </td>
-                        </tr>
-                      }
                     </tbody>
                   </table>
                 </div>

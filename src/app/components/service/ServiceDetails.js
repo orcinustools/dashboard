@@ -11,6 +11,8 @@ import Ports 					from "./ServiceDetails/Ports"
 import Endpoints 			from "./ServiceDetails/Endpoints"
 import Environtments 	from "./ServiceDetails/Environtments"
 
+import Notifications from 'react-notification-system-redux'
+
 const volOptions = [
   {value: 'wp-vol', label: 'wp-vol'}
 ]
@@ -68,10 +70,11 @@ export default class ServiceDetails extends React.Component {
 
 	render() {
 		
-		const { service, fetching, fetched, stacks, error } = this.props
+		const { service, fetching, fetched, stacks, error, notifications } = this.props
 
 		return (
 			<div>
+				<Notifications notifications={notifications} />
         <section className="content-header">
           <h1>
             { fetched && service.Spec.Name.split('-')[2] }
@@ -112,7 +115,7 @@ export default class ServiceDetails extends React.Component {
 										updated={service.UpatedAt}
 										image={service.Spec.TaskTemplate.ContainerSpec.Image}
 										replicated={service.Spec.Mode.Replicated.Replicas}
-										networks={service.Spec.Networks.map((network) => network.Target )} />
+										networks={service.Spec.Name.split('-').slice(0, 2).join('-')} />
 								}
 
 								{ error &&
