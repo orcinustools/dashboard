@@ -35,7 +35,7 @@ const mapDispatchToProps = (dispatch) => {
         browserHistory.push('/')
         dispatch(Notifications.success(notificationOpts('Success', `Successfully signin`)))
       }).catch((error) => {
-        dispatch(Notifications.error(notificationOpts('Error', error)))
+        dispatch(Notifications.error(notificationOpts('Error', error.response.data.message)))
       })
 		}
 	}
