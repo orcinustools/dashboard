@@ -10,8 +10,6 @@ import { browserHistory } from "react-router"
 
 import { getToken } from '../utils/AuthService'
 
-const token = getToken()
-
 import { 
 	FETCH_STACKS,	FETCH_STACK, CREATE_STACK, RESET_STACK_FIELDS
 } from "./actionTypes"
@@ -25,7 +23,7 @@ export function fetchStacks() {
 			method: 'post',
 			url: `${ ROOT_URL }/stack`,
 			headers: {
-				'x-access-token': token
+			        'x-access-token': getToken()
 			}
 		})
 	}
@@ -38,8 +36,8 @@ export function fetchStack(id) {
 		url: `${ ROOT_URL }/stack/inspect`,
 		data: JSON.parse(`{ "id" : "${id}"}`),
 		headers: {
-				'x-access-token': token,
-				'Content-Type': 'application/json'
+				'Content-Type': 'application/json',
+			        'x-access-token': getToken()
 			}
 	})
 
@@ -62,7 +60,7 @@ export function deleteStackAPI(id) {
 		data: JSON.parse(`{ "id": "${id}" }`),
 		headers: {
 			'Content-Type': 'application/json',
-			'x-access-token': token
+			'x-access-token': getToken()
 		}
 	})
 
@@ -86,7 +84,7 @@ export function fetchServices(stackId) {
 		data: JSON.parse(`{ "id": "${stackId}"}`),
 		headers: {
 			'Content-Type': 'application/json',
-			'x-access-token': token
+			'x-access-token': getToken()
 		}
 	})
 
@@ -103,7 +101,7 @@ export function checkStackAPI(stack) {
 		data: stack,
 		headers: {
 			'Content-Type' : 'application/json',
-			'x-access-token': token
+			'x-access-token': getToken()
 		}
 	})
 
@@ -120,7 +118,7 @@ export function createStack(stackName) {
 		url: `${ ROOT_URL }/stack/create`,
 		headers: {
 			'Content-Type': 'application/json',
-			'x-access-token': token
+			'x-access-token': getToken()
 		}
 	});
 

@@ -17,8 +17,6 @@ const ROOT_URL = location.href.indexOf('localhost') > 0 ? `http://localhost:4000
 
 import { getToken } from '../utils/AuthService'
 
-const token = getToken()
-
 // fetch list of containers
 export function fetchContainers() {
 	return {
@@ -28,7 +26,7 @@ export function fetchContainers() {
 			url: `${ ROOT_URL }/container`,
 			headers: { 
 				'Content-Type': 'application/json',
-				'x-access-token': token 
+				'x-access-token': getToken()
 			}
 		})
 	}
@@ -44,7 +42,7 @@ export function fetchContainer(id) {
 		data: JSON.parse(`{ "id": "${id}" }`),
 		headers: {
 			'Content-Type': 'application/json',
-			'x-access-token': token
+			'x-access-token': getToken()
 		}
 	})
 
@@ -65,7 +63,7 @@ export function pauseContainerAPI(id) {
 		data: JSON.parse(`{ "id": "${id}" }`),
 		headers: {
 			'Content-Type': 'application/json',
-			'x-access-token': token
+			'x-access-token': getToken()
 		}
 	})
 
@@ -101,7 +99,7 @@ export function unPauseContainerAPI(id) {
 		data: JSON.parse(`{ "id" : "${id}"}`),
 		headers: {
 			'Content-Type': 'application/json',
-			'x-access-token': token
+			'x-access-token': getToken()
 		}
 	})
 
@@ -139,7 +137,7 @@ export function deleteContainerAPI(id) {
 		data: JSON.parse(`{ "id": "${id}" }`),
 		headers: {
 			'Content-Type': 'application/json',
-			'x-access-token': token
+			'x-access-token': getToken()
 		}
 	})
 

@@ -13,8 +13,6 @@ const ROOT_URL = location.href.indexOf('localhost') > 0 ? `http://localhost:4000
 
 import { getToken } from '../utils/AuthService'
 
-const token = getToken()
-
 // fetch list of volumes
 export function fetchVolumes() {
 	return {
@@ -23,7 +21,7 @@ export function fetchVolumes() {
 			method: 'get',
 			url: `${ ROOT_URL }/volume`,
 			headers: {
-				'x-access-token': token,
+			        'x-access-token': getToken(),
 				'Content-Type': 'application/json'
 			}
 		})
