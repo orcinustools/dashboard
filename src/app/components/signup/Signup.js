@@ -59,12 +59,19 @@ class Signup extends Component {
       .catch((error) => {
         console.log(error.response.data.code)
         console.log(values)
-        if(error.response.data.code === 11000) {
+        if(error.response.status === 500){
+          dispatch(Notifications.error(notificationOpts('Error', 'Internal server error')))
+        }
+        else if(error.response.status === 409) {
           throw new SubmissionError({
             email: 'Username or email already exists',
             username: 'Username or email already exists'
           })
         }
+        else if(error.response.status === 403) {
+          dispatch(Notifications.error(notificationOpts('Error', error.response.data.message))) 
+        }
+        
       })
   }
 
