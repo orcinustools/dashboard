@@ -28,10 +28,8 @@ export function fetchServices() {
 		// payload: axios.get()
     payload: axios({
     	method: 'post',
-    	data:{},
     	url: `${ ROOT_URL }/service`,
     	headers: {
-    		'Content-Type': 'application/json',
     		'x-access-token': token
     	}
     })

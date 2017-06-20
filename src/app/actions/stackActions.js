@@ -25,8 +25,7 @@ export function fetchStacks() {
 			method: 'post',
 			url: `${ ROOT_URL }/stack`,
 			headers: {
-				'x-access-token': token,
-				'Content-Type': 'application/json'
+				'x-access-token': token
 			}
 		})
 	}
