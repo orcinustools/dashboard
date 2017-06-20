@@ -3,11 +3,10 @@ import { reduxForm, Field, SubmissionError } from 'redux-form'
 import renderField from './renderField'
 import { Link, browserHistory } from 'react-router'
 
-import { signUpUser } from '../../actions/userActions'
+import Notifications from 'react-notification-system-redux'
+import { notificationOpts } from '../../utils/NotificationUtils'
 
-// import OrcinusLogo from '../../assests/images/logo/OrcinusFix_Logotype.svg'
 import OrcinusLogo from '../../assests/images/logo/OrcinusFix_black.svg'
-// import OrcinusLogo from '../../assests/images/logo/orcinus-logo-header__black.svg'
 
 //Client side validation
 function validate(values) {
@@ -45,20 +44,39 @@ function validate(values) {
 
 
 class Signup extends Component {
+  constructor(props) {
+    super(props);
+    
+    this._handleSubmit = this._handleSubmit.bind(this)
+  }
 
   _handleSubmit(values, dispatch) {
-    dispatch(signUpUser(values)).then(() => {
-      browserHistory.push('/signin')
-    })
+    return this.props.signUpUser(values)
+      .then(() => {
+        dispatch(Notifications.success(notificationOpts('Success', `Successfully Signup`)))
+        browserHistory.push('/signin')
+      })
+      .catch((error) => {
+        console.log(error.response.data.code)
+        console.log(values)
+        if(error.response.data.code === 11000) {
+          throw new SubmissionError({
+            email: 'Username or email already exists',
+            username: 'Username or email already exists'
+          })
+        }
+      })
   }
 
   render() {
 
-    const { handleSubmit, loading } = this.props
+    const { handleSubmit, loading, notifications } = this.props
 
     return (
 
       <div>
+        <Notifications notifications={notifications} />
+        
         <div className="row">
           <div className="col-md-4 col-md-offset-4 "style={{ textAlign: 'center' }}>
             <Link to="/">
