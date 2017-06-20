@@ -74,23 +74,25 @@ const mapDispatchToProps = (dispatch) => {
       })
     },
     deployService: (domain, newService) => {
-      var target = domain
+      if (!domain || !newService) {
+        return new Error('No domain or service defined');
+      }
       dispatch(createStack(newService.opt.stack)).then((response) => {
         if(response.value.status !== 200) {
-          dispatch(createService(newService)).then((res) => {
-            browserHistory.push(`/services/${res.action.payload.data[0].id}`)
-            dispatch(Notifications.success(notificationOpts('Success', `Successfully deploy service!`, () => window.open(`http://${domain}`, '_blank'))))
-          })
+          return dispatch(createService(newService))
         }
         else {
-          dispatch(createService(newService)).then((res) => {
-            browserHistory.push(`/services/${res.action.payload.data[0].id}`)
-            dispatch(Notifications.success(notificationOpts('Success', `Successfully deploy service!`, () => window.open(`http://${domain}`, '_blank'))))
-          })
+          return dispatch(createService(newService))
         }
-      }).catch((response) => {
-        console.log("Catch ", response)
       })
+      .then((res) => {
+        browserHistory.push(`/services/${res.action.payload.data[0].id}`)
+        dispatch(Notifications.success(notificationOpts('Success', `Successfully deploy service!`, () => window.open(`http://${domain}`, '_blank').location)))
+        window.open(`http://${domain}`, '_blank').location;
+      })
+      .catch((response) => {
+        console.log("Catch ", response);
+      });
     },
     updateCustomDomain: (value) => {
       dispatch(updateCustomDomain(value))

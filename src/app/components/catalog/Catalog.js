@@ -270,20 +270,21 @@ export default class Catalog extends React.Component {
                     {/* TODO: tambah loading status dan redirect ke halaman stack */}
                       { this.props.newService && 
                         this.props.newService.opt && 
-                        this.props.newService.opt.stack ? 
+                        this.props.newService.opt.stack && 
+                        board && 
+                        board.length > 0 ? 
                         ( newService_loading ? 
                           <button 
                               disabled={ newService_loading }
                               style={{ border: "1px solid #209687" }}
-                              className="btn btn-success create-button"
-                              onClick={ () => this.handleCreateService(newService) } >
+                              className="btn btn-success create-button" >
                             <i className="fa fa-spinner fa-pulse fa-fw" aria-hidden="true"></i>
                             &nbsp; Processing
                           </button> :
                           <button 
                             style={{ border: "1px solid #209687" }}
                             className="btn btn-success create-button"
-                            onClick={ () => this.handleCreateService(newService.opt.domain, newService) } >
+                            onClick={ () => this.handleCreateService(newService && newService.opt && newService.opt.domain ? newService.opt.domain :(fetched && user && newService && newService.opt && newService.opt.services ? `${user.data.id}-${newService.opt.stack}-${Object.keys(newService.opt.services)[0]}-${info.endpoint}`: undefined), newService) } >
                           <i className="fa fa-rocket fa-fw" aria-hidden="true"></i>
                           &nbsp; Deploy Service
                         </button>)
