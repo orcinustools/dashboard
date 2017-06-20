@@ -102,6 +102,15 @@ export default class General extends React.Component {
             </p>
           </div>
         </div>
+        <div className="form-group">
+          <label className="col-sm-2 control-label">DOMAIN</label>
+          <div className="col-sm-10">
+            <p className="form-control-static">
+              <i className="fa fa-cube fa-fw" aria-hidden="true"></i>
+              &nbsp; { this.props.domain }
+            </p>
+          </div>
+        </div>
         {/*<div className="form-group">
           <label className="col-sm-2 control-label">VOLUMES</label>
           <div className="col-sm-10">
