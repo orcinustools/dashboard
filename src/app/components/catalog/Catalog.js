@@ -58,12 +58,7 @@ export default class Catalog extends React.Component {
   }
 
   handleCreateService(domain, newService) {
-    this.props.deployService(
-      domain, 
-      newService, 
-      Notifications.success, 
-      notificationOpts('Success', `Successfully deploy service!`)
-      )
+    this.props.deployService(domain, newService)
   }
 
   renderBoardItem(board) {

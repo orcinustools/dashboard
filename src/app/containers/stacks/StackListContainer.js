@@ -32,16 +32,16 @@ const mapDispatchToProps = (dispatch) => {
   return {
     fetchStacks: () => {
       dispatch(fetchStacks()).catch((error) => {
-        dispatch(Notifications.error(notificationOpts('Error', error)))
+        dispatch(Notifications.error(notificationOpts('Error', error.response.data.message, null, null, 2)))
       })
     },
     deleteStack: (id, name) => {
       dispatch(deleteStackAPI(id)).then(() => {
         dispatch(setDeleteStack(id))
-        dispatch(Notifications.success(notificationOpts('Success', `Successfully delete ${name} stack!`)))
+        dispatch(Notifications.success(notificationOpts('Success', `Successfully delete ${name} stack!`, null, null, 2)))
       }).catch((error) => {
         console.log(error)
-        dispatch(Notifications.error(notificationOpts('Error', error)))
+        dispatch(Notifications.error(notificationOpts('Error', error.response.data.error.message, null, null, 2)))
       })
     },
     setStackName: (data) => {

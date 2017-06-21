@@ -33,9 +33,9 @@ const mapDispatchToProps = (dispatch) => {
         sessionStorage.setItem('orcinus', result.value.data.token);
         dispatch(signInUserSuccess(result.value.data)); //ps: this is same as dispatching RESET_USER_FIELDS
         browserHistory.push('/')
-        dispatch(Notifications.success(notificationOpts('Success', `Successfully signin`)))
+        dispatch(Notifications.success(notificationOpts('Success', `Successfully signin`, null, null, 2)))
       }).catch((error) => {
-        dispatch(Notifications.error(notificationOpts('Error', error.response.data.message)))
+        dispatch(Notifications.error(notificationOpts('Error', error.response.data.message, null, null, 2)))
       })
 		}
 	}

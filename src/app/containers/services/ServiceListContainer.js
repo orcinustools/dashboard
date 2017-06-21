@@ -31,13 +31,13 @@ const mapDispatchToProps = (dispatch) => {
   return {
     fetchServices: () => {
       dispatch(fetchServices()).catch((error) => {
-        dispatch(Notifications.error(notificationOpts('Error', error)))
+        dispatch(Notifications.error(notificationOpts('Error', error.response.data.message, null, null, 2)))
       })
     },
     deleteService: (id, name) => {
       dispatch(deleteServiceAPI(id)).then(() => {
         dispatch(setDeleteService(id))
-        dispatch(Notifications.success(notificationOpts('Success', `Successfully deleted ${name} services!`)))
+        dispatch(Notifications.success(notificationOpts('Success', `Successfully deleted ${name} services!`, null, null, 2)))
       })
     },
     replicasIncrement: (serviceId, name) => {
@@ -49,7 +49,7 @@ const mapDispatchToProps = (dispatch) => {
     scaleServiceAPI: (props) => {
       dispatch(scaleServiceAPI(props)).then((response) => {
         dispatch(fetchServices())
-        dispatch(Notifications.success(notificationOpts('Success', `Successfully scale ${response.value.data.app.split('-')[2]} services!`)))
+        dispatch(Notifications.success(notificationOpts('Success', `Successfully scale ${response.value.data.app.split('-')[2]} services!`, null, null, 2)))
       })
     }
   };
