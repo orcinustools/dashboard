@@ -52,7 +52,8 @@ export default class Catalog extends React.Component {
       notificationOpts(
         'Success', 
         `Successfully added ${ name } to board!`,
-        () => document.getElementById('#board').scrollIntoView()
+        () => document.getElementById('#board').scrollIntoView(),
+        null, 2
       )
     )
   }
@@ -86,6 +87,7 @@ export default class Catalog extends React.Component {
         <CatalogItem
           key={ d.name }
           onAdd={this.handleAddItemToBoard}
+          status={ d.status }
           img={ d.logo }
           name={ d.name }
           title={ d.title }
@@ -103,6 +105,7 @@ export default class Catalog extends React.Component {
         <CatalogItem
           key={ d.name }
           onAdd={this.handleAddItemToBoard}
+          status={ d.status }
           img={ d.logo }
           name={ d.name }
           title={ d.title }
@@ -120,6 +123,7 @@ export default class Catalog extends React.Component {
         <CatalogItem
           key={ d.name }
           onAdd={this.handleAddItemToBoard}
+          status={ d.status }
           img={ d.logo }
           name={ d.name }
           title={ d.title }
@@ -137,6 +141,7 @@ export default class Catalog extends React.Component {
         <CatalogItem
           key={ d.name }
           onAdd={this.handleAddItemToBoard}
+          status={ d.status }
           img={ d.logo }
           name={ d.name }
           title={ d.title }
@@ -154,6 +159,7 @@ export default class Catalog extends React.Component {
         <CatalogItem
           key={ d.name }
           onAdd={this.handleAddItemToBoard}
+          status={ d.status }
           img={ d.logo }
           name={ d.name }
           title={ d.title }
@@ -331,7 +337,7 @@ export default class Catalog extends React.Component {
         </div>
 
 				<div>
-          {/*<h3 className="category-header">Operating System</h3>
+          <h3 className="category-header">Operating System</h3>
           { fetching &&
             <div className="row">
               <div style={{ textAlign: "center", minHeight: "187px"}}>
@@ -344,7 +350,7 @@ export default class Catalog extends React.Component {
             { fetched && 
               this.renderOperatingSystem(catalog.categories.os)
             }
-          </div>*/}
+          </div>
         
 
           <div className="clearfix"></div>
@@ -379,7 +385,7 @@ export default class Catalog extends React.Component {
             }
           </div>
 
-          {/*<div className="clearfix"></div>
+          <div className="clearfix"></div>
           <h3 className="category-header">Framework</h3>
           { fetching &&
           <div className="row">
@@ -408,15 +414,13 @@ export default class Catalog extends React.Component {
             { fetched &&
               this.renderLanguage(catalog.categories.languages)
             }
-          </div>*/}
+          </div>
 
-          {/*
-            <div className="row">
-              <div className="col-md-12">
-                <button className="btn btn-primary btn-block create-button">BUILD NEW IMAGE</button>
-              </div>
+          {/*<div className="row">
+            <div className="col-md-12">
+              <button className="btn btn-primary btn-block create-button">BUILD NEW IMAGE</button>
             </div>
-          */}
+          </div>*/}
         </div>
 			</div>
 		)
