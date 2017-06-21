@@ -1,11 +1,18 @@
 /**
  * Smart component for Services Details Page
  */
-import { connect } from "react-redux"
+import { connect } 						from 'react-redux'
+import { browserHistory } 		from 'react-router'
+import { notificationOpts }   from '../../utils/NotificationUtils'
+import Notifications          from 'react-notification-system-redux'
 
 import ServiceDetails from "../../components/service/ServiceDetails"
 
-import { fetchService, fetchTaskByService } from "../../actions/serviceActions"
+import {
+  fetchServices, fetchTaskByService,
+  deleteServiceAPI, setDeleteService,
+  replicasIncrement, replicasDecrement, scaleServiceAPI
+} from "../../actions/serviceActions"
 
 const mapStateToProps = (state, ownProps) => {
 	return {
@@ -25,7 +32,14 @@ const mapDispatchToProps = (dispatch) => {
 		},
 		fetchTaskByService: (id) => {
 			dispatch(fetchTaskByService(id))
-		}
+		},
+    deleteService: (id, name) => {
+      dispatch(deleteServiceAPI(id)).then(() => {
+        dispatch(setDeleteService(id))
+        browserHistory.push('/services')
+        dispatch(Notifications.success(notificationOpts('Success', `Successfully deleted ${name} services!`, null, null, 2)))
+      })
+    }
 	}
 }
 

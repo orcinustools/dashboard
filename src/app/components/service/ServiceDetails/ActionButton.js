@@ -5,7 +5,7 @@ const ActionButton = (props) => {
 	return (
 		<div className="row">
 		  <div
-		  		className="col-md-6 pull-right"
+		  		className="col-md-3 pull-right"
 		  		style={{ marginBottom: '10px' }}>
 
 		    <div
@@ -14,13 +14,13 @@ const ActionButton = (props) => {
 			    	role="group"
 			    	aria-label="...">
 
-		      <div className="btn-group" role="group">
+		      {/*<div className="btn-group" role="group">
 		        <button type="button" className="btn btn-default">
 		          <i className="fa fa-pencil-square-o fa-fw" aria-hidden="true"></i>
 		          <span className="visible-lg-inline">&nbsp; Update</span>
 		        </button>
 		      </div> 
-		      {/*<div className="btn-group" role="group">
+		      <div className="btn-group" role="group">
 		        <button type="button" className="btn btn-warning">
 		          <i className="fa fa-pause fa-fw" aria-hidden="true"></i>
 		          <span className="visible-lg-inline">&nbsp; Pause</span>
@@ -39,9 +39,9 @@ const ActionButton = (props) => {
 		        		type="button"
 		        		className="btn btn-danger"
 		        		style={{ display: 'inline-block'}}
-		        		onClick={ () => props.onDelete(props.serviceId) } >
+		        		onClick={ () => props.onDelete(props.serviceId, props.name) } >
 		          <i className="fa fa-trash-o fa-fw" aria-hidden="true"></i>
-		          <span className="visible-lg-inline">&nbsp; Terminate</span>
+		          <span className="visible-lg-inline">&nbsp; Delete</span>
 		        </button>
 		      </div>
 

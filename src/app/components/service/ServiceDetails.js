@@ -56,9 +56,8 @@ export default class ServiceDetails extends React.Component {
     this.props.replicasDecrement(serviceId)
   }
 
-  handleOnDeleteService(id) {
-    console.log(id)
-    this.props.deleteService(id)
+  handleOnDeleteService(id, name) {
+    this.props.deleteService(id, name)
   }
 
   handleScaling(props) {
@@ -88,7 +87,8 @@ export default class ServiceDetails extends React.Component {
           onIncrement={this.handleIncrement}
           onDecrement={this.handleDecrement}
           onScaling={this.handleScaling}
-          serviceId={ service.ID } />
+          serviceId={ service.ID }
+          name={ fetched && service.Spec.Name.split('-')[2] } />
 
         {/* General Section */}
 				<div className="row">
