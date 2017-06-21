@@ -225,7 +225,7 @@ export default class Catalog extends React.Component {
                           value={this.props.newService.opt ? this.props.newService.opt.stack : ''}
                           options={this.props.options}
                           onChange={this.selectChange}
-                          clearable={true}
+                          clearable={false}
                           allowCreate={true}
                           disabled={ newService_loading }
                           promptTextCreator ={(label) => `Create New Project "${label}"`}
