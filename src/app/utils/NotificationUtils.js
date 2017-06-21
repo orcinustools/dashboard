@@ -1,12 +1,12 @@
 import React from 'react'
 
-const notificationOpts = (title, message, action, children) => {
+const notificationOpts = (title, message, action, children, autoDismiss = 0) => {
   return {
     // uid: 'once-please', // you can specify your own uid if required
     title: `${ title }`,
     message: `${ message }`,
     position: 'tr',
-    autoDismiss: 2,
+    autoDismiss: autoDismiss,
     action: action ? {
       label: 'Click me!!',
       callback: action

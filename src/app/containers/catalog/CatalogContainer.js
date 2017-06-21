@@ -96,7 +96,10 @@ const mapDispatchToProps = (dispatch) => {
     },
     updateCustomDomain: (value) => {
       dispatch(updateCustomDomain(value))
-    }
+    }, 
+    dispatchNotification: (fn, notificationOpts) => { 
+      dispatch(fn(notificationOpts)); 
+    } 
   }
 }
 
