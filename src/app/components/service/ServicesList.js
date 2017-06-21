@@ -75,7 +75,7 @@ export default class ServicesList extends React.Component {
           handleDecrement={this.handleDecrement}
           scaling={this.handleScaling}
           updateConfig={service.updateConfig}
-          stackId={service.Spec.Networks[0].Target} />
+          stackId={service.Spec.Networks[1] ? service.Spec.Networks[1].Target : service.Spec.Networks[0].Target} />
 			);
 		}); 
 	}
