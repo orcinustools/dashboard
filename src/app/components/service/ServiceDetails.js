@@ -112,7 +112,7 @@ export default class ServiceDetails extends React.Component {
 										updated={service.UpatedAt}
 										image={service.Spec.TaskTemplate.ContainerSpec.Image}
 										replicated={service.Spec.Mode.Replicated.Replicas}
-										domain={service.Spec.Labels['orcinus.domain']}
+										domain={service.Spec.Labels && service.Spec.Labels['orcinus.domain']}
 										networks={service.Spec.Name.split('-').slice(0, 2).join('-')} />
 								}
 

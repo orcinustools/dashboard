@@ -107,7 +107,10 @@ export default class General extends React.Component {
           <div className="col-sm-10">
             <p className="form-control-static">
               <i className="fa fa-link fa-fw" aria-hidden="true"></i>
-              <a href={ `http://${this.props.domain}` } target="_blank"> &nbsp; { this.props.domain }</a>
+              { this.props.domain ?
+                <a href={ `http://${this.props.domain}` } target="_blank"> &nbsp; { this.props.domain }</a> :
+                <span>&nbsp; no domain provided</span>
+              }
             </p>
           </div>
         </div>
