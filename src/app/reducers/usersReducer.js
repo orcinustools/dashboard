@@ -30,8 +30,8 @@ export default function(state = initialState, action) {
 		case "SIGNIN_USER_FAILURE":// return error and make loading = false
 			return { ...state, user: null, status:'signin', error:error, loading: false};
 
-		case "LOGOUT_USER":
-      return {...state, user:null, status:'logout', error:null, loading: false};
+		// case "SIGNOUT_USER":
+  //     return {...state, user:null, status:'logout', error:null, loading: false};
 
     case "ME_FROM_TOKEN_PENDING":
     case "ME_FROM_TOKEN_REJECTED":

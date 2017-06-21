@@ -5,7 +5,9 @@ import Header from "../../header"
 const AsideRight = (props) => {
 	return (
 		<aside className="right-side">
-			<Header user={props.user} />
+			<Header 
+				user={ props.user }
+				signOutUser={ props.signOutUser } />
 			<section className="content">
 				{ props.children }
 			</section>

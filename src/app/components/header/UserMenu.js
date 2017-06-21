@@ -5,11 +5,14 @@ import Avatar from "../../vendors/img/avatar.png"
 import { logout } from '../../utils/AuthService'
 
 const UserMenu = (props) => {
+
+  const { user, signOutUser } = props
+
 	return (
     <li className="dropdown user user-menu">
       <a href="#" className="dropdown-toggle" data-toggle="dropdown">
         {/*<img src={ Avatar } className="img-circle" alt="User Image" style={{ display: 'inline', height: '25'}} />*/}
-        <span>{ props.user && props.user.data.email } <i className="caret"></i></span>
+        <span>{ user && user.data.email } <i className="caret"></i></span>
       </a>
       <ul className="dropdown-menu dropdown-custom dropdown-menu-right">
         <li className="dropdown-header text-center">Account</li>
@@ -45,7 +48,7 @@ const UserMenu = (props) => {
         <li className="divider"></li>*/}
 
         <li>
-          <a onClick={()=> logout()} style={{ cursor: 'pointer' }}><i className="fa fa-ban fa-fw pull-right"></i> Logout</a>
+          <a onClick={ ()=> signOutUser() } style={{ cursor: 'pointer' }}><i className="fa fa-ban fa-fw pull-right"></i> Logout</a>
         </li>
       </ul>
     </li>

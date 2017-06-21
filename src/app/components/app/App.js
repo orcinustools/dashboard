@@ -14,14 +14,16 @@ export default class App extends Component {
 
 	render() {
 
-		const { notifications } = this.props
+		const { notifications, user, signOutUser } = this.props
 
 		return (
 			<div>
 				<Notifications notifications={notifications} />
 				<div className="wrapper row-offcanvas row-offcanvas-left">
 					<AsideLeft />
-					<AsideRight user={this.props.user}>
+					<AsideRight 
+							user={ user }
+							signOutUser={ signOutUser }>
 						{ this.props.children }
 					</AsideRight>
 				</div>

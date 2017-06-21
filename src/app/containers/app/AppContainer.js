@@ -7,6 +7,7 @@ import {
 	meFromToken, 
 	meFromTokenSuccess, 
 	meFromTokenFailure,
+	signOutUser
 } from '../../actions/userActions'
 import { getInfo } from '../../actions/appActions'
 
@@ -28,6 +29,9 @@ const mapDispatchToProps = (dispatch) => {
 		},
 		loadInfoFromServer: () => {
 			dispatch(getInfo())
+		},
+		signOutUser: () => {
+			dispatch(signOutUser())
 		}
 	}
 }

@@ -1,12 +1,14 @@
 import axios from 'axios'
 
-import { ORCINUS_API_HOST, ORCINUS_API_PORT } from "../config/environtment"
+import { 
+	ORCINUS_API_HOST, ORCINUS_API_PORT 
+} from '../config/environtment'
+
+import { 
+	logout 
+} from '../utils/AuthService'
 
 const ROOT_URL = location.href.indexOf('localhost') > 0 ? `http://localhost:4000/apis` : '/apis'
-
-import { getToken } from '../utils/AuthService'
-
-const token = getToken()
 
 /**
  * Signup User
@@ -93,3 +95,9 @@ export function meFromToken(tokenFromStorage) {
 	}
 }
 
+export function signOutUser() {
+	logout()
+	return {
+		type: "SIGNOUT_USER"
+	}
+}

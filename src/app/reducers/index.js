@@ -11,7 +11,7 @@ import overviewReducer from "./overviewReducer"
 import userReducer from "./usersReducer"
 import appReducer from "./appReducer"
 
-export default combineReducers({
+const applicationReducer = combineReducers({
 	form: formReducer,
 	notifications: notifications,
 	appState: appReducer,
@@ -23,3 +23,13 @@ export default combineReducers({
 	volumeState: volumesReducer,
 	userState: userReducer
 })
+
+const rootReducer = (state, action) => {
+	if (action.type === 'SIGNOUT_USER') {
+		state = undefined
+	}
+
+	return applicationReducer(state, action)
+}
+
+export default rootReducer

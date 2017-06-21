@@ -14,7 +14,9 @@ const Header = (props) => {
 	        <ul className="nav navbar-nav">
 						{/*<MessageMenu />
 						<TasksMenu />*/}
-						<UserMenu user={ props.user }/>
+						<UserMenu 
+							user={ props.user }
+							signOutUser={ props.signOutUser }/>
 	        </ul>
 	      </div>
 			</nav>
