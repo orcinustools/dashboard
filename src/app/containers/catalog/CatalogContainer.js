@@ -88,7 +88,6 @@ const mapDispatchToProps = (dispatch) => {
       .then((res) => {
         browserHistory.push(`/services/${res.action.payload.data[0].id}`)
         dispatch(Notifications.success(notificationOpts('Success', `Successfully deploy service!`, () => window.open(`http://${domain}`, '_blank'))))
-        window.open(`http://${domain}`, '_blank').location;
       })
       .catch((response) => {
         console.log("Catch ", response);
