@@ -261,7 +261,25 @@ export default class Catalog extends React.Component {
                       </label>
                       <div className="col-sm-10">
                         <p className="form-control-static" style={{ fontSize: '1.25em'}}>
-                        { newService && newService.opt && newService.opt.domain ? newService.opt.domain :(fetched && user && newService && newService.opt && newService.opt.services ? `${user.data.id}-${newService.opt.stack}-${Object.keys(newService.opt.services)[0]}-${info.endpoint}`: 'select service and project first') }
+                        { board && 
+                          board.length > 0 &&
+                          newService && 
+                          newService.opt && 
+                          newService.opt.services ? 
+                          ( newService && 
+                            newService.opt && 
+                            newService.opt.domain ? 
+                            newService.opt.domain :
+                            ( fetched && 
+                              user && newService && 
+                              newService.opt && 
+                              newService.opt.services &&
+                              newService.opt.services[Object.keys(newService.opt.services)[0]] &&
+                              newService.opt.services[Object.keys(newService.opt.services)[0]].endpoint ? 
+                              `${user.data.id}-${newService.opt.stack}-${Object.keys(newService.opt.services)[0]}-${info.endpoint}` : 
+                              'no domain provided'
+                            )
+                          ) : 'select service and project first' }
                         </p>
                       </div>
                     </div>
