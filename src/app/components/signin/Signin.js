@@ -93,12 +93,14 @@ class Signin extends Component {
                  name="username"
                  type="text"
                  component={ renderField }
+                 disabled={ loading }
                  label="@username*" />
               <Field
-                     name="password"
-                     type="password"
-                     component={ renderField }
-                     label="Password*" />
+                 name="password"
+                 type="password"
+                 disabled={ loading }
+                 component={ renderField }
+                 label="Password*" />
               <div>
               { loading ?
                 <button

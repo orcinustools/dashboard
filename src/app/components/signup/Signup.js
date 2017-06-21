@@ -107,21 +107,25 @@ class Signup extends Component {
               <Field
                      name="username"
                      type="text"
+                     disabled={ loading }
                      component={ renderField }
                      label="@username*" />
               <Field
                      name="email"
                      type="email"
+                     disabled={ loading }
                      component={ renderField }
                      label="Email*" />
               <Field
                      name="password"
                      type="password"
+                     disabled={ loading }
                      component={ renderField }
                      label="Password*" />
               <Field
                      name="confirmPassword"
                      type="password"
+                     disabled={ loading }
                      component={ renderField }
                      label="Confirm Password*" />
               <div>
