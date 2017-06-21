@@ -19,8 +19,6 @@ const ROOT_URL = location.href.indexOf('localhost') > 0 ? `http://localhost:4000
 
 import { getToken } from '../utils/AuthService'
 
-const token = getToken()
-
 // fetch list of services
 export function fetchServices() {
 	return {
@@ -30,7 +28,7 @@ export function fetchServices() {
     	method: 'post',
     	url: `${ ROOT_URL }/service`,
     	headers: {
-    		'x-access-token': token
+    		'x-access-token': getToken()
     	}
     })
 	}
@@ -45,7 +43,7 @@ export function fetchService(id) {
 			url: `${ ROOT_URL }/service/inspect`,
 			headers: {
     		'Content-Type': 'application/json',
-    		'x-access-token': token
+    		'x-access-token': getToken()
     	},
 			data: JSON.parse(`{ "id": "${id}" }`)
 		})
@@ -64,7 +62,7 @@ export function deleteServiceAPI(id) {
 		url: `${ ROOT_URL }/service/delete`,
 		headers: {
   		'Content-Type': 'application/json',
-  		'x-access-token': token
+    		'x-access-token': getToken()
   	}
 	})
 
@@ -104,7 +102,7 @@ export function fetchTasks(name) {
 		url: `${ ROOT_URL }/service/task`,
 		headers: {
   		'Content-Type': 'application/json',
-  		'x-access-token': token
+    		'x-access-token': getToken()
   	}
 	})
 
@@ -148,7 +146,7 @@ export function scaleServiceAPI(props) {
 		data: props,
 		headers: {
   		'Content-Type': 'application/json',
-  		'x-access-token': token
+    		'x-access-token': getToken()
   	}
 	})
 
@@ -179,7 +177,7 @@ export function checkStackServiceAPI(stack) {
 		data: stack,
 		headers: {
   		'Content-Type': 'application/json',
-  		'x-access-token': token
+    		'x-access-token': getToken()
   	}
 	})
 
@@ -197,7 +195,7 @@ export function createService(service) {
 		url: `${ ROOT_URL }/service/create`,
 		headers: {
   		'Content-Type': 'application/json',
-  		'x-access-token': token
+    		'x-access-token': getToken()
   	}
 	})
 
