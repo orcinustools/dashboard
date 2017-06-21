@@ -69,6 +69,12 @@ export default function reducer (state = initialState, action) {
 			 	board:[],
 			 	options: []
 		 }
+
+		case "DELETE_STACK_FULFILLED":
+			return {
+				...state,
+				options: []
+			}
 	}
 
 	return state;
