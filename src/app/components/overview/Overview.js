@@ -40,16 +40,18 @@ export default class Overview extends React.Component {
             </div>
           </Link>
 
-          <Link to="/containers">
+          {/*<Link to="/containers">*/}
             <div className="col-md-4">
               <div className="sm-st clearfix">
                 <span className="sm-st-icon st-blue"><i className="fa fa-cube"></i></span>
                 <div className="sm-st-info">
-                  <span>{containers ? containers.length : '0'}</span> Containers Running
+                  <span>{containers ? containers.filter((container) => 
+                    container.DesiredState === 'running'
+                  ).length : '0'}</span> Containers Running
                 </div>
               </div>
             </div>
-          </Link>
+          {/*</Link>*/}
 
         </div>
 
