@@ -22,8 +22,8 @@ export function fetchContainers() {
 	return {
 		type: FETCH_CONTAINERS,
 		payload: axios({
-			method: 'get',
-			url: `${ ROOT_URL }/container`,
+			method: 'post',
+			url: `${ ROOT_URL }/task`,
 			headers: { 
 				'Content-Type': 'application/json',
 				'x-access-token': getToken()
