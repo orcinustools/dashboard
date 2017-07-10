@@ -143,15 +143,6 @@ class Signup extends Component {
                   Signup
                 </button>
               }
-                <p className="text-center">
-                  <br/><br/>or signup with
-                </p>
-                <a href="/apis/auth/google"
-                        type="submit"
-                        className="btn btn-primary btn-block"
-                        disabled={ loading }>
-                  Google
-                </a>
               </div>
             </form>
           </div>

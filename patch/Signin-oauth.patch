@@ -1,0 +1,10 @@
+118a119,127
+>                 <p className="text-center">
+>                   <br/><br/>or signin with
+>                 </p>
+>                 <a href="/apis/auth/google"
+>                         type="submit"
+>                         className="btn btn-primary btn-block"
+>                         disabled={ loading }>
+>                   Google
+>                 </a>

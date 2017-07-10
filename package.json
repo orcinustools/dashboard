@@ -4,7 +4,7 @@
   "description": "Web dashboard for Orcinus",
   "main": "index.js",
   "scripts": {
-    "oauth-patch" : "patch -p1 src/app/components/signin/Signin.js < patch/Oauth.patch",
+    "oauth-patch" : "patch -p1 src/app/components/signin/Signin.js < patch/Signin-oauth.patch && patch -p1 src/app/components/signup/Signup.js < patch/Signup-oauth.patch",
     "start": "npm run build",
     "build": "webpack -d && cp src/index.html dist/index.html && webpack-dev-server --host 0.0.0.0 --port 8008 --content-base src/ --inline --hot  --history-api-fallback",
     "build:prod": "NODE_ENV=production webpack -p && cp src/index.html dist/index.html",
