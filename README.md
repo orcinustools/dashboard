@@ -1,4 +1,4 @@
-Orcinus Dashboard 
+Orcinus Dashboard
 =================================
 
 ## Content
@@ -18,3 +18,7 @@ Orcinus Dashboard
 1. Clone the repo `git clone https://github.com/orcinustools/dashboard.git`
 2. Install the dependency `npm install`
 3. Start the development server `npm start`
+
+## OAuth
+
+Run `npm run oauth-patch` to add OAuth buttons to the signin and signup interfaces.
