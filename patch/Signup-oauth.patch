@@ -1,4 +1,4 @@
-145a146,154
+145a146,161
 >                 <p className="text-center">
 >                   <br/><br/>or signup with
 >                 </p>
@@ -7,4 +7,11 @@
 >                         className="btn btn-primary btn-block"
 >                         disabled={ loading }>
 >                   Google
+>                 </a>
+>                 <br/>
+>                 <a href="/apis/auth/github"
+>                         type="submit"
+>                         className="btn btn-default btn-block"
+>                         disabled={ loading }>
+>                   Github
 >                 </a>

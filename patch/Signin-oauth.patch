@@ -1,4 +1,4 @@
-118a119,127
+118a119,134
 >                 <p className="text-center">
 >                   <br/><br/>or signin with
 >                 </p>
@@ -7,4 +7,11 @@
 >                         className="btn btn-primary btn-block"
 >                         disabled={ loading }>
 >                   Google
+>                 </a>
+>                 <br/>
+>                 <a href="/apis/auth/github"
+>                         type="submit"
+>                         className="btn btn-default btn-block"
+>                         disabled={ loading }>
+>                   Github
 >                 </a>
