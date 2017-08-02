@@ -13,6 +13,7 @@ import {
 	fetchCatalog,
 	removeItemFromBoard,
 	addItemToBoard,
+	addManifestToBoard,
   setOptionSelect
 } from "../../actions/catalogActions"
 import {
@@ -61,6 +62,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     addItemToBoard: (name, category) => {
     	dispatch(addItemToBoard(name, category))
+    },
+    addManifestToBoard: (manifest) => {
+    	dispatch(addManifestToBoard(manifest))
     },
     createNewService: (data) => {
       dispatch(createNewService(data))

@@ -58,11 +58,18 @@ export function addItemToBoard(name, category) {
 	    board.forEach(function(item) {
 	      orcinus[Object.keys(item.service)[0]] = item.service[Object.keys(item.service)[0]]
 	    })
-	    
-			dispatch(setItemToBoard(board))
+	    dispatch(setItemToBoard(board))
 	    dispatch(setNewService(orcinus))
 
 		})
+	}
+}
+
+export function addManifestToBoard(manifest) {
+	return (dispatch) => {
+            const orcinus = {}
+	    dispatch(setItemToBoard({}))
+	    dispatch(setNewService(manifest.services))
 	}
 }
 

@@ -1,3 +1,4 @@
+import yaml                   from 'js-yaml'
 import React                  from "react"
 import { connect }            from "react-redux"
 import { bindActionCreators } from 'redux'
@@ -24,26 +25,35 @@ export default class Catalog extends React.Component {
     this.handleCreateService = this.handleCreateService.bind(this)
     this.selectChange = this.selectChange.bind(this)
     this.updateCustomDomain = this.updateCustomDomain.bind(this)
+    this.handleManifestFile = this.handleManifestFile.bind(this)
   }
 
   componentDidMount() {
+    window.manifestFile = null;
+    window.board = [];
     this.props.fetchStacks()
     this.props.fetchCatalog()
   }
 
   handleDissmis(name) {
     const { removeItemFromBoard, dispatchNotification } = this.props
-    removeItemFromBoard(name)
-    dispatchNotification(
-      Notifications.success, 
-      notificationOpts(
-        'Success', 
-        `Successfully remove ${ name } from board!`
+    if (name) {
+      removeItemFromBoard(name)
+      dispatchNotification(
+        Notifications.success, 
+        notificationOpts(
+          'Success', 
+          `Successfully remove ${ name } from board!`
+          )
         )
-      )
+    } else {
+      window.manifestFile = false;
+      removeItemFromBoard()
+    }
   }
 
   handleAddItemToBoard(name, category) {
+    window.manifestFile = null;
     const { addItemToBoard, info, dispatchNotification } = this.props
 
     addItemToBoard(name, category)
@@ -62,21 +72,78 @@ export default class Catalog extends React.Component {
     this.props.deployService(domain, newService)
   }
 
-  renderBoardItem(board) {
-    const { info } = this.props
-    return board.map((b, index) => {
-      return (
-        <CatalogItemBoard 
-          index={ index }
-          key={ index }
-          serviceName={ Object.keys(b.service)[0] }
-          img={ b.manifest.logo }
-          title={ b.manifest.title }
-          name={ Object.keys(b.service)[0] }
-          image={ "b.service" }
-          dismiss={this.handleDissmis} />
+  handleManifestFile(evt) {
+    if (evt.target.files.length < 0) {
+      return;
+    }
+
+    const { addManifestToBoard, info, dispatchNotification } = this.props
+
+    var file = evt.target.files[0];
+    var reader = new FileReader();
+    var obj;
+    reader.onload = function(e) {
+      console.log(e.target);
+      console.log(e.target.result);
+      try {
+        obj = yaml.load(e.target.result);
+      } catch(e){
+        return window.alert('Not a valid YAML manifest file.');
+      }
+      if (!obj.services) {
+        return window.alert('Not a valid YAML manifest file.');
+      }
+      // Ignore the stack name. Just grab the services.
+      window.newService.opt = obj.services;
+      window.manifestFile = e.target.result;
+
+
+  
+      addManifestToBoard(obj);
+      dispatchNotification(
+        Notifications.success, 
+        notificationOpts(
+          'Success', 
+          `Successfully parsed the manifest file!`,
+          () => document.getElementById('#board').scrollIntoView(),
+          null, 2
+        )
       )
-    })
+    }
+    reader.readAsText(file);
+  }
+
+  renderBoardItem(board) {
+    if (window.manifestFile) {
+      return (
+      <div>
+        <button 
+            type="button"
+            style={{marginLeft:-20}}
+            className="item-close btn btn-default btn-xs pull-right"
+            aria-label="Close"
+            onClick={ () => this.handleDissmis() } >
+          <i className="fa fa-times" aria-hidden="true"></i>
+        </button>
+        <pre>{ window.manifestFile }</pre>
+      </div>
+      )
+    } else {
+      const { info } = this.props
+      return board.map((b, index) => {
+        return (
+          <CatalogItemBoard 
+            index={ index }
+            key={ index }
+            serviceName={ Object.keys(b.service)[0] }
+            img={ b.manifest.logo }
+            title={ b.manifest.title }
+            name={ Object.keys(b.service)[0] }
+            image={ "b.service" }
+            dismiss={this.handleDissmis} />
+        )
+      })
+    }
   }
 
   renderOperatingSystem(data) {
@@ -179,7 +246,7 @@ export default class Catalog extends React.Component {
     this.props.updateCustomDomain(val.target.value)
   }
 
-	render() {
+  render() {
     const { 
       fetching, fetched, error, catalog, board, info, user,
       newService, newService_loading, newService_done,
@@ -190,8 +257,8 @@ export default class Catalog extends React.Component {
     window.stacks = this.props.stacks
     window.SelectOptions = this.props.options
 
-		return (
-			<div>
+    return (
+      <div>
         <section className="content-header">
           <h1>CATALOG</h1>
           <ol className="breadcrumb breadcrumb-sm">
@@ -290,8 +357,8 @@ export default class Catalog extends React.Component {
                       { this.props.newService && 
                         this.props.newService.opt && 
                         this.props.newService.opt.stack && 
-                        board && 
-                        board.length > 0 ? 
+                        ((board && 
+                        board.length > 0) || window.manifestFile) ? 
                         ( newService_loading ? 
                           <button 
                               disabled={ newService_loading }
@@ -322,10 +389,15 @@ export default class Catalog extends React.Component {
 
                   <div className="well well-lg" id="#board">
                     {
-                      board.length > 0 ? 
-                      this.renderBoardItem(board) :
+                      board.length > 0 || window.manifestFile ?
+                      this.renderBoardItem(board) : 
                       <h4 style={{ textAlign: 'center', marginTop: '10px', color: '#c3c3c3' }}>
-                        choose services from catalog below
+                        Please choose service(s) from catalog below or pick a YAML manifest file
+                          <br/>
+                          <input type="file" 
+                            style={{ border: "1px solid #209687" , margin: "0 auto", marginTop : 10 }}
+                            className="btn btn-success create-button"
+                            onChange={ this.handleManifestFile } />
                       </h4> 
                     }
                     <div className="clearfix"></div>
