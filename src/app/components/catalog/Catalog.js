@@ -69,6 +69,11 @@ export default class Catalog extends React.Component {
   }
 
   handleCreateService(domain, newService) {
+    if (window.manifestFile) {
+      newService = {
+        opt : yaml.load(window.manifestFile)
+      }
+    }
     this.props.deployService(domain, newService)
   }
 
@@ -93,7 +98,7 @@ export default class Catalog extends React.Component {
       if (!obj.services) {
         return window.alert('Not a valid YAML manifest file.');
       }
-      // Ignore the stack name. Just grab the services.
+      // TODO set stack name from manifest
       window.newService.opt = obj.services;
       window.manifestFile = e.target.result;
 
