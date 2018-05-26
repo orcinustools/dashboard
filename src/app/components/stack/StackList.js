@@ -43,7 +43,7 @@ export default class StackList extends React.Component {
         <StackListItem
           key={ stack.Id } 
           id={ stack.Id }
-          link={ stack.Name }
+          link={ stack.Id }
           name={ stack.Name.split('-')[1] }
           onDelete={ this._handleDeleteStack.bind(this) } 
           created={ stack.created }
